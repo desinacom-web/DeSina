@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeSina | Digital Excellence</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
         .hero-section {
@@ -19,8 +17,8 @@
         .social-card { transition: all 0.3s ease; }
         .social-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         
-        /* المقاسات القديمة المظبوطة */
-        .main-logo { height: 40px; }
+        /* تعديل اللوجو الشفاف في المنيو */
+        .main-logo { height: 40px; width: auto; object-fit: contain; background: transparent; border: none; box-shadow: none; border-radius: 0; }
         @media (min-width: 768px) { .main-logo { height: 50px; } }
         
         .hero-logo { height: 100px; margin-bottom: 25px; border-radius: 15px; box-shadow: 0 12px 24px rgba(0,0,0,0.6); }
@@ -69,40 +67,29 @@
     </section>
 
     <section id="services" class="py-16 container mx-auto px-6 text-center">
-        <h3 class="text-3xl md:text-5xl font-bold mb-12 text-gray-950">What we offer for <span class="text-red-600">DeSina</span> Brand?</h3>
+        <h3 class="text-3xl md:text-5xl font-bold mb-12 text-gray-950">What we offer for <span class="text-red-600">DeSina</span>?</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-8 rounded-3xl shadow-xl border-b-8 border-red-600 social-card">
                 <i class="fas fa-bullhorn text-4xl text-red-600 mb-5"></i>
                 <h4 class="text-xl font-bold mb-3">Content Creation</h4>
-                <p class="text-gray-600">Social media posts, Photoshop, and professional Reels.</p>
+                <p class="text-gray-600">Social media posts, Photoshop, and Reels.</p>
             </div>
             <div class="bg-white p-8 rounded-3xl shadow-xl border-b-8 border-blue-600 social-card">
                 <i class="fas fa-tasks text-4xl text-blue-600 mb-5"></i>
                 <h4 class="text-xl font-bold mb-3">Account Management</h4>
-                <p class="text-gray-600">Full marketing plans and accurate post scheduling.</p>
+                <p class="text-gray-600">Marketing plans and scheduling.</p>
             </div>
             <div class="bg-white p-8 rounded-3xl shadow-xl border-b-8 border-purple-600 social-card">
                 <i class="fas fa-video text-4xl text-purple-600 mb-5"></i>
                 <h4 class="text-xl font-bold mb-3">Video Editing</h4>
-                <p class="text-gray-600">YouTube and Reels editing with high-quality effects.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-3xl md:text-5xl font-bold mb-10 text-gray-950">Our Portfolio</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <img src="IMG-20231215-WA0004.jpg" class="work-img shadow-lg" alt="Portfolio 1">
-                <img src="IMG-20231215-WA0005.jpg" class="work-img shadow-lg" alt="Portfolio 2">
-                <img src="IMG-20231215-WA0006.jpg" class="work-img shadow-lg" alt="Portfolio 3">
+                <p class="text-gray-600">High-quality YouTube and Reels editing.</p>
             </div>
         </div>
     </section>
 
     <footer class="bg-gray-950 text-white py-14 text-center border-t-2 border-red-700">
-        <p class="text-xl md:text-2xl mb-4">All Rights Reserved to <span class="text-red-600">DeSina</span> Brand © 2026</p>
-        <div class="text-gray-500 text-sm">Smart Design by Jimmy</div>
+        <p class="text-xl md:text-2xl mb-4 font-bold italic">All Rights Reserved to <span class="text-red-600">DeSina</span> & Jimmy © 2026</p>
+        <div class="text-gray-500 text-sm">Developed by AI Jimmy & DeSina</div>
     </footer>
 
 </body>
