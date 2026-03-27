@@ -8,92 +8,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
         .hero-section {
             background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         .social-card { transition: all 0.3s ease; }
         .social-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .main-logo { height: 50px; width: auto; border-radius: 8px; object-fit: contain; }
-        .hero-logo { height: 130px; width: auto; margin-bottom: 25px; border-radius: 15px; box-shadow: 0 12px 24px rgba(0,0,0,0.6); }
-        .work-img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; }
+        .main-logo { height: 40px; md:height: 50px; width: auto; border-radius: 8px; }
+        .hero-logo { height: 100px; md:height: 130px; width: auto; margin-bottom: 25px; border-radius: 15px; box-shadow: 0 12px 24px rgba(0,0,0,0.6); }
+        .work-img { width: 100%; height: 250px; md:height: 300px; object-fit: cover; border-radius: 15px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
     <nav class="bg-white shadow-lg p-3 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center gap-6">
-                <a href="en.html">
-                    <img src="logo.jpg" alt="DeSina Logo" class="main-logo">
-                </a>
-                <div class="flex items-center gap-5 border-l-2 pl-5 border-gray-200">
-                    <a href="#services" class="text-gray-700 hover:text-red-700 font-bold text-sm">Services</a>
-                    <a href="#portfolio" class="text-gray-700 hover:text-red-700 font-bold text-sm">Portfolio</a>
-                    <a href="index.html" class="text-red-600 hover:text-red-800 font-bold text-sm">عربي</a>
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-4 gap-2">
+            
+            <div class="flex items-center gap-3 md:gap-6">
+                <a href="en.html"><img src="logo.jpg" alt="DeSina Logo" class="main-logo"></a>
+                <div class="flex items-center gap-3 md:gap-5 border-l-2 pl-3 md:pl-5 border-gray-200">
+                    <a href="#services" class="text-gray-700 hover:text-red-700 font-bold text-xs md:text-sm">Services</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-red-700 font-bold text-xs md:text-sm">Portfolio</a>
+                    <a href="index.html" class="text-red-600 hover:text-red-800 font-bold text-xs md:text-sm">عربي</a>
                 </div>
             </div>
-            <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 social-card">
-                <i class="fab fa-whatsapp text-xl"></i> Fast Contact
+
+            <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 md:px-6 md:py-2.5 rounded-full text-[10px] md:text-sm font-bold flex items-center gap-1 social-card">
+                <i class="fab fa-whatsapp text-sm md:text-xl"></i> Contact
             </a>
         </div>
     </nav>
 
-    <section class="hero-section text-white py-32 px-6 text-center border-t-2 border-red-700 bg-gray-950">
+    <section class="hero-section text-white py-16 md:py-32 px-4 text-center border-t-2 border-red-700 bg-gray-950">
         <div class="container mx-auto">
             <div class="flex justify-center"><img src="logo.jpg" alt="DeSina Logo" class="hero-logo"></div>
-            <h1 class="text-6xl font-extrabold mb-7 leading-tight">Welcome to <span class="text-red-600">DeSina</span></h1>
-            <p class="text-2xl text-gray-300 mb-14 max-w-3xl mx-auto leading-relaxed">We create excellence and build your digital future with professional artistic touches.</p>
-            <div class="flex justify-center gap-6 flex-wrap">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card bg-blue-600 text-white px-10 py-4 rounded-full font-bold flex items-center gap-2.5 text-lg"><i class="fab fa-facebook text-xl"></i> Facebook</a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="social-card bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white px-10 py-4 rounded-full font-bold flex items-center gap-2.5 text-lg"><i class="fab fa-instagram text-xl"></i> Instagram</a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="social-card bg-red-600 text-white px-10 py-4 rounded-full font-bold flex items-center gap-2.5 text-lg"><i class="fab fa-youtube text-xl"></i> Youtube</a>
+            <h1 class="text-3xl md:text-6xl font-extrabold mb-5 leading-tight">Welcome to <span class="text-red-600">DeSina</span></h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto px-2">Building your digital future with professional artistic touches.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4 px-10 md:px-0">
+                <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card bg-blue-600 text-white py-3 rounded-full font-bold flex items-center justify-center gap-2 text-md">
+                    <i class="fab fa-facebook text-lg"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/de__sina" target="_blank" class="social-card bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white py-3 rounded-full font-bold flex items-center justify-center gap-2 text-md">
+                    <i class="fab fa-instagram text-lg"></i> Instagram
+                </a>
+                <a href="https://youtube.com/@de_sina" target="_blank" class="social-card bg-red-600 text-white py-3 rounded-full font-bold flex items-center justify-center gap-2 text-md">
+                    <i class="fab fa-youtube text-lg"></i> Youtube
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-28 container mx-auto px-6 text-center">
-        <h3 class="text-5xl font-bold mb-20 text-gray-950">What we offer for DeSina Brand?</h3>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="bg-white p-12 rounded-3xl shadow-2xl border-b-8 border-red-600 social-card">
-                <div class="text-red-600 text-6xl mb-8"><i class="fas fa-bullhorn"></i></div>
-                <h4 class="text-3xl font-bold mb-5">Content Creation</h4>
-                <p class="text-gray-600 text-lg">Social media posts, Photoshop, and professional Reels & TikTok videos.</p>
+    <section id="services" class="py-16 md:py-28 container mx-auto px-6">
+        <h3 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-20 text-gray-950">Our Services</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-b-8 border-red-600">
+                <i class="fas fa-bullhorn text-4xl md:text-6xl text-red-600 mb-5"></i>
+                <h4 class="text-xl md:text-3xl font-bold mb-3">Content Creation</h4>
+                <p class="text-gray-600 text-sm md:text-lg">Social media posts, Photoshop, and professional Reels.</p>
             </div>
-            <div class="bg-white p-12 rounded-3xl shadow-2xl border-b-8 border-blue-600 social-card">
-                <div class="text-blue-600 text-6xl mb-8"><i class="fas fa-tasks"></i></div>
-                <h4 class="text-3xl font-bold mb-5">Account Management</h4>
-                <p class="text-gray-600 text-lg">Full marketing plans and accurate post scheduling.</p>
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-b-8 border-blue-600">
+                <i class="fas fa-tasks text-4xl md:text-6xl text-blue-600 mb-5"></i>
+                <h4 class="text-xl md:text-3xl font-bold mb-3">Management</h4>
+                <p class="text-gray-600 text-sm md:text-lg">Full marketing plans and accurate post scheduling.</p>
             </div>
-            <div class="bg-white p-12 rounded-3xl shadow-2xl border-b-8 border-purple-600 social-card">
-                <div class="text-purple-600 text-6xl mb-8"><i class="fas fa-video"></i></div>
-                <h4 class="text-3xl font-bold mb-5">Video Editing</h4>
-                <p class="text-gray-600 text-lg">Editing YouTube videos and Reels with high-quality effects.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-5xl font-bold mb-16 text-gray-950">Our Portfolio</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="social-card">
-                    <img src="IMG-20231215-WA0004.jpg" alt="Portfolio 1" class="work-img shadow-lg">
-                </div>
-                <div class="social-card">
-                    <img src="IMG-20231215-WA0005.jpg" alt="Portfolio 2" class="work-img shadow-lg">
-                </div>
-                <div class="social-card">
-                    <img src="IMG-20231215-WA0006.jpg" alt="Portfolio 3" class="work-img shadow-lg">
-                </div>
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-b-8 border-purple-600">
+                <i class="fas fa-video text-4xl md:text-6xl text-purple-600 mb-5"></i>
+                <h4 class="text-xl md:text-3xl font-bold mb-3">Video Editing</h4>
+                <p class="text-gray-600 text-sm md:text-lg">YouTube and Reels editing with high-quality effects.</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-14 text-center border-t-2 border-red-700">
-        <p class="text-2xl mb-5">All Rights Reserved to DeSina Brand © 2026</p>
-        <div class="text-gray-500 text-sm">Smart Design by AI Jimmy</div>
+    <section id="portfolio" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl md:text-5xl font-bold text-center mb-10 text-gray-950">Our Portfolio</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <img src="IMG-20231215-WA0004.jpg" class="work-img shadow-lg" alt="Work 1">
+                <img src="IMG-20231215-WA0005.jpg" class="work-img shadow-lg" alt="Work 2">
+                <img src="IMG-20231215-WA0006.jpg" class="work-img shadow-lg" alt="Work 3">
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-white py-10 text-center border-t-2 border-red-700">
+        <p class="text-lg md:text-2xl mb-2">DeSina Brand © 2026</p>
+        <div class="text-gray-500 text-xs">Smart Design by AI Jimmy</div>
     </footer>
 
 </body>
