@@ -15,7 +15,7 @@
         }
         .social-card { transition: all 0.3s ease; }
         .social-card:hover { transform: translateY(-10px); }
-        .main-logo { height: 60px; width: auto; border-radius: 8px; object-fit: contain; }
+        .main-logo { height: 50px; width: auto; border-radius: 8px; object-fit: contain; }
         .hero-logo { height: 120px; width: auto; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
     </style>
 </head>
@@ -23,81 +23,27 @@
 
     <nav class="bg-white shadow-lg p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="#">
-                <img src="logo.jpg" alt="DeSina Logo" class="main-logo">
-            </a>
-            
             <div class="flex items-center gap-4">
+                <a href="en.html" class="text-blue-600 hover:text-blue-800 font-bold border-l-2 pl-4 border-gray-300">English</a>
                 <a href="#services" class="text-gray-700 hover:text-red-700 font-medium">خدماتنا</a>
-                <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full text-sm font-bold flex items-center gap-2 social-card">
-                    <i class="fab fa-whatsapp text-lg"></i>
-                    تواصل سريع
-                </a>
             </div>
+            <a href="#"><img src="logo.jpg" alt="DeSina Logo" class="main-logo"></a>
+            <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                <i class="fab fa-whatsapp"></i> تواصل
+            </a>
         </div>
     </nav>
 
     <section class="hero-section text-white py-28 px-6 text-center border-t-2 border-red-700">
         <div class="container mx-auto">
-            <div class="flex justify-center">
-                <img src="logo.jpg" alt="DeSina Logo" class="hero-logo">
-            </div>
-            
-            <h2 class="text-6xl font-extrabold mb-6 leading-tight">
-                مرحباً بكم في DeSina
-            </h2>
+            <div class="flex justify-center"><img src="logo.jpg" alt="DeSina Logo" class="hero-logo"></div>
+            <h2 class="text-6xl font-extrabold mb-6 leading-tight">مرحباً بكم في DeSina</h2>
             <p class="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">نحن نصنع التميز، ونبني مستقبلك الرقمي بأحدث التقنيات.</p>
-            
-            <div class="flex justify-center gap-6 flex-wrap">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card bg-blue-600 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 text-lg">
-                    <i class="fab fa-facebook"></i> فيسبوك
-                </a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="social-card bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 text-lg">
-                    <i class="fab fa-instagram"></i> انستجرام
-                </a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="social-card bg-red-600 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 text-lg">
-                    <i class="fab fa-youtube"></i> يوتيوب
-                </a>
-            </div>
         </div>
-    </section>
-
-    <section id="services" class="py-24 container mx-auto px-6">
-        <h3 class="text-4xl font-bold text-center mb-16 text-gray-950">
-            ماذا نقدم لبراند DeSina؟
-        </h3>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-10 rounded-2xl shadow-xl border-b-8 border-red-600 social-card">
-                <div class="text-red-600 text-5xl mb-6"><i class="fas fa-bullhorn"></i></div>
-                <h4 class="text-2xl font-bold mb-4">صناعة المحتوى</h4>
-                <p class="text-gray-600">تصميم بوستات، فوتوشوب، وفيديوهات ريلز احترافية تجذب الجمهور.</p>
-            </div>
-            <div class="bg-white p-10 rounded-2xl shadow-xl border-b-8 border-blue-600 social-card">
-                <div class="text-blue-600 text-5xl mb-6"><i class="fas fa-tasks"></i></div>
-                <h4 class="text-2xl font-bold mb-4">إدارة الحسابات</h4>
-                <p class="text-gray-600">خطط تسويقية شاملة، جدولة منشورات، وتفاعل مع العملاء لزيادة الانتشار.</p>
-            </div>
-            <div class="bg-white p-10 rounded-2xl shadow-xl border-b-8 border-purple-600 social-card">
-                <div class="text-purple-600 text-5xl mb-6"><i class="fas fa-video"></i></div>
-                <h4 class="text-2xl font-bold mb-4">مونتاج الفيديو</h4>
-                <p class="text-gray-600">تعديل فيديوهات اليوتيوب والريلز بأعلى جودة ومؤثرات بصرية جذابة.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white text-center px-6 border-t border-gray-200">
-        <h3 class="text-4xl font-bold mb-6">جاهز لتبدأ رحلة النجاح مع DeSina؟</h3>
-        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">تواصل معنا الآن عبر الواتساب لمناقشة مشروعك والحصول على استشارة مجانية.</p>
-        <a href="https://wa.me/201001283311" target="_blank" class="social-card bg-green-500 hover:bg-green-600 text-white px-12 py-4 rounded-full text-xl font-bold flex items-center gap-3 inline-flex">
-            <i class="fab fa-whatsapp text-2xl"></i>
-            ابدأ مشروعك الآن
-        </a>
     </section>
 
     <footer class="bg-gray-950 text-white py-12 text-center border-t-2 border-red-700">
         <p class="text-xl mb-4">جميع الحقوق محفوظة لبراند DeSina © 2026</p>
-        <div class="text-gray-500 text-sm">تصميم ذكي بواسطة AI جيمي</div>
     </footer>
-
 </body>
 </html>
