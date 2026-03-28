@@ -21,49 +21,68 @@
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
+
+        @media (min-width: 769px) { #mobile-menu { display: flex !important; } .burger-icon { display: none !important; } }
         @media (max-width: 768px) {
             #mobile-menu { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: white; padding: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; }
-            #mobile-menu.active { display: flex !important; }
+            #mobile-menu.active { display: flex !important; animation: slideIn 0.3s ease-out; }
             .nav-link, .product-link { padding: 15px 0; border-bottom: 1px solid #f3f4f6; width: 100%; text-align: center; }
         }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1000; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
+
+    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="main-logo">
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-2 pl-6 border-gray-200">
-                    <a href="en-catalog.html" class="product-link menu-item">Catalog</a>
-                    <a href="#digital-services" class="nav-link menu-item">Digital</a>
-                    <a href="#industrial-services" class="nav-link menu-item">Industrial</a>
-                    <a href="#contact" class="nav-link menu-item">Contact Us</a>
-                    <a href="index.html" class="text-red-600 font-bold md:hidden">عربي</a>
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
+                    <a href="en-catalog.html" class="product-link menu-item text-lg">Catalog</a>
+                    <a href="#digital-services" class="nav-link menu-item text-lg">Digital</a>
+                    <a href="#industrial-services" class="nav-link menu-item text-lg">Industrial</a>
+                    <a href="#contact" class="nav-link menu-item text-lg">Contact Us</a>
+                    <a href="index.html" class="text-red-600 font-bold md:hidden menu-item">عربي</a>
                 </div>
             </div>
+            
             <div class="flex items-center gap-4">
                 <a href="index.html" class="hidden md:block text-red-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">عربي</a>
                 <div class="burger-icon md:hidden" id="burger-btn"><i class="fas fa-bars text-2xl text-gray-700 cursor-pointer"></i></div>
+                <div class="hidden md:block">
+                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <section class="hero-section text-white py-20 text-center px-4">
-        <img src="logo.jpg" class="hero-logo">
-        <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-12">Elegant Fashion & Digital Innovation.</p>
-        <a href="en-catalog.html" class="bg-red-600 px-10 py-4 rounded-full font-bold shadow-lg hover:bg-white hover:text-red-600 transition">View Catalog</a>
+        <div class="container mx-auto">
+            <img src="logo.jpg" class="hero-logo">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">Blending elegance with innovation in Fashion & Digital Services.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="en-catalog.html" class="bg-red-600 px-10 py-4 rounded-full font-bold shadow-lg hover:bg-white hover:text-red-600 transition">View Catalog</a>
+            </div>
+        </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-12 text-center">
-        <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
-        <p class="text-gray-600 text-sm">All Rights Reserved © 2026</p>
+    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
+        <div class="container mx-auto border-b border-gray-800 pb-10 mb-8">
+            <h4 class="text-3xl font-extrabold text-red-600 mb-4 tracking-widest uppercase">DeSina</h4>
+            <p class="text-gray-400">All Rights Reserved © 2026</p>
+        </div>
     </footer>
 
     <script>
-        document.getElementById('burger-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('active');
-        });
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        burgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('active'); });
     </script>
 </body>
 </html>
