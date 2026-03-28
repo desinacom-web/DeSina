@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeSina | Youth Collection 2026</title>
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111; scroll-behavior: smooth; }
-        
-        /* تأثير الزووم العالمي */
-        .model-card { overflow: hidden; position: relative; border-radius: 4px; transition: 0.5s ease; }
-        .model-card img { transition: 0.8s ease-in-out; width: 100%; height: 500px; object-fit: cover; }
-        .model-card:hover img { transform: scale(1.08); filter: brightness(0.8); }
-        
-        /* النص اللي بيظهر فوق الصورة */
-        .overlay { position: absolute; bottom: -50px; left: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); transition: 0.4s ease; opacity: 0; }
-        .model-card:hover .overlay { bottom: 0; opacity: 1; }
-        
-        .section-title { font-weight: 900; letter-spacing: -2px; text-transform: uppercase; }
-    </style>
-</head>
-<body>
-
-    <nav class="p-6 flex justify-between items-center border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+<nav class="p-6 flex justify-between items-center border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
         <a href="en.html" class="flex items-center gap-2">
             <img src="logo.jpg" class="h-8 rounded">
-            <span class="font-black text-xl tracking-tighter">DESINA</span>
+            <span class="font-bold text-xl tracking-tight">DeSina</span>
         </a>
         <div class="flex gap-8 font-bold text-sm uppercase tracking-widest">
             <a href="en.html" class="hover:text-red-600 transition">Back to Home</a>
@@ -36,75 +9,18 @@
         </div>
     </nav>
 
-    <header class="py-20 text-center">
-        <h1 class="text-6xl md:text-8xl section-title mb-4">Youth <span class="text-red-600">Collection</span></h1>
-        <p class="text-gray-400 font-medium tracking-widest uppercase text-sm">Industrial Precision & Modern Style</p>
-    </header>
-
     <section class="container mx-auto px-4 pb-32">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             <div class="model-card">
                 <img src="cod1.jpg" alt="Model 1">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-01 / NEW ARRIVAL</p></div>
+                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-01</p></div>
             </div>
 
             <div class="model-card">
                 <img src="cod2.jpg" alt="Model 2">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-02 / SEASON 26</p></div>
+                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-02</p></div>
             </div>
-
-            <div class="model-card">
-                <img src="cod3.jpg" alt="Model 3">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-03 / URBAN STYLE</p></div>
+            
             </div>
-
-            <div class="model-card">
-                <img src="cod4.jpg" alt="Model 4">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-04 / PREMIUM FABRIC</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod5.jpg" alt="Model 5">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-05 / DESINA SPECIAL</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod6.jpg" alt="Model 6">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-06 / CASUAL WEAR</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod7.jpg" alt="Model 7">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-07 / MODERN FIT</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod8.jpg" alt="Model 8">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-08 / TRENDSETTER</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod9.jpg" alt="Model 9">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-09 / INDUSTRIAL FINISH</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod10.jpg" alt="Model 10">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-10 / EXCLUSIVE</p></div>
-            </div>
-
-            <div class="model-card">
-                <img src="cod11.jpg" alt="Model 11">
-                <div class="overlay"><p class="text-white font-bold tracking-widest">COD-11 / SIGNATURE PIECE</p></div>
-            </div>
-
-        </div>
     </section>
-
-    <footer class="bg-black text-white py-10 text-center">
-        <p class="text-xs font-bold tracking-widest">DESINA COMPANY © 2026 | GLOBAL STANDARDS</p>
-    </footer>
-
-</body>
-</html>
