@@ -21,140 +21,49 @@
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
-
-        /* Navigation Menu styles - Android & Windows */
-        @media (min-width: 769px) {
-            #mobile-menu { display: flex !important; }
-            .burger-icon { display: none !important; }
-        }
-
         @media (max-width: 768px) {
-            #mobile-menu { 
-                display: none; 
-                flex-direction: column; width: 100%; position: absolute; 
-                top: 100%; right: 0; background: white; padding: 15px; 
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; 
-            }
-            #mobile-menu.active { display: flex !important; animation: slideIn 0.3s ease-out; }
+            #mobile-menu { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: white; padding: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; }
+            #mobile-menu.active { display: flex !important; }
             .nav-link, .product-link { padding: 15px 0; border-bottom: 1px solid #f3f4f6; width: 100%; text-align: center; }
         }
-
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Floating WhatsApp Button on the right for LTR */
-        .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
-            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1000;
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
-        }
-        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
-
-    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="main-logo">
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
-                    <a href="catalog.html" class="product-link menu-item text-lg">Catalog</a>
-                    <a href="#digital-services" class="nav-link menu-item text-lg">Digital</a>
-                    <a href="#industrial-services" class="nav-link menu-item text-lg">Industrial</a>
-                    <a href="#contact" class="nav-link menu-item text-lg">Contact Us</a>
-                    <a href="index.html" class="text-red-600 font-bold md:hidden menu-item">عربي</a>
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-2 pl-6 border-gray-200">
+                    <a href="en-catalog.html" class="product-link menu-item">Catalog</a>
+                    <a href="#digital-services" class="nav-link menu-item">Digital</a>
+                    <a href="#industrial-services" class="nav-link menu-item">Industrial</a>
+                    <a href="#contact" class="nav-link menu-item">Contact Us</a>
+                    <a href="index.html" class="text-red-600 font-bold md:hidden">عربي</a>
                 </div>
             </div>
-            
             <div class="flex items-center gap-4">
                 <a href="index.html" class="hidden md:block text-red-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">عربي</a>
-                
-                <div class="burger-icon md:hidden" id="burger-btn">
-                    <i class="fas fa-bars text-2xl text-gray-700"></i>
-                </div>
-
-                <div class="hidden md:block">
-                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
-                        <i class="fab fa-whatsapp"></i> Contact Us
-                    </a>
-                </div>
+                <div class="burger-icon md:hidden" id="burger-btn"><i class="fas fa-bars text-2xl text-gray-700 cursor-pointer"></i></div>
             </div>
         </div>
     </nav>
 
     <section class="hero-section text-white py-20 text-center px-4">
-        <div class="container mx-auto">
-            <img src="logo.jpg" class="hero-logo">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">Blending elegance with innovation in Fashion & Digital Services.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> Facebook</a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> YouTube</a>
-            </div>
-        </div>
+        <img src="logo.jpg" class="hero-logo">
+        <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12">Elegant Fashion & Digital Innovation.</p>
+        <a href="en-catalog.html" class="bg-red-600 px-10 py-4 rounded-full font-bold shadow-lg hover:bg-white hover:text-red-600 transition">View Catalog</a>
     </section>
 
-    <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Digital Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600 leading-relaxed">Professional management to boost engagement and build a real community.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600 leading-relaxed">Visual and written content that captures attention and reflects your identity.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">Video Editing</h3><p class="text-gray-600 leading-relaxed">Transforming your footage into cinematic videos for all platforms.</p></div>
-        </div>
-    </section>
-
-    <section id="industrial-services" class="py-20 bg-white px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Industrial Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600 leading-relaxed">Innovative designs that meet your expectations and highlight your identity.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Garment Production</h3><p class="text-gray-600 leading-relaxed">Comprehensive production solutions from cutting to final assembly.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600 leading-relaxed">Ensuring excellence through rigorous inspection and precise standards.</p></div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10">
-            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">Dokki, Giza, Egypt</p></div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">Contact Us</h4>
-                <p class="text-lg mb-1">+20 100 128 3311</p>
-                <p class="text-lg mb-1">+20 111 568 0003</p>
-                <p class="text-gray-400 text-sm">info@desina.net</p>
-                <p class="text-gray-400 text-sm mb-4">desina.com@gmail.com</p>
-                <a href="https://maps.app.goo.gl/X3wsUHiziKinYrHA9" target="_blank" class="text-red-500 underline font-bold mt-4 block">Our Location on Map</a>
-            </div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">Quick Links</h4>
-                <a href="privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">Privacy Policy</a>
-                <a href="about.html" class="block text-gray-400 hover:text-white underline">About Us</a>
-            </div>
-        </div>
-        <p class="mt-10 text-gray-600 text-sm font-bold">All Rights Reserved to DeSina Company © 2026</p>
+    <footer class="bg-gray-950 text-white py-12 text-center">
+        <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
+        <p class="text-gray-600 text-sm">All Rights Reserved © 2026</p>
     </footer>
 
     <script>
-        const burgerBtn = document.getElementById('burger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuItems = document.querySelectorAll('.menu-item');
-
-        // Toggle menu on burger icon click
-        burgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked (for mobile)
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                if(window.innerWidth <= 768) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
+        document.getElementById('burger-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('active');
         });
     </script>
-
 </body>
 </html>
