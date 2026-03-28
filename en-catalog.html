@@ -1,130 +1,54 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeSina | Catalog</title>
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
-        .filter-btn { transition: 0.3s; padding: 10px 20px; border-radius: 99px; font-weight: bold; }
-        .active-filter { background-color: #ef4444; color: white; }
-        .filter-item { display: none; } /* بنخفي الكل في الأول */
-        .show { display: block !important; } /* بنظهر اللي نختاره بس */
-    </style>
-</head>
-<body>
-
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center gap-4">
-                <img src="logo.jpg" class="h-10 rounded-lg">
-                <span class="text-xl font-bold text-gray-800">DeSina</span>
-            </div>
-            <div class="flex gap-6 items-center">
-                <a href="en.html" class="font-bold text-gray-600 hover:text-red-600">Home</a>
-                <a href="catalog.html" class="text-red-600 font-bold border-l pl-4 border-gray-200">عربي</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="bg-gray-900 py-16 text-center text-white px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4"><span class="text-red-600">DeSina</span> Catalog</h1>
-        <p class="text-gray-400">Discover our latest collection of modern fashion and powerful services.</p>
-    </header>
-
-    <div class="flex flex-wrap justify-center gap-4 py-10 bg-white shadow-sm sticky top-[72px] z-40">
-        <button onclick="filterSelection('all')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-all">All</button>
-        <button onclick="filterSelection('fashion')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-fashion">Fashion & Clothing</button>
-        <button onclick="filterSelection('digital')" class="filter-btn border border-gray-200 hover:bg-gray-100">Digital Services</button>
-        <button onclick="filterSelection('industrial')" class="filter-btn border border-gray-200 hover:bg-gray-100">Industrial Services</button>
-    </div>
-
-    <section class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod1.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-01">
+<div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-01">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-01</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod2.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-02">
+                <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-02">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-02</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod3.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-03">
+                <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-03">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-03</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod4.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-04">
+                <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-04">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-04</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod5.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-05">
+                <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-05">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-05</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod6.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-06">
+                <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-06">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-06</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod7.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-07">
+                <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-07">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-07</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod8.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-08">
+                <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-08">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-08</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod9.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-09">
+                <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-09">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-09</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod10.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-10">
+                <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-10">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-10</h3>
             </div>
 
             <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod11.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-11">
+                <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-11">
                 <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-11</h3>
             </div>
-
-            <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center">
-                <h3 class="text-xl font-bold">Digital Services</h3>
-                <p class="text-gray-500 mt-2">Coming Soon...</p>
-            </div>
-            
-            <div class="filter-item industrial bg-white p-8 rounded-2xl shadow-lg border-t-4 border-black text-center">
-                <h3 class="text-xl font-bold">Industrial Services</h3>
-                <p class="text-gray-500 mt-2">Coming Soon...</p>
-            </div>
-
-        </div>
-    </section>
-
-    <script>
-        filterSelection("all")
-        function filterSelection(c) {
-          var x, i;
-          x = document.getElementsByClassName("filter-item");
-          if (c == "all") c = "";
-          for (i = 0; i < x.length; i++) {
-            x[i].classList.remove("show");
-            if (x[i].className.indexOf(c) > -1) x[i].classList.add("show");
-          }
-        }
-    </script>
-
-</body>
-</html>
