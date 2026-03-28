@@ -12,18 +12,26 @@
         body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; scroll-behavior: smooth; overflow-x: hidden; }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
-        .category-btn { transition: 0.3s; border: 2px solid #ef4444; color: #ef4444; margin: 5px; }
-        .category-btn.active { background-color: #ef4444; color: white; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
-        .product-card { transition: 0.3s; border-radius: 20px; overflow: hidden; background: white; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+        
+        /* تنسيق الأزرار الجديد: خلفية بيضاء وإطار أسود ناعم */
+        .category-btn { 
+            background-color: white; 
+            border: 1px solid #d1d5db; /* إطار أسود ناعم (رمادي غامق) */
+            color: #1f2937; /* أسود للخط */
+            transition: 0.3s; 
+            margin: 4px;
+        }
+        .category-btn.active-all { color: #ef4444 !important; border-color: #ef4444 !important; } /* زر الكل أحمر */
+        .category-btn:hover { border-color: #9ca3af; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        .product-card { transition: 0.3s; border-radius: 20px; overflow: hidden; background: white; border: 1px solid #f3f4f6; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.05); }
+        
         h1, h2, h3, p, a, span, button { font-style: normal !important; }
         
-        /* تظبيط المنيو للموبايل */
-        #mobile-menu { display: none; }
-        #mobile-menu.active { display: flex !important; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
-            #mobile-menu { flex-direction: column; width: 100%; position: absolute; top: 100%; right: 0; background: white; padding: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; }
+            #mobile-menu { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; right: 0; background: white; padding: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; }
+            #mobile-menu.active { display: flex !important; }
         }
     </style>
 </head>
@@ -32,116 +40,92 @@
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
-                <img src="logo.jpg" class="h-10 rounded-lg shadow-sm">
+                <img src="logo.jpg" class="h-10 rounded-lg">
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-2 pr-6 border-gray-200">
                     <a href="index.html" class="nav-link menu-item text-lg">الرئيسية</a>
                     <a href="about.html" class="nav-link menu-item text-lg">حول الشركة</a>
-                    <a href="index.html#contact" class="nav-link menu-item text-lg">اتصل بنا</a>
                 </div>
             </div>
             <div class="burger-icon md:hidden" id="burger-btn">
                 <i class="fas fa-bars text-2xl text-gray-700 cursor-pointer"></i>
             </div>
             <div class="hidden md:block">
-                <a href="index.html" class="bg-gray-900 text-white px-8 py-2 rounded-full font-bold hover:bg-red-600 transition shadow-sm">العودة للرئيسية</a>
+                <a href="index.html" class="bg-gray-950 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition shadow-sm text-sm">العودة للرئيسية</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gray-900 py-20 text-center text-white px-4 border-b-4 border-red-600">
+    <header class="bg-gray-900 py-16 text-center text-white px-4 border-b-4 border-red-600">
         <div class="container mx-auto max-w-4xl">
-            <img src="logo.jpg" class="h-16 mx-auto mb-6 rounded-xl shadow-lg">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">كتالوج <span class="text-red-600">DeSina</span></h1>
-            <p class="text-gray-300 text-xl md:text-2xl font-bold leading-relaxed max-w-3xl mx-auto">نستعرض لكم أحدث مجموعات الأزياء العصرية وأقوى الخدمات الرقمية الاحترافية والصناعية.</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">كتالوج <span class="text-red-600">DeSina</span></h1>
+            <p class="text-gray-300 text-lg md:text-xl font-bold leading-relaxed">نستعرض لكم أحدث مجموعات الأزياء العصرية وأقوى الخدمات الرقمية الاحترافية والصناعية.</p>
         </div>
     </header>
 
     <section class="container mx-auto px-6 py-12">
-        <div class="flex flex-wrap justify-center gap-3 mb-16 bg-white p-4 rounded-full shadow-inner max-w-3xl mx-auto">
-            <button class="category-btn active px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('all', this)">الكل</button>
-            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('fashion', this)">أزياء وملابس</button>
-            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('digital', this)">الخدمات الرقمية</button>
-            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('industrial', this)">الخدمات الصناعية</button>
+        <div class="flex flex-wrap justify-center gap-2 mb-16">
+            <button class="category-btn active-all px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('all', this)">الكل</button>
+            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('fashion', this)">أزياء وملابس</button>
+            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('digital', this)">الخدمات الرقمية</button>
+            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('industrial', this)">الخدمات الصناعية</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="catalog-grid">
-            
-            <div class="product-card shadow-lg fashion">
-                <img src="logo.jpg" class="w-full h-72 object-cover" alt="Fashion">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="catalog-grid">
+            <div class="product-card fashion shadow-sm">
+                <img src="logo.jpg" class="w-full h-64 object-cover">
                 <div class="p-6">
-                    <span class="text-red-600 font-bold text-sm block mb-2 uppercase tracking-wider">DeSina Fashion</span>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">تصميم كاجوال عصري</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">قطعة فريدة مصممة بأجود الخامات المصرية لتناسب إطلالتك اليومية المتميزة.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن تصميم كاجوال من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">اطلب عبر واتساب</a>
+                    <h3 class="text-xl font-bold mb-2">تصميم كاجوال عصري</h3>
+                    <p class="text-gray-600 text-sm mb-4">قطعة متميزة من مجموعة أزياء ديسينا.</p>
+                    <a href="https://wa.me/201001283311" class="block text-center bg-green-500 text-white py-2 rounded-lg font-bold">اطلب الآن</a>
                 </div>
             </div>
-
-            <div class="product-card shadow-lg digital">
-                <img src="logo.jpg" class="w-full h-72 object-cover" alt="Digital">
-                <div class="p-6">
-                    <span class="text-blue-600 font-bold text-sm block mb-2 uppercase tracking-wider">Digital Services</span>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">باقة إدارة السوشيال ميديا</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">باقة متكاملة تشمل إدارة الحسابات، صناعة المحتوى، وزيادة التفاعل باحترافية.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن باقة إدارة الصفحات من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">استفسر عن الباقة</a>
-                </div>
             </div>
-
-            <div class="product-card shadow-lg industrial">
-                <img src="logo.jpg" class="w-full h-72 object-cover" alt="Industrial">
-                <div class="p-6">
-                    <span class="text-orange-600 font-bold text-sm block mb-2 uppercase tracking-wider">Industrial Services</span>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">خدمة تصميم الباترون</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">نحول فكرتك إلى واقع بباترونات دقيقة جاهزة للتصنيع الكمي الفوري.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن خدمة الباترون من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">اطلب خدمتك</a>
-                </div>
-            </div>
-
-        </div>
     </section>
 
-    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center mt-20">
-        <div class="container mx-auto border-b border-gray-800 pb-10 mb-10 max-w-4xl">
-            <img src="logo.jpg" class="h-12 mx-auto mb-6 rounded-lg opacity-80">
-            <h4 class="text-2xl font-bold text-red-600 mb-4 uppercase">DeSina</h4>
-            <p class="text-gray-400 mb-4 max-w-md mx-auto">تواصل معنا للاستفسار عن أي منتج أو خدمة، فريقنا جاهز لخدمتك.</p>
-            <p class="text-2xl font-bold mt-6 tracking-wide" style="direction: ltr;">+20 100 128 3311</p>
-            <p class="text-gray-500 text-sm mt-2">info@desina.net</p>
+    <footer class="bg-gray-950 text-white py-16 px-6 text-center">
+        <div class="container mx-auto border-b border-gray-800 pb-10 mb-8 max-w-4xl text-center">
+            <h4 class="text-3xl font-extrabold text-red-600 mb-6 tracking-widest">DESINA</h4>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold mb-3 border-b border-red-600 inline-block pb-1">أرقام التواصل</h5>
+                    <p class="text-lg font-bold" dir="ltr">+20 100 128 3311</p>
+                    <p class="text-lg font-bold" dir="ltr">+20 111 568 0003</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold mb-3 border-b border-red-600 inline-block pb-1">البريد الإلكتروني</h5>
+                    <p class="text-gray-400">info@desina.net</p>
+                    <p class="text-gray-400">desina.com@gmail.com</p>
+                </div>
+            </div>
         </div>
         <p class="text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
-        // كود الفلترة المطور للتعامل مع 4 أقسام
         function filterItems(category, btn) {
             const cards = document.querySelectorAll('.product-card');
             const btns = document.querySelectorAll('.category-btn');
-            
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
+            btns.forEach(b => {
+                b.style.borderColor = "#d1d5db";
+                b.style.color = "#1f2937";
+            });
+            if (category === 'all') {
+                btn.style.color = "#ef4444";
+                btn.style.borderColor = "#ef4444";
+            } else {
+                btn.style.borderColor = "#1f2937";
+            }
             cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    card.classList.contains(category) ? card.style.display = 'block' : card.style.display = 'none';
-                }
+                if (category === 'all') card.style.display = 'block';
+                else card.classList.contains(category) ? card.style.display = 'block' : card.style.display = 'none';
             });
         }
 
-        // كود المنيو للأندرويد
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuItems = document.querySelectorAll('.menu-item');
-
-        burgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                if(window.innerWidth <= 768) mobileMenu.classList.remove('active');
-            });
-        });
+        burgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('active'); });
     </script>
+
 </body>
 </html>
