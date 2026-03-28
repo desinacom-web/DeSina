@@ -6,27 +6,26 @@
     <title>كتالوج ديسينا | DeSina Catalog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; background-color: #f3f4f6; }
-        /* التعديل الذهبي: تصغير الصور وتناسقها التام بدون قص */
+        body { font-family: 'Cairo', sans-serif; background-color: #f3f4f6; }
+        /* تصغير الصور وإظهارها كاملة بدون قص */
         .cat-img { 
-            width: auto; /* العرض تلقائي */
-            max-width: 100%; /* العرض الأقصى 100% من الكارد */
-            height: auto; /* الارتفاع تلقائي (بيحافظ على الأبعاد) */
-            max-height: 200px; /* الارتفاع الأقصى 200px (عشان ما تطولش أوي) */
-            display: block; /* عشان المسافات تتظبط */
-            margin: 0 auto; /* توسيط الصورة في الكارد */
-            border-radius: 12px; /* حواف مدورة بسيطة وشيك */
+            width: auto; 
+            max-width: 100%; 
+            height: auto; 
+            max-height: 200px; 
+            display: block; 
+            margin: 0 auto; 
+            border-radius: 12px; 
+            object-fit: contain; 
+            background-color: #ffffff;
             transition: 0.4s;
-            object-fit: contain; /* يمنع القص نهائياً وبيظهر الصورة كاملة */
-            background-color: #ffffff; /* خلفية بيضاء ورا الصورة لو أبعادها مختلفة */
         }
-        @media (min-width: 768px) { .cat-img { max-height: 250px; } } /* ارتفاع أقصى أكبر في الكمبيوتر */
+        @media (min-width: 768px) { .cat-img { max-height: 250px; } }
         
-        /* الخط الرمادي الغامق والعدل (بدون ميلان) */
-        .main-title { color: #374151; font-weight: bold; }
-        .model-name { color: #4b5563; font-weight: bold; }
+        /* الخط رمادي غامق وعدل بدون ميلان */
+        .main-title { color: #374151; font-weight: bold; font-style: normal; }
+        .model-name { color: #4b5563; font-weight: bold; font-style: normal; }
         
         .cat-card { transition: 0.4s; background: white; border: 1px solid #e5e7eb; }
         .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -34,24 +33,24 @@
 </head>
 <body class="py-10 px-6">
     <div class="container mx-auto text-center">
-        <h1 class="text-3xl md:text-5xl font-bold main-title mb-4 uppercase">DeSina Catalog 2026</h1>
+        <h1 class="text-3xl md:text-5xl font-bold main-title mb-4">DeSina 2026</h1>
         <p class="text-gray-500 mb-12 text-lg font-bold">الأناقة والماركة الأصلية في كل قطعة</p>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod1.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 1</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod2.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 2</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod3.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 3</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod4.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 4</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod5.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 5</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod6.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 6</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod7.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 7</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod8.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 8</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod9.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 9</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod10.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 10</h3></div>
-            <div class="p-3 rounded-2xl shadow-xl cat-card"><img src="cod11.jpeg" class="cat-img mb-3 shadow-sm"><h3 class="font-bold text-xl model-name">Model 11</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod1.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 1</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod2.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 2</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod3.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 3</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod4.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 4</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod5.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 5</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod6.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 6</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod7.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 7</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod8.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 8</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod9.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 9</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod10.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 10</h3></div>
+            <div class="p-3 rounded-2xl shadow-sm cat-card"><img src="cod11.jpeg" class="cat-img mb-3"><h3 class="font-bold text-xl model-name">Model 11</h3></div>
         </div>
         
-        <a href="index.html" class="mt-16 inline-block bg-gray-700 text-white px-10 py-3 rounded-full font-bold text-lg shadow-xl hover:bg-red-700 transition">العودة للرئيسية</a>
+        <a href="index.html" class="mt-16 inline-block bg-gray-700 text-white px-10 py-3 rounded-full font-bold text-lg hover:bg-gray-900 transition shadow-xl">العودة للرئيسية</a>
     </div>
 </body>
 </html>
