@@ -3,146 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog | DeSina</title>
+    <title>DeSina | Catalog</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; scroll-behavior: smooth; overflow-x: hidden; }
-        .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
-        .nav-link:hover { color: #ef4444; }
-        
-        .category-btn { 
-            background-color: white; 
-            border: 1px solid #d1d5db; 
-            color: #1f2937; 
-            transition: 0.3s; 
-            margin: 4px;
-        }
-        .category-btn.active-all { color: #ef4444 !important; border-color: #ef4444 !important; background-color: #fef2f2; }
-        .category-btn.active-black { color: white !important; border-color: #1f2937 !important; background-color: #1f2937; }
-        
-        .product-card { transition: 0.3s; border-radius: 20px; overflow: hidden; background: white; border: 1px solid #f3f4f6; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.05); }
-        
-        h1, h2, h3, h4, p, a, span, button { font-style: normal !important; }
-        
-        #mobile-menu { display: none; }
-        #mobile-menu.active { display: flex !important; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            #mobile-menu { flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: white; padding: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; }
-        }
+        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
+        .filter-btn { transition: 0.3s; padding: 10px 20px; border-radius: 99px; font-weight: bold; }
+        .active-filter { background-color: #ef4444; color: white; }
+        .filter-item { display: none; } /* بنخفي الكل في الأول */
+        .show { display: block !important; } /* بنظهر اللي نختاره بس */
     </style>
 </head>
-<body onload="filterItems('all', document.getElementById('btn-all'))">
+<body>
 
-    <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4 relative">
-            <div class="flex items-center gap-6">
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center gap-4">
                 <img src="logo.jpg" class="h-10 rounded-lg">
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-2 pl-6 border-gray-200">
-                    <a href="en.html" class="nav-link menu-item text-lg">Home</a>
-                    <a href="about.html" class="nav-link menu-item text-lg">About Us</a>
-                </div>
+                <span class="text-xl font-bold text-gray-800">DeSina</span>
             </div>
-            <div class="burger-icon md:hidden" id="burger-btn">
-                <i class="fas fa-bars text-2xl text-gray-700 cursor-pointer"></i>
-            </div>
-            <div class="hidden md:block">
-                <a href="en.html" class="bg-gray-950 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition shadow-sm text-sm">Back to Home</a>
+            <div class="flex gap-6 items-center">
+                <a href="en.html" class="font-bold text-gray-600 hover:text-red-600">Home</a>
+                <a href="catalog.html" class="text-red-600 font-bold border-l pl-4 border-gray-200">عربي</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gray-900 py-16 text-center text-white px-4 border-b-4 border-red-600">
-        <div class="container mx-auto max-w-4xl">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4"><span class="text-red-600">DeSina</span> Catalog</h1>
-            <p class="text-gray-300 text-lg md:text-xl font-bold leading-relaxed">Discover our latest collection of modern fashion and powerful professional digital & industrial services.</p>
-        </div>
+    <header class="bg-gray-900 py-16 text-center text-white px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4"><span class="text-red-600">DeSina</span> Catalog</h1>
+        <p class="text-gray-400">Discover our latest collection of modern fashion and powerful services.</p>
     </header>
 
-    <section class="container mx-auto px-6 py-12">
-        <div class="flex flex-wrap justify-center gap-2 mb-16">
-            <button id="btn-all" class="category-btn active-all px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('all', this)">All</button>
-            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('fashion', this)">Fashion & Clothing</button>
-            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('digital', this)">Digital Services</button>
-            <button class="category-btn px-8 py-2 rounded-full font-bold text-lg" onclick="filterItems('industrial', this)">Industrial Services</button>
-        </div>
+    <div class="flex flex-wrap justify-center gap-4 py-10 bg-white shadow-sm sticky top-[72px] z-40">
+        <button onclick="filterSelection('all')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-all">All</button>
+        <button onclick="filterSelection('fashion')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-fashion">Fashion & Clothing</button>
+        <button onclick="filterSelection('digital')" class="filter-btn border border-gray-200 hover:bg-gray-100">Digital Services</button>
+        <button onclick="filterSelection('industrial')" class="filter-btn border border-gray-200 hover:bg-gray-100">Industrial Services</button>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="catalog-grid">
+    <section class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod1.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-01">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-01</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod2.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-02">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-02</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod3.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-03">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-03</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod4.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-04">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-04</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod5.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-05">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-05</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod6.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-06">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-06</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod7.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-07">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-07</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod8.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-08">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-08</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod9.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-09">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-09</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod10.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-10">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-10</h3>
+            </div>
+
+            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
+                <img src="cod11.jpg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="COD-11">
+                <h3 class="text-center font-bold text-gray-800 text-xl">Youth Model COD-11</h3>
+            </div>
+
+            <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center">
+                <h3 class="text-xl font-bold">Digital Services</h3>
+                <p class="text-gray-500 mt-2">Coming Soon...</p>
+            </div>
             
-            <div class="product-card fashion shadow-sm">
-                <img src="logo.jpg" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <span class="text-red-600 font-bold text-sm block mb-2 uppercase tracking-wider">DeSina Fashion</span>
-                    <h3 class="text-xl font-bold mb-2">Modern Casual Design</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">A unique piece from the DeSina fashion collection.</p>
-                    <a href="https://wa.me/201001283311?text=Inquiry about Casual Design" target="_blank" class="block text-center bg-green-500 text-white py-2 rounded-lg font-bold hover:bg-green-600 transition shadow-md">Order via WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="product-card digital shadow-sm">
-                <img src="logo.jpg" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <span class="text-blue-600 font-bold text-sm block mb-2 uppercase tracking-wider">Digital Services</span>
-                    <h3 class="text-xl font-bold mb-2">Social Media Management</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">A professional package to manage your accounts and boost engagement.</p>
-                    <a href="https://wa.me/201001283311?text=Inquiry about Social Media Management" target="_blank" class="block text-center bg-green-500 text-white py-2 rounded-lg font-bold hover:bg-green-600 transition shadow-md">Enquire Now</a>
-                </div>
-            </div>
-
-            <div class="product-card industrial shadow-sm">
-                <img src="logo.jpg" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <span class="text-orange-600 font-bold text-sm block mb-2 uppercase tracking-wider">Industrial Services</span>
-                    <h3 class="text-xl font-bold mb-2">Pattern Design Service</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Turning your ideas into reality with precise, ready-to-manufacture patterns.</p>
-                    <a href="https://wa.me/201001283311?text=Inquiry about Pattern Design Service" target="_blank" class="block text-center bg-green-500 text-white py-2 rounded-lg font-bold hover:bg-green-600 transition shadow-md">Order Service</a>
-                </div>
+            <div class="filter-item industrial bg-white p-8 rounded-2xl shadow-lg border-t-4 border-black text-center">
+                <h3 class="text-xl font-bold">Industrial Services</h3>
+                <p class="text-gray-500 mt-2">Coming Soon...</p>
             </div>
 
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center mt-20">
-        <div class="container mx-auto border-b border-gray-800 pb-10 mb-8 max-w-4xl text-center">
-            <h4 class="text-4xl font-extrabold text-red-600 mb-6 tracking-widest">DeSina</h4>
-            
-            <p class="text-gray-300 text-lg mb-8 font-bold">Contact our technical team for inquiries:</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
-                <div class="space-y-2">
-                    <h5 class="text-white font-bold mb-3 border-b border-red-600 inline-block pb-1">Contact Numbers</h5>
-                    <p class="text-lg font-bold tracking-wide" dir="ltr">+20 100 128 3311</p>
-                    <p class="text-lg font-bold tracking-wide" dir="ltr">+20 111 568 0003</p>
-                </div>
-                <div class="space-y-2">
-                    <h5 class="text-white font-bold mb-3 border-b border-red-600 inline-block pb-1">Email Addresses</h5>
-                    <p class="text-gray-400">info@desina.net</p>
-                    <p class="text-gray-400">desina.com@gmail.com</p>
-                </div>
-            </div>
-        </div>
-        <p class="text-gray-600 text-sm font-bold">All Rights Reserved to DeSina Company © 2026</p>
-    </footer>
-
     <script>
-        function filterItems(category, btn) {
-            const cards = document.querySelectorAll('.product-card');
-            const btns = document.querySelectorAll('.category-btn');
-            btns.forEach(b => { b.classList.remove('active-all', 'active-black'); });
-            if (category === 'all') { btn.classList.add('active-all'); } 
-            else { btn.classList.add('active-black'); }
-            cards.forEach(card => {
-                if (category === 'all') card.style.display = 'block';
-                else card.classList.contains(category) ? card.style.display = 'block' : card.style.display = 'none';
-            });
+        filterSelection("all")
+        function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("filter-item");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            x[i].classList.remove("show");
+            if (x[i].className.indexOf(c) > -1) x[i].classList.add("show");
+          }
         }
-        const burgerBtn = document.getElementById('burger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        burgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('active'); });
     </script>
+
 </body>
 </html>
