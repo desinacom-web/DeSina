@@ -16,45 +16,42 @@
         }
         .social-card { transition: all 0.3s ease; }
         .social-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .main-logo { height: 45px; width: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .main-logo { height: 40px; width: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         @media (min-width: 768px) { .main-logo { height: 55px; border-radius: 10px; } }
-        .hero-logo { height: 110px; margin-bottom: 25px; border-radius: 15px; box-shadow: 0 12px 24px rgba(0,0,0,0.6); }
+        .hero-logo { height: 100px; margin-bottom: 20px; border-radius: 15px; box-shadow: 0 12px 24px rgba(0,0,0,0.6); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
     <nav class="bg-white shadow-lg p-3 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-2">
             <div class="flex items-center gap-3 md:gap-10">
                 <a href="#"><img src="logo.jpg" alt="DeSina Logo" class="main-logo"></a>
-                <div class="hidden md:flex items-center gap-8 border-r-2 pr-8 border-gray-200 font-bold text-lg">
-                    <a href="#about" class="hover:text-red-700">حول ديسينا</a>
-                    <a href="#services" class="hover:text-red-700">خدماتنا</a>
-                    <a href="#contact" class="hover:text-red-700">تواصل معنا</a>
-                    <a href="en.html" class="text-blue-600">English</a>
+                <div class="flex items-center gap-4 md:gap-8 border-r-2 pr-4 md:pr-8 border-gray-200 font-bold text-[12px] md:text-xl">
+                    <a href="#about" class="hover:text-red-700">حول</a>
+                    <a href="catalog.html" class="text-red-600 hover:text-red-800 underline italic">المنتجات</a>
+                    <a href="#contact" class="hover:text-red-700">اتصل</a>
+                    <a href="en.html" class="text-blue-600">EN</a>
                 </div>
             </div>
-            <a href="https://wa.me/201001283311" class="bg-green-500 text-white px-5 py-2 rounded-full font-bold flex items-center gap-2 social-card text-sm md:text-lg">
+            <a href="https://wa.me/201001283311" class="bg-green-500 text-white px-5 py-2 rounded-full font-bold flex items-center gap-2 social-card text-[12px] md:text-lg">
                 <i class="fab fa-whatsapp"></i> تواصل
             </a>
         </div>
     </nav>
 
-    <section class="hero-section text-white py-20 md:py-32 px-4 text-center">
+    <section class="hero-section text-white py-16 md:py-32 px-4 text-center">
         <div class="container mx-auto">
             <div class="flex justify-center"><img src="logo.jpg" class="hero-logo"></div>
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">مرحباً بكم في <span class="text-red-600 font-bold">DeSina</span></h1>
-            <p class="text-lg md:text-2xl text-gray-300 mb-10">نمزج بين الأناقة والابتكار، ونقدم منتجات عصرية بجودة عالية.</p>
+            <h1 class="text-3xl md:text-7xl font-extrabold mb-4 italic italic">براند <span class="text-red-600">DeSina</span></h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 italic">نمزج بين الأناقة والابتكار، ونقدم منتجات عصرية بجودة عالية.</p>
             
-            <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-8 px-6 md:px-0 mt-8">
+            <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mt-8 px-6 md:px-0">
                 <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card bg-blue-600 text-white py-4 px-10 rounded-full font-bold flex items-center justify-center gap-3 text-lg md:text-2xl">
-                    <i class="fab fa-facebook text-2xl md:text-3xl"></i> فيسبوك
+                    <i class="fab fa-facebook"></i> فيسبوك
                 </a>
                 <a href="https://www.instagram.com/de__sina" target="_blank" class="social-card bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white py-4 px-10 rounded-full font-bold flex items-center justify-center gap-3 text-lg md:text-2xl">
-                    <i class="fab fa-instagram text-2xl md:text-3xl"></i> انستجرام
-                </a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="social-card bg-red-600 text-white py-4 px-10 rounded-full font-bold flex items-center justify-center gap-3 text-lg md:text-2xl">
-                    <i class="fab fa-youtube text-2xl md:text-3xl"></i> يوتيوب
+                    <i class="fab fa-instagram"></i> انستجرام
                 </a>
             </div>
         </div>
@@ -62,39 +59,16 @@
 
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold mb-10 text-red-600 border-r-8 border-red-600 pr-4 italic">حول ديسينا</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-gray-700 leading-relaxed">
+            <h2 class="text-2xl md:text-5xl font-bold mb-8 text-red-600 border-r-8 border-red-600 pr-4 italic">حول ديسينا</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg leading-relaxed text-gray-700">
                 <div>
-                    <p class="mb-6">ديسينا هي شركة مصرية ذات مسؤولية محدودة مقرها مصر، تأسست في <strong>أكتوبر 2017</strong>. تعمل في مجالي تصنيع وتوزيع الملابس الجاهزة والمنصات الرقمية التجارية والخدمية.</p>
-                    <p class="mb-6 font-bold text-gray-900 bg-gray-50 p-4 rounded-xl border-r-4 border-red-600">"نحن نمزج بين الأناقة والابتكار، ونقدم منتجات عصرية بجودة عالية تواكب أحدث اتجاهات الموضة."</p>
+                    <p class="mb-4 font-bold text-xl italic text-gray-900">تأسست ديسينا في أكتوبر 2017 لتكون شركة مصرية رائدة في مجالات الملابس الجاهزة والمنصات الرقمية.</p>
+                    <p class="mb-6">نحن نهتم بجودة كل قطعة ملابس نصنعها، إلى جانب إدارة العلامات التجارية وتطوير التجارة الإلكترونية بأحدث الأساليب العالمية.</p>
+                    <a href="catalog.html" class="inline-block bg-red-600 text-white px-8 py-3 rounded-2xl font-bold shadow-lg hover:bg-gray-900 transition italic">تصفح الموديلات الجديدة 2026</a>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl shadow-sm space-y-4">
-                    <p><strong>رؤيتنا:</strong> أن نصبح علامة رائدة محلياً وإقليمياً وعالمياً في صناعة الموضة وتطوير الخدمات الرقمية.</p>
-                    <p><strong>رسالتنا:</strong> تقديم قيمة حقيقية لعملائنا من خلال منتجات أنيقة وخدمات ذكية متطورة تبني الثقة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-gray-100 text-center">
-        <div class="container mx-auto px-6">
-            <h3 class="text-3xl md:text-5xl font-bold mb-16">خدمات <span class="text-red-600">DeSina</span></h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-8 border-red-600 social-card">
-                    <i class="fas fa-tshirt text-6xl text-red-600 mb-6"></i>
-                    <h4 class="text-2xl font-bold mb-4">كتالوج المنتجات</h4>
-                    <p class="text-gray-600 mb-8">استكشف أحدث موديلات ديسينا الحصرية (9 موديلات جديدة).</p>
-                    <a href="catalog.html" class="inline-block bg-red-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-gray-900 transition shadow-lg">فتح الكتالوج <i class="fas fa-external-link-alt mr-2"></i></a>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-8 border-blue-600 social-card">
-                    <i class="fas fa-bullhorn text-6xl text-blue-600 mb-6"></i>
-                    <h4 class="text-2xl font-bold mb-4">المنصات الرقمية</h4>
-                    <p class="text-gray-600">إدارة وتشغيل المنصات التجارية والخدمية باحترافية.</p>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-8 border-purple-600 social-card">
-                    <i class="fas fa-camera-retro text-6xl text-purple-600 mb-6"></i>
-                    <h4 class="text-2xl font-bold mb-4">صناعة المحتوى</h4>
-                    <p class="text-gray-600">بناء الهوية البصرية وتطوير العلامات التجارية.</p>
+                <div class="bg-gray-50 p-6 rounded-3xl border-l-8 border-red-600">
+                    <p class="mb-3"><strong>رؤيتنا:</strong> علامة رائدة محلياً وعالمياً في الموضة والخدمات الرقمية.</p>
+                    <p><strong>رسالتنا:</strong> تقديم قيمة حقيقية من خلال منتجات أنيقة وخدمات ذكية تبني الثقة.</p>
                 </div>
             </div>
         </div>
@@ -108,19 +82,20 @@
                 <p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p>
             </div>
             <div>
-                <h4 class="text-xl font-bold mb-6 text-red-600 border-r-4 border-red-600 pr-3 font-bold italic">تواصل معنا</h4>
+                <h4 class="text-xl font-bold mb-6 text-red-600 italic">تواصل معنا</h4>
                 <p class="text-lg">01001283311 - 01115680003</p>
                 <p class="text-lg">desina.com@gmail.com</p>
             </div>
-            <div>
-                <h4 class="text-xl font-bold mb-6 text-red-600 border-r-4 border-red-600 pr-3 font-bold italic">روابط</h4>
-                <a href="https://maps.app.goo.gl/X3wsUHiziKinYrHA9" target="_blank" class="block bg-white text-gray-900 py-2 rounded-full font-bold mb-3 text-center">الخريطة</a>
-                <a href="privacy.html" class="text-gray-400 underline">الخصوصية</a>
+            <div class="flex flex-col items-center md:items-end gap-3">
+                <h4 class="text-xl font-bold mb-3 text-red-600 italic">روابط هامة</h4>
+                <a href="https://maps.app.goo.gl/X3wsUHiziKinYrHA9" target="_blank" class="bg-white text-gray-900 px-6 py-2 rounded-full font-bold text-sm">موقعنا على الخريطة</a>
+                <a href="privacy.html" class="text-gray-400 underline text-sm">سياسة الخصوصية</a>
             </div>
         </div>
-        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-400">
-            جميع الحقوق محفوظة لبراند <span class="text-red-600 font-bold italic">DeSina</span> وجيمي © 2026
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            حقوق الملكية لبراند <span class="text-red-600 font-bold italic">DeSina</span> وجيمي © 2026
         </div>
     </footer>
+
 </body>
 </html>
