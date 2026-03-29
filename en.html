@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeSina | Fashion & Digital Services</title>
+    <title>DeSina | Official Website</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; }
         .hero-section {
             background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
             background-size: cover; background-position: center; background-attachment: fixed;
@@ -22,30 +22,47 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
 
+        /* --- English Mobile Menu (Opening from Right) --- */
         @media (min-width: 769px) {
-            #mobile-menu { display: flex !important; }
+            #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
             .burger-icon { display: none !important; }
         }
 
         @media (max-width: 768px) {
             #mobile-menu { 
                 display: none; 
-                flex-direction: column; width: 100%; position: absolute; 
-                top: 100%; right: 0; background: white; padding: 15px; 
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1000; border-top: 2px solid #ef4444; 
+                flex-direction: column; 
+                width: 40%; 
+                position: fixed; 
+                top: 64px; 
+                right: 0; /* Important: Opens from the right in English */
+                height: 70vh; 
+                background: rgba(45, 45, 48, 0.96); 
+                backdrop-filter: blur(12px);
+                padding: 15px 10px; 
+                box-shadow: -5px 5px 15px rgba(0,0,0,0.3); 
+                z-index: 9999; 
+                border-left: 2px solid #ef4444;
+                border-bottom-left-radius: 20px;
+                overflow-y: auto;
             }
-            #mobile-menu.active { display: flex !important; animation: slideIn 0.3s ease-out; }
-            .nav-link, .product-link { padding: 15px 0; border-bottom: 1px solid #f3f4f6; width: 100%; text-align: center; }
+            #mobile-menu.active { display: flex !important; animation: slideInRight 0.4s ease-out; }
+            .nav-link, .product-link { 
+                padding: 12px 5px; 
+                border-bottom: 1px solid rgba(255,255,255,0.05); 
+                width: 100%; 
+                text-align: left; /* Aligned left for English */
+                color: white !important;
+                font-size: 15px;
+            }
         }
-
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
-            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1000;
+            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
-        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -59,24 +76,24 @@
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="main-logo">
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
-                    <a href="en-catalog.html" class="product-link menu-item text-lg">Catalog</a>
-                    <a href="#digital-services" class="nav-link menu-item text-lg">Digital</a>
-                    <a href="#industrial-services" class="nav-link menu-item text-lg">Industrial</a>
-                    <a href="#contact" class="nav-link menu-item text-lg">Contact Us</a>
-                    <a href="index.html" class="text-red-600 font-bold md:hidden menu-item">عربي</a>
+                    <a href="catalog.html" class="product-link menu-item">Catalog</a>
+                    <a href="#digital-services" class="nav-link menu-item">Digital</a>
+                    <a href="#industrial-services" class="nav-link menu-item">Industrial</a>
+                    <a href="about.html" class="nav-link menu-item">Our Team</a>
+                    <a href="privacy.html" class="nav-link menu-item" style="font-size: 13px; opacity: 0.9;">Privacy Policy</a>
+                    <a href="#contact" class="nav-link menu-item">Contact Us</a>
+                    <a href="index.html" class="text-red-600 font-bold md:hidden menu-item">العربية</a>
                 </div>
             </div>
             
             <div class="flex items-center gap-4">
-                <a href="index.html" class="hidden md:block text-red-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">عربي</a>
-                
-                <div class="burger-icon md:hidden" id="burger-btn">
+                <a href="index.html" class="hidden md:block text-red-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">العربية</a>
+                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
                 </div>
-
                 <div class="hidden md:block">
                     <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
             </div>
@@ -87,7 +104,7 @@
         <div class="container mx-auto">
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">Blending elegance with innovation in Fashion & Digital Services.</p>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">Blending Elegance and Innovation in Fashion & Digital Services.</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> Facebook</a>
                 <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> Instagram</a>
@@ -99,24 +116,24 @@
     <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
         <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Digital Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600 leading-relaxed">Professional management to boost engagement and build a real community.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600 leading-relaxed">Visual and written content that captures attention and reflects your identity.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">Video Editing</h3><p class="text-gray-600 leading-relaxed">Transforming your footage into cinematic videos for all platforms.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600">Managing your platforms professionally to increase engagement.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600">Innovating visual and written content that captures attention.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Video Editing</h3><p class="text-gray-600">Turning your clips into attractive cinematic videos.</p></div>
         </div>
     </section>
 
     <section id="industrial-services" class="py-20 bg-white px-6 text-center">
         <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Industrial Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600 leading-relaxed">Innovative designs that meet your expectations and highlight your identity.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Garment Production</h3><p class="text-gray-600 leading-relaxed">Comprehensive production solutions from cutting to final assembly.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600 leading-relaxed">Ensuring excellence through rigorous inspection and precise standards.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600">Creating modern fashion designs that meet our clients' aspirations.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Garment Production</h3><p class="text-gray-600">Offering comprehensive production solutions from cutting to assembly.</p></div>
+            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600">Ensuring final quality through strict inspection and precise standards.</p></div>
         </div>
     </section>
 
     <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10">
-            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">Dokki, Giza, Egypt</p></div>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-left">
+            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">Suleiman Abaza St, Dokki, Giza, Egypt</p></div>
             <div>
                 <h4 class="text-xl font-bold mb-4 text-white">Contact Us</h4>
                 <p class="text-lg mb-1">+20 100 128 3311</p>
@@ -126,11 +143,11 @@
             </div>
             <div>
                 <h4 class="text-xl font-bold mb-4 text-white">Quick Links</h4>
-                <a href="en-privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">Privacy Policy</a>
-                <a href="en-about.html" class="block text-gray-400 hover:text-white underline">About Us</a>
+                <a href="privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">Privacy Policy</a>
+                <a href="about.html" class="block text-gray-400 hover:text-white underline">About Us</a>
             </div>
         </div>
-        <p class="mt-10 text-gray-600 text-sm font-bold">All Rights Reserved to DeSina Company © 2026</p>
+        <p class="mt-10 text-gray-600 text-sm font-bold">All rights reserved to DeSina © 2026</p>
     </footer>
 
     <script>
@@ -138,18 +155,22 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
 
-        burgerBtn.addEventListener('click', () => {
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('active');
         });
 
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
-                if(window.innerWidth <= 768) {
-                    mobileMenu.classList.remove('active');
-                }
+                mobileMenu.classList.remove('active');
             });
         });
-    </script>
 
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
