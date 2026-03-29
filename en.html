@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; }
         .hero-section {
             background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
             background-size: cover; background-position: center; background-attachment: fixed;
@@ -19,7 +19,7 @@
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
+        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
 
         /* Cart Icon Styling */
@@ -40,7 +40,7 @@
                 width: 32%; 
                 position: fixed; 
                 top: 64px; 
-                right: 0; 
+                right: 0; /* Menu on the right for English */
                 height: 65vh; 
                 background: rgba(45, 45, 48, 0.97); 
                 backdrop-filter: blur(12px);
@@ -68,24 +68,6 @@
             position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
             border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
-        }
-
-        /* --- English Dark Mode Intelligence --- */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #f3f4f6; }
-            nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
-            .nav-link { color: #e5e7eb !important; }
-            #digital-services { background-color: #181818 !important; }
-            #industrial-services { background-color: #121212 !important; }
-            .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; border-top-color: #ef4444; }
-            .service-card p { color: #9ca3af !important; }
-            .service-card h3 { color: #ffffff !important; }
-            .bg-white { background-color: #1a1a1a !important; }
-            .bg-gray-100 { background-color: #181818 !important; }
-            .text-gray-900, .text-gray-800 { color: #f3f4f6 !important; }
-            .text-gray-600 { color: #9ca3af !important; }
-            footer { background-color: #080808 !important; }
-            .cart-badge { background: #ef4444; color: #fff; }
         }
     </style>
 </head>
@@ -153,9 +135,9 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Digital Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600">We manage your platforms professionally to increase engagement and build an audience.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600">We create visual and written content that captures attention and reflects your identity.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Video Editing</h3><p class="text-gray-600">Transforming your footage into engaging cinematic videos for all platforms.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600">We manage your platforms professionally to increase engagement and build an audience.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600">We create visual and written content that captures attention and reflects your identity.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Video Editing</h3><p class="text-gray-600">Transforming your footage into engaging cinematic videos for all platforms.</p></div>
             </div>
         </div>
     </section>
@@ -164,9 +146,9 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Industrial Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600">We create modern fashion designs that meet our clients' aspirations and highlight their identity.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Clothing Production</h3><p class="text-gray-600">We offer comprehensive production solutions from cutting to final assembly.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600">We ensure the quality of final pieces through rigorous inspection and precise standards.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600">We create modern fashion designs that meet our clients' aspirations and highlight their identity.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Clothing Production</h3><p class="text-gray-600">We offer comprehensive production solutions from cutting to final assembly.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600">We ensure the quality of final pieces through rigorous inspection and precise standards.</p></div>
             </div>
         </div>
     </section>
