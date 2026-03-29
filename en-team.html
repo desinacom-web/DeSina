@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | DeSina</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
+        .nav-link:hover { color: #ef4444; }
+        .main-logo { height: 40px; border-radius: 8px; }
+        
+        /* English Compressed Menu (Right Side) */
+        @media (max-width: 768px) {
+            #mobile-menu { 
+                display: none; flex-direction: column; width: 32%; position: fixed; 
+                top: 64px; right: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); 
+                backdrop-filter: blur(12px); padding: 10px 5px; box-shadow: -5px 5px 15px rgba(0,0,0,0.3); 
+                z-index: 9999; border-left: 2px solid #ef4444; border-bottom-left-radius: 20px; overflow-y: auto;
+            }
+            #mobile-menu.active { display: flex !important; animation: slideInRight 0.4s ease-out; }
+            .nav-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; text-align: left; color: white !important; font-size: 14px; white-space: nowrap; }
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
+        .team-card { transition: 0.3s; overflow: hidden; border-top: 4px solid #ef4444; }
+        .team-card:hover { transform: translateY(-10px); }
+        .team-img { width: 100%; height: 320px; object-fit: cover; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4 relative">
+            <div class="flex items-center gap-6">
+                <a href="en.html"><img src="logo.jpg" class="main-logo"></a>
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
+                    <a href="en.html" class="nav-link menu-item">Home</a>
+                    <a href="catalog.html" class="nav-link menu-item">Catalog</a>
+                    <a href="en-team.html" class="nav-link menu-item text-red-600">Team</a>
+                    <a href="en-privacy.html" class="nav-link menu-item" style="font-size: 12px;">Privacy</a>
+                    <a href="en-about.html" class="nav-link menu-item">About</a>
+                    <a href="en.html#contact" class="nav-link menu-item">Contact</a>
+                    <a href="team.html" class="text-red-600 font-bold md:hidden menu-item">العربية</a>
+                </div>
+            </div>
+            <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
+                <i class="fas fa-bars text-2xl text-gray-700"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gray-900 text-white py-16 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4"><span class="text-red-600">DeSina</span> Team</h1>
+            <p class="text-xl text-gray-400">Creative minds making a difference in every content and design.</p>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="bg-white rounded-2xl shadow-lg team-card">
+                    <img src="team1.jpg" alt="Member" class="team-img">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Name Here</h3>
+                        <p class="text-red-600 font-bold">Job Title</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-white py-10 text-center border-t border-gray-800">
+        <p class="text-gray-500 text-sm font-bold">All rights reserved to DeSina © 2026</p>
+    </footer>
+
+    <script>
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuItems = document.querySelectorAll('.menu-item');
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
+        menuItems.forEach(item => { item.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
+        document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) { mobileMenu.classList.remove('active'); } });
+    </script>
+</body>
+</html>
