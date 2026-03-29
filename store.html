@@ -9,7 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; }
+        body { 
+            font-family: 'Cairo', sans-serif; background-color: #f8f9fa; 
+            -webkit-user-select: none; user-select: none; 
+            transition: background-color 0.3s, color 0.3s;
+        }
         img { pointer-events: none; -webkit-user-drag: none; }
         .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
         .store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
@@ -19,19 +23,39 @@
         .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
         .buy-btn:hover { background: #128c7e; }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
+
+        /* --- ذكاء الوضع الداكن للمتجر العربي --- */
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #121212; color: #f3f4f6; }
+            nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
+            .store-card { background-color: #1f1f1f !important; border-color: #333 !important; }
+            .product-img-container { background-color: #242424 !important; }
+            .store-card h3 { color: #ffffff !important; }
+            .text-gray-800 { color: #f3f4f6 !important; }
+            footer { background-color: #1a1a1a !important; color: #9ca3af !important; border-top-color: #333 !important; }
+            .badge { background: #ef4444; }
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
-                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition"><i class="fas fa-arrow-right"></i> الرئيسية</a>
+                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition">
+                   <i class="fas fa-arrow-right"></i> الرئيسية
+                </a>
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
-            <div class="text-red-600 text-2xl relative"><i class="fas fa-shopping-cart"></i><span class="badge absolute -top-2 -right-2">10</span></div>
+            <div class="text-red-600 text-2xl relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge absolute -top-2 -right-2">10</span>
+            </div>
         </div>
     </nav>
-    <section class="py-12 bg-gray-900 text-center"><h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1></section>
+    <section class="py-12 bg-gray-900 text-center">
+        <h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1>
+        <p class="text-gray-400 mt-2">أرقى الأزياء والمنتجات بين يديك</p>
+    </section>
     <div class="container mx-auto py-12 px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <script>
@@ -42,7 +66,9 @@
                             <div class="p-5 text-right">
                                 <h3 class="text-sm font-bold text-gray-800 mb-2">منتج ديسينا المميز ${i}</h3>
                                 <p class="text-red-600 font-extrabold text-lg mb-4">000 EGP</p>
-                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> اطلب</a>
+                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" target="_blank" class="buy-btn">
+                                    <i class="fab fa-whatsapp"></i> اطلب
+                                </a>
                             </div>
                         </div>
                     `);
@@ -50,5 +76,13 @@
             </script>
         </div>
     </div>
+    <footer class="bg-white py-8 text-center border-t border-gray-100">
+        <p class="text-gray-500 text-xs font-bold italic">DeSina - Excellence in Every Detail</p>
+    </footer>
+    <script>
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's')) { e.preventDefault(); }
+        });
+    </script>
 </body>
 </html>
