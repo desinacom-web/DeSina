@@ -22,7 +22,7 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* --- تعديل الشريط فقط (جيمو) --- */
+        /* --- تعديل المنيو (النسخة اللي مفيش بعدها) --- */
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
             .burger-icon { display: none !important; }
@@ -32,33 +32,31 @@
             #mobile-menu { 
                 display: none; 
                 flex-direction: column; 
-                width: 40%; /* العرض الكنز */
+                width: 40%; /* العرض */
                 position: fixed; 
-                top: 64px; /* يفتح تحت التلت شرطات بالظبط */
+                top: 64px; /* يفتح تحت التلت شرطات */
                 left: 0; 
-                height: 60vh; /* طول قصير عشان الواتساب */
-                background: rgba(45, 45, 48, 0.96); /* رمادي فخم */
-                backdrop-filter: blur(12px);
+                height: 60vh; /* طول قصير */
+                background: rgba(45, 45, 48, 0.95); /* رمادي أفتح سنة */
+                backdrop-filter: blur(10px);
                 padding: 20px 10px; 
                 box-shadow: 5px 5px 15px rgba(0,0,0,0.3); 
                 z-index: 1000; 
                 border-right: 2px solid #ef4444;
-                border-bottom-right-radius: 20px; /* انحناء شيك */
+                border-bottom-right-radius: 20px;
                 overflow-y: auto;
             }
             #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
             .nav-link, .product-link { 
-                padding: 10px 5px; 
-                border-bottom: 1px solid rgba(255,255,255,0.05); 
+                padding: 8px 5px; 
+                border-bottom: 1px solid rgba(255,255,255,0.1); 
                 width: 100%; 
                 text-align: right; 
                 color: white !important;
-                font-size: 14px; /* خط ميني ناعم */
+                font-size: 14px;
             }
         }
-
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        /* --- نهاية تعديل الشريط --- */
 
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF;
@@ -77,12 +75,12 @@
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="main-logo">
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8">
                     <a href="catalog.html" class="product-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
                     <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
                     <a href="about.html" class="nav-link menu-item">فريق العمل</a>
-                    <a href="privacy.html" class="nav-link menu-item opacity-80" style="font-size: 12px;">سياسة الخصوصية</a>
+                    <a href="privacy.html" class="nav-link menu-item" style="font-size: 12px; opacity: 0.8;">سياسة الخصوصية</a>
                     <a href="#contact" class="nav-link menu-item">اتصل بنا</a>
                     <a href="en.html" class="text-blue-400 font-bold md:hidden menu-item">English</a>
                 </div>
@@ -90,11 +88,9 @@
             
             <div class="flex items-center gap-4">
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
-                
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
                 </div>
-
                 <div class="hidden md:block">
                     <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
                         <i class="fab fa-whatsapp"></i> تواصل معنا
@@ -126,32 +122,7 @@
         </div>
     </section>
 
-    <section id="industrial-services" class="py-20 bg-white px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الصناعية</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">تصميم الأزياء</h3><p class="text-gray-600">نبتكر تصاميم أزياء عصرية تلبي تطلعات عملائنا وتبرز هويتهم.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">ضبط الجودة</h3><p class="text-gray-600">نضمن جودة القطع النهائية من خلال تفتيش صارم ومعايير دقيقة.</p></div>
-        </div>
-    </section>
-
     <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10">
-            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p></div>
-            <div dir="rtl">
-                <h4 class="text-xl font-bold mb-4 text-white">تواصل معنا</h4>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 100 128 3311</p>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 111 568 0003</p>
-                <p class="text-gray-400 text-sm">info@desina.net</p>
-                <p class="text-gray-400 text-sm mb-4">desina.com@gmail.com</p>
-                <a href="#" target="_blank" class="text-red-500 underline font-bold mt-4 block">موقعنا على الخريطة</a>
-            </div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">روابط هامة</h4>
-                <a href="privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">سياسة الخصوصية</a>
-                <a href="about.html" class="block text-gray-400 hover:text-white underline">حول الشركة</a>
-            </div>
-        </div>
         <p class="mt-10 text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
@@ -171,13 +142,11 @@
             });
         });
 
-        // قفل المنيو عند الضغط خارجها
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
                 mobileMenu.classList.remove('active');
             }
         });
     </script>
-
 </body>
 </html>
