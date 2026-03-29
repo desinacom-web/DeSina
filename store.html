@@ -9,99 +9,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Cairo', sans-serif; background-color: #f8f9fa;
-            -webkit-user-select: none; user-select: none; /* منع التظليل */
-        }
-        
-        /* حماية الصور الذكية */
-        img { pointer-events: none; -webkit-touch-callout: none; -webkit-user-drag: none; }
-
-        .store-card { 
-            background: white; border-radius: 20px; overflow: hidden; 
-            transition: 0.4s; border: 1px solid #f0f0f0; position: relative;
-        }
-        .store-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        
-        .product-img-container { width: 100%; height: 200px; background: #fff; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; }
+        img { pointer-events: none; -webkit-user-drag: none; }
+        .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
+        .store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .product-img-container { width: 100%; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .product-img { width: 85%; height: 85%; object-fit: contain; transition: 0.5s; }
         .store-card:hover .product-img { transform: scale(1.1); }
-
-        .price-tag { color: #ef4444; font-weight: 800; font-size: 1.25rem; }
-        
-        .buy-btn { 
-            background: #25d366; color: white; padding: 12px; border-radius: 12px; 
-            font-weight: bold; display: flex; align-items: center; justify-content: center; 
-            gap: 10px; transition: 0.3s; width: 100%;
-        }
-        .buy-btn:hover { background: #128c7e; transform: scale(1.02); }
-
-        .cart-header-icon { color: #ef4444; font-size: 26px; position: relative; }
-        .badge { position: absolute; top: -10px; right: -12px; background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
-
-        @media (max-width: 768px) {
-            .grid-cols-custom { grid-template-cols: repeat(2, 1fr); gap: 12px; }
-            .product-img-container { height: 150px; }
-        }
+        .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
+        .buy-btn:hover { background: #128c7e; }
+        .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
     </style>
 </head>
-<body oncontextmenu="return false;"> <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
+<body oncontextmenu="return false;">
+    <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
-                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition">
-                   <i class="fas fa-arrow-right"></i> الرئيسية
-                </a>
+                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition"><i class="fas fa-arrow-right"></i> الرئيسية</a>
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
-            
-            <div class="cart-header-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge">10</span>
-            </div>
+            <div class="text-red-600 text-2xl relative"><i class="fas fa-shopping-cart"></i><span class="badge absolute -top-2 -right-2">10</span></div>
         </div>
     </nav>
-
-    <section class="py-12 bg-gray-900 text-center">
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1>
-        <p class="text-gray-400 mt-3">اختر منتجك المفضل وسنقوم بتوصيله لك</p>
-    </section>
-
+    <section class="py-12 bg-gray-900 text-center"><h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1></section>
     <div class="container mx-auto py-12 px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8 grid-cols-custom">
-            
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <script>
                 for (let i = 1; i <= 10; i++) {
                     document.write(`
                         <div class="store-card">
-                            <div class="product-img-container">
-                                <img src="logo.jpg" class="product-img" alt="Product">
-                            </div>
+                            <div class="product-img-container"><img src="logo.jpg" class="product-img"></div>
                             <div class="p-5 text-right">
-                                <h3 class="text-base font-bold text-gray-800 mb-2">منتج ديسينا الراقي ${i}</h3>
-                                <p class="price-tag mb-4">000 EGP</p>
-                                <a href="https://wa.me/201001283311?text=أرغب في الاستفسار عن المنتج رقم ${i}" target="_blank" class="buy-btn">
-                                    <i class="fab fa-whatsapp text-xl"></i> اطلب الآن
-                                </a>
+                                <h3 class="text-sm font-bold text-gray-800 mb-2">منتج ديسينا المميز ${i}</h3>
+                                <p class="text-red-600 font-extrabold text-lg mb-4">000 EGP</p>
+                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> اطلب</a>
                             </div>
                         </div>
                     `);
                 }
             </script>
-
         </div>
     </div>
-
-    <footer class="bg-gray-50 py-8 text-center border-t border-gray-100">
-        <p class="text-gray-500 text-sm font-bold italic">DeSina - Quality and Elegance</p>
-    </footer>
-
-    <script>
-        // حماية الاختصارات (Ctrl+C, Ctrl+U) بدون التأثير على Reload
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's')) {
-                e.preventDefault();
-            }
-        });
-    </script>
 </body>
 </html>
