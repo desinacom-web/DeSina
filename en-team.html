@@ -14,7 +14,15 @@
         .nav-link:hover { color: #ef4444; }
         .main-logo { height: 40px; border-radius: 8px; }
         
-        /* English Compressed Menu (Right Side) */
+        /* Back Button Style */
+        .back-btn {
+            display: flex; align-items: center; gap: 8px; color: #ef4444; 
+            font-weight: bold; transition: 0.3s; border: 1px solid #ef4444;
+            padding: 5px 12px; border-radius: 20px; font-size: 14px;
+        }
+        .back-btn:hover { background: #ef4444; color: white; }
+
+        /* Compressed Menu (English - Right Side) */
         @media (max-width: 768px) {
             #mobile-menu { 
                 display: none; flex-direction: column; width: 32%; position: fixed; 
@@ -27,21 +35,26 @@
         }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        .team-card { transition: 0.3s; overflow: hidden; border-top: 4px solid #ef4444; }
-        .team-card:hover { transform: translateY(-10px); }
-        .team-img { width: 100%; height: 320px; object-fit: cover; }
+        /* Small Team Cards */
+        .team-card { transition: 0.3s; overflow: hidden; border-top: 3px solid #ef4444; background: white; border-radius: 15px; }
+        .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .team-img { width: 100%; height: 150px; object-fit: contain; background: #f9f9f9; padding: 20px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4">
+                <a href="en.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
                 <a href="en.html"><img src="logo.jpg" class="main-logo"></a>
+                
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
-                    <a href="en.html" class="nav-link menu-item">Home</a>
-                    <a href="catalog.html" class="nav-link menu-item">Catalog</a>
-                    <a href="en-team.html" class="nav-link menu-item text-red-600">Team</a>
+                    <a href="en.html" class="nav-link menu-item text-red-600">Home</a>
+                    <a href="en-catalog.html" class="nav-link menu-item">Catalog</a>
+                    <a href="en-team.html" class="nav-link menu-item font-bold">Team</a>
                     <a href="en-privacy.html" class="nav-link menu-item" style="font-size: 12px;">Privacy</a>
                     <a href="en-about.html" class="nav-link menu-item">About</a>
                     <a href="en.html#contact" class="nav-link menu-item">Contact</a>
@@ -54,29 +67,38 @@
         </div>
     </nav>
 
-    <section class="bg-gray-900 text-white py-16 text-center">
+    <section class="bg-gray-900 text-white py-12 text-center">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4"><span class="text-red-600">DeSina</span> Team</h1>
-            <p class="text-xl text-gray-400">Creative minds making a difference in every content and design.</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-3"><span class="text-red-600">DeSina</span> Team</h1>
+            <p class="text-lg text-gray-400">Creative Minds Making an Impact</p>
         </div>
     </section>
 
-    <section class="py-20 px-6">
+    <section class="py-12 px-6">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <div class="bg-white rounded-2xl shadow-lg team-card">
-                    <img src="team1.jpg" alt="Member" class="team-img">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Name Here</h3>
-                        <p class="text-red-600 font-bold">Job Title</p>
-                    </div>
-                </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                
+                <script>
+                    for (let i = 1; i <= 10; i++) {
+                        document.write(`
+                            <div class="team-card shadow-sm">
+                                <img src="logo.jpg" alt="DeSina Team" class="team-img">
+                                <div class="p-4">
+                                    <h3 class="text-lg font-bold mb-1">Team Member ${i}</h3>
+                                    <p class="text-red-600 text-sm font-bold">Job Title</p>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-10 text-center border-t border-gray-800">
-        <p class="text-gray-500 text-sm font-bold">All rights reserved to DeSina © 2026</p>
+    <footer class="bg-gray-950 text-white py-8 text-center border-t border-gray-800">
+        <a href="en.html" class="text-red-600 font-bold text-xl block mb-2">DeSina</a>
+        <p class="text-gray-500 text-xs font-bold">All rights reserved to DeSina © 2026</p>
     </footer>
 
     <script>
