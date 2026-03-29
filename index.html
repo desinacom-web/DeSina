@@ -34,26 +34,26 @@
                 flex-direction: column; 
                 width: 40%; 
                 position: fixed; 
-                top: 0; 
+                top: 64px; /* التكة هنا: خليناها تبدأ من تحت الناف بار (تعديل الارتفاع حسب الحاجة) */
                 left: 0; 
-                height: 65vh; /* التعديل هنا: المنيو بقت قصيرة (65% من طول الشاشة) */
+                height: 60vh; /* نفس الحجم اللي عجبك */
                 background: rgba(45, 45, 48, 0.96); 
                 backdrop-filter: blur(12px);
-                padding: 70px 15px 20px; 
+                padding: 20px 15px; /* قللنا البادنج اللي فوق عشان بدأت من تحت */
                 box-shadow: 5px 5px 15px rgba(0,0,0,0.3); 
                 z-index: 1000; 
                 border-right: 2px solid #ef4444;
-                border-bottom-right-radius: 20px; /* انحناء شيك من تحت */
+                border-bottom-right-radius: 20px;
                 overflow-y: auto;
             }
             #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
             .nav-link, .product-link { 
-                padding: 8px 5px; 
+                padding: 10px 5px; 
                 border-bottom: 1px solid rgba(255,255,255,0.05); 
                 width: 100%; 
                 text-align: right; 
                 color: white !important;
-                font-size: 14px; /* خط ميني وأنيق */
+                font-size: 14px;
             }
         }
 
@@ -76,7 +76,7 @@
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="main-logo">
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8">
                     <a href="catalog.html" class="product-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
                     <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
@@ -106,20 +106,6 @@
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء والخدمات الرقمية.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> فيسبوك</a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> انستجرام</a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> يوتيوب</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3><p class="text-gray-600">نبتكر محتوى مرئي ومكتوب يجذب الأنظار ويعبر عن هويتكم.</p></div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
         </div>
     </section>
 
