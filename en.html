@@ -1,86 +1,118 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ديسينا | DeSina</title>
+    <title>DeSina | Home</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: 0.3s; }
-        .hero-section { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%); background-size: cover; background-position: center; background-attachment: fixed; }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; }
+        .hero-section {
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
+        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
-        .cart-icon { color: #ef4444; font-size: 22px; position: relative; }
+
+        /* Cart Icon Styling */
+        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
+        .cart-icon:hover { transform: scale(1.1); }
         .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
 
-        /* --- ستايل الزرار الميكس (تثبيت جراحي) --- */
-        .mode-toggle { width: 44px; height: 22px; background: #e2e8f0; border-radius: 20px; position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 1px solid #ccc; }
-        .mode-circle { width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; right: 2px; transition: 0.4s; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.2); z-index: 2; }
-        .mode-toggle i { font-size: 9px; }
-        
-        /* --- وضع الدارك مانيوال --- */
-        body.dark { background-color: #121212; color: #f3f4f6; }
-        body.dark nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
-        body.dark .nav-link { color: #e5e7eb !important; }
-        body.dark .service-card { background-color: #1f1f1f !important; color: white !important; }
-        body.dark .bg-white, body.dark .bg-gray-100 { background-color: #181818 !important; }
-        body.dark .text-gray-900, body.dark .text-gray-800 { color: #f3f4f6 !important; }
-        body.dark footer { background-color: #080808 !important; }
-        body.dark .mode-toggle { background: #334155; border-color: #ef4444; }
-        body.dark .mode-circle { right: 24px; background: #1e293b; }
-
-        /* المنيو 32% المعتمدة */
-        @media (max-width: 768px) {
-            #mobile-menu { display: none; flex-direction: column; width: 32%; position: fixed; top: 64px; left: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); backdrop-filter: blur(12px); z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; overflow-y: auto; }
-            #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
-            .nav-link, .product-link { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); color: white !important; text-align: right; width: 100%; display: block; font-size: 14px; }
+        /* --- Jimmy's Approved Menu (English - Compressed to Right) --- */
+        @media (min-width: 769px) {
+            #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
+            .burger-icon { display: none !important; }
         }
-        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1001; }
+
+        @media (max-width: 768px) {
+            #mobile-menu { 
+                display: none; 
+                flex-direction: column; 
+                width: 32%; 
+                position: fixed; 
+                top: 64px; 
+                right: 0; /* Menu on the right for English */
+                height: 65vh; 
+                background: rgba(45, 45, 48, 0.97); 
+                backdrop-filter: blur(12px);
+                padding: 10px 5px; 
+                box-shadow: -5px 5px 15px rgba(0,0,0,0.3); 
+                z-index: 9999; 
+                border-left: 2px solid #ef4444;
+                border-bottom-left-radius: 20px;
+                overflow-y: auto;
+            }
+            #mobile-menu.active { display: flex !important; animation: slideInRight 0.4s ease-out; }
+            .nav-link, .product-link { 
+                padding: 6px 8px; 
+                border-bottom: 1px solid rgba(255,255,255,0.05); 
+                width: 100%; 
+                text-align: left; 
+                color: white !important;
+                font-size: 14px;
+                white-space: nowrap; 
+            }
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
+            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
+            display: flex; align-items: center; justify-content: center; transition: 0.3s;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
-                <a href="index.html"><img src="logo.jpg" class="main-logo"></a>
-                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
-                    <a href="store.html" class="product-link menu-item"><i class="fas fa-shopping-cart ml-1"></i> المتجر</a>
-                    <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
-                    <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
-                    <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
-                    <a href="team.html" class="nav-link menu-item">فريق العمل</a> 
-                    <a href="about.html" class="nav-link menu-item">حول</a>
+                <a href="en.html"><img src="logo.jpg" class="main-logo"></a>
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
+                    <a href="en-store.html" class="product-link menu-item"><i class="fas fa-shopping-cart mr-1"></i> Store</a>
+                    <a href="en-catalog.html" class="nav-link menu-item">Catalog</a>
+                    <a href="#digital-services" class="nav-link menu-item">Digital</a>
+                    <a href="#industrial-services" class="nav-link menu-item">Industrial</a>
+                    <a href="en-team.html" class="nav-link menu-item">Team</a> 
+                    <a href="en-privacy.html" class="nav-link menu-item" style="font-size: 12px;">Privacy Policy</a>
+                    <a href="en-about.html" class="nav-link menu-item">About</a>
+                    <a href="#contact" class="nav-link menu-item">Contact</a>
+                    <a href="index.html" class="text-red-600 font-bold md:hidden menu-item">العربية</a>
                 </div>
             </div>
-            
             <div class="flex items-center gap-4">
-                <div class="mode-toggle" id="themeToggle">
-                    <i class="fas fa-moon moon-icon-bg" style="color: #94a3b8;"></i>
-                    <div class="mode-circle"><i class="fas fa-sun inner-icon" id="innerIcon" style="color: #f59e0b;"></i></div>
-                    <i class="fas fa-sun sun-icon-bg" style="color: #f59e0b;"></i>
-                </div>
-
-                <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
-                
-                <a href="store.html" class="cart-icon">
+                <a href="en-store.html" class="hidden md:block cart-icon ml-2">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">10</span>
                 </a>
 
+                <a href="index.html" class="hidden md:block text-red-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">العربية</a>
+                
+                <a href="en-store.html" class="md:hidden cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" style="font-size: 8px; top: -5px; right: -7px;">10</span>
+                </a>
+
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
+                </div>
+                <div class="hidden md:block">
+                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -89,58 +121,74 @@
     <section class="hero-section text-white py-20 text-center px-4">
         <div class="container mx-auto">
             <img src="logo.jpg" class="hero-logo">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء.</p>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Welcome to <span class="text-red-600">DeSina</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">Blending Elegance and Innovation in Fashion and Digital Services.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://youtube.com/@de_sina" target="_blank" class="bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
         </div>
     </section>
 
     <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Digital Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إدارة الحسابات</h3><p>ندير منصاتكم باحترافية كاملة.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">صناعة المحتوى</h3><p>نبتكر محتوى مرئي يجذب الأنظار.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">مونتاج الفيديو</h3><p>تحويل لقطاتكم إلى فيديوهات سينمائية.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Account Management</h3><p class="text-gray-600">We manage your platforms professionally to increase engagement and build an audience.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3><p class="text-gray-600">We create visual and written content that captures attention and reflects your identity.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Video Editing</h3><p class="text-gray-600">Transforming your footage into engaging cinematic videos for all platforms.</p></div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-16 text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
-            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p></div>
-            <div><h4 class="text-xl font-bold mb-4">تواصل معنا</h4><p style="direction: ltr;">+20 100 128 3311</p></div>
-            <div><h4 class="text-xl font-bold mb-4">روابط هامة</h4><a href="privacy.html" class="block text-gray-400 underline">سياسة الخصوصية</a></div>
+    <section id="industrial-services" class="py-20 bg-white px-6 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">Industrial Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Fashion Design</h3><p class="text-gray-600">We create modern fashion designs that meet our clients' aspirations and highlight their identity.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Clothing Production</h3><p class="text-gray-600">We offer comprehensive production solutions from cutting to final assembly.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">Quality Control</h3><p class="text-gray-600">We ensure the quality of final pieces through rigorous inspection and precise standards.</p></div>
+            </div>
         </div>
-        <p class="mt-10 text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
+    </section>
+
+    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-left">
+            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">Soliman Abaza, Dokki, Giza, Egypt</p></div>
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-white">Contact Us</h4>
+                <p class="text-lg mb-1">+20 100 128 3311</p>
+                <p class="text-lg mb-1">+20 111 568 0003</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-white">Quick Links</h4>
+                <a href="en-privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">Privacy Policy</a>
+                <a href="en-about.html" class="block text-gray-400 hover:text-white underline">About Company</a>
+            </div>
+        </div>
+        <p class="mt-10 text-gray-600 text-sm font-bold">All rights reserved to DeSina © 2026</p>
     </footer>
 
     <script>
-        // المنيو
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+        const menuItems = document.querySelectorAll('.menu-item');
 
-        // التبديل والذاكرة
-        const themeToggle = document.getElementById('themeToggle');
-        const innerIcon = document.getElementById('innerIcon');
-        const body = document.body;
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+        });
 
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark');
-            innerIcon.classList.replace('fa-sun', 'fa-moon');
-            innerIcon.style.color = '#ef4444';
-        }
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            if (body.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                innerIcon.classList.replace('fa-sun', 'fa-moon');
-                innerIcon.style.color = '#ef4444';
-            } else {
-                localStorage.setItem('theme', 'light');
-                innerIcon.classList.replace('fa-moon', 'fa-sun');
-                innerIcon.style.color = '#f59e0b';
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
             }
         });
     </script>
