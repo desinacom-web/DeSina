@@ -9,11 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Cairo', sans-serif; background-color: #f8f9fa; 
-            -webkit-user-select: none; user-select: none; 
-            transition: background-color 0.3s, color 0.3s;
-        }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; }
         img { pointer-events: none; -webkit-user-drag: none; }
         .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
         .store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
@@ -23,18 +19,6 @@
         .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
         .buy-btn:hover { background: #128c7e; }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
-
-        /* --- English Dark Mode Intelligence --- */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #f3f4f6; }
-            nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
-            .store-card { background-color: #1f1f1f !important; border-color: #333 !important; }
-            .product-img-container { background-color: #242424 !important; }
-            .store-card h3 { color: #ffffff !important; }
-            .text-gray-800 { color: #f3f4f6 !important; }
-            footer { background-color: #1a1a1a !important; color: #9ca3af !important; border-top-color: #333 !important; }
-            .badge { background: #ef4444; }
-        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -42,7 +26,7 @@
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
                 <a href="en.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition">
-                   Home <i class="fas fa-arrow-left"></i>
+                    Home <i class="fas fa-arrow-left"></i>
                 </a>
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
@@ -64,7 +48,7 @@
                         <div class="store-card">
                             <div class="product-img-container"><img src="logo.jpg" class="product-img"></div>
                             <div class="p-5 text-left">
-                                <h3 class="text-sm font-bold text-gray-800 mb-2">DeSina Premium Item ${i}</h3>
+                                <h3 class="text-sm font-bold text-gray-800 mb-2">Premium DeSina Product ${i}</h3>
                                 <p class="text-red-600 font-extrabold text-lg mb-4">000 EGP</p>
                                 <a href="https://wa.me/201001283311?text=Order Product No. ${i}" target="_blank" class="buy-btn">
                                     <i class="fab fa-whatsapp"></i> Order Now
@@ -76,8 +60,8 @@
             </script>
         </div>
     </div>
-    <footer class="bg-white py-8 text-center border-t border-gray-100">
-        <p class="text-gray-500 text-xs font-bold italic">DeSina - Quality & Elegance Everywhere</p>
+    <footer class="bg-white py-8 text-center border-t border-gray-100 text-gray-400 text-xs font-bold">
+        All rights reserved to DeSina © 2026
     </footer>
     <script>
         document.addEventListener('keydown', function(e) {
