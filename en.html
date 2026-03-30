@@ -68,7 +68,24 @@
             position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
             border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
-    </style>
+</style>
+    /* --- سحر الوضع الداكن التلقائي --- */
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #121212; color: #f3f4f6; }
+            nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
+            .nav-link { color: #e5e7eb !important; }
+            #digital-services { background-color: #181818 !important; }
+            #industrial-services { background-color: #121212 !important; }
+            .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; border-top-color: #ef4444; }
+            .service-card p { color: #9ca3af !important; }
+            .service-card h3 { color: #ffffff !important; }
+            .bg-white { background-color: #1a1a1a !important; }
+            .bg-gray-100 { background-color: #181818 !important; }
+            .text-gray-900, .text-gray-800 { color: #f3f4f6 !important; }
+            .text-gray-600 { color: #9ca3af !important; }
+            footer { background-color: #080808 !important; }
+            .cart-badge { background: #ef4444; color: #fff; }
+        }
 </head>
 <body class="bg-gray-50 text-gray-900">
 
