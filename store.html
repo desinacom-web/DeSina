@@ -18,82 +18,76 @@
         .product-img-container { width: 100%; height: 180px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
         .product-img { width: 90%; height: 90%; object-fit: contain; transition: 0.5s; }
         
-        /* زرار الواتساب (اطلب) */
-        .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; position: relative; z-index: 10; }
+        /* زرار الإضافة للسلة */
+        .buy-btn { background: #25d366; color: white; padding: 12px; border-radius: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; width: 100%; position: relative; z-index: 10; font-size: 15px; border: none; }
         .buy-btn:hover { background: #128c7e; }
         
-        /* شارة السلة الديناميكية */
+        /* السلة اللي فوق - بقت زرار إنهاء الطلب */
+        .cart-trigger { cursor: pointer; transition: 0.3s; }
+        .cart-trigger:hover { transform: scale(1.1); }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; display: none; }
 
-        /* --- نظام تكبير الصور (Lightbox) --- */
-        #lightbox {
-            display: none; position: fixed; z-index: 10000;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center; align-items: center;
-        }
+        /* --- Lightbox --- */
+        #lightbox { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; }
         #lightbox.active { display: flex; }
-        #lightbox-img { max-width: 90%; max-height: 70%; border-radius: 15px; object-fit: contain; border: 2px solid rgba(255,255,255,0.1); }
-        
+        #lightbox-img { max-width: 90%; max-height: 70%; border-radius: 15px; object-fit: contain; }
         .lightbox-close { position: absolute; top: 30px; right: 30px; color: white; font-size: 35px; cursor: pointer; z-index: 10001; }
         .lightbox-nav { position: absolute; top: 50%; color: white; font-size: 30px; background: rgba(255,255,255,0.1); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; transform: translateY(-50%); z-index: 10001; }
-        .prev { left: 15px; }
-        .next { right: 15px; }
+        .prev { left: 15px; } .next { right: 15px; }
 
-        /* رسالة التأكيد (Toast) */
-        #toast {
-            display: none; position: fixed; top: 20px; left: 50%;
-            transform: translateX(-50%); background-color: #10b981; color: white;
-            padding: 10px 20px; border-radius: 50px; font-weight: bold;
-            z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+        /* Toast */
+        #toast { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #10b981; color: white; padding: 10px 25px; border-radius: 50px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; }
         #toast.active { display: block; animation: slideDown 0.4s ease; }
-        @keyframes slideDown { from { top: -50px; } to { top: 20px; } }
+        @keyframes slideDown { from { top: -60px; } to { top: 20px; } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <div id="toast">تم إضافة طلبك للسلة!</div>
+    <div id="toast"><i class="fas fa-check-circle mr-1"></i> تم إضافة المنتج للسلة! اضغط على السلة لإنهاء الطلب</div>
 
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
                 <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base"><i class="fas fa-arrow-right"></i> الرئيسية</a>
-                <img src="logo.jpg" style="height: 35px; border-radius: 8px;">
+                <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
-            <div class="text-red-600 text-2xl relative">
+            <div class="cart-trigger text-red-600 text-2xl relative" onclick="sendOrderToWhatsApp()">
                 <i class="fas fa-shopping-cart"></i>
                 <span id="cart-badge" class="badge absolute -top-2 -right-2">0</span>
             </div>
         </div>
     </nav>
 
-    <section class="py-10 bg-gray-900 text-center">
-        <h1 class="text-white text-3xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1>
+    <section class="py-12 bg-gray-900 text-center px-4">
+        <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-3">متجر <span class="text-red-600">DeSina</span></h1>
+        <p class="text-gray-400 text-sm md:text-base font-bold">تسوق الآن أحدث تشكيلاتنا العصرية وخدماتنا المبتكرة.</p>
     </section>
 
-    <div class="container mx-auto py-10 px-4">
+    <div class="container mx-auto py-12 px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <script>
-                // محاكاة المنتجات المرفوعة عندك
-                for (let i = 1; i <= 10; i++) {
+                const productNames = [
+                    "موديل ديسينا COD-01", "موديل ديسينا COD-02", "موديل ديسينا COD-03",
+                    "موديل ديسينا COD-04", "موديل ديسينا COD-05", "موديل ديسينا COD-06",
+                    "موديل ديسينا COD-07", "موديل ديسينا COD-08", "موديل ديسينا COD-09",
+                    "موديل ديسينا COD-10"
+                ];
+
+                for (let i = 0; i < productNames.length; i++) {
                     document.write(`
-                        <div class="store-card" onclick="openLightbox(${i-1})">
+                        <div class="store-card" onclick="openLightbox(${i})">
                             <div class="product-img-container">
-                                <img src="logo.jpg" class="product-img" id="img-${i-1}">
+                                <img src="logo.jpg" class="product-img" id="img-${i}">
                                 <div class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                                     <i class="fas fa-expand text-white text-xl"></i>
                                 </div>
                             </div>
-                            <div class="p-4 text-right">
-                                <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">منتج ديسينا المميز ${i}</h3>
-                                <p class="text-red-600 font-extrabold text-base md:text-lg mb-3">000 EGP</p>
-                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" 
-                                   target="_blank" 
-                                   class="buy-btn" 
-                                   onclick="addToCart(event)">
-                                   <i class="fab fa-whatsapp"></i> اطلب
-                                </a>
+                            <div class="p-5 text-right">
+                                <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">${productNames[i]}</h3>
+                                <p class="text-red-600 font-extrabold text-base md:text-lg mb-4">000 EGP</p>
+                                <button class="buy-btn" onclick="addToCart('${productNames[i]}', event)">
+                                   <i class="fas fa-shopping-cart"></i> اطلب الآن
+                                </button>
                             </div>
                         </div>
                     `);
@@ -110,27 +104,52 @@
     </div>
 
     <script>
-        // --- نظام السلة الديناميكي ---
-        let count = 0;
+        // --- اللعبة الجديدة: نظام الطلب المجمع عبر الواتساب ---
+        let cartItems = [];
         const badge = document.getElementById('cart-badge');
         const toast = document.getElementById('toast');
 
-        function addToCart(e) {
-            e.stopPropagation(); // يمنع تكبير الصورة لما تدوس على الزرار
-            count++;
-            badge.innerText = count;
+        function addToCart(productName, e) {
+            e.stopPropagation(); // منع تكبير الصورة
+            cartItems.push(productName);
+            badge.innerText = cartItems.length;
             badge.style.display = 'block';
             
-            // إظهار الرسالة
             toast.classList.add('active');
             setTimeout(() => toast.classList.remove('active'), 2500);
         }
 
-        // --- نظام تكبير الصور (Gallery) ---
-        let currentIndex = 0;
-        const images = []; // هنجمع الصور هنا
-        for(let i=0; i<10; i++) images.push("logo.jpg"); // استبدل بمسارات صورك الحقيقية
+        function sendOrderToWhatsApp() {
+            if (cartItems.length === 0) {
+                alert("السلة فاضية! اختار منتجاتك الأول يا بطل.");
+                return;
+            }
 
+            const phoneNumber = "201001283311";
+            let message = "أهلاً ديسينا، حابب أطلب المنتجات دي:\n\n";
+            
+            // تجميع المنتجات في الرسالة
+            cartItems.forEach((item, index) => {
+                message += `${index + 1}- ${item}\n`;
+            });
+
+            message += "\nبرجاء التواصل لتأكيد الطلب.";
+            
+            // تحويل الرسالة لرابط واتساب
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // فتح الواتساب
+            window.open(whatsappURL, '_blank');
+            
+            // اختياري: تصفير السلة بعد الإرسال
+            // cartItems = [];
+            // badge.style.display = 'none';
+        }
+
+        // --- نظام الجاليري ---
+        let currentIndex = 0;
+        const images = Array(10).fill("logo.jpg");
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
@@ -154,10 +173,7 @@
             lightboxImg.src = images[currentIndex];
         }
 
-        // قفل لما يدوس بره الصورة
-        lightbox.onclick = function(e) {
-            if(e.target == lightbox) closeLightbox();
-        }
+        lightbox.onclick = function(e) { if(e.target == lightbox) closeLightbox(); }
     </script>
 </body>
 </html>
