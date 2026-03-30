@@ -17,7 +17,6 @@
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .buy-btn { background: #25d366; color: white; padding: 12px; border-radius: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; width: 100%; position: relative; z-index: 10; font-size: 15px; border: none; }
         .buy-btn:hover { background: #128c7e; }
-        .cart-trigger { cursor: pointer; transition: 0.3s; }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; display: none; }
         #lightbox { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; }
         #lightbox.active { display: flex; }
@@ -30,9 +29,9 @@
         @keyframes slideDown { from { top: -60px; } to { top: 20px; } }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <div id="toast"><i class="fas fa-check-circle mr-1"></i> أضفت موديل رائع للسلة!</div>
+    <div id="toast">تم إضافة المنتج للسلة!</div>
 
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
@@ -40,48 +39,16 @@
                 <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base"><i class="fas fa-arrow-right"></i> الرئيسية</a>
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
-            <div class="cart-trigger text-red-600 text-2xl relative" onclick="sendOrderToWhatsApp()">
+            <div class="text-red-600 text-2xl relative cursor-pointer" onclick="sendOrderToWhatsApp()">
                 <i class="fas fa-shopping-cart"></i>
                 <span id="cart-badge" class="badge absolute -top-2 -right-2">0</span>
             </div>
         </div>
     </nav>
 
-    <section class="py-12 bg-gray-900 text-center px-4">
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-3">متجر <span class="text-red-600">DeSina</span></h1>
-        <p class="text-gray-400 text-sm md:text-base font-bold">تسوق الآن أحدث موديلاتنا العصرية واطلب مجموعتك المفضلة.</p>
-    </section>
-
     <div class="container mx-auto py-12 px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <script>
-                // قائمة الصور والموديلات من ملف الكتالوج
-                const models = [];
-                for(let i=1; i<=11; i++) {
-                    models.push({ name: `موديل شبابي COD-${i < 10 ? '0'+i : i}`, img: `cod${i}.jpeg` });
-                }
-
-                models.forEach((product, index) => {
-                    document.write(`
-                        <div class="store-card" onclick="openLightbox(${index})">
-                            <div class="product-img-container">
-                                <img src="${product.img}" class="product-img" id="img-${index}">
-                                <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                                    <i class="fas fa-search-plus text-white text-2xl"></i>
-                                </div>
-                            </div>
-                            <div class="p-4 text-right">
-                                <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">${product.name}</h3>
-                                <p class="text-red-600 font-extrabold text-base md:text-lg mb-4">000 EGP</p>
-                                <button class="buy-btn" onclick="addToCart('${product.name}', event)">
-                                   <i class="fas fa-shopping-cart"></i> اطلب الآن
-                                </button>
-                            </div>
-                        </div>
-                    `);
-                });
-            </script>
-        </div>
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            </div>
     </div>
 
     <div id="lightbox">
@@ -92,38 +59,68 @@
     </div>
 
     <script>
+        // --- 1. إعدادات المتجر (المفتاح السحري) ---
+        const totalModels = 11; // بكرة لما تزود صور، غير الرقم ده بس!
+        const productPrice = "1000 EGP"; // السعر الموحد لو حابب
+        const phoneNumber = "201001283311";
+
+        const grid = document.getElementById('product-grid');
+        const images = [];
+
+        // --- 2. توليد المنتجات أوتوماتيكياً ---
+        for (let i = 1; i <= totalModels; i++) {
+            const modelName = `موديل COD-${i < 10 ? '0' + i : i}`;
+            const imgSrc = `cod${i}.jpeg`;
+            images.push(imgSrc);
+
+            grid.innerHTML += `
+                <div class="store-card" onclick="openLightbox(${i-1})">
+                    <div class="product-img-container">
+                        <img src="${imgSrc}" class="product-img">
+                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 text-right">
+                        <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">${modelName}</h3>
+                        <p class="text-red-600 font-extrabold text-base md:text-lg mb-4">${productPrice}</p>
+                        <button class="buy-btn" onclick="addToCart('${modelName}', event)">
+                           <i class="fas fa-shopping-cart"></i> اطلب الآن
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 3. نظام السلة والواتساب ---
         let cartItems = [];
         const badge = document.getElementById('cart-badge');
         const toast = document.getElementById('toast');
-        const images = [];
-        for(let i=1; i<=11; i++) images.push(`cod${i}.jpeg`);
 
-        function addToCart(productName, e) {
+        function addToCart(name, e) {
             e.stopPropagation();
-            cartItems.push(productName);
+            cartItems.push(name);
             badge.innerText = cartItems.length;
             badge.style.display = 'block';
             toast.classList.add('active');
-            setTimeout(() => toast.classList.remove('active'), 2500);
+            setTimeout(() => toast.classList.remove('active'), 2000);
         }
 
         function sendOrderToWhatsApp() {
             if (cartItems.length === 0) {
-                alert("السلة فارغة! اختر موديلاتك أولاً.");
+                alert("السلة فاضية يا فنان!");
                 return;
             }
-            const phoneNumber = "201001283311";
-            let message = "أهلاً ديسينا، حابب أطلب الموديلات دي:\n\n";
-            cartItems.forEach((item, index) => { message += `${index + 1}- ${item}\n`; });
-            message += "\nبانتظار ردكم لتأكيد الطلب.";
+            let message = "أهلاً ديسينا، محتاج أطلب:\n\n";
+            cartItems.forEach((item, index) => message += `${index + 1}- ${item}\n`);
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
             
-            // تفرغ السلة فابريكا
+            // تصفير السلة
             cartItems = [];
-            badge.innerText = "0";
             badge.style.display = 'none';
         }
 
+        // --- 4. نظام الجاليري ---
         let currentIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
