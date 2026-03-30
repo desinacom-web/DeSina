@@ -9,40 +9,91 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; scroll-behavior: smooth; }
         img { pointer-events: none; -webkit-user-drag: none; }
-        .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
-        .store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .product-img-container { width: 100%; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-img { width: 85%; height: 85%; object-fit: contain; transition: 0.5s; }
-        .store-card:hover .product-img { transform: scale(1.1); }
-        .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
+        
+        .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; cursor: pointer; }
+        .store-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        .product-img-container { width: 100%; height: 180px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .product-img { width: 90%; height: 90%; object-fit: contain; transition: 0.5s; }
+        
+        /* زرار الواتساب (اطلب) */
+        .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; position: relative; z-index: 10; }
         .buy-btn:hover { background: #128c7e; }
-        .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
+        
+        /* شارة السلة الديناميكية */
+        .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; display: none; }
+
+        /* --- نظام تكبير الصور (Lightbox) --- */
+        #lightbox {
+            display: none; position: fixed; z-index: 10000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center; align-items: center;
+        }
+        #lightbox.active { display: flex; }
+        #lightbox-img { max-width: 90%; max-height: 70%; border-radius: 15px; object-fit: contain; border: 2px solid rgba(255,255,255,0.1); }
+        
+        .lightbox-close { position: absolute; top: 30px; right: 30px; color: white; font-size: 35px; cursor: pointer; z-index: 10001; }
+        .lightbox-nav { position: absolute; top: 50%; color: white; font-size: 30px; background: rgba(255,255,255,0.1); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; transform: translateY(-50%); z-index: 10001; }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* رسالة التأكيد (Toast) */
+        #toast {
+            display: none; position: fixed; top: 20px; left: 50%;
+            transform: translateX(-50%); background-color: #10b981; color: white;
+            padding: 10px 20px; border-radius: 50px; font-weight: bold;
+            z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        #toast.active { display: block; animation: slideDown 0.4s ease; }
+        @keyframes slideDown { from { top: -50px; } to { top: 20px; } }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <div id="toast">تم إضافة طلبك للسلة!</div>
+
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
-                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition"><i class="fas fa-arrow-right"></i> الرئيسية</a>
-                <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
+                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base"><i class="fas fa-arrow-right"></i> الرئيسية</a>
+                <img src="logo.jpg" style="height: 35px; border-radius: 8px;">
             </div>
-            <div class="text-red-600 text-2xl relative"><i class="fas fa-shopping-cart"></i><span class="badge absolute -top-2 -right-2">10</span></div>
+            <div class="text-red-600 text-2xl relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-badge" class="badge absolute -top-2 -right-2">0</span>
+            </div>
         </div>
     </nav>
-    <section class="py-12 bg-gray-900 text-center"><h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1></section>
-    <div class="container mx-auto py-12 px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+
+    <section class="py-10 bg-gray-900 text-center">
+        <h1 class="text-white text-3xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1>
+    </section>
+
+    <div class="container mx-auto py-10 px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <script>
+                // محاكاة المنتجات المرفوعة عندك
                 for (let i = 1; i <= 10; i++) {
                     document.write(`
-                        <div class="store-card">
-                            <div class="product-img-container"><img src="logo.jpg" class="product-img"></div>
-                            <div class="p-5 text-right">
-                                <h3 class="text-sm font-bold text-gray-800 mb-2">منتج ديسينا المميز ${i}</h3>
-                                <p class="text-red-600 font-extrabold text-lg mb-4">000 EGP</p>
-                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" target="_blank" class="buy-btn"><i class="fab fa-whatsapp"></i> اطلب</a>
+                        <div class="store-card" onclick="openLightbox(${i-1})">
+                            <div class="product-img-container">
+                                <img src="logo.jpg" class="product-img" id="img-${i-1}">
+                                <div class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                    <i class="fas fa-expand text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 text-right">
+                                <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">منتج ديسينا المميز ${i}</h3>
+                                <p class="text-red-600 font-extrabold text-base md:text-lg mb-3">000 EGP</p>
+                                <a href="https://wa.me/201001283311?text=طلب منتج رقم ${i}" 
+                                   target="_blank" 
+                                   class="buy-btn" 
+                                   onclick="addToCart(event)">
+                                   <i class="fab fa-whatsapp"></i> اطلب
+                                </a>
                             </div>
                         </div>
                     `);
@@ -50,5 +101,63 @@
             </script>
         </div>
     </div>
+
+    <div id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-nav prev" onclick="changeSlide(-1, event)"><i class="fas fa-chevron-left"></i></div>
+        <img id="lightbox-img" src="">
+        <div class="lightbox-nav next" onclick="changeSlide(1, event)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <script>
+        // --- نظام السلة الديناميكي ---
+        let count = 0;
+        const badge = document.getElementById('cart-badge');
+        const toast = document.getElementById('toast');
+
+        function addToCart(e) {
+            e.stopPropagation(); // يمنع تكبير الصورة لما تدوس على الزرار
+            count++;
+            badge.innerText = count;
+            badge.style.display = 'block';
+            
+            // إظهار الرسالة
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 2500);
+        }
+
+        // --- نظام تكبير الصور (Gallery) ---
+        let currentIndex = 0;
+        const images = []; // هنجمع الصور هنا
+        for(let i=0; i<10; i++) images.push("logo.jpg"); // استبدل بمسارات صورك الحقيقية
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightboxImg.src = images[currentIndex];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSlide(n, e) {
+            e.stopPropagation();
+            currentIndex += n;
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            lightboxImg.src = images[currentIndex];
+        }
+
+        // قفل لما يدوس بره الصورة
+        lightbox.onclick = function(e) {
+            if(e.target == lightbox) closeLightbox();
+        }
+    </script>
 </body>
 </html>
