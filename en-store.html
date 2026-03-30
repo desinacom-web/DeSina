@@ -11,36 +11,27 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; -webkit-user-select: none; user-select: none; scroll-behavior: smooth; }
         img { pointer-events: none; -webkit-user-drag: none; }
-        
         .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; cursor: pointer; }
         .store-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        
         .product-img-container { width: 100%; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        
         .buy-btn { background: #25d366; color: white; padding: 12px; border-radius: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; width: 100%; position: relative; z-index: 10; font-size: 15px; border: none; }
         .buy-btn:hover { background: #128c7e; }
-        
-        .cart-trigger { cursor: pointer; transition: 0.3s; }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; display: none; }
-
-        /* Lightbox - LTR arrows adjustment */
         #lightbox { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; }
         #lightbox.active { display: flex; }
         #lightbox-img { max-width: 90%; max-height: 75%; border-radius: 15px; object-fit: contain; }
         .lightbox-close { position: absolute; top: 30px; right: 30px; color: white; font-size: 35px; cursor: pointer; }
         .lightbox-nav { position: absolute; top: 50%; color: white; font-size: 30px; background: rgba(255,255,255,0.1); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; transform: translateY(-50%); }
         .prev { left: 15px; } .next { right: 15px; }
-
-        /* Toast Message */
         #toast { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #10b981; color: white; padding: 10px 25px; border-radius: 50px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; text-align: center; }
         #toast.active { display: block; animation: slideDown 0.4s ease; }
         @keyframes slideDown { from { top: -60px; } to { top: 20px; } }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <div id="toast"><i class="fas fa-check-circle mr-1"></i> Added to cart! Click the cart to finish your order.</div>
+    <div id="toast">Product added to cart! Click the icon to finish.</div>
 
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
@@ -48,47 +39,16 @@
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
                 <a href="en.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base">Home <i class="fas fa-arrow-left"></i></a>
             </div>
-            <div class="cart-trigger text-red-600 text-2xl relative" onclick="sendOrderToWhatsApp()">
+            <div class="text-red-600 text-2xl relative cursor-pointer" onclick="sendOrderToWhatsApp()">
                 <i class="fas fa-shopping-cart"></i>
                 <span id="cart-badge" class="badge absolute -top-2 -right-2">0</span>
             </div>
         </div>
     </nav>
 
-    <section class="py-12 bg-gray-900 text-center px-4">
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-3"><span class="text-red-600">DeSina</span> Store</h1>
-        <p class="text-gray-400 text-sm md:text-base font-bold">Shop our latest premium collection and order your favorite pieces.</p>
-    </section>
-
     <div class="container mx-auto py-12 px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <script>
-                const models = [];
-                for(let i=1; i<=11; i++) {
-                    models.push({ name: `DeSina Model COD-${i < 10 ? '0'+i : i}`, img: `cod${i}.jpeg` });
-                }
-
-                models.forEach((product, index) => {
-                    document.write(`
-                        <div class="store-card" onclick="openLightbox(${index})">
-                            <div class="product-img-container">
-                                <img src="${product.img}" class="product-img" id="img-${index}">
-                                <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                                    <i class="fas fa-search-plus text-white text-2xl"></i>
-                                </div>
-                            </div>
-                            <div class="p-4 text-left">
-                                <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">${product.name}</h3>
-                                <p class="text-red-600 font-extrabold text-base md:text-lg mb-4">000 EGP</p>
-                                <button class="buy-btn" onclick="addToCart('${product.name}', event)">
-                                   <i class="fas fa-shopping-cart"></i> Order Now
-                                </button>
-                            </div>
-                        </div>
-                    `);
-                });
-            </script>
-        </div>
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            </div>
     </div>
 
     <div id="lightbox">
@@ -99,38 +59,67 @@
     </div>
 
     <script>
+        // Settings (Same as Arabic)
+        const totalModels = 11; 
+        const productPrice = "1000 EGP";
+        const phoneNumber = "201001283311";
+
+        const grid = document.getElementById('product-grid');
+        const images = [];
+
+        // Generate Products
+        for (let i = 1; i <= totalModels; i++) {
+            const modelName = `DeSina Model COD-${i < 10 ? '0' + i : i}`;
+            const imgSrc = `cod${i}.jpeg`;
+            images.push(imgSrc);
+
+            grid.innerHTML += `
+                <div class="store-card" onclick="openLightbox(${i-1})">
+                    <div class="product-img-container">
+                        <img src="${imgSrc}" class="product-img">
+                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 text-left">
+                        <h3 class="text-xs md:text-sm font-bold text-gray-800 mb-1">${modelName}</h3>
+                        <p class="text-red-600 font-extrabold text-base md:text-lg mb-4">${productPrice}</p>
+                        <button class="buy-btn" onclick="addToCart('${modelName}', event)">
+                           <i class="fas fa-shopping-cart"></i> Order Now
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cart System
         let cartItems = [];
         const badge = document.getElementById('cart-badge');
         const toast = document.getElementById('toast');
-        const images = [];
-        for(let i=1; i<=11; i++) images.push(`cod${i}.jpeg`);
 
-        function addToCart(productName, e) {
+        function addToCart(name, e) {
             e.stopPropagation();
-            cartItems.push(productName);
+            cartItems.push(name);
             badge.innerText = cartItems.length;
             badge.style.display = 'block';
             toast.classList.add('active');
-            setTimeout(() => toast.classList.remove('active'), 2500);
+            setTimeout(() => toast.classList.remove('active'), 2000);
         }
 
         function sendOrderToWhatsApp() {
             if (cartItems.length === 0) {
-                alert("Your cart is empty! Pick your favorite models first.");
+                alert("Your cart is empty!");
                 return;
             }
-            const phoneNumber = "201001283311";
-            let message = "Hello DeSina, I would like to order the following models:\n\n";
-            cartItems.forEach((item, index) => { message += `${index + 1}- ${item}\n`; });
-            message += "\nPlease contact me to confirm the order.";
+            let message = "Hello DeSina, I'd like to order:\n\n";
+            cartItems.forEach((item, index) => message += `${index + 1}- ${item}\n`);
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
             
-            // Empty the cart automatically
             cartItems = [];
-            badge.innerText = "0";
             badge.style.display = 'none';
         }
 
+        // Gallery System
         let currentIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
