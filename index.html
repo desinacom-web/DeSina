@@ -22,12 +22,14 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* أيقونة العربة في الهيدر */
+        /* أيقونة العربة في الهيدر - مصفرة وجاهزة */
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
         .cart-icon:hover { transform: scale(1.1); }
         .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
 
-        /* --- تعديلات جيمي المعتمدة (المنيو الملمومة) --- */
+        /* تعديل أزرار السوشيال ميديا لتكون تحت بعض وبنفس العرض */
+        .social-btn { width: 100%; max-width: 300px; justify-content: center; margin-bottom: 12px; }
+
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
             .burger-icon { display: none !important; }
@@ -96,14 +98,14 @@
             <div class="flex items-center gap-4">
                 <a href="store.html" class="hidden md:block cart-icon mr-2">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge">10</span>
+                    <span class="cart-badge">0</span>
                 </a>
 
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
                 
                 <a href="store.html" class="md:hidden cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge" style="font-size: 8px; top: -5px; right: -7px;">10</span>
+                    <span class="cart-badge" style="font-size: 8px; top: -5px; right: -7px;">0</span>
                 </a>
 
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
@@ -123,10 +125,11 @@
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء والخدمات الرقمية.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> فيسبوك</a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> انستجرام</a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> يوتيوب</a>
+            
+            <div class="flex flex-col items-center gap-2">
+                <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-btn bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> فيسبوك</a>
+                <a href="https://www.instagram.com/de__sina" target="_blank" class="social-btn bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> انستجرام</a>
+                <a href="https://youtube.com/@de_sina" target="_blank" class="social-btn bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> يوتيوب</a>
             </div>
         </div>
     </section>
@@ -155,7 +158,6 @@
 
     <footer id="contact" class="bg-gray-950 text-white py-12 px-6">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
-            
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
                 <div class="flex items-center gap-2 text-gray-400">
@@ -163,48 +165,22 @@
                     <span>سليمان أباظة، الدقي، الجيزة، مصر</span>
                 </div>
             </div>
-
             <div class="flex flex-col items-center md:items-start gap-3">
                 <h4 class="text-xl font-bold mb-2 text-white border-b-2 border-red-600 pb-1 inline-block">تواصل معنا</h4>
-                
                 <div class="flex flex-col items-center md:items-start gap-1" style="direction: ltr;">
-                    <div class="flex items-center gap-2">
-                        <span class="text-lg">+20 100 128 3311</span>
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-lg">+20 111 568 0003</span>
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                    </div>
+                    <div class="flex items-center gap-2"><span class="text-lg">+20 100 128 3311</span><i class="fas fa-phone-alt text-red-600 text-sm"></i></div>
+                    <div class="flex items-center gap-2"><span class="text-lg">+20 111 568 0003</span><i class="fas fa-phone-alt text-red-600 text-sm"></i></div>
                 </div>
-
-                <div class="flex flex-col items-center md:items-start gap-1 mt-2" style="direction: ltr;">
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-300 text-sm">info@desina.net</span>
-                        <i class="fas fa-envelope text-red-600"></i>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-300 text-sm">desina.com@gmail.com</span>
-                        <i class="fas fa-envelope text-red-600"></i>
-                    </div>
-                </div>
-
-                <a href="https://maps.app.goo.gl/WBfgP3kfhdrsG4Jv6" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group">
+                <a href="#" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group">
                     <i class="fas fa-location-arrow animate-bounce"></i>
                     <span class="border-b border-red-500 group-hover:border-white">موقعنا على الخريطة</span>
                 </a>
             </div>
-
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-xl font-bold mb-4 text-white">روابط هامة</h4>
-                <a href="privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-xs"></i> سياسة الخصوصية
-                </a>
-                <a href="about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2">
-                    <i class="fas fa-info-circle text-xs"></i> حول الشركة
-                </a>
+                <a href="privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2"><i class="fas fa-shield-alt text-xs"></i> سياسة الخصوصية</a>
+                <a href="about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2"><i class="fas fa-info-circle text-xs"></i> حول الشركة</a>
             </div>
-            
         </div>
         <p class="mt-10 text-center text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
