@@ -12,17 +12,17 @@
     
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; font-style: normal !important; }
-        * { font-style: normal !important; }
+        * { font-style: normal !important; text-transform: none !important; } /* منع تحويل الحروف لكابيتال تلقائياً */
 
-        /* تعديل حجم كلمات HOME و عربي للوسط */
-        .nav-link { font-weight: 900 !important; font-size: 14px !important; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* الشريط العلوي - حجم متوسط وشيك */
+        .nav-link { font-weight: 900 !important; font-size: 14px !important; letter-spacing: 0.5px; }
 
         /* الهيرو سيكشن - DeSina المظبوطة */
         .hero-section { background-color: #0f172a; padding: 30px 20px 50px; text-align: center; }
         .brand-text { font-weight: 900 !important; letter-spacing: -1.5px; font-size: 3.2rem; color: white; line-height: 1; }
         .brand-red { color: #ef4444; }
 
-        /* البحث والفلتر */
+        /* محرك البحث */
         .search-container { max-width: 600px; margin: -28px auto 25px; padding: 0 20px; position: relative; z-index: 10; }
         .search-bar { width: 100%; padding: 15px 25px 15px 55px; border-radius: 50px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15); outline: none; font-weight: 700; }
         .search-icon { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
@@ -42,7 +42,7 @@
         .lb-close { position: absolute; top: 20px; right: 25px; color: white; font-size: 45px; cursor: pointer; z-index: 10002; }
         .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 45px; cursor: pointer; padding: 25px; z-index: 10002; }
 
-        /* سيكشن التقييمات - DeSina */
+        /* التقييمات */
         .review-card { background: white; border-radius: 25px; padding: 30px; border: 1px solid #f0f0f0; margin: 10px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .star-gold { color: #fbbf24; font-size: 18px; margin-bottom: 8px; }
         .review-btn { background: #ef4444; color: white; padding: 12px 35px; border-radius: 50px; font-weight: 900; font-size: 15px; margin-bottom: 30px; transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
@@ -75,7 +75,7 @@
 
     <header class="hero-section">
         <h1 class="brand-text"><span class="brand-red">DeSina</span> Store</h1>
-        <p class="text-slate-400 font-bold text-[10px] uppercase tracking-[0.4em] mt-3">Premium Experience</p>
+        <p class="text-slate-400 font-bold text-[10px] tracking-[0.4em] mt-3">Premium Experience</p>
     </header>
 
     <div class="search-container">
@@ -95,13 +95,12 @@
 
     <section class="bg-white py-16 px-4 border-t">
         <div class="container mx-auto max-w-5xl text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase text-slate-900">What clients say about <span class="brand-red">DeSina</span> ⭐</h2>
+            <h2 class="text-3xl md:text-5xl font-black mb-8 text-slate-900">What clients say about <span class="brand-red">DeSina</span> ⭐</h2>
             
             <button class="review-btn" onclick="toggleReviewModal(true)">SHARE YOUR EXPERIENCE</button>
 
             <div class="swiper mySwiper">
-                <div id="reviews-wrapper" class="swiper-wrapper">
-                    </div>
+                <div id="reviews-wrapper" class="swiper-wrapper"></div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
@@ -148,15 +147,13 @@
 
         const reviewsWrapper = document.getElementById('reviews-wrapper');
         const reviewsText = ["Excellent!", "Fast delivery", "High Quality", "Great Material", "Best brand", "Loved it!", "Perfect fit", "Good service", "Amazing experience", "DeSina is Top", "Professional", "Highly recommended", "Unique styles", "5 Stars!", "Very comfortable", "Nice colors", "My favorite shop", "So elegant", "Best quality", "Super fast"];
-        const names = ["Ahmed", "Sara", "Mohamed", "Mona", "Ali", "Hoda", "Youssef", "Layla"];
-
         for (let i = 0; i < 20; i++) {
             reviewsWrapper.innerHTML += `
                 <div class="swiper-slide">
                     <div class="review-card">
                         <div class="star-gold">${'<i class="fas fa-star"></i>'.repeat(5)}</div>
                         <p class="font-bold text-slate-600 text-sm">"${reviewsText[i % 20]}"</p>
-                        <h4 class="mt-3 text-red-600 font-black uppercase text-xs">${names[i % 8]} ${i+1}</h4>
+                        <h4 class="mt-3 text-red-600 font-black text-xs">Client ${i+1}</h4>
                     </div>
                 </div>`;
         }
