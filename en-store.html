@@ -14,39 +14,35 @@
         body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; font-style: normal !important; }
         * { font-style: normal !important; }
 
-        /* الهيرو سيكشن - تقليل الطول بناءً على السهم الأصفر */
+        /* الهيرو سيكشن - DeSina */
         .hero-section { background-color: #0f172a; padding: 40px 20px 60px; text-align: center; }
         .brand-text { font-weight: 900 !important; letter-spacing: -1.5px; font-size: 3.5rem; color: white; line-height: 1; }
         .brand-red { color: #ef4444; }
 
-        /* محرك البحث */
+        /* محرك البحث Premium */
         .search-container { max-width: 600px; margin: -28px auto 25px; padding: 0 20px; position: relative; z-index: 10; }
         .search-bar { width: 100%; padding: 16px 25px 16px 55px; border-radius: 50px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15); outline: none; font-weight: 700; }
         .search-icon { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
 
-        /* الفلتر البيضاوي */
         .filter-btn { padding: 8px 25px; border-radius: 50px; background: white; border: 2px solid #eee; font-weight: 800; font-size: 13px; transition: 0.3s; }
         .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
 
-        /* كارت المنتج */
         .store-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #f1f5f9; transition: 0.3s; text-align: center; }
-        .product-img-container { width: 100%; height: 180px; overflow: hidden; background: #f1f5f9; cursor: zoom-in; position: relative; }
+        .product-img-container { width: 100%; height: 180px; overflow: hidden; background: #f1f5f9; cursor: zoom-in; }
         @media (min-width: 768px) { .product-img-container { height: 320px; } }
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
         .store-card:hover .product-img { transform: scale(1.1); }
 
-        /* Lightbox Fix */
+        /* Lightbox Navigation */
         #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; align-items: center; justify-content: center; }
         #lightbox-img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
         .lb-close { position: absolute; top: 20px; right: 25px; color: white; font-size: 40px; cursor: pointer; z-index: 10002; }
-        .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 35px; cursor: pointer; padding: 20px; z-index: 10002; transition: 0.3s; }
-        .lb-arrow:hover { color: #ef4444; }
+        .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 35px; cursor: pointer; padding: 20px; z-index: 10002; }
 
-        /* سيكشن التقييمات */
-        .review-card { background: white; border-radius: 25px; padding: 30px; border: 1px solid #f0f0f0; margin: 10px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .star-gold { color: #fbbf24; font-size: 20px; margin-bottom: 10px; }
+        /* التقييمات */
+        .review-card { background: white; border-radius: 25px; padding: 30px; border: 1px solid #f0f0f0; margin: 10px; min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .star-gold { color: #fbbf24; font-size: 18px; margin-bottom: 10px; }
         .review-btn { background: #ef4444; color: white; padding: 12px 35px; border-radius: 50px; font-weight: 900; margin-bottom: 30px; transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
-        .review-btn:hover { background: #000; transform: translateY(-3px); }
     </style>
 </head>
 <body>
@@ -76,7 +72,7 @@
 
     <header class="hero-section">
         <h1 class="brand-text"><span class="brand-red">DeSina</span> Store</h1>
-        <p class="text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em] mt-3">Official Premium Experience</p>
+        <p class="text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em] mt-3">Premium Fashion Experience</p>
     </header>
 
     <div class="search-container">
@@ -95,28 +91,14 @@
     </div>
 
     <section class="bg-white py-20 px-4 border-t">
-        <div class="container mx-auto max-w-4xl text-center">
+        <div class="container mx-auto max-w-5xl text-center">
             <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase text-slate-900">What clients say about <span class="brand-red">DeSina</span> ⭐</h2>
             
             <button class="review-btn" onclick="toggleReviewModal(true)">SHARE YOUR EXPERIENCE</button>
 
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="star-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="font-bold text-slate-600">"Excellent material and fast delivery. Very professional brand!"</p>
-                            <h4 class="mt-4 text-red-600 font-black uppercase">Ahmed Mahmoud</h4>
-                        </div>
+                <div id="reviews-wrapper" class="swiper-wrapper">
                     </div>
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="star-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="font-bold text-slate-600">"High quality fabrics and the colors are exactly as pictured."</p>
-                            <h4 class="mt-4 text-red-600 font-black uppercase">Sara Kamel</h4>
-                        </div>
-                    </div>
-                </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
@@ -161,6 +143,28 @@
         }
         displayProducts();
 
+        // إنشاء 20 تقييم
+        const reviewsWrapper = document.getElementById('reviews-wrapper');
+        const sampleReviews = [
+            "Excellent material!", "Fast delivery.", "Best brand ever.", "High quality.", 
+            "Amazing designs.", "Perfect fit.", "Love the colors.", "Very professional.",
+            "DeSina is the best.", "Great experience.", "So comfortable.", "Elegant styles.",
+            "5 stars for sure!", "Top notch service.", "Highly recommend.", "Cool summer vibes.",
+            "Winter collection is lit.", "My favorite store.", "Quality is 10/10.", "Always satisfied."
+        ];
+        const names = ["Ahmed", "Sara", "Mohamed", "Mona", "Ali", "Hoda", "Youssef", "Layla"];
+
+        for (let i = 0; i < 20; i++) {
+            reviewsWrapper.innerHTML += `
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="star-gold">${'<i class="fas fa-star"></i>'.repeat(5)}</div>
+                        <p class="font-bold text-slate-600 italic">"${sampleReviews[i % sampleReviews.length]}"</p>
+                        <h4 class="mt-4 text-red-600 font-black uppercase text-sm">${names[i % names.length]} ${i+1}</h4>
+                    </div>
+                </div>`;
+        }
+
         function setCategory(cat, btn) {
             currentFilter = cat;
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -168,7 +172,6 @@
             displayProducts();
         }
 
-        // Lightbox Navigation
         function openLightbox(i) { activeIdx = i; document.getElementById('lightbox-img').src = `cod${i}.jpeg`; document.getElementById('lightbox').style.display = 'flex'; document.body.style.overflow='hidden'; }
         function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow='auto'; }
         function changeImg(s) { activeIdx += s; if(activeIdx > totalModels) activeIdx=1; if(activeIdx < 1) activeIdx=totalModels; document.getElementById('lightbox-img').src = `cod${activeIdx}.jpeg`; }
@@ -181,11 +184,7 @@
         }
 
         let cart = [];
-        function addToCart(n) {
-            cart.push(n);
-            const b = document.getElementById('cart-badge');
-            b.innerText = cart.length; b.style.display = 'block';
-        }
+        function addToCart(n) { cart.push(n); const b = document.getElementById('cart-badge'); b.innerText = cart.length; b.style.display = 'block'; }
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return alert("Cart empty");
             window.open(`https://wa.me/201001283311?text=${encodeURIComponent("Order:\n"+cart.join("\n"))}`, '_blank');
@@ -193,11 +192,11 @@
 
         new Swiper(".mySwiper", {
             loop: true,
-            autoplay: { delay: 3000, disableOnInteraction: true },
+            autoplay: { delay: 3000 },
             pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
         });
 
-        // Swipe for Lightbox
         let startX = 0;
         document.getElementById('lightbox').addEventListener('touchstart', e => startX = e.touches[0].clientX);
         document.getElementById('lightbox').addEventListener('touchend', e => {
