@@ -87,14 +87,15 @@
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
 
-        /* تنسيق زر الموسيقى */
+        /* تنسيق زر الموسيقى الأسود الصغير */
         #music-toggle {
-            position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; 
-            background: rgba(239, 68, 68, 0.8); color: white; border-radius: 50%;
+            position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; 
+            background: #111; color: white; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; z-index: 1001;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
         }
-        #music-toggle:hover { transform: scale(1.1); background: #ef4444; }
+        #music-toggle:hover { transform: scale(1.1); background: #333; }
+        #music-icon { font-size: 16px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -104,7 +105,7 @@
     </a>
 
     <div id="music-toggle">
-        <i id="music-icon" class="fas fa-volume-mute"></i>
+        <i id="music-icon" class="fas fa-music"></i>
     </div>
     <audio id="bg-audio" loop>
         <source src="bg-music.mp3" type="audio/mpeg">
@@ -256,22 +257,25 @@
             }
         });
 
-        // كود تشغيل الموسيقى
+        // كود تشغيل الموسيقى - مستوى الصوت 30%
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgAudio = document.getElementById('bg-audio');
+        
+        // ضبط الصوت ليكون هادئاً (0.3 يعني 30%)
+        bgAudio.volume = 0.3;
 
         musicToggle.addEventListener('click', () => {
             if (bgAudio.paused) {
                 bgAudio.play();
-                musicIcon.classList.remove('fa-volume-mute');
-                musicIcon.classList.add('fa-volume-up');
-                musicToggle.style.background = '#22c55e'; // أخضر عند التشغيل
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-pause');
+                musicToggle.style.background = '#22c55e'; 
             } else {
                 bgAudio.pause();
-                musicIcon.classList.remove('fa-volume-up');
-                musicIcon.classList.add('fa-volume-mute');
-                musicToggle.style.background = 'rgba(239, 68, 68, 0.8)'; // أحمر عند الكتم
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-music');
+                musicToggle.style.background = '#111'; 
             }
         });
     </script>
