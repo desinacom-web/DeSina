@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '790032697153678');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
+    /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دي سينا | الكتالوج</title>
@@ -25,123 +40,4 @@
             </div>
             <div class="flex gap-6 items-center">
                 <a href="index.html" class="font-bold text-gray-600 hover:text-red-600">الرئيسية</a>
-                <a href="en-catalog.html" class="text-red-600 font-bold border-r pr-4 border-gray-200">English</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="bg-gray-900 py-16 text-center text-white px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">كتالوج <span class="text-red-600">DeSina</span></h1>
-        <p class="text-gray-400">اكتشف أحدث تشكيلات الموضة العصرية وخدماتنا الرقمية والصناعية المتطورة.</p>
-    </header>
-
-    <div class="flex flex-wrap justify-center gap-4 py-10 bg-white shadow-sm">
-        <button onclick="filterSelection('all')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-all">الكل</button>
-        <button onclick="filterSelection('fashion')" class="filter-btn border border-gray-200 hover:bg-gray-100" id="btn-fashion">الأزياء والملابس</button>
-        <button onclick="filterSelection('digital')" class="filter-btn border border-gray-200 hover:bg-gray-100">الخدمات الرقمية</button>
-        <button onclick="filterSelection('industrial')" class="filter-btn border border-gray-200 hover:bg-gray-100">الخدمات الصناعية</button>
-    </div>
-
-    <section class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 1">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-01</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 2">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-02</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 3">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-03</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 4">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-04</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 5">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-05</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 6">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-06</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 7">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-07</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 8">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-08</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 9">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-09</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 10">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-10</h3>
-            </div>
-
-            <div class="filter-item fashion bg-white p-4 rounded-2xl shadow-lg border-t-4 border-red-600">
-                <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4 shadow-sm" alt="موديل 11">
-                <h3 class="text-center font-bold text-gray-800 text-xl">موديل شبابي COD-11</h3>
-            </div>
-
-            <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center">
-                <h3 class="text-xl font-bold">الخدمات الرقمية</h3>
-                <p class="text-gray-500 mt-2">قريباً...</p>
-            </div>
-            <div class="filter-item industrial bg-white p-8 rounded-2xl shadow-lg border-t-4 border-black text-center">
-                <h3 class="text-xl font-bold">الخدمات الصناعية</h3>
-                <p class="text-gray-500 mt-2">قريباً...</p>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="bg-gray-950 text-white py-16 px-6 text-center border-t border-gray-800">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-                <h4 class="text-2xl font-bold text-red-600 mb-4">دي سينا | DeSina</h4>
-                <p class="text-gray-400">تواصل مع فريقنا الفني والاستفسار عن خدماتنا.</p>
-                <div class="mt-6">
-                    <p class="text-gray-300">info@desina.net</p>
-                    <p class="text-gray-300">desina.com@gmail.com</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">اتصل بنا</h4>
-                <p class="text-lg mb-1" dir="ltr">+20 100 128 3311</p>
-                <p class="text-lg mb-1" dir="ltr">+20 111 568 0003</p>
-                <p class="text-gray-500 text-sm mt-4">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        filterSelection("all")
-        function filterSelection(c) {
-          var x, i;
-          x = document.getElementsByClassName("filter-item");
-          if (c == "all") c = "";
-          for (i = 0; i < x.length; i++) {
-            x[i].classList.remove("show");
-            if (x[i].className.indexOf(c) > -1) x[i].classList.add("show");
-          }
-        }
-    </script>
-</body>
-</html>
+                <a href
