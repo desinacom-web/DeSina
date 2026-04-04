@@ -95,7 +95,7 @@
             -webkit-tap-highlight-color: transparent;
         }
         #music-toggle:hover { transform: scale(1.1); background: #333; }
-        #music-icon { font-size: 16px; }
+        #music-icon { font-size: 16px; transition: color 0.3s; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -104,7 +104,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="music-toggle" onclick="handleMusicToggle()">
+    <div id="music-toggle" onclick="handleMusicToggle(event)" ontouchstart="handleMusicToggle(event)">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
     
@@ -259,24 +259,33 @@
             }
         });
 
-        // --- كود الموسيقى المطور والنهائي لبراند DeSina ---
-        function handleMusicToggle() {
+        // --- كود الموسيقى بنظام الأيقونة الحمراء للأيفون ---
+        let isProcessing = false;
+
+        function handleMusicToggle(e) {
+            // منع التكرار ومنع تضارب اللمس في الأيفون
+            if (e && e.type === 'touchstart') e.preventDefault();
+            if (isProcessing) return;
+            isProcessing = true;
+
             const audio = document.getElementById('bg-audio');
-            const btn = document.getElementById('music-toggle');
             const icon = document.getElementById('music-icon');
             
             if (audio.paused) {
                 audio.play().then(() => {
                     icon.className = 'fas fa-pause';
-                    btn.style.backgroundColor = '#22c55e'; // قلب أخضر فوراً
+                    icon.style.color = '#ef4444'; // الأيقونة تقلب أحمر عند التشغيل
                     audio.volume = 0.3;
+                    isProcessing = false;
                 }).catch(error => {
-                    console.log("Playback prevented:", error);
+                    console.log("Playback blocked:", error);
+                    isProcessing = false;
                 });
             } else {
                 audio.pause();
                 icon.className = 'fas fa-music';
-                btn.style.backgroundColor = '#111'; // رجع أسود
+                icon.style.color = '#ffffff'; // الأيقونة ترجع أبيض عند التوقف
+                isProcessing = false;
             }
         }
 
