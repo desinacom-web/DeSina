@@ -26,61 +26,69 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; font-style: normal !important; }
+        :root { --bg-body: #fcfcfc; --bg-card: white; --text-main: #0f172a; --border-color: #f1f5f9; --nav-bg: white; }
+        
+        @media (prefers-color-scheme: dark) {
+            :root { --bg-body: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --border-color: #30363d; --nav-bg: #111111; }
+        }
+
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); scroll-behavior: smooth; font-style: normal !important; transition: background-color 0.4s, color 0.4s; }
         * { font-style: normal !important; text-transform: none !important; }
 
-        /* الشريط العلوي - حجم متوسط وشيك */
-        .nav-link { font-weight: 900 !important; font-size: 15px !important; }
+        /* نيف بار ذكي */
+        nav { background-color: var(--nav-bg) !important; border-bottom: 1px solid var(--border-color); }
+        .nav-link { font-weight: 900 !important; font-size: 15px !important; color: var(--text-main) !important; }
 
-        /* الهيرو سيكشن - DeSina */
+        /* الهيرو سيكشن */
         .hero-section { background-color: #0f172a; padding: 30px 20px 50px; text-align: center; }
         .brand-text { font-weight: 900 !important; letter-spacing: -1px; font-size: 3.2rem; color: white; line-height: 1.2; }
         .brand-red { color: #ef4444; }
 
-        /* محرك البحث Premium */
+        /* محرك البحث */
+        .search-bar { background-color: var(--bg-card); color: var(--text-main); width: 100%; padding: 15px 55px 15px 25px; border-radius: 50px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.1); outline: none; font-weight: 700; text-align: right; }
         .search-container { max-width: 600px; margin: -28px auto 25px; padding: 0 20px; position: relative; z-index: 10; }
-        .search-bar { width: 100%; padding: 15px 55px 15px 25px; border-radius: 50px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15); outline: none; font-weight: 700; text-align: right; }
         .search-icon { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
 
-        .filter-btn { padding: 8px 25px; border-radius: 50px; background: white; border: 2px solid #eee; font-weight: 800; font-size: 14px; transition: 0.3s; }
+        /* فلاتر */
+        .filter-btn { padding: 8px 25px; border-radius: 50px; background: var(--bg-card); border: 2px solid var(--border-color); font-weight: 800; font-size: 14px; transition: 0.3s; color: var(--text-main); }
         .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
 
         /* كارت المنتج */
-        .store-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #f1f5f9; transition: 0.3s; text-align: center; }
-        .product-img-container { width: 100%; height: 180px; overflow: hidden; background: #f1f5f9; cursor: zoom-in; position: relative; }
+        .store-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); transition: 0.3s; text-align: center; }
+        .product-img-container { width: 100%; height: 180px; overflow: hidden; background: #111; cursor: zoom-in; position: relative; }
         @media (min-width: 768px) { .product-img-container { height: 320px; } }
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
 
-        /* Lightbox */
-        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; align-items: center; justify-content: center; }
-        #lightbox-img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
-        .lb-close { position: absolute; top: 20px; left: 25px; color: white; font-size: 45px; cursor: pointer; z-index: 10002; }
-        .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 45px; cursor: pointer; padding: 25px; z-index: 10002; }
-
-        /* سيكشن التقييمات */
-        .review-card { background: white; border-radius: 25px; padding: 30px; border: 1px solid #f0f0f0; margin: 10px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        /* مراجعات العملاء */
+        .review-card { background: var(--bg-card); border-radius: 25px; padding: 30px; border: 1px solid var(--border-color); margin: 10px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .star-gold { color: #fbbf24; font-size: 18px; margin-bottom: 8px; }
         .review-btn { background: #ef4444; color: white; padding: 12px 35px; border-radius: 50px; font-weight: 900; font-size: 16px; margin-bottom: 30px; transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
         
-        /* ستايل زر الطلب الأخضر الفاتح */
-        .btn-order { background-color: #22c55e; color: white; width: 100%; py: 10px; border-radius: 12px; font-weight: 900; font-size: 14px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; }
-        .btn-order:hover { background-color: #16a34a; }
+        .btn-order { background-color: #22c55e; color: white; width: 100%; border-radius: 12px; font-weight: 900; font-size: 14px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; }
+        
+        /* Lightbox */
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; align-items: center; justify-content: center; }
+        #lightbox-img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
+
+        /* Modal */
+        #review-modal .modal-content { background: var(--bg-card); border: 1px solid var(--border-color); }
+        #revName, #revMsg { background: var(--bg-body); color: var(--text-main); border-color: var(--border-color); }
     </style>
 </head>
 <body>
 
     <div id="lightbox">
-        <span class="lb-close" onclick="closeLightbox()">&times;</span>
-        <i class="fas fa-chevron-right lb-arrow" style="right:15px" onclick="changeImg(-1)"></i>
-        <i class="fas fa-chevron-left lb-arrow" style="left:15px" onclick="changeImg(1)"></i>
+        <span class="lb-close text-white absolute top-6 left-6 text-4xl cursor-pointer" onclick="closeLightbox()">&times;</span>
+        <i class="fas fa-chevron-right text-white absolute top-1/2 right-4 text-4xl cursor-pointer p-4" onclick="changeImg(-1)"></i>
+        <i class="fas fa-chevron-left text-white absolute top-1/2 left-4 text-4xl cursor-pointer p-4" onclick="changeImg(1)"></i>
         <img id="lightbox-img" src="">
     </div>
 
-    <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
+    <nav class="p-4 sticky top-0 z-50 transition-colors">
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center gap-4">
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
-                <a href="index.html" class="nav-link text-slate-900">الرئيسية</a>
+                <a href="index.html" class="nav-link">الرئيسية</a>
             </div>
             <div class="flex items-center gap-6">
                 <a href="en-store.html" class="nav-link text-blue-600">English</a>
@@ -112,12 +120,10 @@
         <div id="product-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"></div>
     </div>
 
-    <section class="bg-white py-16 px-4 border-t">
+    <section class="py-16 px-4 border-t border-gray-100 dark:border-gray-800 transition-colors">
         <div class="container mx-auto max-w-5xl text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 text-slate-900">ماذا يقول عملاء <span class="brand-red">DeSina</span> ⭐</h2>
-            
+            <h2 class="text-3xl md:text-5xl font-black mb-8">ماذا يقول عملاء <span class="brand-red">DeSina</span> ⭐</h2>
             <button class="review-btn" onclick="toggleReviewModal(true)">أضف تجربتك معنا</button>
-
             <div class="swiper mySwiper">
                 <div id="reviews-wrapper" class="swiper-wrapper"></div>
                 <div class="swiper-pagination"></div>
@@ -126,11 +132,11 @@
     </section>
 
     <div id="review-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:20000; align-items:center; justify-content:center; backdrop-filter:blur(5px);">
-        <div style="background:white; width:90%; max-width:400px; padding:30px; border-radius:25px; position:relative;">
+        <div class="modal-content" style="width:90%; max-width:400px; padding:30px; border-radius:25px; position:relative;">
             <i class="fas fa-times absolute left-6 top-6 text-gray-400 cursor-pointer text-xl" onclick="toggleReviewModal(false)"></i>
             <h3 class="text-xl font-black mb-6 text-center">أضف تقييمك</h3>
-            <input type="text" id="revName" placeholder="الاسم" class="w-full border p-3 rounded-xl mb-4 font-bold outline-none text-right">
-            <textarea id="revMsg" placeholder="اكتب تجربتك هنا..." class="w-full border p-3 rounded-xl h-24 mb-4 font-bold outline-none text-right"></textarea>
+            <input type="text" id="revName" placeholder="الاسم" class="w-full p-3 rounded-xl mb-4 font-bold outline-none text-right border">
+            <textarea id="revMsg" placeholder="اكتب تجربتك هنا..." class="w-full p-3 rounded-xl h-24 mb-4 font-bold outline-none text-right border"></textarea>
             <button onclick="submitReview()" class="w-full bg-emerald-500 text-white py-4 rounded-xl font-black">إرسال عبر واتساب</button>
         </div>
     </div>
@@ -154,7 +160,7 @@
                                 <img src="cod${i}.jpeg" class="product-img" loading="lazy">
                             </div>
                             <div class="p-4">
-                                <h3 class="text-xs font-bold text-slate-800 mb-1 uppercase">${modelName}</h3>
+                                <h3 class="text-xs font-bold mb-1 uppercase">${modelName}</h3>
                                 <p class="text-red-600 font-black text-lg mb-3">1000 EGP</p>
                                 <button class="btn-order" onclick="addToCart('${modelName}')">
                                     اطلب الآن <i class="fas fa-shopping-cart"></i>
@@ -169,33 +175,15 @@
         const reviewsWrapper = document.getElementById('reviews-wrapper');
         const reviewsText = ["خامة ممتازة جداً", "توصيل سريع", "جودة عالية", "أفضل براند", "موديلات تحفة", "مقاسات مظبوطة", "خدمة ممتازة", "تجربة رائعة", "DeSina الأفضل", "شغل احترافي", "بجد شكراً ليكم", "خامات مريحة", "أشيك موديلات", "5 نجوم", "الألوان زي الصورة", "سرعة في الرد", "تعامل راقي", "خامة شتوية روعة", "أحلى خامة صيفي", "دايماً متميزين"];
         for (let i = 0; i < 20; i++) {
-            reviewsWrapper.innerHTML += `
-                <div class="swiper-slide">
-                    <div class="review-card">
-                        <div class="star-gold">${'<i class="fas fa-star"></i>'.repeat(5)}</div>
-                        <p class="font-bold text-slate-600 text-sm">"${reviewsText[i % 20]}"</p>
-                        <h4 class="mt-3 text-red-600 font-black text-xs">عميل ${i+1}</h4>
-                    </div>
-                </div>`;
+            reviewsWrapper.innerHTML += `<div class="swiper-slide"><div class="review-card"><div class="star-gold">${'<i class="fas fa-star"></i>'.repeat(5)}</div><p class="font-bold opacity-80 text-sm">"${reviewsText[i % 20]}"</p><h4 class="mt-3 text-red-600 font-black text-xs">عميل ${i+1}</h4></div></div>`;
         }
 
-        function setCategory(cat, btn) {
-            currentFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            displayProducts();
-        }
-
+        function setCategory(cat, btn) { currentFilter = cat; document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); displayProducts(); }
         function openLightbox(i) { activeIdx = i; document.getElementById('lightbox-img').src = `cod${i}.jpeg`; document.getElementById('lightbox').style.display = 'flex'; document.body.style.overflow='hidden'; }
         function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow='auto'; }
         function changeImg(s) { activeIdx += s; if(activeIdx > totalModels) activeIdx=1; if(activeIdx < 1) activeIdx=totalModels; document.getElementById('lightbox-img').src = `cod${activeIdx}.jpeg`; }
-
         function toggleReviewModal(show) { document.getElementById('review-modal').style.display = show ? 'flex' : 'none'; }
-        function submitReview() {
-            const n = document.getElementById('revName').value, m = document.getElementById('revMsg').value;
-            window.open(`https://wa.me/201001283311?text=${encodeURIComponent("الاسم: "+n+"\nالتقييم: "+m)}`, '_blank');
-            toggleReviewModal(false);
-        }
+        function submitReview() { const n = document.getElementById('revName').value, m = document.getElementById('revMsg').value; window.open(`https://wa.me/201001283311?text=${encodeURIComponent("الاسم: "+n+"\nالتقييم: "+m)}`, '_blank'); toggleReviewModal(false); }
 
         let cart = [];
         function addToCart(n) { 
@@ -203,51 +191,20 @@
             const b = document.getElementById('cart-badge'); 
             b.innerText = cart.length; 
             b.style.display = 'block';
-            // تتبع إضافة للسلة في فيسبوك
             fbq('track', 'AddToCart', { content_name: n });
         }
         
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return alert("السلة فارغة");
-
             const orderNumber = "DS-" + Math.floor(1000 + Math.random() * 9000);
-            
-            let orderDetails = "🚀 طلب جديد من DeSina\n";
-            orderDetails += "رقم الطلب: " + orderNumber + "\n";
-            orderDetails += "--------------------------\n";
-            
-            cart.forEach((item, index) => {
-                orderDetails += `${index + 1}- ${item}\n`;
-            });
-            
-            orderDetails += "--------------------------\n";
-            orderDetails += "برجاء تأكيد الطلب ومتابعة الحالة.";
-
-            // إرسال حدث الشراء للفيسبوك بيكسل قبل فتح واتساب
-            fbq('track', 'Purchase', {
-                value: cart.length * 1000,
-                currency: 'EGP',
-                contents: cart.map(item => ({ name: item, quantity: 1 })),
-                content_type: 'product'
-            });
-
+            let orderDetails = "🚀 طلب جديد من DeSina\nرقم الطلب: " + orderNumber + "\n--------------------------\n";
+            cart.forEach((item, index) => { orderDetails += `${index + 1}- ${item}\n`; });
+            orderDetails += "--------------------------\nبرجاء تأكيد الطلب ومتابعة الحالة.";
+            fbq('track', 'Purchase', { value: cart.length * 1000, currency: 'EGP', contents: cart.map(item => ({ name: item, quantity: 1 })), content_type: 'product' });
             window.open(`https://wa.me/201001283311?text=${encodeURIComponent(orderDetails)}`, '_blank');
         }
 
-        new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: { delay: 3000 },
-            pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-        });
-
-        let startX = 0;
-        document.getElementById('lightbox').addEventListener('touchstart', e => startX = e.touches[0].clientX);
-        document.getElementById('lightbox').addEventListener('touchend', e => {
-            let endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) changeImg(1);
-            if (startX - endX < -50) changeImg(-1);
-        });
+        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
     </script>
 </body>
 </html>
