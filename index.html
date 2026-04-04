@@ -42,9 +42,11 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
 
+        /* أيقونة العربة في الهيدر - سادة بدون أرقام */
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; }
         .cart-icon:hover { transform: scale(1.1); }
 
+        /* --- تعديلات جيمي المعتمدة (المنيو الملمومة) --- */
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
             .burger-icon { display: none !important; }
@@ -82,20 +84,10 @@
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
+            position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF;
             border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
-
-        #music-toggle {
-            position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; 
-            background: #111; color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; z-index: 1001;
-            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
-            -webkit-tap-highlight-color: transparent;
-        }
-        #music-toggle:hover { transform: scale(1.1); background: #333; }
-        #music-icon { font-size: 16px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -103,14 +95,6 @@
     <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <div id="music-toggle" onclick="handleMusicToggle()">
-        <i id="music-icon" class="fas fa-music"></i>
-    </div>
-    
-    <audio id="bg-audio" loop preload="auto" playsinline>
-        <source src="bg-music.mp3" type="audio/mpeg">
-    </audio>
 
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
@@ -132,10 +116,13 @@
                 <a href="store.html" class="hidden md:block cart-icon mr-2">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
+
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
+                
                 <a href="store.html" class="md:hidden cart-icon">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
+
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
                 </div>
@@ -152,7 +139,9 @@
         <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover">
             <source src="39750.mp4.mp4" type="video/mp4">
         </video>
+        
         <div class="absolute z-20 w-full h-full bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
+
         <div class="container mx-auto relative z-30">
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
@@ -237,7 +226,6 @@
     </footer>
 
     <script>
-        // كود القائمة الجانبية
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
@@ -256,37 +244,6 @@
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
                 mobileMenu.classList.remove('active');
-            }
-        });
-
-        // --- كود الموسيقى المطور والنهائي لبراند DeSina ---
-        function handleMusicToggle() {
-            const audio = document.getElementById('bg-audio');
-            const btn = document.getElementById('music-toggle');
-            const icon = document.getElementById('music-icon');
-            
-            if (audio.paused) {
-                audio.play().then(() => {
-                    icon.className = 'fas fa-pause';
-                    btn.style.backgroundColor = '#22c55e'; // قلب أخضر فوراً
-                    audio.volume = 0.3;
-                }).catch(error => {
-                    console.log("Playback prevented:", error);
-                });
-            } else {
-                audio.pause();
-                icon.className = 'fas fa-music';
-                btn.style.backgroundColor = '#111'; // رجع أسود
-            }
-        }
-
-        // ضمان استمرار الموسيقى بدون فجوات زمنية
-        const audioEl = document.getElementById('bg-audio');
-        audioEl.addEventListener('timeupdate', function() {
-            var buffer = 0.44; 
-            if(this.currentTime > this.duration - buffer){
-                this.currentTime = 0;
-                this.play();
             }
         });
     </script>
