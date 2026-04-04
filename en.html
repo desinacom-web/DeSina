@@ -106,6 +106,7 @@
             background: #111; color: white; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; z-index: 1001;
             cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
         }
         #music-toggle:hover { transform: scale(1.1); background: #333; }
         #music-icon { font-size: 16px; }
@@ -117,7 +118,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="music-toggle">
+    <div id="music-toggle" onclick="handleMusicToggle()">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
     
@@ -274,13 +275,11 @@
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgAudio = document.getElementById('bg-audio');
-        
         bgAudio.volume = 0.3;
 
-        // Unified Controller: One click to rule them all (Works for Windows & iOS)
-        musicToggle.addEventListener('click', function() {
+        // Unified control function called from HTML
+        function handleMusicToggle() {
             if (bgAudio.paused) {
-                // This direct call is the "User Interaction" required by modern browsers
                 bgAudio.play().then(() => {
                     musicIcon.classList.remove('fa-music');
                     musicIcon.classList.add('fa-pause');
@@ -294,9 +293,9 @@
                 musicIcon.classList.add('fa-music');
                 musicToggle.style.backgroundColor = '#111'; // Black
             }
-        });
+        }
 
-        // Smart Loop logic to remove MP3 gap
+        // Smooth loop for MP3
         bgAudio.addEventListener('timeupdate', function() {
             var buffer = 0.44; 
             if(this.currentTime > this.duration - buffer){
