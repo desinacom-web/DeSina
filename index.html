@@ -92,6 +92,7 @@
             background: #111; color: white; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; z-index: 1001;
             cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
         }
         #music-toggle:hover { transform: scale(1.1); background: #333; }
         #music-icon { font-size: 16px; }
@@ -103,7 +104,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="music-toggle">
+    <div id="music-toggle" onclick="handleMusicToggle()">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
     
@@ -262,12 +263,9 @@
         const bgAudio = document.getElementById('bg-audio');
         bgAudio.volume = 0.3;
 
-        // تم إلغاء كود الـ Unlock العشوائي لضمان استجابة الزرار من اللمسة الأولى
-        
-        // كود التحكم الموحد
-        musicToggle.addEventListener('click', function() {
+        // وظيفة التحكم الموحدة التي يتم استدعاؤها من الـ HTML مباشرة
+        function handleMusicToggle() {
             if (bgAudio.paused) {
-                // التشغيل هنا هو "التفاعل الشرعي" الأول الذي يفتح الصوت في كل الأنظمة
                 bgAudio.play().then(() => {
                     musicIcon.classList.remove('fa-music');
                     musicIcon.classList.add('fa-pause');
@@ -281,9 +279,9 @@
                 musicIcon.classList.add('fa-music');
                 musicToggle.style.backgroundColor = '#111'; // أسود
             }
-        });
+        }
 
-        // منع التكة في الـ MP3
+        // منع التكة في الـ MP3 وضمان الاستمرار
         bgAudio.addEventListener('timeupdate', function() {
             var buffer = 0.44; 
             if(this.currentTime > this.duration - buffer){
