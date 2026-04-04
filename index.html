@@ -87,7 +87,6 @@
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
 
-        /* تنسيق زر الموسيقى الأسود الصغير */
         #music-toggle {
             position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; 
             background: #111; color: white; border-radius: 50%;
@@ -107,6 +106,7 @@
     <div id="music-toggle">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
+    
     <audio id="bg-audio" loop preload="auto" playsinline>
         <source src="bg-music.mp3" type="audio/mpeg">
     </audio>
@@ -198,38 +198,9 @@
             <div class="flex flex-col items-center md:items-start gap-3">
                 <h4 class="text-xl font-bold mb-2 text-white border-b-2 border-red-600 pb-1 inline-block">تواصل معنا</h4>
                 <div class="flex flex-col items-center md:items-start gap-1" style="direction: ltr;">
-                    <div class="flex items-center gap-2">
-                        <span class="text-lg">+20 100 128 3311</span>
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-lg">+20 111 568 0003</span>
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                    </div>
+                    <div class="flex items-center gap-2"><span class="text-lg">+20 100 128 3311</span><i class="fas fa-phone-alt text-red-600 text-sm"></i></div>
+                    <div class="flex items-center gap-2"><span class="text-lg">+20 111 568 0003</span><i class="fas fa-phone-alt text-red-600 text-sm"></i></div>
                 </div>
-                <div class="flex flex-col items-center md:items-start gap-1 mt-2" style="direction: ltr;">
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-300 text-sm">info@desina.net</span>
-                        <i class="fas fa-envelope text-red-600"></i>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-300 text-sm">desina.com@gmail.com</span>
-                        <i class="fas fa-envelope text-red-600"></i>
-                    </div>
-                </div>
-                <a href="https://maps.app.goo.gl/WBfgP3kfhdrsG4Jv6" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group">
-                    <i class="fas fa-location-arrow animate-bounce"></i>
-                    <span class="border-b border-red-500 group-hover:border-white">موقعنا على الخريطة</span>
-                </a>
-            </div>
-            <div class="flex flex-col items-center md:items-start">
-                <h4 class="text-xl font-bold mb-4 text-white">روابط هامة</h4>
-                <a href="privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-xs"></i> سياسة الخصوصية
-                </a>
-                <a href="about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2">
-                    <i class="fas fa-info-circle text-xs"></i> حول الشركة
-                </a>
             </div>
         </div>
         <p class="mt-10 text-center text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
@@ -240,48 +211,39 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
 
-        burgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
+        menuItems.forEach(item => { item.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
+        document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) mobileMenu.classList.remove('active'); });
 
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // كود تشغيل الموسيقى المطور لحل مشاكل الأيفون والتكة
+        // كود تشغيل الموسيقى - الحل النهائي للأيفون والتكة
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgAudio = document.getElementById('bg-audio');
-        
         bgAudio.volume = 0.3;
 
-        musicToggle.addEventListener('click', () => {
+        // حل مشكلة التكة في ملفات الـ MP3
+        bgAudio.addEventListener('timeupdate', function() {
+            var buffer = 0.44; 
+            if(this.currentTime > this.duration - buffer){
+                this.currentTime = 0;
+                this.play();
+            }
+        });
+
+        // أهم وظيفة للأيفون: التفاعل المباشر
+        musicToggle.addEventListener('click', function() {
             if (bgAudio.paused) {
-                // محاولة التشغيل مع معالجة قيود الأيفون
-                const playPromise = bgAudio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        musicIcon.classList.remove('fa-music');
-                        musicIcon.classList.add('fa-pause');
-                        musicToggle.style.background = '#22c55e'; 
-                    }).catch(error => {
-                        console.log("Auto-play was prevented");
-                    });
-                }
+                // أمر تشغيل صريح للأيفون
+                bgAudio.play().then(() => {
+                    musicIcon.classList.remove('fa-music');
+                    musicIcon.classList.add('fa-pause');
+                    musicToggle.style.background = '#22c55e';
+                }).catch(e => console.error("Error on iPhone play:", e));
             } else {
                 bgAudio.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-music');
-                musicToggle.style.background = '#111'; 
+                musicToggle.style.background = '#111';
             }
         });
     </script>
