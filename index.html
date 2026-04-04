@@ -104,7 +104,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="music-toggle" onclick="handleMusicToggle()" ontouchstart="handleMusicToggle()">
+    <div id="music-toggle" onclick="handleMusicToggle()">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
     
@@ -259,29 +259,24 @@
             }
         });
 
-        // --- كود الموسيقى المطور: الضربة القاضية لعناد الأيفون ---
+        // --- كود الموسيقى المطور والنهائي لبراند DeSina ---
         function handleMusicToggle() {
             const audio = document.getElementById('bg-audio');
             const btn = document.getElementById('music-toggle');
             const icon = document.getElementById('music-icon');
             
             if (audio.paused) {
-                // 1. تغيير المظهر فوراً وبدون انتظار (خداع الأيفون لتسجيل استجابة المستخدم)
-                icon.className = 'fas fa-pause';
-                btn.style.backgroundColor = '#22c55e';
-                
-                // 2. أمر التشغيل
                 audio.play().then(() => {
+                    icon.className = 'fas fa-pause';
+                    btn.style.backgroundColor = '#22c55e'; // قلب أخضر فوراً
                     audio.volume = 0.3;
-                    console.log("Music Playing Success");
                 }).catch(error => {
-                    console.log("Audio block details:", error);
-                    // في حالة المنع القاسي، نترك اللون أخضر ليشعر المستخدم بمحاولة الموقع
+                    console.log("Playback prevented:", error);
                 });
             } else {
                 audio.pause();
                 icon.className = 'fas fa-music';
-                btn.style.backgroundColor = '#111';
+                btn.style.backgroundColor = '#111'; // رجع أسود
             }
         }
 
