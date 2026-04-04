@@ -260,10 +260,21 @@
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgAudio = document.getElementById('bg-audio');
-        
         bgAudio.volume = 0.3;
 
-        // حل ذكي لمنع التكة في الـ MP3
+        // "المفتاح السحري للأيفون" - يفك الحظر مع أول لمسة للشاشة في أي مكان
+        function unlockAudio() {
+            bgAudio.play().then(() => {
+                bgAudio.pause();
+                bgAudio.currentTime = 0;
+            }).catch(e => console.log("Audio ready"));
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('click', unlockAudio);
+        }
+        document.addEventListener('touchstart', unlockAudio);
+        document.addEventListener('click', unlockAudio);
+
+        // منع التكة في الـ MP3
         bgAudio.addEventListener('timeupdate', function() {
             var buffer = 0.44; 
             if(this.currentTime > this.duration - buffer){
@@ -272,22 +283,21 @@
             }
         });
 
-        // الوظيفة الموحدة للأيفون: الزرار هو اللي بيفك القفل ويشغل فوراً
+        // زر التحكم الرئيسي
         musicToggle.addEventListener('click', function() {
             if (bgAudio.paused) {
-                // محاولة التشغيل المباشرة (ده بيفك قفل Safari في الأيفون)
                 bgAudio.play().then(() => {
                     musicIcon.classList.remove('fa-music');
                     musicIcon.classList.add('fa-pause');
-                    musicToggle.style.backgroundColor = '#22c55e'; // قلب أخضر عند العمل
+                    musicToggle.style.backgroundColor = '#22c55e'; // أخضر عند التشغيل
                 }).catch(error => {
-                    console.log("Playback blocked:", error);
+                    console.log("Error:", error);
                 });
             } else {
                 bgAudio.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-music');
-                musicToggle.style.backgroundColor = '#111'; // رجع أسود عند التوقف
+                musicToggle.style.backgroundColor = '#111'; // أسود عند التوقف
             }
         });
     </script>
