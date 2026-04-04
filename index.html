@@ -262,17 +262,26 @@
         const bgAudio = document.getElementById('bg-audio');
         bgAudio.volume = 0.3;
 
-        // "المفتاح السحري للأيفون" - يفك الحظر مع أول لمسة للشاشة في أي مكان
-        function unlockAudio() {
-            bgAudio.play().then(() => {
+        // تم إلغاء كود الـ Unlock العشوائي لضمان استجابة الزرار من اللمسة الأولى
+        
+        // كود التحكم الموحد
+        musicToggle.addEventListener('click', function() {
+            if (bgAudio.paused) {
+                // التشغيل هنا هو "التفاعل الشرعي" الأول الذي يفتح الصوت في كل الأنظمة
+                bgAudio.play().then(() => {
+                    musicIcon.classList.remove('fa-music');
+                    musicIcon.classList.add('fa-pause');
+                    musicToggle.style.backgroundColor = '#22c55e'; // أخضر
+                }).catch(error => {
+                    console.log("Playback prevented:", error);
+                });
+            } else {
                 bgAudio.pause();
-                bgAudio.currentTime = 0;
-            }).catch(e => console.log("Audio ready"));
-            document.removeEventListener('touchstart', unlockAudio);
-            document.removeEventListener('click', unlockAudio);
-        }
-        document.addEventListener('touchstart', unlockAudio);
-        document.addEventListener('click', unlockAudio);
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-music');
+                musicToggle.style.backgroundColor = '#111'; // أسود
+            }
+        });
 
         // منع التكة في الـ MP3
         bgAudio.addEventListener('timeupdate', function() {
@@ -280,24 +289,6 @@
             if(this.currentTime > this.duration - buffer){
                 this.currentTime = 0;
                 this.play();
-            }
-        });
-
-        // زر التحكم الرئيسي
-        musicToggle.addEventListener('click', function() {
-            if (bgAudio.paused) {
-                bgAudio.play().then(() => {
-                    musicIcon.classList.remove('fa-music');
-                    musicIcon.classList.add('fa-pause');
-                    musicToggle.style.backgroundColor = '#22c55e'; // أخضر عند التشغيل
-                }).catch(error => {
-                    console.log("Error:", error);
-                });
-            } else {
-                bgAudio.pause();
-                musicIcon.classList.remove('fa-pause');
-                musicIcon.classList.add('fa-music');
-                musicToggle.style.backgroundColor = '#111'; // أسود عند التوقف
             }
         });
     </script>
