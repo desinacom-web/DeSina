@@ -237,6 +237,7 @@
     </footer>
 
     <script>
+        // كود القائمة الجانبية
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
@@ -258,31 +259,30 @@
             }
         });
 
-        const musicToggle = document.getElementById('music-toggle');
-        const musicIcon = document.getElementById('music-icon');
-        const bgAudio = document.getElementById('bg-audio');
-        bgAudio.volume = 0.3;
-
-        // وظيفة التحكم الموحدة التي يتم استدعاؤها من الـ HTML مباشرة
+        // --- كود الموسيقى المطور والنهائي لبراند DeSina ---
         function handleMusicToggle() {
-            if (bgAudio.paused) {
-                bgAudio.play().then(() => {
-                    musicIcon.classList.remove('fa-music');
-                    musicIcon.classList.add('fa-pause');
-                    musicToggle.style.backgroundColor = '#22c55e'; // أخضر
+            const audio = document.getElementById('bg-audio');
+            const btn = document.getElementById('music-toggle');
+            const icon = document.getElementById('music-icon');
+            
+            if (audio.paused) {
+                audio.play().then(() => {
+                    icon.className = 'fas fa-pause';
+                    btn.style.backgroundColor = '#22c55e'; // قلب أخضر فوراً
+                    audio.volume = 0.3;
                 }).catch(error => {
                     console.log("Playback prevented:", error);
                 });
             } else {
-                bgAudio.pause();
-                musicIcon.classList.remove('fa-pause');
-                musicIcon.classList.add('fa-music');
-                musicToggle.style.backgroundColor = '#111'; // أسود
+                audio.pause();
+                icon.className = 'fas fa-music';
+                btn.style.backgroundColor = '#111'; // رجع أسود
             }
         }
 
-        // منع التكة في الـ MP3 وضمان الاستمرار
-        bgAudio.addEventListener('timeupdate', function() {
+        // ضمان استمرار الموسيقى بدون فجوات زمنية
+        const audioEl = document.getElementById('bg-audio');
+        audioEl.addEventListener('timeupdate', function() {
             var buffer = 0.44; 
             if(this.currentTime > this.duration - buffer){
                 this.currentTime = 0;
