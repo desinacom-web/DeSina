@@ -104,7 +104,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="music-toggle" onclick="handleMusicToggle()" ontouchstart="handleMusicToggle()">
+    <div id="music-toggle" onclick="handleMusicToggle(event)" ontouchstart="handleMusicToggle(event)">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
     
@@ -181,7 +181,7 @@
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الصناعية</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">تصميم الأزياء</h3><p class="text-gray-600">نبتكر تصاميم أزياء عصرية تلبي تطلوات عملائنا وتبرز هويتهم.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
                 <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">ضبط الجودة</h3><p class="text-gray-600">نضمن جودة القطع النهائية من خلال تفتيش صارم ومعايير دقيقة.</p></div>
             </div>
         </div>
@@ -259,27 +259,31 @@
             }
         });
 
-        // --- كود الموسيقى المطور: الضربة القاضية لعناد الأيفون ---
-        function handleMusicToggle() {
+        // --- كود الموسيقى النهائي: حل مشكلة الأيفون وتغيير اللون ---
+        function handleMusicToggle(e) {
+            // منع تنفيذ الأمر مرتين (لمس وضغط) لحل مشكلة الفتح والقفل السريع
+            if (e && e.type === 'touchstart') {
+                e.preventDefault();
+            }
+
             const audio = document.getElementById('bg-audio');
             const btn = document.getElementById('music-toggle');
             const icon = document.getElementById('music-icon');
             
             if (audio.paused) {
-                // 1. تغيير المظهر فوراً وبدون انتظار (خداع الأيفون لتسجيل استجابة المستخدم)
+                // تغيير المظهر فوراً للأخضر
                 icon.className = 'fas fa-pause';
                 btn.style.backgroundColor = '#22c55e';
                 
-                // 2. أمر التشغيل
                 audio.play().then(() => {
                     audio.volume = 0.3;
-                    console.log("Music Playing Success");
+                    console.log("DeSina Music Playing");
                 }).catch(error => {
-                    console.log("Audio block details:", error);
-                    // في حالة المنع القاسي، نترك اللون أخضر ليشعر المستخدم بمحاولة الموقع
+                    console.log("Playback blocked:", error);
                 });
             } else {
                 audio.pause();
+                // العودة للمظهر الأصلي (الأسود)
                 icon.className = 'fas fa-music';
                 btn.style.backgroundColor = '#111';
             }
