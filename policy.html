@@ -6,31 +6,37 @@
     <title>DeSina | سياسة الاسترجاع والاستبدال</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --bg-body: #f9fafb; --bg-card: #ffffff; --text-main: #111827; --nav-bg: #ffffff; }
         @media (prefers-color-scheme: dark) {
             :root { --bg-body: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --nav-bg: #111111; }
         }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); font-weight: 700; margin: 0; overflow-x: hidden; }
+        /* الخط كبير والوزن Medium للشياكة */
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); font-weight: 500; transition: 0.4s; margin: 0; overflow-x: hidden; }
         
         nav { background-color: var(--nav-bg) !important; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        
+        /* اللوجو بحجمه الملكي الجديد */
         .brand-logo { height: 60px; width: auto; border-radius: 10px; object-fit: contain; }
         
-        .nav-link { font-weight: 800; cursor: pointer; font-size: 16px; }
+        .nav-link { font-weight: 600; cursor: pointer; font-size: 16px; }
         .active-lang { color: #ef4444; text-decoration: underline; }
-        .back-btn { background: #000; color: #fff; padding: 10px 22px; border-radius: 50px; font-weight: 900; font-size: 14px; }
+        .back-btn { background: #000; color: #fff; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 14px; }
 
+        /* الهيدر الملموم والعدل */
         header { padding: 35px 20px !important; border-bottom: 4px solid #ef4444; background-color: #111827; text-align: center; color: white; }
-        .main-title { font-weight: 900 !important; line-height: 1.2; }
-        .sub-title { font-style: normal !important; font-weight: 700 !important; opacity: 0.9; }
+        .main-title { font-weight: 700 !important; line-height: 1.2; }
+        .sub-title { font-weight: 500 !important; opacity: 0.9; }
 
         .policy-card { background: var(--bg-card); border-radius: 20px; border-inline-start: 8px solid #ef4444; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 25px; }
-        .hidden-content { display: none; }
+        h2 { font-weight: 700 !important; font-size: 1.8rem; }
+        p { font-weight: 500 !important; line-height: 1.8; font-size: 1.25rem; }
         
-        footer { background-color: #000; color: #666; padding: 25px 0; border-top: 1px solid #1a1a1a; font-size: 12px; font-weight: 900; text-align: center; }
+        .hidden-content { display: none; }
+        footer { background-color: #000; color: #666; padding: 25px 0; font-size: 12px; font-weight: 600; text-align: center; border-top: 1px solid #1a1a1a; }
     </style>
 </head>
 <body>
@@ -48,54 +54,52 @@
 
     <header>
         <div id="header-ar">
-            <h1 class="main-title text-3xl md:text-6xl mb-3">سياسة <span class="text-red-600">الاسترجاع والاستبدال</span></h1>
-            <p class="sub-title text-sm md:text-xl">دليل حقوق العميل والمعايير الدولية لضمان الجودة لدى شركة دي سينا</p>
+            <h1 class="main-title text-3xl md:text-5xl mb-3">سياسة <span class="text-red-600">الاسترجاع والاستبدال</span></h1>
+            <p class="sub-title text-sm md:text-xl">دليل حقوق العميل والمعايير الدولية لضمان الجودة لدى شركة دي سينا الاستثمارية</p>
         </div>
         <div id="header-en" class="hidden-content">
-            <h1 class="main-title text-3xl md:text-6xl mb-3">Return & <span class="text-red-600">Exchange Policy</span></h1>
-            <p class="sub-title text-sm md:text-xl">Customer Rights & International Quality Standards at DeSina</p>
+            <h1 class="main-title text-3xl md:text-5xl mb-3">Return & <span class="text-red-600">Exchange Policy</span></h1>
+            <p class="sub-title text-sm md:text-xl">Customer Rights & International Quality Standards at DeSina Investment Group</p>
         </div>
     </header>
 
     <section class="container mx-auto px-5 py-10 max-w-5xl">
         <div id="content-ar" class="text-right">
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4"><i class="fas fa-history text-red-600 ml-3"></i> ١. المدد الزمنية الرسمية</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">يتم قبول طلبات **الاسترجاع** خلال أربعة عشر يوماً، وطلبات **الاستبدال** الناتجة عن عيوب التصنيع خلال ثلاثين يوماً من تاريخ استلام المنتج المثبت رسمياً.</p>
+                <h2 class="mb-4"><i class="fas fa-history text-red-600 ml-3"></i> ١. المدد الزمنية الرسمية</h2>
+                <p class="text-gray-600">يتم قبول طلبات الاسترجاع خلال أربعة عشر يوماً، وطلبات الاستبدال الناتجة عن عيوب التصنيع خلال ثلاثين يوماً من تاريخ استلام المنتج المثبت رسمياً.</p>
             </div>
             
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4"><i class="fas fa-shield-alt text-red-600 ml-3"></i> ٢. معايير رفض الطلبات</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">يُرفض طلب الاستبدال أو الاسترجاع في حال وجود تلف ناتج عن سوء الاستخدام، ويشمل ذلك: مخالفة تعليمات الغسيل، إجراء تعديلات يدوية، أو التلف العمدي الناتج عن الإهمال.</p>
+                <h2 class="mb-4"><i class="fas fa-shield-alt text-red-600 ml-3"></i> ٢. معايير الرفض وسوء الاستخدام</h2>
+                <p class="text-gray-600">يرفض طلب الاستبدال أو الاسترجاع في حالة وجود تلف ناتج عن **سوء الاستخدام**، ويشمل ذلك: مخالفة تعليمات العناية الخاصة بـ **الملابس والإكسسوارات وكافة منتجات الشركة**، أو إجراء تعديلات يدوية، أو التلف العمدي الناتج عن الإهمال و**سوء الاستخدام**.</p>
             </div>
 
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4"><i class="fas fa-wallet text-red-600 ml-3"></i> ٣. التسويات والتحويلات المالية</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">تتم معالجة مبالغ الرد عبر بوابة الدفع الإلكتروني أو البطاقات البنكية خلال مدة تتراوح من خمسة إلى عشرة أيام عمل. يتم خصم رسوم الشحن والرسوم الإدارية في حالات الاسترجاع غير المتعلقة بعيوب الصناعة.</p>
+                <h2 class="mb-4"><i class="fas fa-university text-red-600 ml-3"></i> ٣. التسويات والتحويلات المالية</h2>
+                <p class="text-gray-600">تتم معالجة مبالغ الرد عبر بوابات الدفع الإلكتروني انستا باي وباي بال أو البطاقات البنكية خلال مدة تتراوح من خمسة إلى عشرة أيام عمل. يتم خصم رسوم الشحن والرسوم الإدارية في حالات الاسترجاع غير المتعلقة بعيوب الصناعة.</p>
             </div>
         </div>
 
         <div id="content-en" class="text-left hidden-content">
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4 text-red-600"><i class="fas fa-history mr-3"></i> 1. Official Timeframes</h2>
-                <p class="text-lg md:text-xl text-gray-600">Returns are accepted within **14 days**. Exchanges for manufacturing defects are accepted within **30 days** of delivery.</p>
+                <h2 class="mb-4 text-red-600"><i class="fas fa-history mr-3"></i> 1. Official Timeframes</h2>
+                <p class="text-gray-600">Returns are accepted within 14 days. Exchanges for manufacturing defects are accepted within 30 days of delivery.</p>
             </div>
-            
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4 text-red-600"><i class="fas fa-shield-alt mr-3"></i> 2. Rejection Criteria</h2>
-                <p class="text-lg md:text-xl text-gray-600">Requests are denied for damage due to misuse, such as: ignoring care labels, personal alterations, or intentional damage.</p>
+                <h2 class="mb-4 text-red-600"><i class="fas fa-shield-alt mr-3"></i> 2. Misuse & Rejection Criteria</h2>
+                <p class="text-gray-600">Requests are denied for damage due to **misuse**, including violation of care instructions for **apparel, accessories, and all company products**, or personal alterations.</p>
             </div>
-
             <div class="policy-card">
-                <h2 class="text-2xl md:text-3xl mb-4 text-red-600"><i class="fas fa-wallet mr-3"></i> 3. Financial Settlements</h2>
-                <p class="text-lg md:text-xl text-gray-600">Refunds are processed via official payment gateways or bank cards within **5-10 business days**. Shipping and admin fees are non-refundable for non-defective returns.</p>
+                <h2 class="mb-4 text-red-600"><i class="fas fa-university mr-3"></i> 3. Financial Settlements</h2>
+                <p class="text-gray-600">Refunds are processed via InstaPay, PayPal, or Bank Cards within 5-10 business days. Shipping and admin fees are non-refundable for non-defective returns.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container mx-auto flex justify-center items-center gap-5 uppercase">
-            <span>S.I</span> <span>|</span> <span>DESINA INTERNATIONAL GROUP © 2026</span> <span>|</span> <span>E.N.A</span>
+            <span>S.I</span> <span>|</span> <span>DESINA INVESTMENT GROUP © 2026</span> <span>|</span> <span>E.N.A</span>
         </div>
     </footer>
 
@@ -119,7 +123,7 @@
             } else {
                 html.dir = 'rtl'; html.lang = 'ar';
                 enContent.classList.add('hidden-content'); arContent.classList.remove('hidden-content');
-                enHeader.classList.add('hidden-content'); arHeader.classList.remove('hidden-lang'); // تصحيح بسيط هنا لضمان الظهور
+                enHeader.classList.add('hidden-content'); arHeader.classList.remove('hidden-content');
                 navEn.classList.remove('active-lang'); navAr.classList.add('active-lang');
                 homeLink.innerText = 'الرئيسية'; homeLink.href = 'index.html';
             }
