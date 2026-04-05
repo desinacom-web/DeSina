@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="mainHtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeSina | Return Policy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gold-border { border-color: #D4AF37; }
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        /* إخفاء النص غير المختار بسلاسة */
+        .hidden-lang { display: none; }
+    </style>
+</head>
+<body class="bg-black text-white font-sans min-h-screen">
+
+    <div class="container mx-auto p-6 text-center">
+        <button onclick="toggleLanguage()" id="langBtn" class="bg-gold text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition duration-300">
+            Switch to English
+        </button>
+    </div>
+
+    <main id="content-ar" class="container mx-auto px-6 py-10 max-w-4xl">
+        <h1 class="text-4xl font-bold text-gold mb-8 border-b-2 gold-border pb-4">سياسة الاسترجاع والاستبدال</h1>
+        <div class="space-y-6 text-xl leading-relaxed text-right">
+            <p>✅ يتم قبول المرتجعات خلال <strong>14 يوماً</strong> من تاريخ الاستلام.</p>
+            <p>✅ يجب أن تكون المنتجات بحالتها الأصلية، غير مستخدمة، وبجميع الملصقات (Tags).</p>
+            <p>✅ يتم استرداد المبلغ خلال <strong>5-7 أيام عمل</strong> بعد فحص المنتج.</p>
+            <p>✅ يتم رد المبلغ بنفس طريقة الدفع الأصلية (Visa / PayPal).</p>
+            <p class="text-gray-400 text-sm mt-10">شكرًا لثقتكم في DeSina - فخامة تليق بكم.</p>
+        </div>
+    </main>
+
+    <main id="content-en" class="container mx-auto px-6 py-10 max-w-4xl hidden-lang">
+        <h1 class="text-4xl font-bold text-gold mb-8 border-b-2 gold-border pb-4 text-left">Return & Refund Policy</h1>
+        <div class="space-y-6 text-xl leading-relaxed text-left">
+            <p>✅ Returns are accepted within <strong>14 days</strong> of receipt.</p>
+            <p>✅ Items must be in original condition, unworn, and with all tags attached.</p>
+            <p>✅ Refunds are processed within <strong>5-7 business days</strong> after inspection.</p>
+            <p>✅ Refunds will be issued to the original payment method (Visa / PayPal).</p>
+            <p class="text-gray-400 text-sm mt-10">Thank you for choosing DeSina - Luxury in every detail.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleLanguage() {
+            const htmlTag = document.getElementById('mainHtml');
+            const arContent = document.getElementById('content-ar');
+            const enContent = document.getElementById('content-en');
+            const btn = document.getElementById('langBtn');
+
+            if (htmlTag.dir === 'rtl') {
+                // قلب الصفحة إنجليزي
+                htmlTag.dir = 'ltr';
+                htmlTag.lang = 'en';
+                arContent.classList.add('hidden-lang');
+                enContent.classList.remove('hidden-lang');
+                btn.innerText = 'التحويل للعربية';
+            } else {
+                // رجوع للعربي
+                htmlTag.dir = 'rtl';
+                htmlTag.lang = 'ar';
+                enContent.classList.add('hidden-lang');
+                arContent.classList.remove('hidden-lang');
+                btn.innerText = 'Switch to English';
+            }
+        }
+    </script>
+</body>
+</html>
