@@ -177,7 +177,7 @@
         function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow='auto'; }
         function changeImg(s) { activeIdx += s; if(activeIdx > totalModels) activeIdx=1; if(activeIdx < 1) activeIdx=totalModels; document.getElementById('lightbox-img').src = `cod${activeIdx}.jpeg`; }
         function toggleReviewModal(show) { document.getElementById('review-modal').style.display = show ? 'flex' : 'none'; }
-        function submitReview() { const n = document.getElementById('revName').value, m = document.getElementById('revMsg').value; window.open(`https://wa.me/201001283311?text=${encodeURIComponent("Review: "+m+"\nBy: "+n)}`, '_blank'); toggleReviewModal(false); }
+        function submitReview() { const n = document.getElementById('revName').value, m = document.getElementById('revMsg').value; window.open(`https://wa.me/201102919214?text=${encodeURIComponent("Review: "+m+"\nBy: "+n)}`, '_blank'); toggleReviewModal(false); }
 
         let cart = [];
         function addToCart(n) { cart.push(n); const b = document.getElementById('cart-badge'); b.innerText = cart.length; b.style.display = 'block'; }
@@ -187,7 +187,7 @@
             let orderDetails = "🚀 New Order from DeSina\nOrder ID: " + orderNumber + "\n--------------------------\n";
             cart.forEach((item, index) => { orderDetails += `${index + 1}- ${item}\n`; });
             orderDetails += "--------------------------\nProcessing your order..";
-            window.open(`https://wa.me/201001283311?text=${encodeURIComponent(orderDetails)}`, '_blank');
+            window.open(`https://wa.me/201102919214?text=${encodeURIComponent(orderDetails)}`, '_blank');
         }
 
         new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
