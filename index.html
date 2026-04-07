@@ -26,8 +26,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.4s, color 0.4s; }
-        .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        /* تثبيت الخلفية سوداء لقتل الشريط الأبيض */
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; background-color: #000; transition: background-color 0.4s, color 0.4s; }
+        
+        /* التحام الهيرو مع النيف بار لمنع الفراغات */
+        .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; margin-top: -1px; }
+        
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
@@ -36,10 +40,9 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* كود الدارك مود الأوتوماتيكي */
         @media (prefers-color-scheme: dark) {
             body { background-color: #0a0c10; color: #f3f4f6; }
-            nav { background-color: #111111 !important; border-bottom: 1px solid #222; }
+            nav { background-color: #111111 !important; border-bottom: none !important; }
             .nav-link { color: #e5e7eb; }
             .service-card { background-color: #161b22; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
             .service-card h3 { color: #ffffff !important; }
@@ -55,7 +58,6 @@
         }
 
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; }
-        .cart-icon:hover { transform: scale(1.1); }
 
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
@@ -63,18 +65,15 @@
         }
 
         @media (max-width: 768px) {
-            /* الضبطة الدقيقة للهيرو - فيسبوك موبايل */
             .hero-section { height: 75vh !important; min-height: 420px !important; padding-top: 20px; }
             .hero-logo { height: 80px !important; margin-bottom: 10px !important; margin-top: -10px !important; }
             .hero-section h1 { font-size: 1.7rem !important; margin-bottom: 8px !important; line-height: 1.2 !important; }
             .hero-section p { font-size: 0.85rem !important; margin-bottom: 15px !important; line-height: 1.3 !important; max-width: 90% !important; margin-left: auto; margin-right: auto; }
             
-            /* ستايل الزراير الرشيق */
             .hero-section .flex-wrap { gap: 10px !important; justify-content: center !important; }
             .hero-section a { flex: 0 1 45% !important; padding: 10px 8px !important; font-size: 13px !important; text-align: center; border-radius: 9999px !important; }
             .hero-section a:last-child { flex: 0 1 60% !important; }
 
-            /* تثبيت المينيو العربي - مراية بمقاس الإنجليزي */
             #mobile-menu { 
                 display: none; flex-direction: column; width: 35% !important; position: fixed; top: 64px; left: 0; 
                 height: 55vh !important; background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(12px);
@@ -92,11 +91,11 @@
         }
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s; -webkit-tap-highlight-color: transparent; }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; }
+        #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="text-gray-900">
 
     <a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <div id="music-toggle" onclick="handleMusicToggle()"><i id="music-icon" class="fas fa-music"></i></div>
