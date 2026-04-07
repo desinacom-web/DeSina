@@ -24,25 +24,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg-main: #f9fafb; --bg-card: #ffffff; --text-main: #1f2937; --nav-bg: #ffffff; --btn-text: #374151; }
-        
         @media (prefers-color-scheme: dark) {
             :root { --bg-main: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --nav-bg: #111111; --btn-text: #e5e7eb; }
         }
-
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-main); color: var(--text-main); transition: 0.4s; }
-        
         nav { background-color: var(--nav-bg) !important; border-bottom: 1px solid rgba(239, 68, 68, 0.1); }
-        
         .filter-btn { transition: 0.3s; padding: 10px 24px; border-radius: 99px; font-weight: bold; border: 1px solid rgba(156, 163, 175, 0.3); color: var(--btn-text); cursor: pointer; }
         .active-filter { background-color: #ef4444 !important; color: white !important; border-color: #ef4444 !important; }
-        
         .filter-item { display: none; }
         .show { display: block !important; animation: fadeIn 0.5s ease-in; }
-        
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
         .catalog-card { background-color: var(--bg-card); border-radius: 1.5rem; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-top: 4px solid #ef4444; transition: 0.3s; }
-        
         @media (prefers-color-scheme: dark) {
             header.bg-gray-900 { background-color: #000 !important; }
             .bg-white { background-color: var(--bg-card) !important; }
@@ -57,9 +49,10 @@
                 <img src="logo.jpg" class="h-10 rounded-lg">
                 <span class="text-xl font-bold">DeSina</span>
             </div>
-            <div class="flex items-center">
-                <a href="index.html" class="font-bold hover:text-red-600 text-[15px]">الرئيسية</a>
-                <a href="en-catalog.html" class="text-red-600 font-bold border-r pr-6 pl-2 border-gray-200">English</a>
+            <div class="flex items-center gap-0">
+                <a href="index.html" class="font-bold hover:text-red-600 text-sm">الرئيسية</a>
+                <span class="border-r border-gray-300 h-5 mr-8 pl-1"></span>
+                <a href="en-catalog.html" class="text-red-600 font-bold">English</a>
             </div>
         </div>
     </nav>
@@ -78,62 +71,50 @@
 
     <section class="container mx-auto px-6 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 1">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-01</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 2">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-02</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 3">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-03</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 4">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-04</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 5">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-05</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 6">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-06</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 7">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-07</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 8">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-08</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 9">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-09</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 10">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-10</h3>
             </div>
-
             <div class="filter-item fashion catalog-card p-4">
                 <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="موديل 11">
                 <h3 class="text-center font-bold text-xl">موديل شبابي COD-11</h3>
             </div>
-
             <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center catalog-card">
                 <h3 class="text-xl font-bold">الخدمات الرقمية</h3>
                 <p class="opacity-70 mt-2">قريباً...</p>
@@ -142,7 +123,6 @@
                 <h3 class="text-xl font-bold">الخدمات الصناعية</h3>
                 <p class="opacity-70 mt-2">قريباً...</p>
             </div>
-
         </div>
     </section>
 
@@ -170,18 +150,14 @@
           x = document.getElementsByClassName("filter-item");
           btns = document.getElementsByClassName("filter-btn");
           if (c == "all") c = "";
-          for (i = 0; i < btns.length; i++) {
-              btns[i].classList.remove("active-filter");
-          }
+          for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active-filter"); }
           if(btn) btn.classList.add("active-filter");
           for (i = 0; i < x.length; i++) {
             x[i].classList.remove("show");
             if (x[i].className.indexOf(c) > -1) x[i].classList.add("show");
           }
         }
-        window.onload = function() {
-            filterSelection('all', document.getElementById('btn-all'));
-        };
+        window.onload = function() { filterSelection('all', document.getElementById('btn-all')); };
     </script>
 </body>
 </html>
