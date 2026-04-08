@@ -28,7 +28,7 @@
     <style>
         /* قتل الشريط الأبيض وأرضية سوداء */
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; background-color: #000; transition: background-color 0.4s, color 0.4s; }
-        刻hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; margin-top: -1px; }
+        .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; margin-top: -1px; }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
@@ -36,10 +36,6 @@
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
-
-        /* كلاس تنوير الروابط التفاعلية باللون الأحمر */
-        .footer-interactive-link { color: #d1d5db; transition: color 0.3s; }
-        .footer-interactive-link:hover { color: #ef4444 !important; }
 
         @media (prefers-color-scheme: dark) {
             body { background-color: #0a0c10; color: #f3f4f6; }
@@ -179,12 +175,12 @@
             <div class="flex flex-col items-center md:items-start gap-3">
                 <h4 class="text-xl font-bold mb-2 text-white border-b-2 border-red-600 pb-1 inline-block">Connect With Us</h4>
                 <div class="flex flex-col items-center md:items-start gap-1">
-                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><a href="tel:201102919214" class="text-lg footer-interactive-link">+20 1102919214</a></div>
-                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><a href="tel:201102919614" class="text-lg footer-interactive-link">+20 1102919614</a></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><span class="text-lg">+20 1102919214</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><span class="text-lg">+20 1102919614</span></div>
                 </div>
                 <div class="flex flex-col items-center md:items-start gap-1 mt-2">
-                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><a href="mailto:info@desina.net" class="text-gray-300 text-sm footer-interactive-link">info@desina.net</a></div>
-                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><a href="mailto:desina.com@gmail.com" class="text-gray-300 text-sm footer-interactive-link">desina.com@gmail.com</a></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><span class="text-gray-300 text-sm">info@desina.net</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><span class="text-gray-300 text-sm">desina.com@gmail.com</span></div>
                 </div>
             </div>
             <div class="flex flex-col items-center">
