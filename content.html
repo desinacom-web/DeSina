@@ -8,19 +8,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0a0c10; color: white; min-height: 100vh; }
-        .content-card { background: #161b22; border-top: 4px solid #ef4444; transition: 0.3s; height: 100%; }
+        /* نظام الألوان الذكي */
+        :root {
+            --bg-body: #f8f9fa;
+            --bg-nav: rgba(255, 255, 255, 0.8);
+            --bg-card: #ffffff;
+            --text-main: #0a0c10;
+            --text-gray: #4b5563;
+            --border-color: #e5e7eb;
+            --anghami-theme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0a0c10;
+                --bg-nav: rgba(0, 0, 0, 0.8);
+                --bg-card: #161b22;
+                --text-main: #ffffff;
+                --text-gray: #9ca3af;
+                --border-color: #21262d;
+                --anghami-theme: fulldark;
+            }
+        }
+
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+            font-style: normal !important;
+        }
+
+        nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
+
+        .content-card { 
+            background: var(--bg-card); 
+            border-top: 4px solid #ef4444; 
+            transition: 0.3s; 
+            height: 100%; 
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
         .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
-        /* حاوية مشغل أنغامي لضمان التناسب */
+        
         .anghami-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
-        .anghami-container iframe { width: 100% !important; height: 450px !important; border: none; }
+        .anghami-container iframe { width: 100% !important; border: none; }
+
+        .back-link { color: var(--text-main); }
+        .back-link:hover { color: #ef4444; }
+
+        * { font-style: normal !important; }
     </style>
 </head>
 <body>
 
-    <nav class="p-4 bg-black/80 sticky top-0 z-50 backdrop-blur-md border-b border-gray-800">
+    <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="text-white font-bold flex items-center gap-2 hover:text-red-600 transition">
+            <a href="index.html" class="back-link font-bold flex items-center gap-2 transition">
                 <i class="fas fa-chevron-right"></i> العودة للرئيسية
             </a>
             <img src="logo.jpg" style="height: 35px; border-radius: 5px;">
@@ -29,7 +76,7 @@
 
     <header class="py-16 text-center px-4">
         <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-4">صناعة المحتوى</h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto italic">"إبداع بلا حدود، من الفكرة حتى التنفيذ."</p>
+        <p style="color: var(--text-gray);" class="text-lg md:text-xl max-w-2xl mx-auto">"إبداع بلا حدود، من الفكرة حتى التنفيذ."</p>
     </header>
 
     <main class="container mx-auto px-6 pb-20">
@@ -40,12 +87,12 @@
                     <i class="fas fa-headphones-alt text-4xl text-red-600"></i>
                     <div>
                         <h3 class="text-2xl font-bold">الإنتاج الصوتي</h3>
-                        <p class="text-gray-500 text-sm">استمع إلى أعمالنا على أنغامي</p>
+                        <p style="color: var(--text-gray);" class="text-sm">استمع إلى أعمالنا على أنغامي</p>
                     </div>
                 </div>
 
                 <div class="anghami-container">
-                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=en" scrolling="no" frameborder="0" style="height: 270px !important;"></iframe>
+                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" frameborder="0" style="height: 270px !important;"></iframe>
                 </div>
             </div>
 
@@ -54,18 +101,18 @@
                     <i class="fas fa-film text-4xl text-red-600"></i>
                     <div>
                         <h3 class="text-2xl font-bold">الإنتاج المرئي</h3>
-                        <p class="text-gray-500 text-sm">سينمائية في كل تفصيلة</p>
+                        <p style="color: var(--text-gray);" class="text-sm">سينمائية في كل تفصيلة</p>
                     </div>
                 </div>
                  <div class="anghami-container">
-                   <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+                   <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="height: 270px !important;"></iframe>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="py-10 text-center border-t border-gray-900 mt-10">
+    <footer class="py-10 text-center border-t border-gray-900/10 mt-10">
         <p class="text-red-600 text-sm">DeSina Creative © 2026</p>
     </footer>
 
