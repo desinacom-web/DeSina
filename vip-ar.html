@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مساحات إعلانية VIP | شركاء DeSina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --bg-dark: #0a0a0a;
+            --card-bg: #161616;
+            --text-gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-section {
+            padding: 40px 0;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .vip-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ad-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 250px;
+        }
+
+        /* تأثير الإضاءة الـ Glow اللي اتفقنا عليه */
+        .ad-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+        }
+
+        .ad-card img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: grayscale(30%);
+            transition: 0.3s;
+        }
+
+        .ad-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .ad-card h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .btn-action {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            width: 80%;
+        }
+
+        .btn-action:hover {
+            background: var(--primary-color);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .partner-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.7rem;
+            color: var(--text-gold);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <span class="vip-badge">DE SINA EXCLUSIVE</span>
+        <h1>مساحات إعلانية VIP</h1>
+        <p>شركاء النجاح المعتمدون لمنصة DeSina</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+            <h3>أمازون مصر</h3>
+            <a href="#" class="btn-action">تسوق العروض</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" alt="Noon">
+            <h3>نون - Noon</h3>
+            <a href="#" class="btn-action">اكتشف الخصومات</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" alt="Anghami">
+            <h3>أنغامي - Anghami</h3>
+            <a href="#" class="btn-action">استمع الآن</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" style="width: 60px;">
+            <h3>سبوتيفاي - Spotify</h3>
+            <a href="#" class="btn-action">اشترك الآن</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" alt="beIN">
+            <h3>beIN SPORTS</h3>
+            <a href="#" class="btn-action">باقات المشاهدة</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" alt="OSN">
+            <h3>OSN+ Streaming</h3>
+            <a href="#" class="btn-action">شاهد الحصريات</a>
+        </div>
+
+        <div class="ad-card">
+            <span class="partner-tag">شريك VIP</span>
+            <div style="font-size: 2rem; color: var(--text-gold); font-weight: bold; margin-bottom: 15px;">TIAMO</div>
+            <h3>تيامو - Tiamo</h3>
+            <a href="#" class="btn-action">مجموعة الأزياء</a>
+        </div>
+
+    </div>
+
+    <footer style="margin-top: 50px; color: #555; font-size: 0.8rem;">
+        &copy; 2026 DeSina Platform - جميع الحقوق محفوظة
+    </footer>
+
+</body>
+</html>
