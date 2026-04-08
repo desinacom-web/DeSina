@@ -5,150 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Management | De Sina</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #0d0f12; font-family: 'Cairo', sans-serif; color: white; margin: 0; padding: 0; line-height: 1.6; font-style: normal !important; }
+        .main-title { color: #ef4444; font-weight: 900; font-style: normal; }
+        @media (max-width: 640px) { .main-title { font-size: 1.8rem !important; } }
         
-        body { 
-            background-color: #000; 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden;
-        }
-
-        /* Red Neon Glow Effect */
-        .neon-card {
-            background: rgba(5, 5, 5, 0.98);
-            border: 1px solid rgba(220, 38, 38, 0.15);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 1);
-            transition: all 0.5s ease;
-        }
-
-        .neon-card:hover {
-            box-shadow: 0 0 50px rgba(220, 38, 38, 0.3);
-            border-color: rgba(220, 38, 38, 0.6);
-        }
-
-        .social-row {
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .social-row:hover {
-            background: rgba(220, 38, 38, 0.08);
-            border-color: rgba(220, 38, 38, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .qr-frame {
-            background: #fff;
-            padding: 5px;
-            border-radius: 14px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-        }
-
-        /* Square Brand Logo Style */
-        .brand-logo {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            object-fit: cover;
-            border: 2px solid rgba(220, 38, 38, 0.2);
-            box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
-        }
+        .social-card { background: #161b22; border-radius: 15px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; margin-bottom: 12px; text-decoration: none; border: 1px solid #21262d; font-style: normal; }
+        
+        /* الترتيب اللوني للأطراف (يسار للإنجليزي) */
+        .card-fb { border-left: 5px solid #1877F2; }
+        .card-yt { border-left: 5px solid #FF0000; }
+        .card-ig { border-left: 5px solid #E4405F; }
+        .card-tt { border-left: 5px solid #FFFFFF; }
+        .card-tg { border-left: 5px solid #26A5E4; }
+        .card-sc { border-left: 5px solid #FFFC00; }
+        
+        .platform-name { font-weight: 900; font-size: 1.2rem; color: #fff; display: block; }
+        .qr-small { width: 65px; height: 65px; background: white; padding: 3px; border-radius: 8px; flex-shrink: 0; }
+        
+        .header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .header-logo { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; }
+        
+        .info-card { background: rgba(22, 27, 34, 0.6); padding: 20px; border: 1px solid #21262d; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        * { font-style: normal !important; }
     </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center p-4 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-950/20 via-black to-black">
-
-    <div class="w-full max-w-2xl neon-card rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
-        
-        <div class="absolute -top-32 -right-32 w-64 h-64 bg-red-600/10 blur-[120px]"></div>
-
-        <div class="text-center mb-14 relative border-b border-gray-900 pb-10">
-            <h1 class="text-5xl font-black mb-5 tracking-tighter bg-gradient-to-r from-red-600 via-white to-white bg-clip-text text-transparent italic">
-                Account Management
-            </h1>
-            <div class="h-1.5 w-32 bg-red-600 mx-auto rounded-full mb-6"></div>
-            <p class="text-gray-400 text-xl font-bold leading-relaxed tracking-wide">Communication Platform | A bridge of creativity between us</p>
+<body class="p-6 md:p-12">
+    <div class="max-w-2xl mx-auto">
+        <div class="header-box">
+            <a href="en.html" class="back-btn"><i class="fas fa-arrow-left text-red-600"></i> Back to Home</a>
+            <img src="logo.jpg" class="header-logo">
         </div>
 
-        <div class="space-y-5 relative">
-
-            <a href="https://www.facebook.com/egy.desina" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Facebook</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Follow our latest news</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.facebook.com/egy.desina" alt="Facebook QR" class="qr-frame w-24 h-24">
-            </a>
-
-            <a href="https://www.youtube.com/@De_sina" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">YouTube</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Watch our creative content</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.youtube.com/@De_sina" alt="YouTube QR" class="qr-frame w-24 h-24">
-            </a>
-
-            <a href="https://www.instagram.com/de__sina/" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Instagram</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Our daily stories</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.instagram.com/de__sina/" alt="Instagram QR" class="qr-frame w-24 h-24">
-            </a>
-
-            <a href="https://tiktok.com/@de_sina1" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">TikTok</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Short & fast clips</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://tiktok.com/@de_sina1" alt="TikTok QR" class="qr-frame w-24 h-24">
-            </a>
-
-            <a href="https://t.me/desina_com" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Telegram</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Join our official channel</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://t.me/desina_com" alt="Telegram QR" class="qr-frame w-24 h-24">
-            </a>
-
-            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
-                <div class="flex items-center gap-7">
-                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
-                    <div>
-                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Snapchat</span>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">Connect with us directly</span>
-                    </div>
-                </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.snapchat.com/add/desina_com" alt="Snapchat QR" class="qr-frame w-24 h-24">
-            </a>
-
+        <div class="mb-10 text-left">
+            <h1 class="text-4xl md:text-6xl main-title mb-6">Account Management</h1>
+            <div class="info-card">
+                <p class="text-lg md:text-2xl leading-relaxed text-white font-bold">
+                    At <span class="text-red-600">De Sina</span>, we don't just manage accounts; we architect digital presence and build bridges of trust between your brand and your audience. Our presence reflects our creative philosophy, where boundaries fade between innovation and elegance.
+                </p>
+            </div>
         </div>
 
-        <div class="mt-20 text-center border-t border-gray-900 pt-12">
-            <p class="text-red-600 font-black italic text-2xl mb-5 leading-snug">
-                "Be part of De Sina's world..<br>Where we create reality from imagination."
+        <div class="space-y-3 mb-10 text-left">
+            <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card card-fb"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Facebook</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.facebook.com/egy.desina" class="qr-small"></a>
+            <a href="https://www.youtube.com/@De_sina" target="_blank" class="social-card card-yt"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">YouTube</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.youtube.com/@De_sina" class="qr-small"></a>
+            <a href="https://www.instagram.com/de__sina/" target="_blank" class="social-card card-ig"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Instagram</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/de__sina/" class="qr-small"></a>
+            <a href="https://tiktok.com/@de_sina1" target="_blank" class="social-card card-tt"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">TikTok</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://tiktok.com/@de_sina1" class="qr-small"></a>
+            <a href="https://t.me/desina_com" target="_blank" class="social-card card-tg"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Telegram</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://t.me/desina_com" class="qr-small"></a>
+            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="social-card card-sc"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Snapchat</span><span class="text-gray-500 font-bold text-sm">Follow us now</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.snapchat.com/add/desina_com" class="qr-small"></a>
+        </div>
+
+        <div class="info-card mb-16 text-left">
+            <p class="text-md md:text-xl text-gray-300 mb-4">
+                Our excellence extends to being your strategic partner in shaping your future success, through an integrated system of professional solutions in <span class="text-red-500 font-bold">Sustainable E-marketing</span> and modern <span class="text-red-500 font-bold">Digital Shopping</span> arts.
             </p>
-            <p class="text-gray-600 text-sm tracking-[0.4em] font-bold uppercase">
-                All Rights Reserved © 2026 DE SINA BRAND
+            <p class="text-md md:text-xl text-gray-300">
+                We are here to manage online commerce operations with the highest international quality standards, ensuring your message reaches every client with clarity and unmatched professionalism. Discover how we redefine digital impact with a global vision and an unforgettable creative touch.
             </p>
+        </div>
+
+        <div class="mt-16 text-center border-t border-zinc-900 pt-8 pb-10">
+            <p class="text-red-600 font-bold text-lg mb-2">"Where reality is crafted from imagination."</p>
+            <p class="text-zinc-600 text-xs tracking-widest uppercase font-bold">DE SINA BRAND © 2026</p>
         </div>
     </div>
-
 </body>
 </html>
