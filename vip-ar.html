@@ -3,121 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مساحات إعلانية VIP | شركاء DeSina</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>مساحات إعلانية VIP | DeSina</title>
     <style>
         :root {
-            --primary-color: #ff0000;
-            --bg-dark: #0a0a0a;
-            --card-bg: #161616;
-            --text-gold: #d4af37;
+            /* درجات الألوان اللي اتفقنا عليها */
+            --primary-red: #ef4444; /* درجة Red 500 */
+            --bg-carbon: #121212;  /* أسود كربوني مريح للعين */
+            --card-charcoal: #1e1e1e; /* رمادي غامق للكروت */
+            --pure-white: #ffffff;
+            --text-gray: #a0a0a0;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: white;
+            background-color: var(--bg-carbon);
+            color: var(--pure-white);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            text-align: center;
+            line-height: 1.6;
         }
 
         .header-section {
-            padding: 40px 0;
-            border-bottom: 2px solid var(--primary-color);
-            margin-bottom: 40px;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 2px solid var(--primary-red);
+            margin-bottom: 50px;
         }
 
         .header-section h1 {
             font-size: 2.5rem;
-            color: var(--text-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin: 15px 0;
+            font-weight: 900;
         }
 
-        .vip-badge {
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+        .vip-tag {
+            color: var(--primary-red);
+            letter-spacing: 5px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+        }
+
+        .category-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-right: 4px solid var(--primary-red);
+            padding-right: 15px;
+        }
+
+        .category-header h2 {
+            font-size: 1.6rem;
+            color: var(--pure-white);
+            margin: 0;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .ad-card {
-            background: var(--card-bg);
-            border: 1px solid #333;
+            background: var(--card-charcoal);
+            border: 1px solid #2a2a2a;
             border-radius: 15px;
-            padding: 20px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            min-height: 250px;
+            min-height: 220px;
         }
 
-        /* تأثير الإضاءة الـ Glow اللي اتفقنا عليه */
+        /* تأثير الـ Hover والـ Glow باللون الأحمر الهادي */
         .ad-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+            transform: translateY(-12px);
+            border-color: var(--primary-red);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
         }
 
         .ad-card img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: grayscale(30%);
+            max-width: 140px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: brightness(0) invert(1); /* لوجوهات بيضاء فخمة */
             transition: 0.3s;
         }
 
         .ad-card:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.1);
-        }
-
-        .ad-card h3 {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #fff;
+            transform: scale(1.05);
         }
 
         .btn-action {
             background: transparent;
-            border: 2px solid var(--primary-color);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 5px;
-            cursor: pointer;
+            border: 1px solid var(--primary-red);
+            color: var(--pure-white);
+            padding: 12px 25px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            width: 80%;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: 90%;
+            transition: 0.3s ease;
         }
 
         .btn-action:hover {
-            background: var(--primary-color);
-            box-shadow: 0 0 15px var(--primary-color);
+            background: var(--primary-red);
+            color: white;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
         }
 
-        .partner-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .status-badge {
             font-size: 0.7rem;
-            color: var(--text-gold);
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--primary-red);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
             font-weight: bold;
         }
     </style>
@@ -125,66 +135,82 @@
 <body>
 
     <div class="header-section">
-        <span class="vip-badge">DE SINA EXCLUSIVE</span>
+        <div class="vip-tag">DE SINA EXCLUSIVE</div>
         <h1>مساحات إعلانية VIP</h1>
-        <p>شركاء النجاح المعتمدون لمنصة DeSina</p>
+        <p style="color: var(--text-gray);">الشركاء والمنصات المعتمدة في "ديسينا"</p>
     </div>
 
-    <div class="grid-container">
-        
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
-            <h3>أمازون مصر</h3>
-            <a href="#" class="btn-action">تسوق العروض</a>
+    <div class="category-container">
+        <div class="category-header">
+            <h2>قطاع البث والترفيه الرقمي</h2>
         </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" alt="Noon">
-            <h3>نون - Noon</h3>
-            <a href="#" class="btn-action">اكتشف الخصومات</a>
+        <div class="grid-container">
+            <div class="ad-card">
+                <span class="status-badge">شريك بلاتيني</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" alt="Anghami">
+                <a href="#" class="btn-action">عروض أنغامي</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">شريك بلاتيني</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" style="max-width: 50px;">
+                <a href="#" class="btn-action">اشتراك سبوتيفاي</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">شريك بلاتيني</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" alt="beIN">
+                <a href="#" class="btn-action">باقات beIN</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">شريك بلاتيني</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" alt="OSN">
+                <a href="#" class="btn-action">اشتراك OSN+</a>
+            </div>
         </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" alt="Anghami">
-            <h3>أنغامي - Anghami</h3>
-            <a href="#" class="btn-action">استمع الآن</a>
-        </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" style="width: 60px;">
-            <h3>سبوتيفاي - Spotify</h3>
-            <a href="#" class="btn-action">اشترك الآن</a>
-        </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" alt="beIN">
-            <h3>beIN SPORTS</h3>
-            <a href="#" class="btn-action">باقات المشاهدة</a>
-        </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" alt="OSN">
-            <h3>OSN+ Streaming</h3>
-            <a href="#" class="btn-action">شاهد الحصريات</a>
-        </div>
-
-        <div class="ad-card">
-            <span class="partner-tag">شريك VIP</span>
-            <div style="font-size: 2rem; color: var(--text-gold); font-weight: bold; margin-bottom: 15px;">TIAMO</div>
-            <h3>تيامو - Tiamo</h3>
-            <a href="#" class="btn-action">مجموعة الأزياء</a>
-        </div>
-
     </div>
 
-    <footer style="margin-top: 50px; color: #555; font-size: 0.8rem;">
-        &copy; 2026 DeSina Platform - جميع الحقوق محفوظة
+    <div class="category-container">
+        <div class="category-header">
+            <h2>قطاع التسوق والإلكترونيات</h2>
+        </div>
+        <div class="grid-container">
+            <div class="ad-card">
+                <span class="status-badge">شريك معتمد</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                <a href="#" class="btn-action">تسوق في أمازون</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">شريك معتمد</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" alt="Noon">
+                <a href="#" class="btn-action">خصومات نون</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">شريك معتمد</span>
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Temu_logo.svg" alt="Temu">
+                <a href="#" class="btn-action">عروض TEMU</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <h2>قطاع الموضة والأزياء العالمية</h2>
+        </div>
+        <div class="grid-container">
+            <div class="ad-card">
+                <span class="status-badge">علامة تجارية</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas">
+                <a href="#" class="btn-action">منتجات أديداس</a>
+            </div>
+            <div class="ad-card">
+                <span class="status-badge">علامة تجارية</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" alt="Zara">
+                <a href="#" class="btn-action">تشكيلة زارا</a>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #444; font-size: 0.8rem; border-top: 1px solid #222;">
+        &copy; 2026 DeSina Platform - VIP Advertising Portal
     </footer>
 
 </body>
