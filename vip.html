@@ -6,15 +6,13 @@
     <title>مساحات إعلانية VIP | DeSina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-body: #0a0c10;
             --bg-nav: rgba(0, 0, 0, 0.8);
             --bg-card: #161b22;
-            /* اللون الأبيض الملكي (سنة رمادي خفيفة) للفخامة */
             --text-main: #cbd5e1; 
-            --text-gray: #9ca3af;
             --border-color: #21262d;
             --red-500: #ef4444;
         }
@@ -24,7 +22,6 @@
             background-color: var(--bg-body); 
             color: var(--text-main); 
             min-height: 100vh;
-            font-style: normal !important;
         }
 
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
@@ -33,9 +30,7 @@
             background: var(--bg-card); 
             border-top: 4px solid var(--red-500); 
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,7 +42,7 @@
 
         .vip-card:hover { 
             transform: translateY(-8px); 
-            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15); 
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2); 
             border-color: var(--red-500);
         }
 
@@ -56,29 +51,28 @@
             font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 1rem;
         }
 
-        /* أيقونة التطبيق الملونة الأصلية (الملصق) */
+        /* تنسيق الأيقونات لضمان ظهورها */
         .brand-app-icon {
-            width: 48px;
-            height: 48px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
-            border-radius: 10px;
         }
 
-        /* تنسيق اللوجو لقطاع الموضة */
+        /* أيقونات Font Awesome كبديل مضمون */
+        .fa-brand-icon {
+            font-size: 40px;
+        }
+
         .fashion-logo {
             max-width: 140px;
             height: 60px;
             object-fit: contain;
             filter: brightness(0) invert(1);
-            margin-bottom: 1.5rem;
         }
-
-        .back-link { color: var(--text-main); transition: 0.3s; }
-        .back-link:hover { color: var(--red-500); }
 
         .section-divider {
             border-right: 4px solid var(--red-500);
@@ -99,19 +93,16 @@
 
         .btn-vip:hover {
             background: var(--red-500);
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
         }
 
-        h2 { color: #ffffff !important; }
-        
-        * { font-style: normal !important; }
+        h1, h2 { color: #ffffff !important; }
     </style>
 </head>
 <body>
 
     <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="back-link font-bold flex items-center gap-2">
+            <a href="index.html" class="text-white font-bold flex items-center gap-2">
                 <i class="fas fa-chevron-right text-red-600"></i> العودة للرئيسية
             </a>
             <div class="flex items-center gap-2">
@@ -123,7 +114,7 @@
 
     <header class="py-16 text-center px-4">
         <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-2">مساحات إعلانية VIP</h1>
-        <p class="text-lg font-bold opacity-90 uppercase tracking-widest" style="color: var(--text-main);">Partners & Authorized Platforms</p>
+        <p class="text-lg font-bold opacity-90 uppercase tracking-widest">Partners & Authorized Platforms</p>
     </header>
 
     <main class="container mx-auto px-6 pb-20">
@@ -132,30 +123,30 @@
             <h2 class="text-2xl font-bold">قطاع البث والترفيه الرقمي</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" class="brand-app-icon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/732/732245.png'">
                     <span>Anghami</span>
                 </div>
                 <a href="#" class="btn-vip">عروض أنغامي</a>
             </div>
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
+                    <i class="fab fa-spotify fa-brand-icon" style="color: #1DB954;"></i>
                     <span>Spotify</span>
                 </div>
                 <a href="#" class="btn-vip">اشتراك سبوتيفاي</a>
             </div>
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
+                    <img src="https://img.icons8.com/color/512/beinsports.png" class="brand-app-icon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/5968/5968666.png'">
                     <span>beIN</span>
                 </div>
                 <a href="#" class="btn-vip">باقات بي إن</a>
             </div>
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
+                    <i class="fas fa-play-circle fa-brand-icon" style="color: #ff0000;"></i>
                     <span>OSN+</span>
                 </div>
                 <a href="#" class="btn-vip">اشتراك OSN+</a>
@@ -166,23 +157,23 @@
             <h2 class="text-2xl font-bold">قطاع التسوق والإلكترونيات</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name text-white">
-                    <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
+                    <i class="fab fa-amazon fa-brand-icon"></i>
                     <span>Amazon</span>
                 </div>
                 <a href="#" class="btn-vip">عروض أمازون</a>
             </div>
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="brand-app-icon" alt="Noon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" class="brand-app-icon" style="background: #feee00; border-radius: 5px; padding: 2px;">
                     <span style="color: #feee00; background: #000; padding: 0 8px; border-radius: 5px;">noon</span>
                 </div>
                 <a href="#" class="btn-vip">تسوق في نون</a>
             </div>
-            <div class="vip-card shadow-2xl">
+            <div class="vip-card">
                 <div class="brand-name" style="color: #ff6900;">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Temu">
+                    <i class="fas fa-shopping-bag fa-brand-icon" style="color: #ff6900;"></i>
                     <span>TEMU</span>
                 </div>
                 <a href="#" class="btn-vip">عروض TEMU</a>
@@ -193,12 +184,12 @@
             <h2 class="text-2xl font-bold">قطاع الموضة والأزياء</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas">
+            <div class="vip-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo">
                 <a href="#" class="btn-vip">منتجات أديداس</a>
             </div>
-            <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara">
+            <div class="vip-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo">
                 <a href="#" class="btn-vip">تشكيلة زارا</a>
             </div>
         </div>
