@@ -8,15 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* تعريف ألوان الهوية الأساسية (الوضع الفاتح) */
         :root {
-            --bg-body: #0a0c10;
-            --bg-nav: rgba(0, 0, 0, 0.8);
-            --bg-card: #161b22;
-            /* Royal White (Slight Gray) for Luxury */
-            --text-main: #cbd5e1; 
-            --text-gray: #9ca3af;
-            --border-color: #21262d;
+            --bg-body: #f8fafc;
+            --bg-nav: rgba(255, 255, 255, 0.9);
+            --bg-card: #ffffff;
+            --text-main: #1e293b; 
+            --text-gray: #64748b;
+            --border-color: #e2e8f0;
             --red-500: #ef4444;
+        }
+
+        /* تعريف ألوان الهوية (الوضع الغامق أوتوماتيك) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0a0c10; /* لون هوية دي سينا */
+                --bg-nav: rgba(10, 12, 16, 0.8);
+                --bg-card: #161b22;
+                --text-main: #cbd5e1;
+                --text-gray: #9ca3af;
+                --border-color: #21262d;
+            }
         }
 
         body { 
@@ -25,6 +37,7 @@
             color: var(--text-main); 
             min-height: 100vh;
             font-style: normal !important;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
@@ -60,7 +73,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Original App Icon (Sticker) */
         .brand-app-icon {
             width: 48px;
             height: 48px;
@@ -68,13 +80,16 @@
             border-radius: 10px;
         }
 
-        /* Fashion Logo Styling */
+        /* تعديل اللوجوهات عشان تليق مع الوضعين */
         .fashion-logo {
             max-width: 140px;
             height: 60px;
             object-fit: contain;
-            filter: brightness(0) invert(1);
+            filter: brightness(0); /* أسود في الفاتح */
             margin-bottom: 1.5rem;
+        }
+        @media (prefers-color-scheme: dark) {
+            .fashion-logo { filter: brightness(0) invert(1); } /* أبيض في الغامق */
         }
 
         .back-link { color: var(--text-main); transition: 0.3s; }
@@ -88,7 +103,7 @@
 
         .btn-vip {
             border: 1px solid var(--red-500);
-            color: #ffffff;
+            color: var(--red-500);
             padding: 10px 20px;
             border-radius: 8px;
             width: 100%;
@@ -96,14 +111,17 @@
             transition: 0.3s;
             font-weight: bold;
         }
+        @media (prefers-color-scheme: dark) {
+            .btn-vip { color: #ffffff; }
+        }
 
         .btn-vip:hover {
             background: var(--red-500);
+            color: #ffffff !important;
             box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
         }
 
-        h2 { color: #ffffff !important; }
-        
+        h2 { color: var(--text-main) !important; }
         * { font-style: normal !important; }
     </style>
 </head>
@@ -167,7 +185,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
-                <div class="brand-name text-white">
+                <div class="brand-name">
                     <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
                     <span>Amazon</span>
                 </div>
