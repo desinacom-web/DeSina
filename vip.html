@@ -12,7 +12,9 @@
             --bg-body: #0a0c10;
             --bg-nav: rgba(0, 0, 0, 0.8);
             --bg-card: #161b22;
-            --text-main: #cbd5e1; /* الأبيض الملكي */
+            /* اللون الأبيض الملكي (سنة رمادي خفيفة) للفخامة */
+            --text-main: #cbd5e1; 
+            --text-gray: #9ca3af;
             --border-color: #21262d;
             --red-500: #ef4444;
         }
@@ -22,6 +24,7 @@
             background-color: var(--bg-body); 
             color: var(--text-main); 
             min-height: 100vh;
+            font-style: normal !important;
         }
 
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
@@ -30,7 +33,9 @@
             background: var(--bg-card); 
             border-top: 4px solid var(--red-500); 
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            border: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -55,21 +60,25 @@
             margin-bottom: 1rem;
         }
 
-        /* الأيقونة الملونة الأصلية */
+        /* أيقونة التطبيق الملونة الأصلية (الملصق) */
         .brand-app-icon {
-            width: 55px;
-            height: 55px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
-            border-radius: 12px;
-            background: transparent;
+            border-radius: 10px;
         }
 
+        /* تنسيق اللوجو لقطاع الموضة */
         .fashion-logo {
             max-width: 140px;
             height: 60px;
             object-fit: contain;
             filter: brightness(0) invert(1);
+            margin-bottom: 1.5rem;
         }
+
+        .back-link { color: var(--text-main); transition: 0.3s; }
+        .back-link:hover { color: var(--red-500); }
 
         .section-divider {
             border-right: 4px solid var(--red-500);
@@ -90,9 +99,11 @@
 
         .btn-vip:hover {
             background: var(--red-500);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
         }
 
-        h1, h2 { color: #ffffff !important; }
+        h2 { color: #ffffff !important; }
+        
         * { font-style: normal !important; }
     </style>
 </head>
@@ -100,7 +111,7 @@
 
     <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="text-white font-bold flex items-center gap-2">
+            <a href="index.html" class="back-link font-bold flex items-center gap-2">
                 <i class="fas fa-chevron-right text-red-600"></i> العودة للرئيسية
             </a>
             <div class="flex items-center gap-2">
@@ -121,30 +132,30 @@
             <h2 class="text-2xl font-bold">قطاع البث والترفيه الرقمي</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://play-lh.googleusercontent.com/I8i_f_S9fGqQkG70kR5kL_Z8_mZ_U4V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="Anghami">
+                    <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
                     <span>Anghami</span>
                 </div>
                 <a href="#" class="btn-vip">عروض أنغامي</a>
             </div>
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://play-lh.googleusercontent.com/P2VxaUCvC1m6baAtduPa9_BVsI51_o3r87D755l6T_kG_8Y_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="Spotify">
+                    <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
                     <span>Spotify</span>
                 </div>
                 <a href="#" class="btn-vip">اشتراك سبوتيفاي</a>
             </div>
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://play-lh.googleusercontent.com/6U-Z_U4V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="beIN">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
                     <span>beIN</span>
                 </div>
                 <a href="#" class="btn-vip">باقات بي إن</a>
             </div>
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://play-lh.googleusercontent.com/5V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="OSN">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
                     <span>OSN+</span>
                 </div>
                 <a href="#" class="btn-vip">اشتراك OSN+</a>
@@ -155,23 +166,23 @@
             <h2 class="text-2xl font-bold">قطاع التسوق والإلكترونيات</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name text-white">
-                    <img src="https://play-lh.googleusercontent.com/mO_Z_U4V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="Amazon">
+                    <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
                     <span>Amazon</span>
                 </div>
                 <a href="#" class="btn-vip">عروض أمازون</a>
             </div>
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name">
-                    <img src="https://play-lh.googleusercontent.com/U8_Z_U4V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="Noon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="brand-app-icon" alt="Noon">
                     <span style="color: #feee00; background: #000; padding: 0 8px; border-radius: 5px;">noon</span>
                 </div>
                 <a href="#" class="btn-vip">تسوق في نون</a>
             </div>
-            <div class="vip-card">
+            <div class="vip-card shadow-2xl">
                 <div class="brand-name" style="color: #ff6900;">
-                    <img src="https://play-lh.googleusercontent.com/vH_Z_U4V1_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y_J_Y=s256" class="brand-app-icon" alt="Temu">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Temu">
                     <span>TEMU</span>
                 </div>
                 <a href="#" class="btn-vip">عروض TEMU</a>
@@ -182,12 +193,12 @@
             <h2 class="text-2xl font-bold">قطاع الموضة والأزياء</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo">
+            <div class="vip-card shadow-2xl">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas">
                 <a href="#" class="btn-vip">منتجات أديداس</a>
             </div>
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo">
+            <div class="vip-card shadow-2xl">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara">
                 <a href="#" class="btn-vip">تشكيلة زارا</a>
             </div>
         </div>
