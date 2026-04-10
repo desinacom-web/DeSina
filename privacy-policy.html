@@ -17,54 +17,86 @@
     src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
     /></noscript>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="ar">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="سياسة الخصوصية | DeSina: نحن نلتزم بأقصى معايير حماية بياناتك وسرية معلوماتك لضمان تجربة تسوق آمنة وموثوقة عبر خدماتنا الصناعية والرقمية.">
+    <meta name="description" content="سياسة الخصوصية | ديسينا: أمن بياناتك هو أولويتنا القصوى. نحن ملتزمون بحماية معلوماتك الشخصية وضمان تجربة آمنة عبر منصاتنا.">
     <title>سياسة الخصوصية | DeSina</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-body: #f9fafb; --bg-card: #ffffff; --text-main: #111827; --text-muted: #4b5563; --border-color: #ef4444; }
+        :root { --bg-body: #f9fafb; --bg-card: #ffffff; --text-main: #1f2937; --text-muted: #4b5563; --nav-bg: #ffffff; --border-sep: #e5e7eb; }
         
         @media (prefers-color-scheme: dark) {
-            :root { --bg-body: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --text-muted: #9ca3af; --border-color: #ef4444; }
+            :root { --bg-body: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --text-muted: #9ca3af; --nav-bg: #111111; --border-sep: #30363d; }
         }
 
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.4s; }
-        .content-box { background: var(--bg-card); border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--border-color); transition: background-color 0.4s; }
-        h1, h2, p { font-style: normal !important; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); scroll-behavior: smooth; transition: background-color 0.4s, color 0.4s; }
+        
+        nav { background-color: var(--nav-bg) !important; transition: background-color 0.4s; }
+        .nav-link { color: var(--text-main); font-weight: bold; transition: 0.3s; }
+        .nav-link:hover { color: #ef4444; }
+        
+        .privacy-card { background: var(--bg-card); border-radius: 20px; border-right: 5px solid #ef4444; transition: background-color 0.4s; }
+        
         .text-gray-600 { color: var(--text-muted) !important; }
-        .text-gray-900 { color: var(--text-main) !important; }
+        .text-gray-800 { color: var(--text-main) !important; }
+        .border-gray-200 { border-color: var(--border-sep) !important; }
+
+        @media (prefers-color-scheme: dark) {
+            header.bg-gray-900 { background-color: #000000 !important; }
+            .bg-white { background-color: var(--nav-bg) !important; }
+        }
     </style>
 </head>
-<body class="py-12 px-6">
-    <div class="container mx-auto max-w-4xl">
-        <div class="text-center mb-10">
-            <img src="logo.jpg" class="h-16 mx-auto mb-4 rounded-lg shadow-sm border-2 border-transparent dark:border-gray-800">
-            <h1 class="text-3xl font-bold">سياسة الخصوصية</h1>
-            <p class="text-red-600 font-bold mt-2">شركة DeSina</p>
+<body>
+    <nav class="shadow-md p-3 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center gap-6">
+                <img src="logo.jpg" class="h-10 rounded-lg">
+                <div class="hidden md:flex items-center gap-8 border-r-2 pr-6 border-gray-200">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="catalog.html" class="nav-link">الكتالوج</a>
+                </div>
+            </div>
+            <a href="index.html" class="bg-gray-900 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition text-sm">العودة للرئيسية</a>
         </div>
+    </nav>
 
-        <div class="content-box p-8 md:p-12 leading-relaxed text-right">
-            <h2 class="text-xl font-bold mb-4"><i class="fas fa-user-shield ml-2 text-red-600"></i> حماية بياناتك</h2>
-            <p class="mb-8 text-gray-600">نحن في **DeSina** نعتبر خصوصية زوارنا من أهم أولوياتنا. أي معلومات تشاركها معنا عبر وسائل التواصل أو الموقع تُستخدم فقط لتحسين تجربتك وتقديم خدماتنا الصناعية والرقمية بأفضل جودة.</p>
+    <header class="bg-gray-900 py-16 text-center text-white px-4 border-b-4 border-red-600 transition-colors">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">سياسة <span class="text-red-600">الخصوصية</span></h1>
+        <p class="text-gray-400">خصوصيتك وأمن بياناتك هما أولويتنا القصوى في ديسينا.</p>
+    </header>
 
-            <h2 class="text-xl font-bold mb-4"><i class="fas fa-lock ml-2 text-red-600"></i> سرية المعلومات</h2>
-            <p class="mb-8 text-gray-600">نلتزم بعدم مشاركة، بيع، أو تسريب أي بيانات خاصة بعملائنا لأي طرف ثالث. معلومات التواصل الخاصة بك تُستخدم فقط للرد على استفساراتك أو إتمام طلباتك.</p>
+    <section class="container mx-auto px-6 py-16 max-w-4xl">
+        <div class="space-y-8">
+            <div class="privacy-card p-8 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-user-shield text-red-600 ml-2"></i> جمع البيانات</h2>
+                <p class="text-gray-600 leading-relaxed">نحن نجمع فقط المعلومات الضرورية لتقديم خدماتنا، مثل تفاصيل الاتصال عندما تتواصل معنا عبر واتساب أو البريد الإلكتروني.</p>
+            </div>
 
-            <h2 class="text-xl font-bold mb-4"><i class="fas fa-info-circle ml-2 text-red-600"></i> ملفات تعريف الارتباط</h2>
-            <p class="mb-8 text-gray-600">يستخدم موقعنا تقنيات بسيطة لتحسين سرعة التصفح وضمان ظهور المحتوى بشكل صحيح على هاتفك أو جهاز الكمبيوتر الخاص بك.</p>
+            <div class="privacy-card p-8 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-lock text-red-600 ml-2"></i> استخدام المعلومات</h2>
+                <p class="text-gray-600 leading-relaxed">تُستخدم المعلومات التي يتم جمعها فقط للرد على استفساراتك، ومعالجة طلباتك، وتحسين تجربتك مع ديسينا.</p>
+            </div>
 
-            <h2 class="text-xl font-bold mb-4"><i class="fas fa-envelope-open-text ml-2 text-red-600"></i> التواصل</h2>
-            <p class="text-gray-600">إذا كان لديك أي سؤال حول هذه السياسة، يمكنك دائماً مراسلتنا عبر الإيميلات الرسمية الموضحة في أسفل الموقع.</p>
+            <div class="privacy-card p-8 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-eye-slash text-red-600 ml-2"></i> الإفصاح لأطراف ثالثة</h2>
+                <p class="text-gray-600 leading-relaxed">نحن لا نبيع أو نتاجر بمعلوماتك الشخصية. تظل بياناتك سرية ولا يتم مشاركتها إلا عند الضرورة لتلبية طلباتك.</p>
+            </div>
+
+            <div class="privacy-card p-8 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-envelope-open-text text-red-600 ml-2"></i> اتصل بنا</h2>
+                <p class="text-gray-600 leading-relaxed">إذا كان لديك أي أسئلة بخصوص هذه السياسة، فلا تتردد في الاتصال بفريق الدعم لدينا على: <span class="text-red-600 font-bold">info@desina.net</span></p>
+            </div>
         </div>
+    </section>
 
-        <div class="text-center mt-10">
-            <a href="index.html" class="bg-gray-900 text-white px-10 py-3 rounded-full font-bold shadow-lg hover:bg-red-600 transition inline-block flex-center gap-2">
-                العودة للصفحة الرئيسية
-            </a>
-        </div>
-    </div>
+    <footer class="bg-gray-950 text-white py-12 text-center">
+        <p class="text-gray-500 font-bold uppercase tracking-widest">DESINA COMPANY</p>
+        <p class="text-gray-600 text-sm mt-2">جميع الحقوق محفوظة © 2026</p>
+    </footer>
 </body>
 </html>
