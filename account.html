@@ -18,81 +18,32 @@
     /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="إدارة الحسابات | DeSina: إدارة الحسابات مع ديسينا: نصمم حضورك الرقمي ونبني جسور الثقة بين علامتك التجارية وجمهورك من خلال حلول استراتيجية مبتكرة في التسويق الإلكتروني الحديث.">
+    <meta name="description" content="إدارة الحسابات مع ديسينا (DeSina): حلول استراتيجية في التسويق الإلكتروني المستدام وإدارة منصات التواصل الاجتماعي. نربط علامتك التجارية بجمهورك عبر رؤية إبداعية عالمية.">
+    <meta name="keywords" content="إدارة حسابات، ديسينا، تسويق إلكتروني، DeSina Social، زيادة تفاعل، إدارة فيسبوك، إدارة تيك توك، نمو رقمي">
     <title>إدارة الحسابات | DeSina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* نظام الألوان الذكي */
-        :root {
-            --bg-body: #f8f9fa;
-            --bg-card: #ffffff;
-            --text-main: #0d0f12;
-            --text-gray: #4b5563;
-            --border-color: #e5e7eb;
-            --tt-line: #000000; /* طرف التيك توك في الفاتح */
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-body: #0d0f12; /* نفس لونك الأصلي */
-                --bg-card: #161b22; /* نفس لونك الأصلي */
-                --text-main: #ffffff;
-                --text-gray: #9ca3af;
-                --border-color: #21262d;
-                --tt-line: #FFFFFF; /* طرف التيك توك في الغامق */
-            }
-        }
-
-        body { 
-            background-color: var(--bg-body); 
-            font-family: 'Cairo', sans-serif; 
-            color: var(--text-main); 
-            margin: 0; padding: 0; line-height: 1.6; 
-            font-style: normal !important; 
-            transition: background 0.3s, color 0.3s;
-        }
-
+        :root { --bg-body: #f8f9fa; --bg-card: #ffffff; --text-main: #0d0f12; --text-gray: #4b5563; --border-color: #e5e7eb; --tt-line: #000000; }
+        @media (prefers-color-scheme: dark) { :root { --bg-body: #0d0f12; --bg-card: #161b22; --text-main: #ffffff; --text-gray: #9ca3af; --border-color: #21262d; --tt-line: #FFFFFF; } }
+        body { background-color: var(--bg-body); font-family: 'Cairo', sans-serif; color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; font-style: normal !important; transition: background 0.3s, color 0.3s; }
         .main-title { color: #ef4444; font-weight: 900; font-style: normal; }
         @media (max-width: 640px) { .main-title { font-size: 1.8rem !important; } }
-
-        .social-card { 
-            background: var(--bg-card); 
-            border-radius: 15px; 
-            transition: all 0.3s ease; 
-            display: flex; align-items: center; justify-content: space-between; 
-            padding: 12px 15px; margin-bottom: 12px; text-decoration: none; 
-            border: 1px solid var(--border-color); 
-        }
-
-        /* الأطراف الملونة ثابتة ما عدا التيك توك */
+        .social-card { background: var(--bg-card); border-radius: 15px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; margin-bottom: 12px; text-decoration: none; border: 1px solid var(--border-color); }
         .card-fb { border-right: 5px solid #1877F2; }
         .card-yt { border-right: 5px solid #FF0000; }
         .card-ig { border-right: 5px solid #E4405F; }
         .card-tt { border-right: 5px solid var(--tt-line); }
         .card-tg { border-right: 5px solid #26A5E4; }
         .card-sc { border-right: 5px solid #FFFC00; }
-
         .platform-name { font-weight: 900; font-size: 1.2rem; color: var(--text-main); display: block; }
         .qr-small { width: 65px; height: 65px; background: white; padding: 3px; border-radius: 8px; flex-shrink: 0; border: 1px solid #ddd; }
-        
         .header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-main); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
         .header-logo { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; }
-        
-        .info-card { 
-            background: var(--bg-card); 
-            padding: 20px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .info-card { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        }
-
+        .info-card { background: var(--bg-card); padding: 20px; border: 1px solid var(--border-color); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: dark) { .info-card { box-shadow: 0 10px 30px rgba(0,0,0,0.3); } }
         * { font-style: normal !important; }
     </style>
 </head>
@@ -101,7 +52,7 @@
         <div class="header-box">
             <a href="index.html" class="back-btn"><i class="fas fa-arrow-right text-red-600"></i> العودة للرئيسية</a>
             <a href="index.html">
-                <img src="logo.jpg" class="header-logo" style="cursor: pointer;">
+                <img src="logo.jpg" class="header-logo" style="cursor: pointer;" alt="لوجو ديسينا - الصفحة الرئيسية">
             </a>
         </div>
         <div class="mb-10 text-right">
@@ -113,12 +64,30 @@
             </div>
         </div>
         <div class="space-y-3 mb-10">
-            <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card card-fb"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Facebook</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.facebook.com/egy.desina" class="qr-small"></a>
-            <a href="https://www.youtube.com/@De_sina" target="_blank" class="social-card card-yt"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">YouTube</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.youtube.com/@De_sina" class="qr-small"></a>
-            <a href="https://www.instagram.com/de__sina/" target="_blank" class="social-card card-ig"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Instagram</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/de__sina/" class="qr-small"></a>
-            <a href="https://tiktok.com/@de_sina1" target="_blank" class="social-card card-tt"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">TikTok</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://tiktok.com/@de_sina1" class="qr-small"></a>
-            <a href="https://t.me/desina_com" target="_blank" class="social-card card-tg"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Telegram</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://t.me/desina_com" class="qr-small"></a>
-            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="social-card card-sc"><div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover"><div><span class="platform-name">Snapchat</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.snapchat.com/add/desina_com" class="qr-small"></a>
+            <a href="https://www.facebook.com/egy.desina" target="_blank" class="social-card card-fb">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="فيسبوك ديسينا الرسمي"><div><span class="platform-name">Facebook</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.facebook.com/egy.desina" class="qr-small" alt="QR Code Facebook DeSina">
+            </a>
+            <a href="https://www.youtube.com/@De_sina" target="_blank" class="social-card card-yt">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="يوتيوب ديسينا الرسمي"><div><span class="platform-name">YouTube</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.youtube.com/@De_sina" class="qr-small" alt="QR Code YouTube DeSina">
+            </a>
+            <a href="https://www.instagram.com/de__sina/" target="_blank" class="social-card card-ig">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="انستجرام ديسينا الرسمي"><div><span class="platform-name">Instagram</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/de__sina/" class="qr-small" alt="QR Code Instagram DeSina">
+            </a>
+            <a href="https://tiktok.com/@de_sina1" target="_blank" class="social-card card-tt">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="تيك توك ديسينا الرسمي"><div><span class="platform-name">TikTok</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://tiktok.com/@de_sina1" class="qr-small" alt="QR Code TikTok DeSina">
+            </a>
+            <a href="https://t.me/desina_com" target="_blank" class="social-card card-tg">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="تليجرام ديسينا الرسمي"><div><span class="platform-name">Telegram</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://t.me/desina_com" class="qr-small" alt="QR Code Telegram DeSina">
+            </a>
+            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="social-card card-sc">
+                <div class="flex items-center gap-4"><img src="logo.jpg" class="w-12 h-12 rounded-lg object-cover" alt="سناب شات ديسينا الرسمي"><div><span class="platform-name">Snapchat</span><span style="color: var(--text-gray);" class="font-bold text-sm">تابعونا الآن</span></div></div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.snapchat.com/add/desina_com" class="qr-small" alt="QR Code Snapchat DeSina">
+            </a>
         </div>
         <div class="info-card mb-16">
             <p style="color: var(--text-gray);" class="text-md md:text-xl mb-4">
@@ -130,7 +99,7 @@
         </div>
         <div class="mt-16 text-center border-t border-zinc-200 dark:border-zinc-900 pt-8 pb-10">
             <p class="text-red-600 font-bold text-lg mb-2">"حيث نصنع الواقع من وحي الخيال."</p>
-            <p style="color: var(--text-gray);" class="text-xs tracking-widest uppercase font-bold">DE SINA BRAND © 2026</p>
+            <p style="color: var(--text-gray);" class="text-xs tracking-widest uppercase font-bold">DE SINA BRAND © 2026 - جميع الحقوق محفوظة</p>
         </div>
     </div>
 </body>
