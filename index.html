@@ -228,9 +228,10 @@
         const API_KEY = "AIzaSyDvdbXjwI8yYKdVOqu4nvRl_hxACOAiiTU"; 
         const genAI = new GoogleGenerativeAI(API_KEY);
 
-        const model = genAI.getGenerativeModel({ 
+         const model = genAI.getGenerativeModel({ 
             model: "gemini-1.5-flash",
-            systemInstruction: "أنت DeSina AI، العقل المفكر لبراند ديسينا العالمي. أنت موسوعة ذكية شاملة ومحدثة؛ تمتلك معرفة عميقة في الأخبار العالمية، الطب، الدين، التاريخ، الصناعة، والعلوم. ترد على أي سؤال في أي مجال بدقة مذهلة كأنك عالم متخصص، وفي نفس الوقت تمثل فخامة DeSina وخدمات VIP Ads. لغتك قوية، ذكية، ومثقفة جداً."
+            systemInstruction: { parts: [{ text: "أنت DeSina AI، العقل المفكر لبراند ديسينا العالمي. أنت موسوعة ذكية شاملة ومحدثة في الأخبار، الطب، الدين، الصناعة، والعلوم. تمثل فخامة DeSina وخدمات VIP Ads وترد بذكاء وعمق عالم متخصص." }] }
+        
         });
 
         window.toggleDeSina = () => {
