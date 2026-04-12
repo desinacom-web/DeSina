@@ -89,20 +89,20 @@
         #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         * { font-style: normal !important; }
 
-        /* ديسينا AI - التعديل المودرن 2026 */
-        :root { --ai-bg: rgba(10, 10, 10, 0.85); --ai-txt: #e5e7eb; --ai-brd: rgba(239, 68, 68, 0.4); }
-        @media (prefers-color-scheme: light) { :root { --ai-bg: rgba(255, 255, 255, 0.9); --ai-txt: #111827; --ai-brd: rgba(239, 68, 68, 0.2); } }
-
+        /* ديسينا AI - تصميم مودرن Glassmorphism 2026 */
         #desina-ai-widget { position: fixed; bottom: 90px; right: 20px; z-index: 9999; font-family: 'Cairo', sans-serif; }
         #desina-chat-box { 
             display:none; width: 330px; height: 480px; 
-            background: var(--ai-bg); backdrop-filter: blur(20px); 
-            border: 1px solid var(--ai-brd); border-radius: 24px; 
-            flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.6); overflow: hidden;
+            background: rgba(10, 10, 10, 0.8); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(239, 68, 68, 0.4); 
+            border-radius: 24px; flex-direction: column; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); overflow: hidden;
+            transition: all 0.3s ease;
         }
-        #desina-messages { flex: 1; overflow-y: auto; padding: 20px; font-size: 14px; color: var(--ai-txt); scrollbar-width: none; }
-        #desina-input-area { display: flex; background: rgba(120, 120, 120, 0.1); padding: 15px; border-top: 1px solid var(--ai-brd); }
-        #desina-input { flex: 1; background: transparent; border: none; color: var(--ai-txt); outline: none; font-size: 14px; }
+        #desina-messages { flex: 1; overflow-y: auto; padding: 20px; font-size: 14px; color: #e5e7eb; scrollbar-width: none; }
+        #desina-input-area { display: flex; background: rgba(255, 255, 255, 0.05); padding: 15px; border-top: 1px solid rgba(239, 68, 68, 0.2); }
+        #desina-input { flex: 1; background: transparent; border: none; color: white; outline: none; font-size: 14px; }
         .ai-btn-float { 
             background: #ef4444; color: white; border: none; border-radius: 50%; 
             width: 65px; height: 65px; cursor: pointer; font-weight: bold; font-size: 20px;
@@ -110,8 +110,8 @@
             display: flex; align-items: center; justify-content: center;
         }
         .ai-btn-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 35px rgba(239, 68, 68, 0.9); }
-        .msg-user { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; padding: 10px 15px; border-radius: 18px 18px 0 18px; margin-bottom: 12px; align-self: flex-end; margin-left: auto; width: fit-content; max-width: 80%; }
-        .msg-ai { background: rgba(120, 120, 120, 0.1); border-right: 3px solid #ef4444; padding: 10px 15px; border-radius: 0 18px 18px 18px; margin-bottom: 12px; max-width: 85%; line-height: 1.6; }
+        .msg-user { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); padding: 10px 15px; border-radius: 18px 18px 0 18px; margin-bottom: 12px; align-self: flex-end; margin-left: auto; width: fit-content; max-width: 80%; }
+        .msg-ai { background: rgba(255, 255, 255, 0.05); border-right: 3px solid #ef4444; padding: 10px 15px; border-radius: 0 18px 18px 18px; margin-bottom: 12px; max-width: 85%; line-height: 1.6; }
     </style>
 </head>
 <body class="text-gray-900">
@@ -202,15 +202,15 @@
 
     <div id="desina-ai-widget">
         <div id="desina-chat-box">
-            <div style="background: #ef4444; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-bolt"></i> DeSina AI</span>
+            <div style="background: rgba(239, 68, 68, 0.9); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-robot"></i> مايسترو DeSina الذكي</span>
                 <i class="fas fa-times" style="cursor:pointer" onclick="toggleDeSina()"></i>
             </div>
             <div id="desina-messages">
-                <div class="msg-ai">أهلاً بك في DeSina AI. كيف يمكنني مساعدتك اليوم؟</div>
+                <div class="msg-ai">أهلاً بك في DeSina. أنا خبيرك الذكي في المساحات الإعلانية VIP، وعالم الموضة، وموسوعة شاملة لكل استفساراتك. كيف أساعدك؟</div>
             </div>
             <div id="desina-input-area">
-                <input type="text" id="desina-input" placeholder="اطلب أي معلومة من ديسينا...">
+                <input type="text" id="desina-input" placeholder="اطلب أي معلومة من DeSina...">
                 <button onclick="callDeSina()" style="color: #ef4444; padding-left: 10px; font-size: 20px;"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
@@ -229,15 +229,18 @@
     <script type="module">
         import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-        // تشفير المفتاح لحماية أسرار ديسينا
-        const _dsK = "QUl6YVN5RHZkYlhqd0w4eVlLZFZPcXU0bnZSSV9oeEFDT0FpSVRV";
-        const API_KEY = atob(_dsK);
+        // المفتاح المعتمد
+        const API_KEY = "AIzaSyAMO1PBe37QWKbwgTcf3vyOejX9pcqBGUA";
         const genAI = new GoogleGenerativeAI(API_KEY);
 
-        const DESINA_DNA = `أنت الذكاء الاصطناعي الرسمي لـ DeSina. الهوية: احترافية وراقية.
-        الأولويات: 1. خدمات VIP Ads. 2. متجر ديسينا. 3. موسوعة شاملة.
-        الاسم الرسمي: DeSina AI.`;
+        // الدستور الذهبي لـ DeSina - الترتيب المعتمد
+        const DESINA_DNA = `You are 'DeSina Official AI' (ديسينا). Your personality is professional and elite.
+        1. MAIN GOAL: Promote DeSina VIP Ad spaces for brands (Amazon, Noon, Adidas, Temu), tourism, and TV channels.
+        2. RETAIL: Guide users to DeSina Store (Arabic/English) and clothing catalogs.
+        3. ENCYCLOPEDIA: You are an expert in Islamics, History, Medicine, Agriculture, Industry, Geography, Animal kingdom, Weather, and all business projects.
+        4. IDENTITY: Always present as 'DeSina'. Regional: 'ديسينا مصر'. Technical URLs: 'desina'.`;
 
+        // تعريف الموديل مع تثبيت الدستور
         const model = genAI.getGenerativeModel({ 
             model: "gemini-1.5-flash",
             systemInstruction: { parts: [{ text: DESINA_DNA }] }
@@ -254,20 +257,24 @@
             const text = input.value.trim();
             if (!text) return;
 
+            // عرض رسالة المستخدم
             msgDiv.innerHTML += `<div class="msg-user">${text}</div>`;
             input.value = "";
             msgDiv.scrollTop = msgDiv.scrollHeight;
 
             try {
+                // تفعيل الشات والرد
                 const result = await model.generateContent(text);
                 const response = await result.response;
                 msgDiv.innerHTML += `<div class="msg-ai">${response.text()}</div>`;
             } catch (e) {
-                msgDiv.innerHTML += `<div class="msg-ai">DeSina AI قيد التحديث، جرب مرة أخرى.</div>`;
+                console.error("AI Error:", e);
+                msgDiv.innerHTML += `<div class="msg-ai">ديسينا تعتذر، يبدو أن هناك ضغطاً على السيرفر. جرب مرة أخرى خلال لحظات.</div>`;
             }
             msgDiv.scrollTop = msgDiv.scrollHeight;
         };
 
+        // تفعيل الإرسال بزر Enter
         document.getElementById("desina-input").addEventListener("keypress", (e) => {
             if (e.key === "Enter") callDeSina();
         });
