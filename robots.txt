@@ -1,4 +1,24 @@
-User-agent: *
-Disallow:
+# DeSina Global Digital Fortress - Robots.txt
+# Optimized for Googlebot, Meta-Crawl, and AI Indexing 2026
 
+User-agent: *
+Allow: /
+
+# Specifically inviting Google-Intelligence
+User-agent: Googlebot
+Allow: /
+Allow: /index.html
+Allow: /en.html
+Allow: /store.html
+Allow: /en-store.html
+
+# Banning generic low-quality crawlers that slow down the server
+User-agent: AhrefsBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+
+# Direct Path to the Brain (The Smart Sitemap)
 Sitemap: https://desinacom-web.github.io/desina/sitemap.xml
+
+# End of Secure Instruction
