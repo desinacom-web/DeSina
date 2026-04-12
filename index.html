@@ -88,30 +88,6 @@
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; }
         #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         * { font-style: normal !important; }
-
-        /* ديسينا AI - تصميم مودرن Glassmorphism 2026 */
-        #desina-ai-widget { position: fixed; bottom: 90px; right: 20px; z-index: 9999; font-family: 'Cairo', sans-serif; }
-        #desina-chat-box { 
-            display:none; width: 330px; height: 480px; 
-            background: rgba(10, 10, 10, 0.8); 
-            backdrop-filter: blur(20px); 
-            border: 1px solid rgba(239, 68, 68, 0.4); 
-            border-radius: 24px; flex-direction: column; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        #desina-messages { flex: 1; overflow-y: auto; padding: 20px; font-size: 14px; color: #e5e7eb; scrollbar-width: none; }
-        #desina-input-area { display: flex; background: rgba(255, 255, 255, 0.05); padding: 15px; border-top: 1px solid rgba(239, 68, 68, 0.2); }
-        #desina-input { flex: 1; background: transparent; border: none; color: white; outline: none; font-size: 14px; }
-        .ai-btn-float { 
-            background: #ef4444; color: white; border: none; border-radius: 50%; 
-            width: 65px; height: 65px; cursor: pointer; font-weight: bold; font-size: 20px;
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); transition: 0.4s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .ai-btn-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 35px rgba(239, 68, 68, 0.9); }
-        .msg-user { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); padding: 10px 15px; border-radius: 18px 18px 0 18px; margin-bottom: 12px; align-self: flex-end; margin-left: auto; width: fit-content; max-width: 80%; }
-        .msg-ai { background: rgba(255, 255, 255, 0.05); border-right: 3px solid #ef4444; padding: 10px 15px; border-radius: 0 18px 18px 18px; margin-bottom: 12px; max-width: 85%; line-height: 1.6; }
     </style>
 </head>
 <body class="text-gray-900">
@@ -200,23 +176,6 @@
         </div>
     </section>
 
-    <div id="desina-ai-widget">
-        <div id="desina-chat-box">
-            <div style="background: rgba(239, 68, 68, 0.9); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-robot"></i> AI DeSina الذكي</span>
-                <i class="fas fa-times" style="cursor:pointer" onclick="toggleDeSina()"></i>
-            </div>
-            <div id="desina-messages">
-                <div class="msg-ai">أهلاً بك في DeSina. أنا خبيرك الذكي في المساحات الإعلانية VIP، وعالم الموضة، وموسوعة شاملة لكل استفساراتك. كيف أساعدك؟</div>
-            </div>
-            <div id="desina-input-area">
-                <input type="text" id="desina-input" placeholder="اطلب أي معلومة من DeSina...">
-                <button onclick="callDeSina()" style="color: #ef4444; padding-left: 10px; font-size: 20px;"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-        <button class="ai-btn-float" onclick="toggleDeSina()">AI</button>
-    </div>
-
     <footer id="contact" class="bg-gray-950 text-white py-12 px-6">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
             <div class="flex flex-col items-center md:items-start"><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina Group</h4><div class="flex items-center gap-2 text-gray-400"><i class="fas fa-map-marker-alt text-red-600"></i><span>سليمان أباظة، الدقي، الجيزة، مصر</span></div></div>
@@ -227,10 +186,11 @@
     </footer>
 
     <script>
-        // الكود الموحد والمؤمن - ماتور Groq الجبار
-        const API_KEY = "Gsk_9Hpn9tLfduK7USEkiZ6AWGdyb3FYvmJl211RUT56ZPdQ3EoGu0BC";
-        
-        const DESINA_DNA = `You are 'DeSina Official AI' (ديسينا). Your personality is professional and elite.
-        1. MAIN GOAL: Promote deSina VIP Ad spaces for brands (Amazon, Noon, Adidas, Temu), tourism, and TV channels.
-        2. RETAIL: Guide users to deSina Store (Arabic/English) and clothing catalogs.
-        3. ENCYCLOPEDIA: You are an expert in Islamics, History, Medicine, Agriculture, Industry, Geography
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) mobileMenu.classList.remove('active'); });
+        function handleMusicToggle() { const audio = document.getElementById('bg-audio'); const icon = document.getElementById('music-icon'); if (audio.paused) { audio.play().then(() => { icon.className = 'fas fa-pause'; audio.volume = 0.3; }).catch(e => console.log(e)); } else { audio.pause(); icon.className = 'fas fa-music'; } }
+    </script>
+</body>
+</html>
