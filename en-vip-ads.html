@@ -18,125 +18,29 @@
     /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="VIP Advertising Spaces | DeSina: Explore premium advertising opportunities with our authorized partners and digital platforms. Boost your brand visibility through our exclusive VIP network.">
+    <meta name="description" content="VIP Advertising Spaces by DeSina: Your premium gateway to authorized digital subscriptions (Anghami, Spotify, beIN) and exclusive global shopping deals (Amazon, Noon, Temu). Scale your brand with our exclusive VIP network.">
+    <meta name="keywords" content="DeSina, VIP Advertising, Anghami Ads, Spotify VIP, Amazon Deals, Noon Shopping, Digital Media DeSina, Global Brand Partnership">
     <title>VIP Advertising Spaces | DeSina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* تعريف ألوان الهوية الأساسية (الوضع الفاتح) */
-        :root {
-            --bg-body: #f8fafc;
-            --bg-nav: rgba(255, 255, 255, 0.9);
-            --bg-card: #ffffff;
-            --text-main: #1e293b; 
-            --text-gray: #64748b;
-            --border-color: #e2e8f0;
-            --red-500: #ef4444;
-        }
-
-        /* تعريف ألوان الهوية (الوضع الغامق أوتوماتيك) */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-body: #0a0c10; /* لون هوية دي سينا */
-                --bg-nav: rgba(10, 12, 16, 0.8);
-                --bg-card: #161b22;
-                --text-main: #cbd5e1;
-                --text-gray: #9ca3af;
-                --border-color: #21262d;
-            }
-        }
-
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            background-color: var(--bg-body); 
-            color: var(--text-main); 
-            min-height: 100vh;
-            font-style: normal !important;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
+        :root { --bg-body: #f8fafc; --bg-nav: rgba(255, 255, 255, 0.9); --bg-card: #ffffff; --text-main: #1e293b; --text-gray: #64748b; --border-color: #e2e8f0; --red-500: #ef4444; }
+        @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(10, 12, 16, 0.8); --bg-card: #161b22; --text-main: #cbd5e1; --text-gray: #9ca3af; --border-color: #21262d; } }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; font-style: normal !important; transition: background-color 0.3s, color 0.3s; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
-
-        .vip-card { 
-            background: var(--bg-card); 
-            border-top: 4px solid var(--red-500); 
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 2.5rem 1.5rem;
-            border-radius: 1.5rem;
-            min-height: 260px;
-        }
-
-        .vip-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15); 
-            border-color: var(--red-500);
-        }
-
-        .brand-name {
-            font-size: 1.6rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .brand-app-icon {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        /* تعديل اللوجوهات عشان تليق مع الوضعين */
-        .fashion-logo {
-            max-width: 140px;
-            height: 60px;
-            object-fit: contain;
-            filter: brightness(0); /* أسود في الفاتح */
-            margin-bottom: 1.5rem;
-        }
-        @media (prefers-color-scheme: dark) {
-            .fashion-logo { filter: brightness(0) invert(1); } /* أبيض في الغامق */
-        }
-
+        .vip-card { background: var(--bg-card); border-top: 4px solid var(--red-500); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2.5rem 1.5rem; border-radius: 1.5rem; min-height: 260px; }
+        .vip-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15); border-color: var(--red-500); }
+        .brand-name { font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+        .brand-app-icon { width: 48px; height: 48px; object-fit: contain; border-radius: 10px; }
+        .fashion-logo { max-width: 140px; height: 60px; object-fit: contain; filter: brightness(0); margin-bottom: 1.5rem; }
+        @media (prefers-color-scheme: dark) { .fashion-logo { filter: brightness(0) invert(1); } }
         .back-link { color: var(--text-main); transition: 0.3s; }
         .back-link:hover { color: var(--red-500); }
-
-        .section-divider {
-            border-left: 4px solid var(--red-500);
-            padding-left: 15px;
-            margin: 40px 0 25px;
-        }
-
-        .btn-vip {
-            border: 1px solid var(--red-500);
-            color: var(--red-500);
-            padding: 10px 20px;
-            border-radius: 8px;
-            width: 100%;
-            text-align: center;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-        @media (prefers-color-scheme: dark) {
-            .btn-vip { color: #ffffff; }
-        }
-
-        .btn-vip:hover {
-            background: var(--red-500);
-            color: #ffffff !important;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
-        }
-
+        .section-divider { border-left: 4px solid var(--red-500); padding-left: 15px; margin: 40px 0 25px; }
+        .btn-vip { border: 1px solid var(--red-500); color: var(--red-500); padding: 10px 20px; border-radius: 8px; width: 100%; text-align: center; transition: 0.3s; font-weight: bold; }
+        @media (prefers-color-scheme: dark) { .btn-vip { color: #ffffff; } }
+        .btn-vip:hover { background: var(--red-500); color: #ffffff !important; box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
         h2 { color: var(--text-main) !important; }
         * { font-style: normal !important; }
     </style>
@@ -147,7 +51,7 @@
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center gap-2">
                 <a href="en.html">
-                    <img src="logo.jpg" style="height: 35px; border-radius: 5px; cursor: pointer;">
+                    <img src="logo.jpg" style="height: 35px; border-radius: 5px; cursor: pointer;" alt="DeSina Logo - Back to Home">
                 </a>
                 <span class="text-red-600 font-bold text-xl tracking-tighter">DeSina</span>
             </div>
@@ -170,28 +74,28 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
+                    <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami Advertising - Official DeSina Partner">
                     <span>Anghami</span>
                 </div>
                 <a href="#" class="btn-vip">Anghami Offers</a>
             </div>
             <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
+                    <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify VIP Subscription - DeSina Media">
                     <span>Spotify</span>
                 </div>
                 <a href="#" class="btn-vip">Spotify Subscription</a>
             </div>
             <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN Sports Packages - DeSina Services">
                     <span>beIN</span>
                 </div>
                 <a href="#" class="btn-vip">beIN Packages</a>
             </div>
             <div class="vip-card shadow-2xl">
                 <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN Plus Subscription - DeSina VIP Deals">
                     <span>OSN+</span>
                 </div>
                 <a href="#" class="btn-vip">OSN+ Subscription</a>
@@ -204,21 +108,21 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
                 <div class="brand-name">
-                    <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
+                    <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Exclusive Amazon Deals via DeSina">
                     <span>Amazon</span>
                 </div>
                 <a href="#" class="btn-vip">Amazon Deals</a>
             </div>
             <div class="vip-card shadow-2xl">
                 <div class="brand-name">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="brand-app-icon" alt="Noon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="brand-app-icon" alt="Shop Noon with Best Prices through DeSina">
                     <span style="color: #feee00; background: #000; padding: 0 8px; border-radius: 5px;">noon</span>
                 </div>
                 <a href="#" class="btn-vip">Shop Noon</a>
             </div>
             <div class="vip-card shadow-2xl">
                 <div class="brand-name" style="color: #ff6900;">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Temu">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Premium TEMU Offers from DeSina">
                     <span>TEMU</span>
                 </div>
                 <a href="#" class="btn-vip">TEMU Deals</a>
@@ -230,11 +134,11 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Original Adidas Products - DeSina Partners">
                 <a href="#" class="btn-vip">Adidas Products</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Latest Zara Collection - DeSina VIP">
                 <a href="#" class="btn-vip">Zara Collection</a>
             </div>
         </div>
