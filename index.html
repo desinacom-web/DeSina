@@ -225,18 +225,12 @@
     <script type="module">
         import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-        // تشفير المفتاح لحماية أسرار ديسينا من GitHub
-        const _dsK = ["QUl6YVN5RHZkYlhqd0k4eU", "ZUtkVk9xdTRudlJsX2h4QUNPQWlpVFU="];
-        const API_KEY = atob(_dsK[0] + _dsK[1]);
+        const API_KEY = "AIzaSyDvdbXjwI8yYKdVOqu4nvRl_hxACOAiiTU"; 
         const genAI = new GoogleGenerativeAI(API_KEY);
-
-        const DESINA_DNA = `أنت الذكاء الاصطناعي الرسمي لـ DeSina. الهوية: احترافية وراقية.
-        الأولويات: 1. خدمات VIP Ads. 2. متجر ديسينا. 3. موسوعة شاملة.
-        الاسم الرسمي: DeSina AI.`;
 
         const model = genAI.getGenerativeModel({ 
             model: "gemini-1.5-flash",
-            systemInstruction: { parts: [{ text: DESINA_DNA }] }
+            systemInstruction: "أنت ديسينا AI الرسمي. خبير في VIP Ads ومتجر ديسينا وموسوعة شاملة."
         });
 
         window.toggleDeSina = () => {
