@@ -27,7 +27,7 @@
         :root { --bg-main: #f9fafb; --bg-card: #ffffff; --text-main: #1f2937; --nav-bg: #ffffff; --btn-text: #374151; }
         
         @media (prefers-color-scheme: dark) {
-            :root { --bg-main: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --nav-bg: #111111; --btn-text: #e5e7eb; }
+            :root { --bg-main: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --border-color: #30363d; --nav-bg: #111111; --btn-text: #e5e7eb; }
         }
 
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-main); color: var(--text-main); transition: 0.4s; }
@@ -37,7 +37,7 @@
         .filter-btn { 
             transition: 0.3s; padding: 10px 24px; border-radius: 99px; font-weight: bold; 
             border: 1px solid rgba(156, 163, 175, 0.3); color: var(--btn-text); cursor: pointer;
-            letter-spacing: 0.5px; /* لفك ضغط الكلمات الإنجليزية وجعلها مريحة كالعربية */
+            letter-spacing: 0.5px; 
         }
         .active-filter { background-color: #ef4444 !important; color: white !important; border-color: #ef4444 !important; }
         
@@ -59,7 +59,9 @@
     <nav class="p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center gap-4">
-                <img src="logo.jpg" class="h-10 rounded-lg">
+                <a href="en.html">
+                    <img src="logo.jpg" class="h-10 rounded-lg" style="cursor: pointer;">
+                </a>
                 <span class="text-xl font-bold">DeSina</span>
             </div>
             <div class="flex gap-6 items-center">
