@@ -17,7 +17,6 @@
         nav { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); width: 100%; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 15px; }
         
-        /* الكارت الأساسي بتنسيق DeSina المعتمد */
         .vip-card { 
             background: var(--bg-card); 
             border: 1px solid var(--border-color); 
@@ -33,25 +32,21 @@
             position: relative;
         }
         
-        /* تأثير "الهالة الحمراء الكلاسيك" خلف الكارت على الأرضية */
         .vip-card:hover { 
             transform: translateY(-15px) scale(1.03); 
-            /* السر هنا: 60px blur مع 5px spread بيخلي النور يفرش ورا الكارت بجد */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 70px 5px rgba(239, 68, 68, 0.4); 
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 80px 5px rgba(239, 68, 68, 0.4); 
             border-color: var(--red-desina); 
         }
 
         .brand-app-icon { width: 65px; height: 65px; object-fit: contain; border-radius: 14px; margin-bottom: 15px; transition: 0.3s; }
         .fashion-logo { max-width: 150px; height: 65px; filter: brightness(0) invert(1); transition: 0.3s; }
         
-        /* توهج اللوجوهات الداخلي */
         .vip-card:hover .fashion-logo, .vip-card:hover .brand-app-icon { 
             filter: brightness(1) drop-shadow(0 0 12px rgba(239, 68, 68, 0.4)); 
         }
 
         .section-divider { border-right: 5px solid var(--red-desina); padding-right: 20px; margin: 60px 0 30px; }
         
-        /* زرار الأكشن - الوحيد اللي بيضغط لراحة الموبايل */
         .btn-vip { 
             border: 2px solid var(--red-desina); 
             color: #fff; 
@@ -66,9 +61,15 @@
         }
         .btn-vip:hover { background: var(--red-desina); box-shadow: 0 0 25px rgba(239, 68, 68, 0.5); }
 
+        /* تعديل شكل زرار الرسالة ليكون دائري وأحمر */
         .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; }
         .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
-        .swal2-confirm { background-color: #ef4444 !important; border-radius: 10px !important; }
+        .swal2-confirm { 
+            background-color: #ef4444 !important; 
+            border-radius: 30px !important; /* لجعله دائري ناعم */
+            font-weight: 700 !important; 
+            padding: 12px 30px !important;
+        }
     </style>
 </head>
 <body>
@@ -79,7 +80,7 @@
                 <i class="fas fa-chevron-right text-red-600"></i> العودة للرئيسية
             </a>
             <div class="flex items-center gap-3">
-                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina</span>
+                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina VIP</span>
                 <a href="index.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo"></a>
             </div>
         </div>
@@ -112,25 +113,6 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
                 <h3 class="text-xl font-bold mb-4">OSN+</h3>
                 <div class="btn-vip" onclick="checkAffiliate('OSN+')">اشتراك OSN+</div>
-            </div>
-        </div>
-
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black text-white">قطاع التسوق والإلكترونيات</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="vip-card">
-                <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
-                <h3 class="text-xl font-bold mb-4">Amazon</h3>
-                <div class="btn-vip" onclick="checkAffiliate('Amazon')">عروض أمازون</div>
-            </div>
-            <div class="vip-card">
-                <div class="bg-black p-4 rounded-xl mb-4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="h-8" alt="Noon"></div>
-                <h3 class="text-xl font-bold mb-4">Noon</h3>
-                <div class="btn-vip" onclick="checkAffiliate('Noon')">تسوق في نون</div>
-            </div>
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Temu">
-                <h3 class="text-xl font-bold mb-4">TEMU</h3>
-                <div class="btn-vip" onclick="checkAffiliate('Temu')">عروض TEMU</div>
             </div>
         </div>
 
@@ -175,7 +157,7 @@
                         icon: 'info',
                         title: 'انتظرونا قريباً!',
                         text: `يتم الآن تجهيز الروابط المباشرة لخدمة ${platform} وتفعيل أكواد الخصم الحصرية لعملاء ديسينا.`,
-                        confirmButtonText: 'فهمت'
+                        confirmButtonText: 'اذهب الان'
                     });
                 }
             });
