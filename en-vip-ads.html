@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>VIP Advertising Spaces | DeSina Group</title>
+    <title>VIP Ad Spaces | DeSina Group</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -12,18 +12,10 @@
     
     <style>
         :root { --bg-body: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --red-desina: #ef4444; --border-color: #21262d; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden; }
         
-        /* تنفيذ طلبك: الخط Cairo هو الأساس لكل شيء */
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            background-color: var(--bg-body); 
-            color: var(--text-main); 
-            overflow-x: hidden; 
-        }
+        h1, h2, h3 { font-weight: 900 !important; }
 
-        /* جعل العناوين بوزن 900 لتعطي الفخامة المطلوبة في الإنجليزي */
-        h1, h2, h3, .nav-brand { font-weight: 900 !important; }
-        
         nav { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); width: 100%; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 15px; }
         
@@ -41,7 +33,6 @@
             min-height: 280px; 
         }
         
-        /* الهالة الـ 80px المعتمدة من قبلك */
         .vip-card:hover { 
             transform: translateY(-15px) scale(1.03); 
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 80px 5px rgba(239, 68, 68, 0.4); 
@@ -51,12 +42,6 @@
         .brand-app-icon { width: 65px; height: 65px; object-fit: contain; border-radius: 14px; margin-bottom: 15px; transition: 0.3s; }
         .fashion-logo { max-width: 150px; height: 65px; filter: brightness(0) invert(1); transition: 0.3s; }
         
-        .vip-card:hover .fashion-logo, .vip-card:hover .brand-app-icon { 
-            filter: brightness(1) drop-shadow(0 0 12px rgba(239, 68, 68, 0.4)); 
-        }
-
-        .section-divider { border-left: 5px solid var(--red-desina); padding-left: 20px; margin: 60px 0 30px; }
-        
         .btn-vip { 
             border: 2px solid var(--red-desina); 
             color: #fff; 
@@ -64,26 +49,35 @@
             border-radius: 12px; 
             width: 100%; 
             text-align: center; 
-            font-weight: 900; 
+            font-weight: 800; 
             background: rgba(239, 68, 68, 0.08); 
             transition: 0.3s; 
             cursor: pointer; 
+            text-transform: uppercase;
         }
         .btn-vip:hover { background: var(--red-desina); box-shadow: 0 0 25px rgba(239, 68, 68, 0.5); }
 
+        /* توحيد ستايل الرسالة للإنجليزية ليكون أحمر ودائري */
         .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; font-family: 'Cairo', sans-serif; }
+        .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
+        .swal2-confirm { 
+            background-color: #ef4444 !important; 
+            border-radius: 30px !important; /* لجعله دائري ناعم */
+            font-weight: 700 !important; 
+            padding: 12px 30px !important;
+        }
     </style>
 </head>
 <body>
 
     <nav class="p-4 sticky top-0 z-50">
         <div class="nav-container">
-            <a href="en.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
+            <a href="index.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
                 <i class="fas fa-chevron-left text-red-600"></i> Back to Home
             </a>
             <div class="flex items-center gap-3">
-                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina</span>
-                <a href="en.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo"></a>
+                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina VIP</span>
+                <a href="index.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo"></a>
             </div>
         </div>
     </nav>
@@ -94,39 +88,16 @@
     </header>
 
     <main class="container mx-auto px-6 pb-20">
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl text-white">Streaming & Digital</h2></div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="vip-card">
                 <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
-                <h3 class="text-xl mb-4">Anghami</h3>
+                <h3 class="text-xl font-bold mb-4">Anghami</h3>
                 <div class="btn-vip" onclick="checkAffiliate('Anghami')">Offers</div>
             </div>
             <div class="vip-card">
                 <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
-                <h3 class="text-xl mb-4">Spotify</h3>
-                <div class="btn-vip" onclick="checkAffiliate('Spotify')">Subscribe</div>
-            </div>
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
-                <h3 class="text-xl mb-4">beIN Sports</h3>
-                <div class="btn-vip" onclick="checkAffiliate('beIN Sports')">Packages</div>
-            </div>
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
-                <h3 class="text-xl mb-4">OSN+</h3>
-                <div class="btn-vip" onclick="checkAffiliate('OSN+')">Join Now</div>
-            </div>
-        </div>
-
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl text-white">Shopping & Luxury</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas">
-                <div class="btn-vip mt-6" onclick="checkAffiliate('Adidas')">Adidas Store</div>
-            </div>
-            <div class="vip-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara">
-                <div class="btn-vip mt-6" onclick="checkAffiliate('Zara')">Zara Trends</div>
+                <h3 class="text-xl font-bold mb-4">Spotify</h3>
+                <div class="btn-vip" onclick="checkAffiliate('Spotify')">Subscription</div>
             </div>
         </div>
     </main>
