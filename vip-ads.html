@@ -3,148 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="مساحات إعلانية VIP في ديسينا (DeSina): بوابتك الحصرية لأنغامي، سبوتيفاي، بي إن، وأقوى براندات الموضة والتسوق (أمازون، تيمو، زارا).">
+    <meta name="description" content="مساحات إعلانية VIP في ديسينا (DeSina): بوابتك الحصرية لأنغامي، سبوتيفاي، بي إن، وأقوى براندات الموضة والتسوق (أمازون، تيمو، زارا). حلول إعلانية ذكية لجمهور النخبة.">
+    <meta name="keywords" content="ديسينا، DeSina، إعلانات VIP، اشتراك أنغامي، اشتراك سبوتيفاي، OSN، أمازون مصر، أديداس، زارا، مساحات إعلانية">
     <title>مساحات إعلانية VIP | DeSina Group</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '790032697153678');
+    fbq('track', 'PageView');
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <style>
         :root { --bg-body: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --red-desina: #ef4444; --border-color: #21262d; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden; }
-        
-        /* ضبط النيف بار لمنع القص والتداخل */
-        nav { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); width: 100%; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 15px; }
-        
-        .vip-card { background: var(--bg-card); border: 1px solid var(--border-color); border-top: 4px solid var(--red-desina); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2rem 1.5rem; min-height: 280px; cursor: pointer; }
-        .vip-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(239, 68, 68, 0.2); border-color: var(--red-desina); }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
+        .vip-card { background: var(--bg-card); border: 1px solid var(--border-color); border-top: 4px solid var(--red-desina); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2rem 1.5rem; min-height: 280px; }
+        .vip-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15); border-color: var(--red-desina); }
         .brand-app-icon { width: 60px; height: 60px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; }
-        .fashion-logo { max-width: 140px; height: 60px; filter: brightness(0) invert(1); }
-        .section-divider { border-right: 5px solid var(--red-desina); padding-right: 20px; margin: 50px 0 30px; }
-        .btn-vip { border: 1.5px solid var(--red-desina); color: #fff; padding: 12px 20px; border-radius: 12px; width: 100%; text-align: center; font-weight: bold; background: rgba(239, 68, 68, 0.05); }
-
-        /* ستايل التنبيه الاحترافي */
-        .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; }
-        .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
-        .swal2-confirm { background-color: #ef4444 !important; border-radius: 10px !important; }
+        .fashion-logo { max-width: 150px; height: 70px; object-fit: contain; filter: brightness(0) invert(1); transition: 0.3s; }
+        .vip-card:hover .fashion-logo { filter: brightness(1) drop-shadow(0 0 5px var(--red-desina)); }
+        .section-divider { border-right: 5px solid var(--red-desina); padding-right: 20px; margin: 60px 0 30px; }
+        .btn-vip { border: 1.5px solid var(--red-desina); color: #fff; padding: 12px 25px; border-radius: 12px; width: 100%; text-align: center; transition: 0.3s; font-weight: bold; background: rgba(239, 68, 68, 0.05); }
+        .btn-vip:hover { background: var(--red-desina); transform: scale(1.05); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body>
 
-    <nav class="p-4 sticky top-0 z-50">
-        <div class="nav-container">
-            <a href="index.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
-                <i class="fas fa-chevron-right text-red-600"></i> العودة للرئيسية
+    <nav class="p-5 sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="index.html" class="text-gray-400 hover:text-red-500 font-bold flex items-center gap-2 transition">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
             </a>
-            
             <div class="flex items-center gap-3">
-                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina VIP</span>
-                <a href="index.html">
-                    <img src="logo.jpg" class="h-10 rounded-lg border border-white/10 hover:scale-105 transition" alt="DeSina Logo">
-                </a>
+                <span class="text-red-600 font-black text-2xl tracking-tighter">DeSina VIP</span>
+                <img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo">
             </div>
         </div>
     </nav>
 
-    <header class="py-16 text-center px-4">
-        <h1 class="text-4xl md:text-7xl font-black text-white mb-4">مساحات <span class="text-red-600">VIP</span> الإعلانية</h1>
-        <p class="text-gray-400 text-sm md:text-lg font-bold tracking-[0.3em] uppercase">Partners & Elite Platforms</p>
+    <header class="py-20 text-center px-4 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-red-600/5 blur-[120px] rounded-full"></div>
+        <h1 class="text-5xl md:text-7xl font-black text-white mb-4">مساحات <span class="text-red-600">VIP</span> الإعلانية</h1>
+        <p class="text-gray-400 text-lg md:text-xl font-bold tracking-[0.2em] uppercase">Global Partners & Elite Services</p>
     </header>
 
-    <main class="container mx-auto px-6 pb-20">
+    <main class="container mx-auto px-6 pb-24">
         
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black">قطاع البث والترفيه الرقمي</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="vip-card" onclick="checkAffiliate('Anghami')">
+        <div class="section-divider">
+            <h2 class="text-3xl font-black">قطاع البث والترفيه الرقمي</h2>
+            <p class="text-gray-500 text-sm mt-1">الموسيقى، الرياضة، والسينما العالمية</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div class="vip-card">
                 <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
                 <h3 class="text-xl font-bold mb-4">Anghami</h3>
-                <div class="btn-vip">عروض أنغامي</div>
+                <button onclick="requestService('Anghami')" class="btn-vip">عروض أنغامي</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('Spotify')">
+            <div class="vip-card">
                 <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
                 <h3 class="text-xl font-bold mb-4">Spotify</h3>
-                <div class="btn-vip">اشتراك سبوتيفاي</div>
+                <button onclick="requestService('Spotify')" class="btn-vip">اشتراك سبوتيفاي</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('beIN Sports')">
+            <div class="vip-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
                 <h3 class="text-xl font-bold mb-4">beIN Sports</h3>
-                <div class="btn-vip">باقات بي إن</div>
+                <button onclick="requestService('beIN Sports')" class="btn-vip">باقات بي إن</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('OSN+')">
+            <div class="vip-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
                 <h3 class="text-xl font-bold mb-4">OSN+</h3>
-                <div class="btn-vip">اشتراك OSN+</div>
+                <button onclick="requestService('OSN+')" class="btn-vip">اشتراك OSN+</button>
             </div>
         </div>
 
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black">قطاع التسوق والإلكترونيات</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="vip-card" onclick="checkAffiliate('Amazon')">
+        <div class="section-divider">
+            <h2 class="text-3xl font-black">قطاع التسوق والإلكترونيات</h2>
+            <p class="text-gray-500 text-sm mt-1">بوابتك لأكبر المتاجر العالمية</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="vip-card">
                 <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
                 <h3 class="text-xl font-bold mb-4">Amazon</h3>
-                <div class="btn-vip">عروض أمازون</div>
+                <button onclick="requestService('Amazon')" class="btn-vip">عروض أمازون</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('Noon')">
-                <div class="bg-black p-4 rounded-xl mb-4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="h-8" alt="Noon"></div>
+            <div class="vip-card">
+                <div class="bg-black p-4 rounded-xl mb-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="h-8" alt="Noon">
+                </div>
                 <h3 class="text-xl font-bold mb-4">Noon</h3>
-                <div class="btn-vip">تسوق في نون</div>
+                <button onclick="requestService('Noon')" class="btn-vip">تسوق في نون</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('Temu')">
+            <div class="vip-card">
                 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Temu">
                 <h3 class="text-xl font-bold mb-4">TEMU</h3>
-                <div class="btn-vip">عروض TEMU</div>
+                <button onclick="requestService('Temu')" class="btn-vip">عروض TEMU</button>
             </div>
         </div>
 
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black">قطاع الموضة والأزياء</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="vip-card" onclick="checkAffiliate('Adidas')">
+        <div class="section-divider">
+            <h2 class="text-3xl font-black">قطاع الموضة والأزياء</h2>
+            <p class="text-gray-500 text-sm mt-1">الأناقة العالمية بلمسة ديسينا</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="vip-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas">
-                <div class="btn-vip mt-6">منتجات أديداس</div>
+                <button onclick="requestService('Adidas')" class="btn-vip mt-6">منتجات أديداس</button>
             </div>
-            <div class="vip-card" onclick="checkAffiliate('Zara')">
+            <div class="vip-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara">
-                <div class="btn-vip mt-6">تشكيلة زارا</div>
+                <button onclick="requestService('Zara')" class="btn-vip mt-6">تشكيلة زارا</button>
             </div>
         </div>
+
     </main>
 
     <footer class="py-12 text-center border-t border-white/5 mt-20">
-        <p class="text-red-600 font-black text-xl mb-2">DeSina Group</p>
+        <div class="mb-4">
+            <span class="text-red-600 font-black text-xl">DeSina Group</span>
+        </div>
         <p class="text-gray-500 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة ديسينا © 2026</p>
     </footer>
 
     <script>
-        function checkAffiliate(platform) {
-            let timerInterval;
-            Swal.fire({
-                title: 'تحديث البيانات المباشرة',
-                html: `جاري فحص وتحديث أقوى عروض <b class="text-red-500">${platform}</b> الحصرية لعملاء <span class="text-red-600 font-bold">DeSina VIP</span>... <br><br> <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden"><div id="progress-bar" class="bg-red-600 h-2 rounded-full" style="width: 0%"></div></div>`,
-                timer: 8000, // المدة 5 ثواني كاملة كما طلبت
-                showConfirmButton: false,
-                allowOutsideClick: false,
-                didOpen: () => {
-                    const b = document.getElementById('progress-bar');
-                    timerInterval = setInterval(() => {
-                        const progress = 100 - (Swal.getTimerLeft() / 8000 * 100);
-                        b.style.width = progress + '%';
-                    }, 50);
-                },
-                willClose: () => { clearInterval(timerInterval); }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'انتظرونا قريباً!',
-                        text: `يتم الآن تجهيز الروابط المباشرة لخدمة ${platform} وتفعيل أكواد الخصم الحصرية لعملاء ديسينا.`,
-                        confirmButtonText: 'فهمت'
-                    });
-                }
-            });
+        function requestService(platform) {
+            const msg = `أهلاً ديسينا، أود الاستفسار عن عروض مساحات الـ VIP الخاصة بـ (${platform}).`;
+            const url = `https://wa.me/201102919214?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
         }
     </script>
+
 </body>
 </html>
