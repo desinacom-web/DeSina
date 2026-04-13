@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'none';">
-    
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="صناعة المحتوى الإبداعي في ديسينا (DeSina): نقدم خدمات الإنتاج الصوتي والمرئي الاحترافية، من المونتاج السينمائي إلى الهندسة الصوتية.">
-    <meta name="keywords" content="صناعة محتوى، ديسينا، إنتاج مرئي، إنتاج صوتي، مونتاج فيديو، هندسة صوتية">
+    <meta name="keywords" content="صناعة محتوى، ديسينا، إنتاج مرئي، إنتاج صوتي، مونتاج فيديو، هندسة صوتية، محتوى إبداعي">
     <title>صناعة المحتوى الإبداعي | ديسينا</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
@@ -32,10 +30,9 @@
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; transition: background 0.3s, color 0.3s; font-style: normal !important; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
         .content-card { background: var(--bg-card); border-top: 4px solid #ef4444; transition: 0.3s; height: 100%; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-        /* الوزنة الخاصة بصفحة صناعة المحتوى كما طلبت (20/30/35) */
         .content-card:hover { transform: translateY(-5px); box-shadow: 0 30px 12px rgba(239, 68, 68, 0.4); }
-        .media-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; position: relative; }
-        .media-container iframe { width: 100% !important; border: none; display: block; }
+        .anghami-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
+        .anghami-container iframe { width: 100% !important; border: none; }
         .back-link { color: var(--text-main); }
         .back-link:hover { color: #ef4444; }
         * { font-style: normal !important; }
@@ -55,103 +52,126 @@
     </nav>
 
     <header class="py-12 text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-4">صناعة المحتوى</h1>
-        <p style="color: var(--text-gray);" class="text-lg md:text-xl max-w-2xl mx-auto">"إبداع بلا حدود، من الفكرة حتى التنفيذ."</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">صناعة المحتوى</h1>
+        <p style="color: var(--text-gray);" class="text-lg max-w-2xl mx-auto font-bold">"إبداع بلا حدود، من الفكرة حتى التنفيذ."</p>
     </header>
 
     <main class="container mx-auto px-6 pb-20">
-        
-        <h3 class="text-2xl font-bold mb-8 border-r-4 border-red-600 pr-4">مكتبة ديسينا الصوتية (Audio Library)</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            
+
+        <h2 class="text-2xl font-bold mb-8 text-red-600 border-r-4 border-red-600 pr-4">مكتبة ديسينا الصوتية</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-microphone-alt text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">DeSina Mix - عربي</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">كوكتيل طربي منوع</p>
-                    </div>
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-music text-3xl text-red-600"></i><h2 class="text-xl font-bold">عربي طربي</h2></div>
+                <div class="anghami-container"><audio controls class="w-full mt-4"><source src="URL_HERE"></audio></div>
+            </div>
+            <div class="p-6 rounded-3xl content-card shadow-2xl">
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-globe text-3xl text-red-600"></i><h2 class="text-xl font-bold">Global Hits</h2></div>
+                <div class="anghami-container"><audio controls class="w-full mt-4"><source src="URL_HERE"></audio></div>
+            </div>
+            <div class="p-6 rounded-3xl content-card shadow-2xl">
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-bolt text-3xl text-red-600"></i><h2 class="text-xl font-bold">إيقاعات شعبية</h2></div>
+                <div class="anghami-container"><audio controls class="w-full mt-4"><source src="URL_HERE"></audio></div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-8 text-red-600 border-r-4 border-red-600 pr-4">البث المباشر</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div class="p-8 rounded-3xl content-card shadow-2xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-headphones-alt text-4xl text-red-600"></i>
+                    <div><h2 class="text-2xl font-bold">الإنتاج الصوتي</h2><p style="color: var(--text-gray);" class="text-sm">هندسة صوتية احترافية مع ديسينا</p></div>
                 </div>
-                <div class="media-container">
-                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" style="height: 270px !important;" title="DeSina Arabic Mix"></iframe>
+                <div class="anghami-container">
+                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" frameborder="0" style="height: 270px !important;"></iframe>
                 </div>
             </div>
-
-            <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-bolt text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">إيقاعات شعبية - VIP</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">اختيارات ديسينا الحصرية</p>
-                    </div>
+            <div class="p-8 rounded-3xl content-card shadow-2xl flex flex-col justify-between">
+                <div class="flex items-center gap-4 mb-8">
+                    <i class="fas fa-film text-4xl text-red-600"></i>
+                    <div><h2 class="text-2xl font-bold">الإنتاج المرئي</h2><p style="color: var(--text-gray);" class="text-sm">مونتاج وإخراج سينمائي في ديسينا</p></div>
                 </div>
-                <div class="media-container">
-                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" style="height: 270px !important;" title="DeSina Folk"></iframe>
-                </div>
-            </div>
-
-            <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-globe text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">Global Vibes</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">أجمل الأغاني العالمية</p>
-                    </div>
-                </div>
-                <div class="media-container">
-                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" style="height: 270px !important;" title="DeSina Global"></iframe>
+                 <div class="anghami-container">
+                   <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allowfullscreen style="height: 270px !important;"></iframe>
                 </div>
             </div>
         </div>
 
-        <h3 class="text-2xl font-bold mb-8 border-r-4 border-red-600 pr-4">سينما ديسينا (Visual Cinema)</h3>
+        <h2 class="text-2xl font-bold mb-8 text-red-600 border-r-4 border-red-600 pr-4">سينما ديسينا</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
             <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-film text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">سينما الزمن الجميل</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">كلاسيكيات عربية لا تنسى</p>
-                    </div>
-                </div>
-                <div class="media-container">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?mute=1&controls=1" frameborder="0" allowfullscreen style="height: 200px !important;" title="DeSina Classic Cinema"></iframe>
-                </div>
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-video text-3xl text-red-600"></i><h2 class="text-xl font-bold">سينما عربية</h2></div>
+                <div class="anghami-container"><video controls class="w-full"><source src="URL_HERE"></video></div>
             </div>
-
             <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-video text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">International Hits</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">روائع السينما العالمية</p>
-                    </div>
-                </div>
-                <div class="media-container">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?mute=1&controls=1" frameborder="0" allowfullscreen style="height: 200px !important;" title="DeSina Global Movies"></iframe>
-                </div>
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-clapperboard text-3xl text-red-600"></i><h2 class="text-xl font-bold">أفلام عالمية</h2></div>
+                <div class="anghami-container"><video controls class="w-full"><source src="URL_HERE"></video></div>
             </div>
-
             <div class="p-6 rounded-3xl content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <i class="fas fa-camera-retro text-3xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-xl font-bold">إنتاج DeSina الإبداعي</h2>
-                        <p style="color: var(--text-gray);" class="text-xs">أعمالنا الخاصة في المونتاج</p>
-                    </div>
-                </div>
-                <div class="media-container">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allowfullscreen style="height: 200px !important;" title="DeSina Original Production"></iframe>
-                </div>
+                <div class="flex items-center gap-4 mb-6"><i class="fas fa-star text-3xl text-red-600"></i><h2 class="text-xl font-bold">إنتاج خاص</h2></div>
+                <div class="anghami-container"><video controls class="w-full"><source src="URL_HERE"></video></div>
             </div>
-
         </div>
+
     </main>
+
+    <div id="vipMasterModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-1000">
+        <div class="bg-[#0a0c10] border-2 border-red-600 p-12 rounded-[40px] max-w-lg text-center shadow-[0_0_70px_rgba(239,68,68,0.7)] mx-4 relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-red-600/20 blur-3xl rounded-full"></div>
+            <i class="fas fa-crown text-6xl text-red-600 mb-6 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]"></i>
+            <h3 class="text-3xl font-extrabold text-white mb-4 leading-tight">انتهى وقت الاستماع..<br>وبدأ وقت الامتياز.</h3>
+            <p class="text-gray-300 mb-10 text-lg leading-relaxed">
+                عالم <span class="text-red-600 font-bold text-xl">DeSina</span> له وجه يراه الجميع، ووجه لا يفتحه إلا النخبة. مكتبة الـ VIP لا تمنحك فقط محتوىً حصرياً، بل تمنحك تفاصيل لم تُصنع لغيرك (بوابتك الحصرية للمحتوى الإعلاني لأكبر الشركات والمنصات العالمية في التسويق والميديا).
+            </p>
+            <div class="flex flex-col gap-5">
+                <a href="vip.html" class="bg-red-600 text-white py-5 rounded-2xl font-bold text-2xl hover:bg-white hover:text-red-600 transition-all duration-500 transform hover:scale-105">اكتشف أسرار الـ VIP</a>
+                <button onclick="closeVipMasterModal()" class="text-gray-500 text-sm font-bold tracking-widest uppercase hover:text-white transition-colors">الاستمرار في السهرة العادية</button>
+            </div>
+        </div>
+    </div>
 
     <footer class="py-10 text-center border-t border-gray-900/10 mt-10">
         <p class="text-red-600 text-sm font-bold">DeSina Creative © 2026 - جميع الحقوق محفوظة</p>
     </footer>
 
+    <script>
+        let trackCounter = 0;
+        let videoTimer = null;
+        const TRACK_LIMIT = 2; // ظهور بعد تراكين أوديو
+        const VIDEO_TIME_LIMIT = 12 * 60 * 1000; // 12 دقيقة للفيديو
+
+        function showVipModal() {
+            const modal = document.getElementById('vipMasterModal');
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+            }
+        }
+
+        function closeVipMasterModal() {
+            const modal = document.getElementById('vipMasterModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.remove('opacity-100');
+            trackCounter = 0; 
+            clearTimeout(videoTimer);
+        }
+
+        // مراقبة جميع المشغلات
+        document.querySelectorAll('audio, video').forEach(media => {
+            // للأغاني: نظام العداد عند الانتهاء
+            if (media.tagName === 'AUDIO') {
+                media.onended = () => {
+                    trackCounter++;
+                    if (trackCounter >= TRACK_LIMIT) showVipModal();
+                };
+            }
+            // للأفلام: نظام الـ 12 دقيقة عند البدء
+            if (media.tagName === 'VIDEO') {
+                media.onplay = () => {
+                    videoTimer = setTimeout(showVipModal, VIDEO_TIME_LIMIT);
+                };
+                media.onpause = () => clearTimeout(videoTimer);
+            }
+        });
+    </script>
 </body>
 </html>
