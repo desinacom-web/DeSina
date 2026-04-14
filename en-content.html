@@ -20,15 +20,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Creative Content Production | DeSina</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --bg-body: #f8f9fa; --bg-nav: rgba(255, 255, 255, 0.8); --bg-card: #ffffff; --text-main: #0a0c10; --border-color: #e5e7eb; }
         @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(0, 0, 0, 0.8); --bg-card: #161b22; --text-main: #ffffff; --border-color: #21262d; } }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
         
-        /* The Iconic Red Border-Top */
         .content-card { 
             background: var(--bg-card); 
             border-top: 4px solid #ef4444; 
@@ -65,7 +64,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
             <div class="p-8 content-card shadow-2xl flex flex-col items-center">
                 <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
-                <h2 class="text-xl font-bold mb-6 italic text-center">Arabic Classical</h2>
+                <h2 class="text-xl font-bold mb-6 italic">Arabic Classical</h2>
                 <audio controls class="premium-player-fixed"><source src="URL_HERE"></audio>
             </div>
             <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
@@ -105,7 +104,7 @@
             </div>
             <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
                 <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
-                <h2 class="text-xl font-bold mb-6 uppercase italic">International</h2>
+                <h2 class="text-xl font-bold mb-6 uppercase italic">International Cinema</h2>
                 <video controls class="premium-player-fixed"><source src="URL_HERE"></video>
             </div>
             <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
@@ -119,13 +118,13 @@
     <div id="vipMasterModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-1000">
         <div class="bg-[#0a0c10] border-2 border-red-600 p-10 rounded-[40px] max-w-lg text-center shadow-[0_0_80px_rgba(239,68,68,0.6)] mx-4 relative overflow-hidden">
             <i class="fas fa-crown text-6xl text-red-600 mb-6 animate-pulse"></i>
-            <h3 class="text-3xl font-black text-white mb-4 italic uppercase tracking-tighter">The Era of Listening is Over. <br> The Era of Privilege Begins.</h3>
+            <h3 class="text-3xl font-black text-white mb-4 italic uppercase tracking-tighter">DeSina VIP</h3>
             <p class="text-gray-300 mb-10 text-lg leading-relaxed italic">
-                The world of <span class="text-red-600 font-bold uppercase">DeSina</span> has a face seen by all, and a soul opened only for the Elite. The VIP Library doesn't just offer exclusive content—it grants you access to details crafted specifically for the elite (Your exclusive gateway to high-tier ad content for global marketing and media platforms).
+                The world of <span class="text-red-600 font-bold uppercase">DeSina</span> has a face seen by all, and a soul opened only for the Elite. The VIP Library doesn't just offer exclusive content—it grants you access to details crafted specifically for you.
             </p>
             <div class="flex flex-col gap-4">
                 <a href="vip.html" class="bg-red-600 text-white py-5 rounded-2xl font-black text-xl hover:bg-white hover:text-red-600 transition-all duration-500 uppercase shadow-lg tracking-widest">Unlock VIP Secrets</a>
-                <button onclick="closeVipMasterModal()" class="text-gray-500 text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors underline decoration-dotted">Continue Standard Experience</button>
+                <button onclick="closeVipMasterModal()" class="text-gray-500 text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors">Continue Regular Session</button>
             </div>
         </div>
     </div>
