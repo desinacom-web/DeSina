@@ -2,11 +2,6 @@
 <html lang="ar" dir="rtl" id="mainHtml">
 <head>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.facebook.com; connect-src 'self' https://www.facebook.com;">
-
-    <link rel="alternate" hreflang="ar" href="https://desina.net/policy.html" />
-    <link rel="alternate" hreflang="en" href="https://desina.net/policy.html" />
-    <link rel="alternate" hreflang="x-default" href="https://desina.net/policy.html" />
-
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,9 +20,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DeSina | Refund & Exchange Policy - سياسة الاسترجاع والاستبدال</title>
+    <link rel="alternate" hreflang="ar" href="https://desinacom-web.github.io/desina/policy.html">
+    <link rel="alternate" hreflang="en" href="https://desinacom-web.github.io/desina/policy.html">
+    <link rel="alternate" hreflang="x-default" href="https://desinacom-web.github.io/desina/policy.html">
     <meta name="description" content="DeSina Official Refund and Return Policy. نوضح لك كافة الحقوق والشروط لضمان أفضل تجربة تعامل مع ديسينا. International quality standards for returns and exchanges.">
     <meta name="keywords" content="DeSina Refund, سياسة استرجاع ديسينا, Return Policy, استبدال واسترجاع، حقوق العميل، DeSina Policy">
-    
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -56,7 +53,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <div class="nav-container container mx-auto">
             <div class="flex gap-5">
@@ -69,7 +65,6 @@
             <a href="index.html" id="homeLink" class="back-btn">الرئيسية</a>
         </div>
     </nav>
-
     <header>
         <div id="header-ar">
             <h1 class="main-title text-3xl md:text-5xl mb-3">سياسة <span class="text-red-600">الاسترجاع والاستبدال</span></h1>
@@ -80,25 +75,21 @@
             <p class="sub-title text-sm md:text-xl">Customer Rights & International Quality Standards at DeSina Investment Group</p>
         </div>
     </header>
-
     <section class="container mx-auto px-5 py-10 max-w-5xl">
         <div id="content-ar" class="text-right">
             <div class="policy-card">
                 <h2 class="mb-4"><i class="fas fa-history text-red-600 ml-3"></i> ١. المدد الزمنية الرسمية</h2>
                 <p class="text-gray-600">يتم قبول طلبات الاسترجاع خلال أربعة عشر يوماً، وطلبات الاستبدال الناتجة عن عيوب التصنيع خلال ثلاثين يوماً من تاريخ استلام المنتج المثبت رسمياً.</p>
             </div>
-            
             <div class="policy-card">
                 <h2 class="mb-4"><i class="fas fa-shield-alt text-red-600 ml-3"></i> ٢. معايير الرفض وسوء الاستخدام</h2>
                 <p class="text-gray-600">يرفض طلب الاستبدال أو الاسترجاع في حالة وجود تلف ناتج عن **سوء الاستخدام**، ويشمل ذلك: مخالفة تعليمات العناية الخاصة بـ **الملابس والإكسسوارات وكافة منتجات الشركة**، أو إجراء تعديلات يدوية، أو التلف العمدي الناتج عن الإهمال و**سوء الاستخدام**.</p>
             </div>
-
             <div class="policy-card">
                 <h2 class="mb-4"><i class="fas fa-university text-red-600 ml-3"></i> ٣. التسويات والتحويلات المالية</h2>
                 <p class="text-gray-600">تتم معالجة مبالغ الرد عبر بوابات الدفع الإلكتروني انستا باي وباي بال أو البطاقات البنكية خلال مدة تتراوح من خمسة إلى عشرة أيام عمل. يتم خصم رسوم الشحن والرسوم الإدارية في حالات الاسترجاع غير المتعلقة بعيوب الصناعة.</p>
             </div>
         </div>
-
         <div id="content-en" class="text-left hidden-content">
             <div class="policy-card">
                 <h2 class="mb-4 text-red-600"><i class="fas fa-history mr-3"></i> 1. Official Timeframes</h2>
@@ -114,13 +105,11 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container mx-auto flex justify-center items-center gap-5 uppercase">
             <span>S.I</span> <span>|</span> <span>DeSina GROUP © 2026</span> <span>|</span> <span>E.N.A</span>
         </div>
     </footer>
-
     <script>
         function setLang(lang) {
             const html = document.getElementById('mainHtml');
@@ -132,7 +121,6 @@
             const logoLink = document.getElementById('logoLink');
             const navAr = document.getElementById('nav-ar');
             const navEn = document.getElementById('nav-en');
-
             if (lang === 'en') {
                 html.dir = 'ltr'; html.lang = 'en';
                 arContent.classList.add('hidden-content'); enContent.classList.remove('hidden-content');
@@ -149,7 +137,6 @@
                 logoLink.href = 'index.html';
             }
         }
-
         window.addEventListener('DOMContentLoaded', (event) => {
             if (document.referrer.includes('en.html')) {
                 setLang('en');
