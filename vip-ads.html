@@ -57,7 +57,6 @@
         .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; }
         .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
         .swal2-confirm { background-color: #ef4444 !important; border-radius: 30px !important; font-weight: 700 !important; padding: 12px 30px !important; }
-
         .lang-switch {
             background: linear-gradient(45deg, #ef4444, #000);
             color: white !important;
@@ -197,7 +196,6 @@
             <div class="vip-card" onclick="trackView('Zara')"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara"><div class="btn-vip mt-6" onclick="checkAffiliate('Zara')">تشكيلة زارا</div></div>
         </div>
     </main>
-
     <footer class="vip-footer-slim">
         <div class="footer-content">
             <div class="footer-text-left">
@@ -215,7 +213,6 @@
         </div>
         <p class="mt-8 text-center text-red-600/30 text-[10px] font-bold uppercase tracking-[0.5em]">DeSina Group Exclusive © 2026</p>
     </footer>
-
     <script>
         function handleLead(type) {
             fbq('track', 'Contact', { content_name: type });
@@ -223,7 +220,6 @@
             else window.location.href = 'mailto:desina.com@gmail.com';
         }
         function trackView(name) { fbq('track', 'ViewContent', { content_name: name }); }
-        
         function checkAffiliate(platform) {
             trackView(platform);
             let timerInterval;
