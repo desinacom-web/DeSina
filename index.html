@@ -25,42 +25,39 @@
         .footer-interactive-link { color: #d1d5db; transition: color 0.3s; }
         .footer-interactive-link:hover { color: #ef4444 !important; }
 
-        /* Slim Language Button Style */
-        .lang-switch-btn {
+        /* Slim Language Switcher (EN/AR) */
+        .lang-btn-slim {
             background: linear-gradient(45deg, #ef4444, #000);
             color: white !important;
-            padding: 4px 12px;
+            padding: 2px 10px;
             border-radius: 50px;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 900;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            border: 1px solid rgba(255,255,255,0.2);
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.3);
             text-decoration: none !important;
-            transition: 0.3s;
+            transition: 0.2s;
+            height: 24px;
         }
 
         @media (max-width: 768px) {
-            /* تنسيق الزرار ليكون في نص الموبايل بالضبط */
-            .mobile-lang-center {
+            /* وضع الزرار في نص النيف بار بالضبط بالموبايل */
+            .mobile-lang-wrapper {
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                z-index: 10;
+                z-index: 20;
             }
-            .lang-switch-btn { padding: 3px 8px; font-size: 10px; }
-            
-            .hero-section { height: 75vh !important; min-height: 420px !important; }
-            .hero-logo { height: 80px !important; margin-top: -30px !important; }
             #mobile-menu { 
                 display: none; flex-direction: column; width: 45% !important; position: fixed; top: 64px; left: 0; 
                 height: 55vh !important; background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(12px);
                 padding: 10px 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); z-index: 9999; 
                 border-right: 2px solid #ef4444; border-bottom-right-radius: 20px;
+                transition: transform 0.2s ease-in-out; /* تسريع الحركة */
             }
-            #mobile-menu.active { display: flex !important; animation: slideInLeft 0.3s ease-out; }
-            .nav-link, .product-link { padding: 8px 10px !important; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: right !important; color: white !important; font-size: 13.5px !important; display: block; }
+            #mobile-menu.active { display: flex !important; animation: slideInLeft 0.2s ease-out; }
         }
 
         @media (prefers-color-scheme: dark) {
@@ -70,14 +67,14 @@
             .service-card { background-color: #161b22; }
             .bg-gray-100 { background-color: #111827 !important; }
         }
-        .cart-icon { color: #ef4444; font-size: 22px; transition: 0.3s; display: flex; align-items: center; }
+        .cart-icon { color: #ef4444; font-size: 22px; transition: 0.3s; }
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; z-index: 1001; display: flex; align-items: center; justify-content: center; }
         * { font-style: normal !important; }
     </style>
 </head>
 <body class="text-gray-900">
-    <a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp text-3xl"></i></a>
+    <a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp text-3xl"></i></a>
     <div id="music-toggle" onclick="handleMusicToggle()" class="fixed bottom-5 left-5 bg-black text-white p-3 rounded-full shadow-lg cursor-pointer z-50">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
@@ -89,8 +86,8 @@
                 <a href="index.html"><img src="logo.jpg" class="main-logo" alt="DeSina Logo"></a>
             </div>
 
-            <div class="md:hidden mobile-lang-center">
-                <a href="en.html" class="lang-switch-btn"><i class="fas fa-globe"></i> EN</a>
+            <div class="md:hidden mobile-lang-wrapper">
+                <a href="en.html" class="lang-btn-slim">EN</a>
             </div>
 
             <div class="flex items-center gap-4">
@@ -100,20 +97,20 @@
                     <a href="#digital-services" class="nav-link">الرقمية</a>
                     <a href="#industrial-services" class="nav-link">الصناعية</a>
                     <a href="team.html" class="nav-link">فريق العمل</a> 
-                    <a href="privacy-policy.html" class="nav-link" style="font-size: 12px;">الخصوصية</a>
+                    <a href="privacy-policy.html" class="nav-link" style="font-size: 11px;">الخصوصية</a>
                     <a href="about.html" class="nav-link">حول</a>
-                    <a href="#contact" class="nav-link">اتصل بنا</a>
+                    <a href="#contact" class="nav-link text-sm">اتصل بنا</a>
                 </div>
 
                 <div class="hidden md:block border-l-2 pl-4 border-gray-200">
-                    <a href="en.html" class="lang-switch-btn"><i class="fas fa-globe"></i> English</a>
+                    <a href="en.html" class="lang-btn-slim">English EN</a>
                 </div>
 
                 <a href="store.html" class="cart-icon" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a>
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn"><i class="fas fa-bars text-2xl text-gray-700"></i></div>
                 
                 <div class="hidden md:block">
-                    <a href="https://wa.me/201102919214" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 shadow-sm"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
+                    <a href="https://wa.me/201102919214" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
                 </div>
             </div>
         </div>
@@ -177,7 +174,7 @@
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        // تعديل الجافا سكريبت لضمان الفتح السريع
+        // تسريع فتح المنيو
         burgerBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             mobileMenu.classList.toggle('active');
