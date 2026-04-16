@@ -19,9 +19,9 @@
     /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="DeSina Global Catalog: Discover our premier fashion collections, innovative digital marketing solutions, and professional industrial garment services. Quality meets innovation.">
-    <meta name="keywords" content="DeSina Catalog, Fashion Portfolio, Digital Services, Industrial Garments, DeSina Models, COD Models, Global Fashion Design">
-    <title>DeSina | Official Global Catalog - Innovation & Style</title>
+    <meta name="description" content="DeSina Catalog: Discover the latest modern fashion collections, digital solutions, and advanced industrial services. We combine creativity and professional quality.">
+    <meta name="keywords" content="DeSina Catalog, DeSina Fashion, Digital Services, Industrial Services, COD Models, Youth Apparel">
+    <title>DeSina Catalog | Innovation & Integrated Services</title>
     <link rel="alternate" hreflang="ar" href="https://desinacom-web.github.io/desina/catalog.html">
     <link rel="alternate" hreflang="en" href="https://desinacom-web.github.io/desina/en-catalog.html">
     <link rel="alternate" hreflang="x-default" href="https://desinacom-web.github.io/desina/catalog.html">
@@ -32,11 +32,11 @@
     <style>
         :root { --bg-main: #f9fafb; --bg-card: #ffffff; --text-main: #1f2937; --nav-bg: #ffffff; --btn-text: #374151; }
         @media (prefers-color-scheme: dark) {
-            :root { --bg-main: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --border-color: #30363d; --nav-bg: #111111; --btn-text: #e5e7eb; }
+            :root { --bg-main: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --nav-bg: #111111; --btn-text: #e5e7eb; }
         }
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-main); color: var(--text-main); transition: 0.4s; }
         nav { background-color: var(--nav-bg) !important; border-bottom: 1px solid rgba(239, 68, 68, 0.1); }
-        .filter-btn { transition: 0.3s; padding: 10px 24px; border-radius: 99px; font-weight: bold; border: 1px solid rgba(156, 163, 175, 0.3); color: var(--btn-text); cursor: pointer; letter-spacing: 0.5px; }
+        .filter-btn { transition: 0.3s; padding: 10px 24px; border-radius: 99px; font-weight: bold; border: 1px solid rgba(156, 163, 175, 0.3); color: var(--btn-text); cursor: pointer; }
         .active-filter { background-color: #ef4444 !important; color: white !important; border-color: #ef4444 !important; }
         .filter-item { display: none; }
         .show { display: block !important; animation: fadeIn 0.5s ease-in; }
@@ -72,15 +72,15 @@
     </style>
 </head>
 <body>
-    <nav class="p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-2 md:px-4">
-            <div class="flex items-center gap-2 md:gap-4">
-                <a href="en.html" aria-label="Home">
-                    <img src="logo.jpg" class="h-8 md:h-10 rounded-lg" style="cursor: pointer;" alt="DeSina Logo">
+<nav class="p-4 sticky top-0 z-50">
+        <div class="nav-container container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center gap-4">
+                <a href="en.html">
+                    <img src="logo.jpg" class="h-10 rounded-lg" style="cursor: pointer;" alt="DeSina Logo">
                 </a>
-                <span class="text-lg md:text-xl font-bold">DeSina</span>
+                <span class="text-xl font-bold">DeSina</span>
             </div>
-            <div class="flex gap-2 md:gap-4 items-center">
+            <div class="flex items-center gap-4">
                 <a href="en.html" class="font-bold hover:text-red-600 hidden sm:inline text-sm">Home</a>
                 
                 <a href="catalog.html" class="lang-switch">
@@ -95,66 +95,66 @@
     </header>
     <div class="flex flex-wrap justify-center gap-4 py-10 shadow-sm transition-colors" style="background-color: var(--bg-card);">
         <button onclick="filterSelection('all', this)" class="filter-btn" id="btn-all">All</button>
-        <button onclick="filterSelection('fashion', this)" class="filter-btn" id="btn-fashion">Fashion</button>
+        <button onclick="filterSelection('fashion', this)" class="filter-btn" id="btn-fashion">Fashion & Apparel</button>
         <button onclick="filterSelection('digital', this)" class="filter-btn">Digital Services</button>
         <button onclick="filterSelection('industrial', this)" class="filter-btn">Industrial Services</button>
     </div>
-    <main class="container mx-auto px-6 py-16">
+    <section class="container mx-auto px-6 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-01">
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-01">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-01</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-02">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-02">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-02</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-03">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-03">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-03</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-04">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-04">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-04</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-05">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-05">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-05</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-06">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-06">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-06</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-07">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-07">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-07</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-08">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-08">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-08</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-09">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-09">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-09</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-10">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-10">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-10</h3>
-            </article>
-            <article class="filter-item fashion catalog-card p-4">
-                <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-11">
+            </div>
+            <div class="filter-item fashion catalog-card p-4">
+                <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina - Youth Model COD-11">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-11</h3>
-            </article>
+            </div>
             <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center catalog-card">
-                <h3 class="text-xl font-bold">Digital Services</h3>
-                <p class="opacity-70 mt-2">Coming Soon to DeSina Group...</p>
+                <h3 class="text-xl font-bold">DeSina Digital Services</h3>
+                <p class="opacity-70 mt-2">Integrated marketing solutions coming soon...</p>
             </div>
             <div class="filter-item industrial bg-white p-8 rounded-2xl shadow-lg border-t-4 border-black text-center catalog-card">
-                <h3 class="text-xl font-bold">Industrial Services</h3>
-                <p class="opacity-70 mt-2">Coming Soon to DeSina Group...</p>
+                <h3 class="text-xl font-bold">DeSina Industrial Services</h3>
+                <p class="opacity-70 mt-2">Garment production and manufacturing coming soon...</p>
             </div>
         </div>
-    </main>
+    </section>
     <footer class="bg-gray-950 text-white py-16 px-6 text-center border-t border-gray-800">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -168,7 +168,7 @@
                 <h4 class="text-xl font-bold mb-4 text-white">Contact Us</h4>
                 <p class="text-lg" dir="ltr">+20 1102919214</p>
                 <p class="text-lg" dir="ltr">+20 1102919614</p>
-                <p class="text-red-600 text-font-bold">All Rights Reserved | DeSina Group©2026</p>
+                <p class="text-red-600 text-sm mt-4">All Rights Reserved | DeSina Group©2026</p>
             </div>
         </div>
     </footer>
@@ -178,18 +178,14 @@
           x = document.getElementsByClassName("filter-item");
           btns = document.getElementsByClassName("filter-btn");
           if (c == "all") c = "";
-          for (i = 0; i < btns.length; i++) {
-              btns[i].classList.remove("active-filter");
-          }
+          for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active-filter"); }
           if(btn) btn.classList.add("active-filter");
           for (i = 0; i < x.length; i++) {
             x[i].classList.remove("show");
             if (x[i].className.indexOf(c) > -1) x[i].classList.add("show");
           }
         }
-        window.onload = function() {
-            filterSelection('all', document.getElementById('btn-all'));
-        };
+        window.onload = function() { filterSelection('all', document.getElementById('btn-all')); };
     </script>
 </body>
 </html>
