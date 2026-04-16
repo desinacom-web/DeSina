@@ -49,12 +49,35 @@
         .info-card { background: var(--bg-card); padding: 20px; border: 1px solid var(--border-color); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         @media (prefers-color-scheme: dark) { .info-card { box-shadow: 0 10px 30px rgba(0,0,0,0.3); } }
         * { font-style: normal !important; }
+
+        /* زرار اللغة المتوازن */
+        .lang-switch {
+            background: linear-gradient(45deg, #ef4444, #000);
+            color: white !important;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1;
+            text-decoration: none !important;
+        }
+        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body class="p-6 md:p-12">
     <div class="max-w-2xl mx-auto">
         <div class="header-box">
             <a href="index.html" class="back-btn"><i class="fas fa-arrow-right text-red-600"></i> العودة للرئيسية</a>
+            
+            <a href="en-account.html" class="lang-switch">
+                <i class="fas fa-globe"></i> <span>EN</span>
+            </a>
+
             <a href="index.html">
                 <img src="logo.jpg" class="header-logo" style="cursor: pointer;" alt="لوجو ديسينا - الصفحة الرئيسية">
             </a>
