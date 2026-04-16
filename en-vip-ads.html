@@ -229,12 +229,12 @@
             Swal.fire({
                 title: 'Updating Live Data',
                 html: `Checking exclusive <b class="text-red-500">${platform}</b> offers for <span class="text-red-600 font-bold">DeSina VIP</span> clients... <br><br> <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden"><div id="p-bar" class="bg-red-600 h-2 rounded-full" style="width: 0%"></div></div>`,
-                timer: 7000,
+                timer: 8000,
                 showConfirmButton: false,
                 didOpen: () => {
                     const b = document.getElementById('p-bar');
                     timerInterval = setInterval(() => {
-                        b.style.width = (100 - (Swal.getTimerLeft() / 7000 * 100)) + '%';
+                        b.style.width = (100 - (Swal.getTimerLeft() / 8000 * 100)) + '%';
                     }, 50);
                 }
             }).then(() => {
