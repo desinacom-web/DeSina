@@ -14,11 +14,8 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"/></noscript>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>صناعة المحتوى | DeSina</title>
-    <link rel="alternate" hreflang="ar" href="https://desinacom-web.github.io/desina/content.html">
-    <link rel="alternate" hreflang="en" href="https://desinacom-web.github.io/desina/en-content.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -27,92 +24,62 @@
         @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(0, 0, 0, 0.8); --bg-card: #161b22; --text-main: #ffffff; --border-color: #21262d; } }
         body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
-        .content-card { background: var(--bg-card); border-top: 4px solid #ef4444; border-radius: 30px !important; transition: 0.3s; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .content-card { background: var(--bg-card); border-top: 4px solid #ef4444; border-radius: 30px !important; transition: 0.3s; border: 1px solid var(--border-color); }
         .content-card:hover { transform: translateY(-5px); box-shadow: 0 30px 20px rgba(239, 68, 68, 0.8); }
         .anghami-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
         .premium-player-fixed { width: 100%; height: 160px; border-radius: 15px; background: #111; border: 2px solid #222; }
-        #vipMasterModal { background: rgba(255, 255, 255, 0.6); }
-        .vip-card-glow { background: #f0f2f5; border: 3px solid #ef4444; box-shadow: 0 0 50px rgba(239, 68, 68, 0.3); border-radius: 40px; }
-        .vip-card-glow h3, .vip-card-glow p { color: #1a1a1a !important; }
-        .lang-switch { background: linear-gradient(45deg, #ef4444, #000); color: white !important; padding: 4px 12px; border-radius: 50px; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.2); text-decoration: none !important; }
+        #vipMasterModal { background: rgba(255, 255, 255, 0.8); z-index: 999999 !important; }
+        .vip-card-glow { background: #f0f2f5; border: 3px solid #ef4444; box-shadow: 0 0 60px rgba(239, 68, 68, 0.5); border-radius: 40px; color: #1a1a1a !important; }
+        .lang-switch { background: linear-gradient(45deg, #ef4444, #000); color: white !important; padding: 4px 12px; border-radius: 50px; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; text-decoration: none !important; }
         * { font-style: normal !important; }
     </style>
 </head>
 <body>
     <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="index.html" class="font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base text-gray-800 dark:text-gray-200"><i class="fas fa-chevron-right"></i> الرئيسية</a>
-            <div class="flex items-center gap-4">
-                <a href="en-content.html" class="lang-switch"><i class="fas fa-globe"></i> <span>English</span></a>
-                <a href="index.html"><img src="logo.jpg" style="height: 35px; border-radius: 5px;"></a>
-            </div>
+            <a href="index.html" class="font-bold flex items-center gap-2 hover:text-red-600 transition text-sm text-gray-800 dark:text-gray-200"><i class="fas fa-chevron-right"></i> الرئيسية</a>
+            <div class="flex items-center gap-4"><a href="en-content.html" class="lang-switch"><i class="fas fa-globe"></i> <span>English</span></a><a href="index.html"><img src="logo.jpg" style="height: 35px; border-radius: 5px;"></a></div>
         </div>
     </nav>
-
-    <header class="py-12 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-black text-red-600 mb-4 tracking-tighter">صناعة المحتوى</h1>
-        <p class="text-lg font-bold opacity-80">"إبداع بلا حدود مع DESINA"</p>
-    </header>
-
+    <header class="py-12 text-center px-4"><h1 class="text-4xl md:text-5xl font-black text-red-600 mb-4 tracking-tighter">صناعة المحتوى</h1><p class="text-lg font-bold opacity-80 uppercase">"إبداع بلا حدود مع DeSina"</p></header>
     <main class="container mx-auto px-6 pb-20">
         <h2 class="text-2xl font-black mb-10 text-red-600 border-r-4 border-red-600 pr-4 italic">منصة الترفيه العالمية</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
-                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-4">فيسبوك ريلز</h2><p class="text-gray-500 mb-6 text-sm font-bold">تابع أحدث التريندات العالمية والحصرية بسرعة البرق.</p>
-                <a href="https://www.facebook.com/watch" target="_blank" onclick="if(window.innerWidth < 768) { this.target='_self'; } startVipTimer();" class="bg-red-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-black transition-all">مشاهدة فيسبوك</a>
-            </div>
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
-                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-4">تيك توك ريلز</h2><p class="text-gray-500 mb-6 text-sm font-bold">تابع أحدث التريندات العالمية والحصرية بسرعة البرق.</p>
-                <a href="https://www.tiktok.com/foryou" target="_blank" onclick="startVipTimer()" class="bg-red-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-black transition-all">مشاهدة تيك توك</a>
-            </div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded"><h2 class="text-xl font-bold mb-4">فيسبوك ريلز</h2><a href="https://www.facebook.com/watch" target="_blank" onclick="if(window.innerWidth < 768) { this.target='_self'; } startVipTimer();" class="bg-red-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-black transition-all">مشاهدة فيسبوك</a></div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded"><h2 class="text-xl font-bold mb-4">تيك توك ريلز</h2><a href="https://www.tiktok.com/foryou" target="_blank" onclick="startVipTimer()" class="bg-red-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-black transition-all">مشاهدة تيك توك</a></div>
         </div>
-
         <h2 class="text-2xl font-black mb-10 text-red-600 border-r-4 border-red-600 pr-4 italic">مكتبة ديسينا الصوتية</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">كلاسيكيات عربية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">أغاني عالمية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">إيقاعات شعبية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center"><h2 class="font-bold mb-4">كلاسيكيات عربية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center"><h2 class="font-bold mb-4">أغاني عالمية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center"><h2 class="font-bold mb-4">إيقاعات شعبية</h2><audio controls class="premium-player-fixed"><source src="URL_HERE"></audio></div>
         </div>
-
-        <h2 class="text-2xl font-black mb-8 text-red-600 border-r-4 border-red-600 pr-4 italic">البث المباشر</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <div class="p-8 content-card shadow-2xl"><div class="flex items-center gap-4 mb-8"><i class="fas fa-headphones-alt text-4xl text-red-600"></i><div><h2 class="text-2xl font-bold italic">هندسة الصوت</h2><p class="text-gray-500 text-sm italic tracking-widest uppercase">DeSina Audio Lab</p></div></div>
-                <div class="anghami-container"><iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" scrolling="no" frameborder="0" style="height: 270px !important; width: 100% !important;"></iframe></div>
-            </div>
-            <div class="p-8 content-card shadow-2xl flex flex-col justify-between"><div class="flex items-center gap-4 mb-8"><i class="fas fa-film text-4xl text-red-600"></i><div><h2 class="text-2xl font-bold italic">الفنون البصرية</h2><p class="text-gray-500 text-sm italic tracking-widest uppercase">DeSina Visuals</p></div></div>
-                <div class="anghami-container"><iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="height: 270px !important;"></iframe></div>
-            </div>
+        <h2 class="text-2xl font-black mb-8 text-red-600 border-r-4 border-red-600 pr-4 italic">البث والسينما</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
+            <div class="p-8 content-card shadow-2xl"><div class="anghami-container"><iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=ar" style="height: 270px; width: 100%;"></iframe></div></div>
+            <div class="p-8 content-card shadow-2xl"><div class="anghami-container"><iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY" style="height: 270px; width: 100%;"></iframe></div></div>
         </div>
-
-        <h2 class="text-2xl font-black mb-10 text-red-600 border-r-4 border-red-600 pr-4 italic">سينما ديسينا</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">سينما عربية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">أفلام عالمية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
-            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center"><img src="logo.jpg" class="h-10 mb-6 rounded shadow-md"><h2 class="text-xl font-bold mb-6 italic">إنتاجات أصلية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="p-8 content-card shadow-2xl text-center"><h2 class="font-bold mb-4">سينما عربية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
+            <div class="p-8 content-card shadow-2xl text-center"><h2 class="font-bold mb-4">أفلام عالمية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
+            <div class="p-8 content-card shadow-2xl text-center"><h2 class="font-bold mb-4">إنتاجات أصلية</h2><video controls class="premium-player-fixed"><source src="URL_HERE"></video></div>
         </div>
     </main>
-
-    <div id="vipMasterModal" class="fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-1000">
-        <div class="vip-card-glow p-10 rounded-[40px] max-w-lg text-center mx-4 relative overflow-hidden">
+    <div id="vipMasterModal" class="fixed inset-0 flex items-center justify-center backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-1000">
+        <div class="vip-card-glow p-10 rounded-[40px] max-w-lg text-center mx-4 relative">
             <i class="fas fa-crown text-6xl text-red-600 mb-6 animate-pulse"></i>
-            <h3 class="text-3xl font-black mb-4 italic">ديسينا VIP</h3>
-            <p class="mb-10 text-lg leading-relaxed italic">عالم ديسينا له وجه يراه الجميع، وروح لا تُفتح إلا للصفوة. مكتبة VIP تمنحك تفاصيل صُنعت لك وحدك.</p>
+            <h3 class="text-3xl font-black mb-4">ديسينا VIP</h3>
+            <p class="mb-10 text-lg italic">عالم ديسينا لا يفتح أبوابه إلا للصفوة. مكتبة VIP تمنحك تفاصيل صُنعت لك وحدك.</p>
             <div class="flex flex-col gap-4">
-                <a href="vip-ads.html" class="bg-red-600 text-white py-5 rounded-2xl font-black text-xl hover:bg-black transition-all duration-500 shadow-lg">كشف أسرار VIP</a>
-                <button onclick="closeVipMasterModal()" class="text-gray-400 text-xs font-bold uppercase hover:text-red-600 transition-colors">الاستمرار في الجلسة العادية</button>
+                <a href="vip-ads.html" class="bg-red-600 text-white py-5 rounded-2xl font-black text-xl hover:bg-black transition-all">كشف أسرار VIP</a>
+                <button onclick="closeVipMasterModal()" class="text-gray-500 text-xs font-bold uppercase hover:text-red-600">الاستمرار في الجلسة العادية</button>
             </div>
         </div>
     </div>
-
-    <footer class="py-10 text-center border-t border-gray-900/10 mt-20 italic font-bold">
-        <p class="text-red-600 text-sm tracking-widest uppercase">جميع الحقوق محفوظة | ديسينا الإبداعية © 2026</p>
-    </footer>
-
+    <footer class="py-10 text-center border-t border-gray-900/10 mt-20 italic font-bold"><p class="text-red-600 text-sm uppercase">جميع الحقوق محفوظة | ديسينا الإبداعية © 2026</p></footer>
     <script>
         let trackCounter = 0; let videoTimer = null; let smartReelsTimer = null;
-        const TRACK_LIMIT = 3; 
-        const VIDEO_TIME_LIMIT = 600000; 
-        const REELS_TIME_LIMIT = 600000; 
+        const TRACK_LIMIT = 3; const VIDEO_TIME_LIMIT = 600000; const REELS_TIME_LIMIT = 600000;
         function showVipModal() { const modal = document.getElementById('vipMasterModal'); if (modal) { modal.classList.remove('opacity-0', 'pointer-events-none'); modal.classList.add('opacity-100'); } }
         function closeVipMasterModal() { const modal = document.getElementById('vipMasterModal'); modal.classList.add('opacity-0', 'pointer-events-none'); modal.classList.remove('opacity-100'); trackCounter = 0; clearTimeout(videoTimer); if(smartReelsTimer) clearTimeout(smartReelsTimer); }
         function startVipTimer() { if (smartReelsTimer) clearTimeout(smartReelsTimer); smartReelsTimer = setTimeout(showVipModal, REELS_TIME_LIMIT); }
