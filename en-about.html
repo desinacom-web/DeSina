@@ -41,11 +41,34 @@
         .inner-box { background-color: var(--bg-inner); }
         .border-sep { border-color: rgba(156, 163, 175, 0.1); }
         * { font-style: normal !important; }
+
+        /* Balanced Language Switcher */
+        .lang-switch {
+            background: linear-gradient(45deg, #ef4444, #000);
+            color: white !important;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1;
+            text-decoration: none !important;
+        }
+        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body class="py-16 px-6">
     <div class="container mx-auto max-w-5xl">
         <div class="text-center mb-12">
+            <div class="mb-6">
+                <a href="about.html" class="lang-switch">
+                    <i class="fas fa-globe"></i> <span>العربية</span>
+                </a>
+            </div>
             <a href="en.html" aria-label="Return to Home">
                 <img src="logo.jpg" class="h-20 mx-auto mb-6 rounded-2xl shadow-md border-2 border-white dark:border-gray-800 transition-colors" style="cursor: pointer;" alt="DeSina Logo">
             </a>
