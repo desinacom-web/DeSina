@@ -44,27 +44,29 @@
         .premium-player-fixed { width: 100%; height: 160px; border-radius: 15px; background: #111; border: 2px solid #222; }
         * { font-style: normal !important; }
 
-        /* Arabic Switch Button Style */
+        /* Arabic Switch Button Style - Slim Professional Version */
         .lang-switch {
             background: linear-gradient(45deg, #ef4444, #000);
-            color: white;
-            padding: 5px 15px;
+            color: white !important;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            display: flex;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: 0.4s;
+            gap: 6px;
+            transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1;
+            text-decoration: none !important;
         }
-        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body>
     <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="en.html" class="font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base">
+            <a href="en.html" class="font-bold flex items-center gap-2 hover:text-red-600 transition text-sm md:text-base text-gray-800 dark:text-gray-200">
                 <i class="fas fa-chevron-left"></i> Home
             </a>
             
