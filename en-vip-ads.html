@@ -74,26 +74,90 @@
             text-decoration: none !important;
         }
 
-        /* VIP FOOTER FINAL MIRROR */
-        .vip-footer-slim { background-color: #000; border-top: 2px solid rgba(239, 68, 68, 0.3); padding: 40px 0; margin-top: 60px; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; max-width: 1250px; margin: 0 auto; padding: 0 25px; flex-wrap: wrap-reverse; gap: 30px; }
-        .footer-text-left { text-align: left; flex: 1; }
-        .footer-text-left h4 { color: #ef4444; font-weight: 900; font-size: 1.3rem; margin-bottom: 6px; line-height: 1.3; }
-        .footer-text-left p { color: #f3f4f6; font-size: 1.05rem; font-weight: 700; opacity: 0.9; }
-        .footer-btns-right { display: flex; gap: 20px; justify-content: flex-end; }
-        .btn-3d-vip { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(239, 68, 68, 0.4); border-radius: 16px; padding: 15px 30px; display: flex; align-items: center; gap: 12px; color: white; font-weight: 900; font-size: 1.1rem; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .btn-3d-vip:hover { transform: translateY(-8px) scale(1.05); background: rgba(239, 68, 68, 0.15); border-color: #ef4444; box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4); }
-        .btn-3d-vip i { color: #ef4444; font-size: 1.8rem; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5)); }
-
-        @media (max-width: 768px) { .footer-content { flex-direction: column-reverse; text-align: center; } .footer-text-left { text-align: center; } .footer-btns-right { flex-direction: column; width: 100%; } .btn-3d-vip { width: 100%; justify-content: center; } }
+        /* VIP FOOTER MIRROR - Luxury & Intel */
+        .vip-footer-slim {
+            background-color: #000;
+            border-top: 2px solid rgba(239, 68, 68, 0.3);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 25px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-text-right {
+            text-align: left;
+            flex: 1;
+        }
+        .footer-text-right h4 {
+            color: #ef4444;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .footer-text-right p {
+            color: #f3f4f6;
+            font-size: 1.05rem;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+        .footer-btns-left {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+        .btn-3d-vip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 16px;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .btn-3d-vip:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: rgba(239, 68, 68, 0.15);
+            border-color: #ef4444;
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+        }
+        .btn-3d-vip i { 
+            color: #ef4444; 
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
+        }
+        @media (max-width: 768px) {
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-text-right { text-align: center; }
+            .footer-btns-left { flex-direction: column; width: 100%; }
+            .btn-3d-vip { width: 100%; justify-content: center; }
+        }
     </style>
 </head>
 <body>
     <nav class="p-4 sticky top-0 z-50">
         <div class="nav-container">
-            <a href="index.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">Back to Main <i class="fas fa-chevron-left text-red-600 ml-2"></i></a>
+            <a href="index.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
+                 Back to Main <i class="fas fa-chevron-left text-red-600 ml-2"></i>
+            </a>
             <a href="vip-ads.html" class="lang-switch"><i class="fas fa-globe"></i> <span>AR</span></a>
-            <div class="flex items-center gap-3"><span class="text-red-600 font-black text-xl md:text-2xl hidden sm:inline">DeSina</span><a href="index.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="Logo"></a></div>
+            <div class="flex items-center gap-3">
+                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina</span>
+                <a href="index.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo"></a>
+            </div>
         </div>
     </nav>
     <header class="py-16 text-center px-4">
@@ -103,16 +167,24 @@
     <main class="container mx-auto px-6 pb-10">
         <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black text-red-600">Global Services & AI Tools</h2></div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="vip-card" onclick="trackView('Wispr Flow')"><img src="https://img.icons8.com/fluency/512/artificial-intelligence.png" class="brand-app-icon" alt="Wispr"><h3 class="text-xl font-bold mb-4">Wispr Flow</h3><div class="btn-vip" onclick="window.location.href='https://ref.wisprflow.ai/de-sina'">Start Now</div></div>
-            <div class="vip-card" onclick="trackView('Adobe')"><img src="https://img.icons8.com/color/512/adobe-creative-cloud.png" class="brand-app-icon" alt="Adobe"><h3 class="text-xl font-bold mb-4">Adobe Pro</h3><div class="btn-vip" onclick="checkAffiliate('Adobe')">Adobe Offers</div></div>
+            <div class="vip-card" onclick="trackView('Wispr Flow')">
+                <img src="https://img.icons8.com/fluency/512/artificial-intelligence.png" class="brand-app-icon" alt="Wispr Flow">
+                <h3 class="text-xl font-bold mb-4">Wispr Flow</h3>
+                <div class="btn-vip" onclick="window.location.href='https://ref.wisprflow.ai/de-sina'">Start Now</div>
+            </div>
+            <div class="vip-card" onclick="trackView('Adobe')">
+                <img src="https://img.icons8.com/color/512/adobe-creative-cloud.png" class="brand-app-icon" alt="Adobe">
+                <h3 class="text-xl font-bold mb-4">Adobe Pro</h3>
+                <div class="btn-vip" onclick="checkAffiliate('Adobe')">Adobe Offers</div>
+            </div>
         </div>
         
         <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black text-red-600">Streaming & Digital Entertainment</h2></div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="vip-card" onclick="trackView('Anghami')"><img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami"><h3 class="text-xl font-bold mb-4">Anghami</h3><div class="btn-vip" onclick="checkAffiliate('Anghami')">Anghami Offers</div></div>
-            <div class="vip-card" onclick="trackView('Spotify')"><img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify"><h3 class="text-xl font-bold mb-4">Spotify</h3><div class="btn-vip" onclick="checkAffiliate('Spotify')">Subscription</div></div>
+            <div class="vip-card" onclick="trackView('Spotify')"><img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify"><h3 class="text-xl font-bold mb-4">Spotify</h3><div class="btn-vip" onclick="checkAffiliate('Spotify')">Spotify Subscription</div></div>
             <div class="vip-card" onclick="trackView('beIN Sports')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN"><h3 class="text-xl font-bold mb-4">beIN Sports</h3><div class="btn-vip" onclick="checkAffiliate('beIN Sports')">beIN Packages</div></div>
-            <div class="vip-card" onclick="trackView('OSN+')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN"><h3 class="text-xl font-bold mb-4">OSN+</h3><div class="btn-vip" onclick="checkAffiliate('OSN+')">OSN+ Sub</div></div>
+            <div class="vip-card" onclick="trackView('OSN+')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN"><h3 class="text-xl font-bold mb-4">OSN+</h3><div class="btn-vip" onclick="checkAffiliate('OSN+')">OSN+ Subscription</div></div>
         </div>
 
         <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black text-red-600">Marketing & Electronics</h2></div>
@@ -121,18 +193,52 @@
             <div class="vip-card" onclick="trackView('Noon')"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Noon_Logo.svg" class="fashion-logo" alt="Noon"><h3 class="text-xl font-bold mb-4">Noon</h3><div class="btn-vip" onclick="checkAffiliate('Noon')">Noon Offers</div></div>
             <div class="vip-card" onclick="trackView('Temu')"><img src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/512/external-temu-online-marketplace-operated-by-the-chinese-e-commerce-company-logo-bold-tal-revivo.png" class="brand-app-icon" alt="Temu" style="filter: brightness(0) invert(1);"><h3 class="text-xl font-bold mb-4">Temu</h3><div class="btn-vip" onclick="checkAffiliate('Temu')">Temu Products</div></div>
         </div>
-
-        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black text-red-600">Fashion & Luxury Sector</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="vip-card" onclick="trackView('Adidas')"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Adidas"><div class="btn-vip mt-6" onclick="checkAffiliate('Adidas')">Adidas Offers</div></div>
-            <div class="vip-card" onclick="trackView('Zara')"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Zara"><div class="btn-vip mt-6" onclick="checkAffiliate('Zara')">Zara Collection</div></div>
-        </div>
     </main>
-    <footer class="vip-footer-slim"><div class="footer-content"><div class="footer-text-left"><h4>Where Luxury Meets Intelligence.. Entrepreneurship Starts Here.</h4><p>Designed for the Elite.. Elevate your brand to global horizons.</p></div><div class="footer-btns-right"><div class="btn-3d-vip" onclick="handleLead('WhatsApp')"><i class="fab fa-whatsapp"></i> <span>WhatsApp VIP</span></div><div class="btn-3d-vip" onclick="handleLead('Email')"><i class="fas fa-envelope"></i> <span>desina.com@gmail.com</span></div></div></div><p class="mt-8 text-center text-red-600/30 text-[10px] font-bold uppercase tracking-[0.5em]">DeSina Group Exclusive © 2026</p></footer>
+
+    <footer class="vip-footer-slim">
+        <div class="footer-content">
+            <div class="footer-btns-left">
+                <div class="btn-3d-vip" onclick="handleLead('WhatsApp')">
+                    <i class="fab fa-whatsapp"></i> <span>WhatsApp VIP</span>
+                </div>
+                <div class="btn-3d-vip" onclick="handleLead('Email')">
+                    <i class="fas fa-envelope"></i> <span>desina.com@gmail.com</span>
+                </div>
+            </div>
+            <div class="footer-text-right">
+                <h4>Where Luxury Meets Intelligence.. Entrepreneurship Starts Here.</h4>
+                <p>Designed for the Elite.. Elevate your brand to global horizons.</p>
+            </div>
+        </div>
+        <div class="mt-8 text-center text-red-600/30 text-[10px] font-bold uppercase tracking-[0.5em]">DeSina Group Exclusive © 2026</div>
+    </footer>
+
     <script>
-        function handleLead(type) { fbq('track', 'Contact', { content_name: type }); if(type === 'WhatsApp') window.location.href = 'https://wa.me/201102919214'; else window.location.href = 'mailto:desina.com@gmail.com'; }
+        function handleLead(type) {
+            fbq('track', 'Contact', { content_name: type });
+            if(type === 'WhatsApp') window.location.href = 'https://wa.me/201102919214';
+            else window.location.href = 'mailto:desina.com@gmail.com';
+        }
         function trackView(name) { fbq('track', 'ViewContent', { content_name: name }); }
-        function checkAffiliate(platform) { trackView(platform); let timerInterval; Swal.fire({ title: 'Updating Live Data', html: `Checking exclusive <b class="text-red-500">${platform}</b> offers for <span class="text-red-600 font-bold">DeSina VIP</span> clients... <br><br> <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden"><div id="p-bar" class="bg-red-600 h-2 rounded-full" style="width: 0%"></div></div>`, timer: 2000, showConfirmButton: false, didOpen: () => { const b = document.getElementById('p-bar'); timerInterval = setInterval(() => { b.style.width = (100 - (Swal.getTimerLeft() / 2000 * 100)) + '%'; }, 50); } }).then(() => { Swal.fire({ icon: 'info', title: 'Coming Soon!', text: `Exclusive VIP discount codes are being activated.`, confirmButtonText: 'Close' }); }); }
+        
+        function checkAffiliate(platform) {
+            trackView(platform);
+            let timerInterval;
+            Swal.fire({
+                title: 'Updating Live Data',
+                html: `Checking exclusive <b class="text-red-500">${platform}</b> offers for <span class="text-red-600 font-bold">DeSina VIP</span> clients... <br><br> <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden"><div id="p-bar" class="bg-red-600 h-2 rounded-full" style="width: 0%"></div></div>`,
+                timer: 2000,
+                showConfirmButton: false,
+                didOpen: () => {
+                    const b = document.getElementById('p-bar');
+                    timerInterval = setInterval(() => {
+                        b.style.width = (100 - (Swal.getTimerLeft() / 2000 * 100)) + '%';
+                    }, 50);
+                }
+            }).then(() => {
+                Swal.fire({ icon: 'info', title: 'Coming Soon!', text: `Exclusive VIP discount codes are being activated.`, confirmButtonText: 'Close' });
+            });
+        }
     </script>
 </body>
 </html>
