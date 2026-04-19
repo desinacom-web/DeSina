@@ -1,27 +1,3 @@
-/* تعريف أيقونات Font Awesome - Solid */
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-style: normal;
-  font-weight: 900;
-  font-display: block;
-  src: url('../assets/fonts/fa-solid-900.woff2') format('woff2');
-}
-/* تعريف أيقونات Font Awesome - Brands */
-@font-face {
-  font-family: 'Font Awesome 6 Brands';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('../assets/fonts/fa-brands-400.woff2') format('woff2');
-}
-/* تعريف خط كايرو المحلي */
-@font-face {
-  font-family: 'Cairo';
-  src: url('../assets/fonts/Cairo.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-/* أسطر التلوين الأساسية بتاعتك */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
