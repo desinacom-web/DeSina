@@ -8,47 +8,7 @@
 @font-face { font-family: 'Cairo'; src: url('fonts/cairo-extrabold.ttf'); font-weight: 800; }
 @font-face { font-family: 'Cairo'; src: url('fonts/cairo-black.ttf'); font-weight: 900; }
 
-/* 2. Font Awesome Icons - Local Storage */
-@font-face {
-    font-family: 'Font Awesome 6 Brands';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url('fonts/fa-brands-400.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 900;
-    font-display: block;
-    src: url('fonts/fa-solid-900.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url('fonts/fa-regular-400.woff2') format('woff2');
-}
-
-/* 3. Global Styles */
+/* 2. Global Styles */
 body {
     font-family: 'Cairo', sans-serif !important;
-}
-
-/* Icon Class Mapping */
-.fab {
-    font-family: 'Font Awesome 6 Brands' !important;
-}
-
-.fas, .fa-solid {
-    font-family: 'Font Awesome 6 Free' !important;
-    font-weight: 900 !important;
-}
-
-.far, .fa-regular {
-    font-family: 'Font Awesome 6 Free' !important;
-    font-weight: 400 !important;
 }
