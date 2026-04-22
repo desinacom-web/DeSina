@@ -1589,5 +1589,5 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
 
   // Final start call
   start();
-
- } )();
+    
+];
