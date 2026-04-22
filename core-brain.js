@@ -353,8 +353,7 @@ function elementBoundEffect(el) {
     };
     return recurse(data2);
   }
-  function interceptor(callback, mutateObj = () => {
-  }) {
+  function interceptor(callback, mutateObj = () => {}) {
     let obj = {
       initialValue: void 0,
       _x_interceptor: true,
