@@ -1157,8 +1157,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function performTransition(el, stages) {
     let interrupted, reachedBefore, reachedEnd;
-    let finish = once(() =< {
-      mutateDom(() =< {
+    let finish = once(() => {
+      mutateDom(() => {
         interrupted = true;
         if (!reachedBefore)
           stages.before();
@@ -1186,26 +1186,26 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }),
       finish
     };
-    mutateDom(() =< {
+    mutateDom(() => {
       stages.start();
       stages.during();
     });
     holdNextTicks();
-    requestAnimationFrame(() =< {
+    requestAnimationFrame(() => {
       if (interrupted)
         return;
-      let duration = Number(getComputedStyle(el).transitionDuration.replace(/,.*/, &quot;&quot;).replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
-      let delay = Number(getComputedStyle(el).transitionDelay.replace(/,.*/, &quot;&quot;).replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
+      let duration = Number(getComputedStyle(el).transitionDuration.replace(/,.*/, "").replace("s", "")) * 1e3;
+      let delay = Number(getComputedStyle(el).transitionDelay.replace(/,.*/, "").replace("s", "")) * 1e3;
       if (duration === 0)
-        duration = Number(getComputedStyle(el).animationDuration.replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
-      mutateDom(() =< {
+        duration = Number(getComputedStyle(el).animationDuration.replace("s", "")) * 1e3;
+      mutateDom(() => {
         stages.before();
       });
       reachedBefore = true;
-      requestAnimationFrame(() =< {
+      requestAnimationFrame(() => {
         if (interrupted)
           return;
-        mutateDom(() =< {
+        mutateDom(() => {
           stages.end();
         });
         releaseNextTicks();
@@ -1220,18 +1220,18 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const rawValue = modifiers[modifiers.indexOf(key) + 1];
     if (!rawValue)
       return fallback;
-    if (key === &quot;scale&quot;) {
+    if (key === "scale") {
       if (isNaN(rawValue))
         return fallback;
     }
-    if (key === &quot;duration&quot; || key === &quot;delay&quot;) {
+    if (key === "duration" || key === "delay") {
       let match = rawValue.match(/([0-9]+)ms/);
       if (match)
         return match[1];
     }
-    if (key === &quot;origin&quot;) {
-      if ([&quot;top&quot;, &quot;right&quot;, &quot;left&quot;, &quot;center&quot;, &quot;bottom&quot;].includes(modifiers[modifiers.indexOf(key) + 2])) {
-        return [rawValue, modifiers[modifiers.indexOf(key) + 2]].join(&quot; &quot;);
+    if (key === "origin") {
+      if (["top", "right", "left", "center", "bottom"].includes(modifiers[modifiers.indexOf(key) + 2])) {
+        return [rawValue, modifiers[modifiers.indexOf(key) + 2]].join(" ");
       }
     }
     return rawValue;
@@ -1239,12 +1239,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
 
   // packages/alpinejs/src/clone.js
   var isCloning = false;
-  function skipDuringClone(callback, fallback = () =< {
+  function skipDuringClone(callback, fallback = () => {
   }) {
-    return (...args) =< isCloning ? fallback(...args) : callback(...args);
+    return (...args) => isCloning ? fallback(...args) : callback(...args);
   }
   function onlyDuringClone(callback) {
-    return (...args) =< isCloning && callback(...args);
+    return (...args) => isCloning && callback(...args);
   }
   var interceptors = [];
   function interceptClone(callback) {
