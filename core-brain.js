@@ -553,46 +553,46 @@
       return el;
     if (el._x_teleportBack)
       el = el._x_teleportBack;
-    if (!el.parentElement)
+    if (!el.parentNode)
       return;
-    return findClosest(el.parentElement, callback);
+    return findClosest(el.parentNode, callback);
   }
   function isRoot(el) {
-    return rootSelectors().some((selector) =&gt; el.matches(selector));
+    return rootSelectors().some((selector) => el.matches(selector));
   }
   var initInterceptors2 = [];
   function interceptInit(callback) {
     initInterceptors2.push(callback);
   }
-  function initTree(el, walker = walk, intercept = () =&gt; {
+  function initTree(el, walker = walk, intercept = () => {
   }) {
-    deferHandlingDirectives(() =&gt; {
-      walker(el, (el2, skip) =&gt; {
+    deferHandlingDirectives(() => {
+      walker(el, (el2, skip) => {
         intercept(el2, skip);
-        initInterceptors2.forEach((i) =&gt; i(el2, skip));
-        directives(el2, el2.attributes).forEach((handle) =&gt; handle());
-        el2._x_ignore &amp;&amp; skip();
+        initInterceptors2.forEach((i) => i(el2, skip));
+        directives(el2, el2.attributes).forEach((handle) => handle());
+        el2._x_ignore && skip();
       });
     });
   }
   function destroyTree(root, walker = walk) {
-    walker(root, (el) =&gt; {
+    walker(root, (el) => {
       cleanupElement(el);
       cleanupAttributes(el);
     });
   }
   function warnAboutMissingPlugins() {
     let pluginDirectives = [
-      [&quot;ui&quot;, &quot;dialog&quot;, [&quot;[x-dialog], [x-popover]&quot;]],
-      [&quot;anchor&quot;, &quot;anchor&quot;, [&quot;[x-anchor]&quot;]],
-      [&quot;sort&quot;, &quot;sort&quot;, [&quot;[x-sort]&quot;]]
+      ["ui", "dialog", ["[x-dialog], [x-popover]"]],
+      ["anchor", "anchor", ["[x-anchor]"]],
+      ["sort", "sort", ["[x-sort]"]]
     ];
-    pluginDirectives.forEach(([plugin2, directive2, selectors]) =&gt; {
+    pluginDirectives.forEach(([plugin2, directive2, selectors]) => {
       if (directiveExists(directive2))
         return;
-      selectors.some((selector) =&gt; {
+      selectors.some((selector) => {
         if (document.querySelector(selector)) {
-          warn(`found &quot;${selector}&quot;, but missing ${plugin2} plugin`);
+          warn(`found "${selector}", but missing ${plugin2} plugin`);
           return true;
         }
       });
@@ -602,15 +602,15 @@
   // packages/alpinejs/src/nextTick.js
   var tickStack = [];
   var isHolding = false;
-  function nextTick(callback = () =&gt; {
+  function nextTick(callback = () => {
   }) {
-    queueMicrotask(() =&gt; {
-      isHolding || setTimeout(() =&gt; {
+    queueMicrotask(() => {
+      isHolding || setTimeout(() => {
         releaseNextTicks();
       });
     });
-    return new Promise((res) =&gt; {
-      tickStack.push(() =&gt; {
+    return new Promise((res) => {
+      tickStack.push(() => {
         callback();
         res();
       });
@@ -628,88 +628,88 @@
   // packages/alpinejs/src/utils/classes.js
   function setClasses(el, value) {
     if (Array.isArray(value)) {
-      return setClassesFromString(el, value.join(&quot; &quot;));
-    } else if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
+      return setClassesFromString(el, value.join(" "));
+    } else if (typeof value === "object" && value !== null) {
       return setClassesFromObject(el, value);
-    } else if (typeof value === &quot;function&quot;) {
+    } else if (typeof value === "function") {
       return setClasses(el, value());
     }
     return setClassesFromString(el, value);
   }
   function setClassesFromString(el, classString) {
-    let split = (classString2) =&gt; classString2.split(&quot; &quot;).filter(Boolean);
-    let missingClasses = (classString2) =&gt; classString2.split(&quot; &quot;).filter((i) =&gt; !el.classList.contains(i)).filter(Boolean);
-    let addClassesAndReturnUndo = (classes) =&gt; {
+    let split = (classString2) => classString2.split(" ").filter(Boolean);
+    let missingClasses = (classString2) => classString2.split(" ").filter((i) => !el.classList.contains(i)).filter(Boolean);
+    let addClassesAndReturnUndo = (classes) => {
       el.classList.add(...classes);
-      return () =&gt; {
+      return () => {
         el.classList.remove(...classes);
       };
     };
-    classString = classString === true ? classString = &quot;&quot; : classString || &quot;&quot;;
+    classString = classString === true ? classString = "" : classString || "";
     return addClassesAndReturnUndo(missingClasses(classString));
   }
   function setClassesFromObject(el, classObject) {
-    let split = (classString) =&gt; classString.split(&quot; &quot;).filter(Boolean);
-    let forAdd = Object.entries(classObject).flatMap(([classString, bool]) =&gt; bool ? split(classString) : false).filter(Boolean);
-    let forRemove = Object.entries(classObject).flatMap(([classString, bool]) =&gt; !bool ? split(classString) : false).filter(Boolean);
+    let split = (classString) => classString.split(" ").filter(Boolean);
+    let forAdd = Object.entries(classObject).flatMap(([classString, bool]) => bool ? split(classString) : false).filter(Boolean);
+    let forRemove = Object.entries(classObject).flatMap(([classString, bool]) => !bool ? split(classString) : false).filter(Boolean);
     let added = [];
     let removed = [];
-    forRemove.forEach((i) =&gt; {
+    forRemove.forEach((i) => {
       if (el.classList.contains(i)) {
         el.classList.remove(i);
         removed.push(i);
       }
     });
-    forAdd.forEach((i) =&gt; {
+    forAdd.forEach((i) => {
       if (!el.classList.contains(i)) {
         el.classList.add(i);
         added.push(i);
       }
     });
-    return () =&gt; {
-      removed.forEach((i) =&gt; el.classList.add(i));
-      added.forEach((i) =&gt; el.classList.remove(i));
+    return () => {
+      removed.forEach((i) => el.classList.add(i));
+      added.forEach((i) => el.classList.remove(i));
     };
   }
 
   // packages/alpinejs/src/utils/styles.js
   function setStyles(el, value) {
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
+    if (typeof value === "object" && value !== null) {
       return setStylesFromObject(el, value);
     }
     return setStylesFromString(el, value);
   }
   function setStylesFromObject(el, value) {
     let previousStyles = {};
-    Object.entries(value).forEach(([key, value2]) =&gt; {
+    Object.entries(value).forEach(([key, value2]) => {
       previousStyles[key] = el.style[key];
-      if (!key.startsWith(&quot;--&quot;)) {
+      if (!key.startsWith("--")) {
         key = kebabCase(key);
       }
       el.style.setProperty(key, value2);
     });
-    setTimeout(() =&gt; {
+    setTimeout(() => {
       if (el.style.length === 0) {
-        el.removeAttribute(&quot;style&quot;);
+        el.removeAttribute("style");
       }
     });
-    return () =&gt; {
+    return () => {
       setStyles(el, previousStyles);
     };
   }
   function setStylesFromString(el, value) {
-    let cache = el.getAttribute(&quot;style&quot;, value);
-    el.setAttribute(&quot;style&quot;, value);
-    return () =&gt; {
-      el.setAttribute(&quot;style&quot;, cache || &quot;&quot;);
+    let cache = el.getAttribute("style", value);
+    el.setAttribute("style", value);
+    return () => {
+      el.setAttribute("style", cache || "");
     };
   }
   function kebabCase(subject) {
-    return subject.replace(/([a-z])([A-Z])/g, &quot;$1-$2&quot;).toLowerCase();
+    return subject.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
   }
 
   // packages/alpinejs/src/utils/once.js
-  function once(callback, fallback = () =&gt; {
+  function once(callback, fallback = () => {
   }) {
     let called = false;
     return function() {
@@ -723,36 +723,36 @@
   }
 
   // packages/alpinejs/src/directives/x-transition.js
-  directive(&quot;transition&quot;, (el, { value, modifiers, expression }, { evaluate: evaluate2 }) =&gt; {
-    if (typeof expression === &quot;function&quot;)
+  directive("transition", (el, { value, modifiers, expression }, { evaluate: evaluate2 }) => {
+    if (typeof expression === "function")
       expression = evaluate2(expression);
     if (expression === false)
       return;
-    if (!expression || typeof expression === &quot;boolean&quot;) {
+    if (!expression || typeof expression === "boolean") {
       registerTransitionsFromHelper(el, modifiers, value);
     } else {
       registerTransitionsFromClassString(el, expression, value);
     }
   });
   function registerTransitionsFromClassString(el, classString, stage) {
-    registerTransitionObject(el, setClasses, &quot;&quot;);
+    registerTransitionObject(el, setClasses, "");
     let directiveStorageMap = {
-      &quot;enter&quot;: (classes) =&gt; {
+      "enter": (classes) => {
         el._x_transition.enter.during = classes;
       },
-      &quot;enter-start&quot;: (classes) =&gt; {
+      "enter-start": (classes) => {
         el._x_transition.enter.start = classes;
       },
-      &quot;enter-end&quot;: (classes) =&gt; {
+      "enter-end": (classes) => {
         el._x_transition.enter.end = classes;
       },
-      &quot;leave&quot;: (classes) =&gt; {
+      "leave": (classes) => {
         el._x_transition.leave.during = classes;
       },
-      &quot;leave-start&quot;: (classes) =&gt; {
+      "leave-start": (classes) => {
         el._x_transition.leave.start = classes;
       },
-      &quot;leave-end&quot;: (classes) =&gt; {
+      "leave-end": (classes) => {
         el._x_transition.leave.end = classes;
       }
     };
@@ -760,25 +760,25 @@
   }
   function registerTransitionsFromHelper(el, modifiers, stage) {
     registerTransitionObject(el, setStyles);
-    let doesntSpecify = !modifiers.includes(&quot;in&quot;) &amp;&amp; !modifiers.includes(&quot;out&quot;) &amp;&amp; !stage;
-    let transitioningIn = doesntSpecify || modifiers.includes(&quot;in&quot;) || [&quot;enter&quot;].includes(stage);
-    let transitioningOut = doesntSpecify || modifiers.includes(&quot;out&quot;) || [&quot;leave&quot;].includes(stage);
-    if (modifiers.includes(&quot;in&quot;) &amp;&amp; !doesntSpecify) {
-      modifiers = modifiers.filter((i, index) =&gt; index &lt; modifiers.indexOf(&quot;out&quot;));
+    let doesntSpecify = !modifiers.includes("in") && !modifiers.includes("out") && !stage;
+    let transitioningIn = doesntSpecify || modifiers.includes("in") || ["enter"].includes(stage);
+    let transitioningOut = doesntSpecify || modifiers.includes("out") || ["leave"].includes(stage);
+    if (modifiers.includes("in") && !doesntSpecify) {
+      modifiers = modifiers.filter((i, index) => index < modifiers.indexOf("out"));
     }
-    if (modifiers.includes(&quot;out&quot;) &amp;&amp; !doesntSpecify) {
-      modifiers = modifiers.filter((i, index) =&gt; index &gt; modifiers.indexOf(&quot;out&quot;));
+    if (modifiers.includes("out") && !doesntSpecify) {
+      modifiers = modifiers.filter((i, index) => index > modifiers.indexOf("out"));
     }
-    let wantsAll = !modifiers.includes(&quot;opacity&quot;) &amp;&amp; !modifiers.includes(&quot;scale&quot;);
-    let wantsOpacity = wantsAll || modifiers.includes(&quot;opacity&quot;);
-    let wantsScale = wantsAll || modifiers.includes(&quot;scale&quot;);
+    let wantsAll = !modifiers.includes("opacity") && !modifiers.includes("scale");
+    let wantsOpacity = wantsAll || modifiers.includes("opacity");
+    let wantsScale = wantsAll || modifiers.includes("scale");
     let opacityValue = wantsOpacity ? 0 : 1;
-    let scaleValue = wantsScale ? modifierValue(modifiers, &quot;scale&quot;, 95) / 100 : 1;
-    let delay = modifierValue(modifiers, &quot;delay&quot;, 0) / 1e3;
-    let origin = modifierValue(modifiers, &quot;origin&quot;, &quot;center&quot;);
-    let property = &quot;opacity, transform&quot;;
-    let durationIn = modifierValue(modifiers, &quot;duration&quot;, 150) / 1e3;
-    let durationOut = modifierValue(modifiers, &quot;duration&quot;, 75) / 1e3;
+    let scaleValue = wantsScale ? modifierValue(modifiers, "scale", 95) / 100 : 1;
+    let delay = modifierValue(modifiers, "delay", 0) / 1e3;
+    let origin = modifierValue(modifiers, "origin", "center");
+    let property = "opacity, transform";
+    let durationIn = modifierValue(modifiers, "duration", 150) / 1e3;
+    let durationOut = modifierValue(modifiers, "duration", 75) / 1e3;
     let easing = `cubic-bezier(0.4, 0.0, 0.2, 1)`;
     if (transitioningIn) {
       el._x_transition.enter.during = {
@@ -820,8 +820,8 @@
       el._x_transition = {
         enter: { during: defaultValue, start: defaultValue, end: defaultValue },
         leave: { during: defaultValue, start: defaultValue, end: defaultValue },
-        in(before = () =&gt; {
-        }, after = () =&gt; {
+        in(before = () => {
+        }, after = () => {
         }) {
           transition(el, setFunction, {
             during: this.enter.during,
@@ -829,8 +829,8 @@
             end: this.enter.end
           }, before, after);
         },
-        out(before = () =&gt; {
-        }, after = () =&gt; {
+        out(before = () => {
+        }, after = () => {
         }) {
           transition(el, setFunction, {
             during: this.leave.during,
