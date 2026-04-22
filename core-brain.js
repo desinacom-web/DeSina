@@ -629,7 +629,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let handler4 = directiveHandlers[directive2.type] || noop;
     let [utilities, cleanup2] = getElementBoundUtilities(el);
     onAttributeRemoved(el, directive2.original, cleanup2);
-    let fullHandler = () =< {
+    let fullHandler = () => {
       if (el._x_ignore || el._x_ignoreSelf)
         return;
       handler4.inline && handler4.inline(el, directive2, utilities);
@@ -639,16 +639,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     fullHandler.runCleanups = cleanup2;
     return fullHandler;
   }
-  var startingWith = (subject, replacement) =< ({ name, value }) =< {
+  var startingWith = (subject, replacement) => ({ name, value }) => {
     if (name.startsWith(subject))
       name = name.replace(subject, replacement);
     return { name, value };
   };
-  var into = (i) =< i;
-  function toTransformedAttributes(callback = () =< {
+  var into = (i) => i;
+  function toTransformedAttributes(callback = () => {
   }) {
-    return ({ name, value }) =< {
-      let { name: newName, value: newValue } = attributeTransformers.reduce((carry, transform) =< {
+    return ({ name, value }) => {
+      let { name: newName, value: newValue } = attributeTransformers.reduce((carry, transform) => {
         return transform(carry);
       }, { name, value });
       if (newName !== name)
@@ -663,9 +663,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function outNonAlpineAttributes({ name }) {
     return alpineAttributeRegex().test(name);
   }
-  var alpineAttributeRegex = () =< new RegExp(`^${prefixAsString}([^:^.]+)\\b`);
+  var alpineAttributeRegex = () => new RegExp(`^${prefixAsString}([^:^.]+)\\b`);
   function toParsedDirectives(transformedAttributeMap, originalAttributeOverride) {
-    return ({ name, value }) =< {
+    return ({ name, value }) => {
       let typeMatch = name.match(alpineAttributeRegex());
       let valueMatch = name.match(/:([a-zA-Z0-9\-_:]+)/);
       let modifiers = name.match(/\.[^.\]]+(?=[^\]]*$)/g) || [];
@@ -673,29 +673,29 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       return {
         type: typeMatch ? typeMatch[1] : null,
         value: valueMatch ? valueMatch[1] : null,
-        modifiers: modifiers.map((i) =< i.replace(&quot;.&quot;, &quot;&quot;)),
+        modifiers: modifiers.map((i) => i.replace(".", "")),
         expression: value,
         original
       };
     };
   }
-  var DEFAULT = &quot;DEFAULT&quot;;
+  var DEFAULT = "DEFAULT";
   var directiveOrder = [
-    &quot;ignore&quot;,
-    &quot;ref&quot;,
-    &quot;data&quot;,
-    &quot;id&quot;,
-    &quot;anchor&quot;,
-    &quot;bind&quot;,
-    &quot;init&quot;,
-    &quot;for&quot;,
-    &quot;model&quot;,
-    &quot;modelable&quot;,
-    &quot;transition&quot;,
-    &quot;show&quot;,
-    &quot;if&quot;,
+    "ignore",
+    "ref",
+    "data",
+    "id",
+    "anchor",
+    "bind",
+    "init",
+    "for",
+    "model",
+    "modelable",
+    "transition",
+    "show",
+    "if",
     DEFAULT,
-    &quot;teleport&quot;
+    "teleport"
   ];
   function byPriority(a, b) {
     let typeA = directiveOrder.indexOf(a.type) === -1 ? DEFAULT : a.type;
