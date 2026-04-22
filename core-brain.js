@@ -1049,10 +1049,10 @@
   }
   function dontRegisterReactiveSideEffects(callback) {
     let cache = effect;
-    overrideEffect((callback2, el) =&gt; {
+    overrideEffect((callback2, el) => {
       let storedEffect = cache(callback2);
       release(storedEffect);
-      return () =&gt; {
+      return () => {
       };
     });
     callback();
@@ -1064,19 +1064,19 @@
     if (!el._x_bindings)
       el._x_bindings = reactive({});
     el._x_bindings[name] = value;
-    name = modifiers.includes(&quot;camel&quot;) ? camelCase(name) : name;
+    name = modifiers.includes("camel") ? camelCase(name) : name;
     switch (name) {
-      case &quot;value&quot;:
+      case "value":
         bindInputValue(el, value);
         break;
-      case &quot;style&quot;:
+      case "style":
         bindStyles(el, value);
         break;
-      case &quot;class&quot;:
+      case "class":
         bindClasses(el, value);
         break;
-      case &quot;selected&quot;:
-      case &quot;checked&quot;:
+      case "selected":
+      case "checked":
         bindAttributeAndProperty(el, name, value);
         break;
       default:
@@ -1090,7 +1090,7 @@
         el.value = value;
       }
       if (window.fromModel) {
-        if (typeof value === &quot;boolean&quot;) {
+        if (typeof value === "boolean") {
           el.checked = safeParseBoolean(el.value) === value;
         } else {
           el.checked = checkedAttrLooseCompare(el.value, value);
@@ -1099,21 +1099,21 @@
     } else if (isCheckbox(el)) {
       if (Number.isInteger(value)) {
         el.value = value;
-      } else if (!Array.isArray(value) &amp;&amp; typeof value !== &quot;boolean&quot; &amp;&amp; ![null, void 0].includes(value)) {
+      } else if (!Array.isArray(value) && typeof value !== "boolean" && ![null, void 0].includes(value)) {
         el.value = String(value);
       } else {
         if (Array.isArray(value)) {
-          el.checked = value.some((val) =&gt; checkedAttrLooseCompare(val, el.value));
+          el.checked = value.some((val) => checkedAttrLooseCompare(val, el.value));
         } else {
           el.checked = !!value;
         }
       }
-    } else if (el.tagName === &quot;SELECT&quot;) {
+    } else if (el.tagName === "SELECT") {
       updateSelect(el, value);
     } else {
       if (el.value === value)
         return;
-      el.value = value === void 0 ? &quot;&quot; : value;
+      el.value = value === void 0 ? "" : value;
     }
   }
   function bindClasses(el, value) {
@@ -1131,7 +1131,7 @@
     setPropertyIfChanged(el, name, value);
   }
   function bindAttribute(el, name, value) {
-    if ([null, void 0, false].includes(value) &amp;&amp; attributeShouldntBePreservedIfFalsy(name)) {
+    if ([null, void 0, false].includes(value) && attributeShouldntBePreservedIfFalsy(name)) {
       el.removeAttribute(name);
     } else {
       if (isBooleanAttr(name))
@@ -1150,75 +1150,75 @@
     }
   }
   function updateSelect(el, value) {
-    const arrayWrappedValue = [].concat(value).map((value2) =&gt; {
-      return value2 + &quot;&quot;;
+    const arrayWrappedValue = [].concat(value).map((value2) => {
+      return value2 + "";
     });
-    Array.from(el.options).forEach((option) =&gt; {
+    Array.from(el.options).forEach((option) => {
       option.selected = arrayWrappedValue.includes(option.value);
     });
   }
   function camelCase(subject) {
-    return subject.toLowerCase().replace(/-(\w)/g, (match, char) =&gt; char.toUpperCase());
+    return subject.toLowerCase().replace(/-(\w)/g, (match, char) => char.toUpperCase());
   }
   function checkedAttrLooseCompare(valueA, valueB) {
     return valueA == valueB;
   }
   function safeParseBoolean(rawValue) {
-    if ([1, &quot;1&quot;, &quot;true&quot;, &quot;on&quot;, &quot;yes&quot;, true].includes(rawValue)) {
+    if ([1, "1", "true", "on", "yes", true].includes(rawValue)) {
       return true;
     }
-    if ([0, &quot;0&quot;, &quot;false&quot;, &quot;off&quot;, &quot;no&quot;, false].includes(rawValue)) {
+    if ([0, "0", "false", "off", "no", false].includes(rawValue)) {
       return false;
     }
     return rawValue ? Boolean(rawValue) : null;
   }
   var booleanAttributes = /* @__PURE__ */ new Set([
-    &quot;allowfullscreen&quot;,
-    &quot;async&quot;,
-    &quot;autofocus&quot;,
-    &quot;autoplay&quot;,
-    &quot;checked&quot;,
-    &quot;controls&quot;,
-    &quot;default&quot;,
-    &quot;defer&quot;,
-    &quot;disabled&quot;,
-    &quot;formnovalidate&quot;,
-    &quot;inert&quot;,
-    &quot;ismap&quot;,
-    &quot;itemscope&quot;,
-    &quot;loop&quot;,
-    &quot;multiple&quot;,
-    &quot;muted&quot;,
-    &quot;nomodule&quot;,
-    &quot;novalidate&quot;,
-    &quot;open&quot;,
-    &quot;playsinline&quot;,
-    &quot;readonly&quot;,
-    &quot;required&quot;,
-    &quot;reversed&quot;,
-    &quot;selected&quot;,
-    &quot;shadowrootclonable&quot;,
-    &quot;shadowrootdelegatesfocus&quot;,
-    &quot;shadowrootserializable&quot;
+    "allowfullscreen",
+    "async",
+    "autofocus",
+    "autoplay",
+    "checked",
+    "controls",
+    "default",
+    "defer",
+    "disabled",
+    "formnovalidate",
+    "inert",
+    "ismap",
+    "itemscope",
+    "loop",
+    "multiple",
+    "muted",
+    "nomodule",
+    "novalidate",
+    "open",
+    "playsinline",
+    "readonly",
+    "required",
+    "reversed",
+    "selected",
+    "shadowrootclonable",
+    "shadowrootdelegatesfocus",
+    "shadowrootserializable"
   ]);
   function isBooleanAttr(attrName) {
     return booleanAttributes.has(attrName);
   }
   function attributeShouldntBePreservedIfFalsy(name) {
-    return ![&quot;aria-pressed&quot;, &quot;aria-checked&quot;, &quot;aria-expanded&quot;, &quot;aria-selected&quot;].includes(name);
+    return !["aria-pressed", "aria-checked", "aria-expanded", "aria-selected"].includes(name);
   }
   function getBinding(el, name, fallback) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
     return getAttributeBinding(el, name, fallback);
   }
   function extractProp(el, name, fallback, extract = true) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
-    if (el._x_inlineBindings &amp;&amp; el._x_inlineBindings[name] !== void 0) {
+    if (el._x_inlineBindings && el._x_inlineBindings[name] !== void 0) {
       let binding = el._x_inlineBindings[name];
       binding.extract = extract;
-      return dontAutoEvaluateFunctions(() =&gt; {
+      return dontAutoEvaluateFunctions(() => {
         return evaluate(el, binding.expression);
       });
     }
@@ -1227,19 +1227,19 @@
   function getAttributeBinding(el, name, fallback) {
     let attr = el.getAttribute(name);
     if (attr === null)
-      return typeof fallback === &quot;function&quot; ? fallback() : fallback;
-    if (attr === &quot;&quot;)
+      return typeof fallback === "function" ? fallback() : fallback;
+    if (attr === "")
       return true;
     if (isBooleanAttr(name)) {
-      return !![name, &quot;true&quot;].includes(attr);
+      return !![name, "true"].includes(attr);
     }
     return attr;
   }
   function isCheckbox(el) {
-    return el.type === &quot;checkbox&quot; || el.localName === &quot;ui-checkbox&quot; || el.localName === &quot;ui-switch&quot;;
+    return el.type === "checkbox" || el.localName === "ui-checkbox" || el.localName === "ui-switch";
   }
   function isRadio(el) {
-    return el.type === &quot;radio&quot; || el.localName === &quot;ui-radio&quot;;
+    return el.type === "radio" || el.localName === "ui-radio";
   }
 
   // packages/alpinejs/src/utils/debounce.js
@@ -1264,7 +1264,7 @@
       if (!inThrottle) {
         func.apply(context, args);
         inThrottle = true;
-        setTimeout(() =&gt; inThrottle = false, limit);
+        setTimeout(() => inThrottle = false, limit);
       }
     };
   }
@@ -1274,7 +1274,7 @@
     let firstRun = true;
     let outerHash;
     let innerHash;
-    let reference = effect(() =&gt; {
+    let reference = effect(() => {
       let outer = outerGet();
       let inner = innerGet();
       if (firstRun) {
@@ -1293,18 +1293,18 @@
       outerHash = JSON.stringify(outerGet());
       innerHash = JSON.stringify(innerGet());
     });
-    return () =&gt; {
+    return () => {
       release(reference);
     };
   }
   function cloneIfObject(value) {
-    return typeof value === &quot;object&quot; ? JSON.parse(JSON.stringify(value)) : value;
+    return typeof value === "object" ? JSON.parse(JSON.stringify(value)) : value;
   }
 
   // packages/alpinejs/src/plugin.js
   function plugin(callback) {
     let callbacks = Array.isArray(callback) ? callback : [callback];
-    callbacks.forEach((i) =&gt; i(alpine_default));
+    callbacks.forEach((i) => i(alpine_default));
   }
 
   // packages/alpinejs/src/store.js
@@ -1320,7 +1320,7 @@
     }
     stores[name] = value;
     initInterceptors(stores[name]);
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; value.hasOwnProperty(&quot;init&quot;) &amp;&amp; typeof value.init === &quot;function&quot;) {
+    if (typeof value === "object" && value !== null && value.hasOwnProperty("init") && typeof value.init === "function") {
       stores[name].init();
     }
   }
@@ -1331,21 +1331,23 @@
   // packages/alpinejs/src/binds.js
   var binds = {};
   function bind2(name, bindings) {
-    let getBindings = typeof bindings !== &quot;function&quot; ? () =&gt; bindings : bindings;
+    let getBindings = typeof bindings !== "function" ? () => bindings : bindings;
     if (name instanceof Element) {
       return applyBindingsObject(name, getBindings());
     } else {
       binds[name] = getBindings;
     }
-    return () =&gt; {
+    return () => {
     };
   }
   function injectBindingProviders(obj) {
-    Object.entries(binds).forEach(([name, callback]) =&gt; {
+    Object.entries(binds).forEach(([name, callback]) => {
       Object.defineProperty(obj, name, {
         get() {
-          return (...args) =&gt; {
+          return (...args) => {
             return callback(...args);
           };
         }
-</div></div></div></main></body></html>
+      });
+    });
+  }
