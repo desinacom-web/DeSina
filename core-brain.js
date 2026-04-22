@@ -556,7 +556,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         }
         const pos = directiveOrder.indexOf(directive2);
         directiveOrder.splice(pos <= 0 ? pos : directiveOrder.indexOf("DEFAULT"), 0, name); 
-      };
+      }
   }
   function directiveExists(name) {
     return Object.keys(directiveHandlers).includes(name);
