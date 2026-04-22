@@ -431,13 +431,13 @@ function elementBoundEffect(el) {
   }
   function handleError(error2, el, expression = void 0) {
     error2 = Object.assign(
-      error2 ?? { message: &quot;No error message given.&quot; },
+      error2 ?? { message: "No error message given." },
       { el, expression }
     );
     console.warn(`Alpine Expression Error: ${error2.message}
 
-${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&apos; : &quot;&quot;}`, el);
-    setTimeout(() =< {
+${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
+    setTimeout(() => {
       throw error2;
     }, 0);
   }
@@ -453,7 +453,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
   }
   function evaluate(el, expression, extras = {}) {
     let result;
-    evaluateLater(el, expression)((value) =< result = value, extras);
+    evaluateLater(el, expression)((value) => result = value, extras);
     return result;
   }
   function evaluateLater(...args) {
@@ -467,12 +467,12 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     let overriddenMagics = {};
     injectMagics(overriddenMagics, el);
     let dataStack = [overriddenMagics, ...closestDataStack(el)];
-    let evaluator = typeof expression === &quot;function&quot; ? generateEvaluatorFromFunction(dataStack, expression) : generateEvaluatorFromString(dataStack, expression, el);
+    let evaluator = typeof expression === "function" ? generateEvaluatorFromFunction(dataStack, expression) : generateEvaluatorFromString(dataStack, expression, el);
     return tryCatch.bind(null, el, expression, evaluator);
   }
   function generateEvaluatorFromFunction(dataStack, func) {
-    return (receiver = () =< {
-    }, { scope: scope2 = {}, params = [] } = {}) =< {
+    return (receiver = () => {
+    }, { scope: scope2 = {}, params = [] } = {}) => {
       let result = func.apply(mergeProxies([scope2, ...dataStack]), params);
       runIfTypeOfFunction(receiver, result);
     };
@@ -484,8 +484,8 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     }
     let AsyncFunction = Object.getPrototypeOf(async function() {
     }).constructor;
-    let rightSideSafeExpression = /^[\n\s]*if.*\(.*\)/.test(expression.trim()) || /^(let|const)\s/.test(expression.trim()) ? `(async()=<{ ${expression} })()` : expression;
-    const safeAsyncFunction = () =< {
+    let rightSideSafeExpression = /^[\n\s]*if.*\(.*\)/.test(expression.trim()) || /^(let|const)\s/.test(expression.trim()) ? `(async()=>{ ${expression} })()` : expression;
+    const safeAsyncFunction = () => {
       try {
         let func2 = new AsyncFunction(
           [&quot;__self&quot;, &quot;scope&quot;],
