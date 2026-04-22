@@ -280,7 +280,7 @@ function elementBoundEffect(el) {
   function closestDataStack(node) {
     if (node._x_dataStack)
       return node._x_dataStack;
-    if (typeof ShadowRoot === &quot;function&quot; && node instanceof ShadowRoot) {
+    if (typeof ShadowRoot === "function" && node instanceof ShadowRoot) {
       return closestDataStack(node.host);
     }
     if (!node.parentNode) {
@@ -294,22 +294,22 @@ function elementBoundEffect(el) {
   var mergeProxyTrap = {
     ownKeys({ objects }) {
       return Array.from(
-        new Set(objects.flatMap((i) =< Object.keys(i)))
+        new Set(objects.flatMap((i) => Object.keys(i)))
       );
     },
     has({ objects }, name) {
       if (name == Symbol.unscopables)
         return false;
       return objects.some(
-        (obj) =< Object.prototype.hasOwnProperty.call(obj, name) || Reflect.has(obj, name)
+        (obj) => Object.prototype.hasOwnProperty.call(obj, name) || Reflect.has(obj, name)
       );
     },
     get({ objects }, name, thisProxy) {
-      if (name == &quot;toJSON&quot;)
+      if (name == "toJSON")
         return collapseProxies;
       return Reflect.get(
         objects.find(
-          (obj) =< Reflect.has(obj, name)
+          (obj) => Reflect.has(obj, name)
         ) || {},
         name,
         thisProxy
@@ -317,7 +317,7 @@ function elementBoundEffect(el) {
     },
     set({ objects }, name, value, thisProxy) {
       const target = objects.find(
-        (obj) =< Object.prototype.hasOwnProperty.call(obj, name)
+        (obj) => Object.prototype.hasOwnProperty.call(obj, name)
       ) || objects[objects.length - 1];
       const descriptor = Object.getOwnPropertyDescriptor(target, name);
       if (descriptor?.set && descriptor?.get)
@@ -327,7 +327,7 @@ function elementBoundEffect(el) {
   };
   function collapseProxies() {
     let keys = Reflect.ownKeys(this);
-    return keys.reduce((acc, key) =< {
+    return keys.reduce((acc, key) => {
       acc[key] = Reflect.get(this, key);
       return acc;
     }, {});
@@ -335,15 +335,15 @@ function elementBoundEffect(el) {
 
   // packages/alpinejs/src/interceptor.js
   function initInterceptors(data2) {
-    let isObject2 = (val) =< typeof val === &quot;object&quot; && !Array.isArray(val) && val !== null;
-    let recurse = (obj, basePath = &quot;&quot;) =< {
-      Object.entries(Object.getOwnPropertyDescriptors(obj)).forEach(([key, { value, enumerable }]) =< {
+    let isObject2 = (val) => typeof val === "object" && !Array.isArray(val) && val !== null;
+    let recurse = (obj, basePath = "") => {
+      Object.entries(Object.getOwnPropertyDescriptors(obj)).forEach(([key, { value, enumerable }]) => {
         if (enumerable === false || value === void 0)
           return;
-        if (typeof value === &quot;object&quot; && value !== null && value.__v_skip)
+        if (typeof value === "object" && value !== null && value.__v_skip)
           return;
-        let path = basePath === &quot;&quot; ? key : `${basePath}.${key}`;
-        if (typeof value === &quot;object&quot; && value !== null && value._x_interceptor) {
+        let path = basePath === "" ? key : `${basePath}.${key}`;
+        if (typeof value === "object" && value !== null && value._x_interceptor) {
           obj[key] = value.initialize(data2, path, key);
         } else {
           if (isObject2(value) && value !== obj && !(value instanceof Element)) {
