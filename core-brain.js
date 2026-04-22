@@ -262,42 +262,26 @@
     addedAttributes = null;
     removedAttributes = null;
   }
-    return (receiver = () =&gt; {
-    }, { scope: scope2 = {}, params = [] } = {}) =&gt; {
-      func.result = void 0;
-      func.finished = false;
-      let completeScope = mergeProxies([scope2, ...dataStack]);
-      if (typeof func === &quot;function&quot;) {
-        let promise = func(func, completeScope).catch((error2) =&gt; handleError(error2, el, expression));
-        if (func.finished) {
-          runIfTypeOfFunction(receiver, func.result, completeScope, params, el);
-          func.result = void 0;
-        } else {
-          promise.then((result) =&gt; {
-            runIfTypeOfFunction(receiver, result, completeScope, params, el);
-          }).catch((error2) =&gt; handleError(error2, el, expression)).finally(() =&gt; func.result = void 0);
-        }
-      }
     };
   }
   function runIfTypeOfFunction(receiver, value, scope2, params, el) {
-    if (shouldAutoEvaluateFunctions &amp;&amp; typeof value === &quot;function&quot;) {
+    if (shouldAutoEvaluateFunctions && typeof value === "function") {
       let result = value.apply(scope2, params);
       if (result instanceof Promise) {
-        result.then((i) =&gt; runIfTypeOfFunction(receiver, i, scope2, params)).catch((error2) =&gt; handleError(error2, el, value));
+        result.then((i) => runIfTypeOfFunction(receiver, i, scope2, params)).catch((error2) => handleError(error2, el, value));
       } else {
         receiver(result);
       }
-    } else if (typeof value === &quot;object&quot; &amp;&amp; value instanceof Promise) {
-      value.then((i) =&gt; receiver(i));
+    } else if (typeof value === "object" && value instanceof Promise) {
+      value.then((i) => receiver(i));
     } else {
       receiver(value);
     }
   }
 
   // packages/alpinejs/src/directives.js
-  var prefixAsString = &quot;x-&quot;;
-  function prefix(subject = &quot;&quot;) {
+  var prefixAsString = "x-";
+  function prefix(subject = "") {
     return prefixAsString + subject;
   }
   function setPrefix(newPrefix) {
@@ -313,7 +297,7 @@
           return;
         }
         const pos = directiveOrder.indexOf(directive2);
-        directiveOrder.splice(pos &gt;= 0 ? pos : directiveOrder.indexOf(&quot;DEFAULT&quot;), 0, name);
+        directiveOrder.splice(pos >= 0 ? pos : directiveOrder.indexOf("DEFAULT"), 0, name);
       }
     };
   }
@@ -323,13 +307,13 @@
   function directives(el, attributes, originalAttributeOverride) {
     attributes = Array.from(attributes);
     if (el._x_virtualDirectives) {
-      let vAttributes = Object.entries(el._x_virtualDirectives).map(([name, value]) =&gt; ({ name, value }));
+      let vAttributes = Object.entries(el._x_virtualDirectives).map(([name, value]) => ({ name, value }));
       let staticAttributes = attributesOnly(vAttributes);
-      vAttributes = vAttributes.map((attribute) =&gt; {
-        if (staticAttributes.find((attr) =&gt; attr.name === attribute.name)) {
+      vAttributes = vAttributes.map((attribute) => {
+        if (staticAttributes.find((attr) => attr.name === attribute.name)) {
           return {
             name: `x-bind:${attribute.name}`,
-            value: `&quot;${attribute.value}&quot;`
+            value: `"${attribute.value}"`
           };
         }
         return attribute;
@@ -337,13 +321,13 @@
       attributes = attributes.concat(vAttributes);
     }
     let transformedAttributeMap = {};
-    let directives2 = attributes.map(toTransformedAttributes((newName, oldName) =&gt; transformedAttributeMap[newName] = oldName)).filter(outNonAlpineAttributes).map(toParsedDirectives(transformedAttributeMap, originalAttributeOverride)).sort(byPriority);
-    return directives2.map((directive2) =&gt; {
+    let directives2 = attributes.map(toTransformedAttributes((newName, oldName) => transformedAttributeMap[newName] = oldName)).filter(outNonAlpineAttributes).map(toParsedDirectives(transformedAttributeMap, originalAttributeOverride)).sort(byPriority);
+    return directives2.map((directive2) => {
       return getDirectiveHandler(el, directive2);
     });
   }
   function attributesOnly(attributes) {
-    return Array.from(attributes).map(toTransformedAttributes()).filter((attr) =&gt; !outNonAlpineAttributes(attr));
+    return Array.from(attributes).map(toTransformedAttributes()).filter((attr) => !outNonAlpineAttributes(attr));
   }
   var isDeferringHandlers = false;
   var directiveHandlerStacks = /* @__PURE__ */ new Map();
@@ -353,12 +337,12 @@
     let key = Symbol();
     currentHandlerStackKey = key;
     directiveHandlerStacks.set(key, []);
-    let flushHandlers = () =&gt; {
+    let flushHandlers = () => {
       while (directiveHandlerStacks.get(key).length)
         directiveHandlerStacks.get(key).shift()();
       directiveHandlerStacks.delete(key);
     };
-    let stopDeferring = () =&gt; {
+    let stopDeferring = () => {
       isDeferringHandlers = false;
       flushHandlers();
     };
@@ -367,7 +351,7 @@
   }
   function getElementBoundUtilities(el) {
     let cleanups = [];
-    let cleanup2 = (callback) =&gt; cleanups.push(callback);
+    let cleanup2 = (callback) => cleanups.push(callback);
     let [effect3, cleanupEffect] = elementBoundEffect(el);
     cleanups.push(cleanupEffect);
     let utilities = {
@@ -377,35 +361,35 @@
       evaluateLater: evaluateLater.bind(evaluateLater, el),
       evaluate: evaluate.bind(evaluate, el)
     };
-    let doCleanup = () =&gt; cleanups.forEach((i) =&gt; i());
+    let doCleanup = () => cleanups.forEach((i) => i());
     return [utilities, doCleanup];
   }
   function getDirectiveHandler(el, directive2) {
-    let noop = () =&gt; {
+    let noop = () => {
     };
     let handler4 = directiveHandlers[directive2.type] || noop;
     let [utilities, cleanup2] = getElementBoundUtilities(el);
     onAttributeRemoved(el, directive2.original, cleanup2);
-    let fullHandler = () =&gt; {
+    let fullHandler = () => {
       if (el._x_ignore || el._x_ignoreSelf)
         return;
-      handler4.inline &amp;&amp; handler4.inline(el, directive2, utilities);
+      handler4.inline && handler4.inline(el, directive2, utilities);
       handler4 = handler4.bind(handler4, el, directive2, utilities);
       isDeferringHandlers ? directiveHandlerStacks.get(currentHandlerStackKey).push(handler4) : handler4();
     };
     fullHandler.runCleanups = cleanup2;
     return fullHandler;
   }
-  var startingWith = (subject, replacement) =&gt; ({ name, value }) =&gt; {
+  var startingWith = (subject, replacement) => ({ name, value }) => {
     if (name.startsWith(subject))
       name = name.replace(subject, replacement);
     return { name, value };
   };
-  var into = (i) =&gt; i;
-  function toTransformedAttributes(callback = () =&gt; {
+  var into = (i) => i;
+  function toTransformedAttributes(callback = () => {
   }) {
-    return ({ name, value }) =&gt; {
-      let { name: newName, value: newValue } = attributeTransformers.reduce((carry, transform) =&gt; {
+    return ({ name, value }) => {
+      let { name: newName, value: newValue } = attributeTransformers.reduce((carry, transform) => {
         return transform(carry);
       }, { name, value });
       if (newName !== name)
@@ -420,9 +404,9 @@
   function outNonAlpineAttributes({ name }) {
     return alpineAttributeRegex().test(name);
   }
-  var alpineAttributeRegex = () =&gt; new RegExp(`^${prefixAsString}([^:^.]+)\\b`);
+  var alpineAttributeRegex = () => new RegExp(`^${prefixAsString}([^:^.]+)\\b`);
   function toParsedDirectives(transformedAttributeMap, originalAttributeOverride) {
-    return ({ name, value }) =&gt; {
+    return ({ name, value }) => {
       let typeMatch = name.match(alpineAttributeRegex());
       let valueMatch = name.match(/:([a-zA-Z0-9\-_:]+)/);
       let modifiers = name.match(/\.[^.\]]+(?=[^\]]*$)/g) || [];
@@ -430,29 +414,29 @@
       return {
         type: typeMatch ? typeMatch[1] : null,
         value: valueMatch ? valueMatch[1] : null,
-        modifiers: modifiers.map((i) =&gt; i.replace(&quot;.&quot;, &quot;&quot;)),
+        modifiers: modifiers.map((i) => i.replace(".", "")),
         expression: value,
         original
       };
     };
   }
-  var DEFAULT = &quot;DEFAULT&quot;;
+  var DEFAULT = "DEFAULT";
   var directiveOrder = [
-    &quot;ignore&quot;,
-    &quot;ref&quot;,
-    &quot;data&quot;,
-    &quot;id&quot;,
-    &quot;anchor&quot;,
-    &quot;bind&quot;,
-    &quot;init&quot;,
-    &quot;for&quot;,
-    &quot;model&quot;,
-    &quot;modelable&quot;,
-    &quot;transition&quot;,
-    &quot;show&quot;,
-    &quot;if&quot;,
+    "ignore",
+    "ref",
+    "data",
+    "id",
+    "anchor",
+    "bind",
+    "init",
+    "for",
+    "model",
+    "modelable",
+    "transition",
+    "show",
+    "if",
     DEFAULT,
-    &quot;teleport&quot;
+    "teleport"
   ];
   function byPriority(a, b) {
     let typeA = directiveOrder.indexOf(a.type) === -1 ? DEFAULT : a.type;
@@ -466,7 +450,6 @@
       new CustomEvent(name, {
         detail,
         bubbles: true,
-        // Allows events to pass the shadow DOM barrier.
         composed: true,
         cancelable: true
       })
@@ -475,12 +458,12 @@
 
   // packages/alpinejs/src/utils/walk.js
   function walk(el, callback) {
-    if (typeof ShadowRoot === &quot;function&quot; &amp;&amp; el instanceof ShadowRoot) {
-      Array.from(el.children).forEach((el2) =&gt; walk(el2, callback));
+    if (typeof ShadowRoot === "function" && el instanceof ShadowRoot) {
+      Array.from(el.children).forEach((el2) => walk(el2, callback));
       return;
     }
     let skip = false;
-    callback(el, () =&gt; skip = true);
+    callback(el, () => skip = true);
     if (skip)
       return;
     let node = el.firstElementChild;
@@ -499,208 +482,32 @@
   var started = false;
   function start() {
     if (started)
-      warn(&quot;Alpine has already been initialized on this page. Calling Alpine.start() more than once can cause problems.&quot;);
+      warn("Alpine has already been initialized on this page. Calling Alpine.start() more than once can cause problems.");
     started = true;
     if (!document.body)
-      warn(&quot;Unable to initialize. Trying to load Alpine before `&lt;body&gt;` is available. Did you forget to add `defer` in Alpine&apos;s `&lt;script&gt;` tag?&quot;);
-    dispatch(document, &quot;alpine:init&quot;);
-    dispatch(document, &quot;alpine:initializing&quot;);
+      warn("Unable to initialize. Trying to load Alpine before `<body>` is available.");
+    dispatch(document, "alpine:init");
+    dispatch(document, "alpine:initializing");
     startObservingMutations();
-    onElAdded((el) =&gt; initTree(el, walk));
-    onElRemoved((el) =&gt; destroyTree(el));
-    onAttributesAdded((el, attrs) =&gt; {
-      directives(el, attrs).forEach((handle) =&gt; handle());
+    onElAdded((el) => initTree(el, walk));
+    onElRemoved((el) => destroyTree(el));
+    onAttributesAdded((el, attrs) => {
+      directives(el, attrs).forEach((handle) => handle());
     });
-    let outNestedComponents = (el) =&gt; !closestRoot(el.parentElement, true);
-    Array.from(document.querySelectorAll(allSelectors().join(&quot;,&quot;))).filter(outNestedComponents).forEach((el) =&gt; {
+    let outNestedComponents = (el) => !closestRoot(el.parentElement, true);
+    Array.from(document.querySelectorAll(allSelectors().join(","))).filter(outNestedComponents).forEach((el) => {
       initTree(el);
     });
-    dispatch(document, &quot;alpine:initialized&quot;);
-    setTimeout(() =&gt; {
+    dispatch(document, "alpine:initialized");
+    setTimeout(() => {
       warnAboutMissingPlugins();
     });
   }
-  var rootSelectorCallbacks = [];
-  var initSelectorCallbacks = [];
-  function rootSelectors() {
-    return rootSelectorCallbacks.map((fn) =&gt; fn());
-  }
-  function allSelectors() {
-    return rootSelectorCallbacks.concat(initSelectorCallbacks).map((fn) =&gt; fn());
-  }
-  function addRootSelector(selectorCallback) {
-    rootSelectorCallbacks.push(selectorCallback);
-  }
-  function addInitSelector(selectorCallback) {
-    initSelectorCallbacks.push(selectorCallback);
-  }
-  function closestRoot(el, includeInitSelectors = false) {
-    return findClosest(el, (element) =&gt; {
-      const selectors = includeInitSelectors ? allSelectors() : rootSelectors();
-      if (selectors.some((selector) =&gt; element.matches(selector)))
-        return true;
-    });
-  }
-  function findClosest(el, callback) {
-    if (!el)
-      return;
-    if (callback(el))
-      return el;
-    if (el._x_teleportBack)
-      el = el._x_teleportBack;
-    if (!el.parentElement)
-      return;
-    return findClosest(el.parentElement, callback);
-  }
-  function isRoot(el) {
-    return rootSelectors().some((selector) =&gt; el.matches(selector));
-  }
-  var initInterceptors2 = [];
-  function interceptInit(callback) {
-    initInterceptors2.push(callback);
-  }
-  function initTree(el, walker = walk, intercept = () =&gt; {
-  }) {
-    deferHandlingDirectives(() =&gt; {
-      walker(el, (el2, skip) =&gt; {
-        intercept(el2, skip);
-        initInterceptors2.forEach((i) =&gt; i(el2, skip));
-        directives(el2, el2.attributes).forEach((handle) =&gt; handle());
-        el2._x_ignore &amp;&amp; skip();
-      });
-    });
-  }
-  function destroyTree(root, walker = walk) {
-    walker(root, (el) =&gt; {
-      cleanupElement(el);
-      cleanupAttributes(el);
-    });
-  }
-  function warnAboutMissingPlugins() {
-    let pluginDirectives = [
-      [&quot;ui&quot;, &quot;dialog&quot;, [&quot;[x-dialog], [x-popover]&quot;]],
-      [&quot;anchor&quot;, &quot;anchor&quot;, [&quot;[x-anchor]&quot;]],
-      [&quot;sort&quot;, &quot;sort&quot;, [&quot;[x-sort]&quot;]]
-    ];
-    pluginDirectives.forEach(([plugin2, directive2, selectors]) =&gt; {
-      if (directiveExists(directive2))
-        return;
-      selectors.some((selector) =&gt; {
-        if (document.querySelector(selector)) {
-          warn(`found &quot;${selector}&quot;, but missing ${plugin2} plugin`);
-          return true;
-        }
-      });
-    });
-  }
 
-  // packages/alpinejs/src/nextTick.js
-  var tickStack = [];
-  var isHolding = false;
-  function nextTick(callback = () =&gt; {
-  }) {
-    queueMicrotask(() =&gt; {
-      isHolding || setTimeout(() =&gt; {
-        releaseNextTicks();
-      });
-    });
-    return new Promise((res) =&gt; {
-      tickStack.push(() =&gt; {
-        callback();
-        res();
-      });
-    });
-  }
-  function releaseNextTicks() {
-    isHolding = false;
-    while (tickStack.length)
-      tickStack.shift()();
-  }
-  function holdNextTicks() {
-    isHolding = true;
-  }
-
-  // packages/alpinejs/src/utils/classes.js
-  function setClasses(el, value) {
-    if (Array.isArray(value)) {
-      return setClassesFromString(el, value.join(&quot; &quot;));
-    } else if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
-      return setClassesFromObject(el, value);
-    } else if (typeof value === &quot;function&quot;) {
-      return setClasses(el, value());
-    }
-    return setClassesFromString(el, value);
-  }
-  function setClassesFromString(el, classString) {
-    let split = (classString2) =&gt; classString2.split(&quot; &quot;).filter(Boolean);
-    let missingClasses = (classString2) =&gt; classString2.split(&quot; &quot;).filter((i) =&gt; !el.classList.contains(i)).filter(Boolean);
-    let addClassesAndReturnUndo = (classes) =&gt; {
-      el.classList.add(...classes);
-      return () =&gt; {
-        el.classList.remove(...classes);
-      };
-    };
-    classString = classString === true ? classString = &quot;&quot; : classString || &quot;&quot;;
-    return addClassesAndReturnUndo(missingClasses(classString));
-  }
-  function setClassesFromObject(el, classObject) {
-    let split = (classString) =&gt; classString.split(&quot; &quot;).filter(Boolean);
-    let forAdd = Object.entries(classObject).flatMap(([classString, bool]) =&gt; bool ? split(classString) : false).filter(Boolean);
-    let forRemove = Object.entries(classObject).flatMap(([classString, bool]) =&gt; !bool ? split(classString) : false).filter(Boolean);
-    let added = [];
-    let removed = [];
-    forRemove.forEach((i) =&gt; {
-      if (el.classList.contains(i)) {
-        el.classList.remove(i);
-        removed.push(i);
-      }
-    });
-    forAdd.forEach((i) =&gt; {
-      if (!el.classList.contains(i)) {
-        el.classList.add(i);
-        added.push(i);
-      }
-    });
-    return () =&gt; {
-      removed.forEach((i) =&gt; el.classList.add(i));
-      added.forEach((i) =&gt; el.classList.remove(i));
-    };
-  }
-
-  // packages/alpinejs/src/utils/styles.js
-  function setStyles(el, value) {
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
-      return setStylesFromObject(el, value);
-    }
-    return setStylesFromString(el, value);
-  }
-  function setStylesFromObject(el, value) {
-    let previousStyles = {};
-    Object.entries(value).forEach(([key, value2]) =&gt; {
-      previousStyles[key] = el.style[key];
-      if (!key.startsWith(&quot;--&quot;)) {
-        key = kebabCase(key);
-      }
-      el.style.setProperty(key, value2);
-    });
-    setTimeout(() =&gt; {
-      if (el.style.length === 0) {
-        el.removeAttribute(&quot;style&quot;);
-      }
-    });
-    return () =&gt; {
-      setStyles(el, previousStyles);
-    };
-  }
-  function setStylesFromString(el, value) {
-    let cache = el.getAttribute(&quot;style&quot;, value);
-    el.setAttribute(&quot;style&quot;, value);
-    return () =&gt; {
-      el.setAttribute(&quot;style&quot;, cache || &quot;&quot;);
-    };
-  }
+  // ... (نهاية الجزء الثاني المستلم)
   function kebabCase(subject) {
-    return subject.replace(/([a-z])([A-Z])/g, &quot;$1-$2&quot;).toLowerCase();
+    return subject.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+  }
   }
 
   // packages/alpinejs/src/utils/once.js
