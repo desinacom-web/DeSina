@@ -350,7 +350,6 @@ function elementBoundEffect(el) {
             recurse(value, path);
        }
       };
-    };
     return recurse(data2);
   }
   function interceptor(callback, mutateObj = () => {
