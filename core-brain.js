@@ -1348,7 +1348,47 @@
     });
   }
 
-  // القفلة النهائية للمحرك (Alpine Default)
+  // دالة تعريف الـ Magics اللي التقرير بيدور عليها
+  var magics = {};
+  function magic(name, callback) {
+    magics[name] = callback;
+  }
+
+  function injectMagics(obj, el) {
+    Object.entries(magics).forEach(([name, callback]) => {
+      Object.defineProperty(obj, '$' + name, {
+        get() {
+          return callback(el, getElementBoundUtilities(el));
+        },
+        enumerable: false
+      });
+    });
+    return obj;
+  }
+
+  // دالة الـ Evaluate الأساسية
+  function evaluate(el, expression, extras = {}) {
+    let result;
+    evaluateLater(el, expression)((value) => result = value, extras);
+    return result;
+  }
+
+  function evaluateLater(el, expression, extras = {}) {
+    let evaluator = generateEvaluator(el, expression);
+    return (receiver = () => {}, { scope = {}, params = [] } = {}) => {
+      evaluator(receiver, { scope: { ...scope, ...extras }, params });
+    };
+  }
+
+  function generateEvaluator(el, expression) {
+    let dataStack = Array.from(closestDataStack(el));
+    return generateEvaluatorFromString(dataStack, expression, el);
+  }
+  var magics = {};
+  function magic(name, callback) {
+    magics[name] = callback;
+  }
+
   var alpine_default = {
     start,
     store,
@@ -1364,4 +1404,4 @@
 
   window.Alpine = alpine_default;
   alpine_default.start();
-})(); 
+})();
