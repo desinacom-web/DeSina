@@ -1251,11 +1251,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     interceptors.push(callback);
   }
   function cloneNode(from, to) {
-    interceptors.forEach((i) =< i(from, to));
+    interceptors.forEach((i) => i(from, to));
     isCloning = true;
-    dontRegisterReactiveSideEffects(() =< {
-      initTree(to, (el, callback) =< {
-        callback(el, () =< {
+    dontRegisterReactiveSideEffects(() => {
+      initTree(to, (el, callback) => {
+        callback(el, () => {
         });
       });
     });
@@ -1267,7 +1267,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       newEl._x_dataStack = oldEl._x_dataStack;
     isCloning = true;
     isCloningLegacy = true;
-    dontRegisterReactiveSideEffects(() =< {
+    dontRegisterReactiveSideEffects(() => {
       cloneTree(newEl);
     });
     isCloning = false;
@@ -1275,8 +1275,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function cloneTree(el) {
     let hasRunThroughFirstEl = false;
-    let shallowWalker = (el2, callback) =< {
-      walk(el2, (el3, skip) =< {
+    let shallowWalker = (el2, callback) => {
+      walk(el2, (el3, skip) => {
         if (hasRunThroughFirstEl && isRoot(el3))
           return skip();
         hasRunThroughFirstEl = true;
@@ -1287,10 +1287,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function dontRegisterReactiveSideEffects(callback) {
     let cache = effect;
-    overrideEffect((callback2, el) =< {
+    overrideEffect((callback2, el) => {
       let storedEffect = cache(callback2);
       release(storedEffect);
-      return () =< {
+      return () => {
       };
     });
     callback();
@@ -1302,19 +1302,19 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (!el._x_bindings)
       el._x_bindings = reactive({});
     el._x_bindings[name] = value;
-    name = modifiers.includes(&quot;camel&quot;) ? camelCase(name) : name;
+    name = modifiers.includes("camel") ? camelCase(name) : name;
     switch (name) {
-      case &quot;value&quot;:
+      case "value":
         bindInputValue(el, value);
         break;
-      case &quot;style&quot;:
+      case "style":
         bindStyles(el, value);
         break;
-      case &quot;class&quot;:
+      case "class":
         bindClasses(el, value);
         break;
-      case &quot;selected&quot;:
-      case &quot;checked&quot;:
+      case "selected":
+      case "checked":
         bindAttributeAndProperty(el, name, value);
         break;
       default:
@@ -1328,7 +1328,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         el.value = value;
       }
       if (window.fromModel) {
-        if (typeof value === &quot;boolean&quot;) {
+        if (typeof value === "boolean") {
           el.checked = safeParseBoolean(el.value) === value;
         } else {
           el.checked = checkedAttrLooseCompare(el.value, value);
@@ -1337,16 +1337,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     } else if (isCheckbox(el)) {
       if (Number.isInteger(value)) {
         el.value = value;
-      } else if (!Array.isArray(value) && typeof value !== &quot;boolean&quot; && ![null, void 0].includes(value)) {
+      } else if (!Array.isArray(value) && typeof value !== "boolean" && ![null, void 0].includes(value)) {
         el.value = String(value);
       } else {
         if (Array.isArray(value)) {
-          el.checked = value.some((val) =< checkedAttrLooseCompare(val, el.value));
+          el.checked = value.some((val) => checkedAttrLooseCompare(val, el.value));
         } else {
           el.checked = !!value;
         }
       }
-    } else if (el.tagName === &quot;SELECT&quot;) {
+    } else if (el.tagName === "SELECT") {
       updateSelect(el, value);
     } else {
       if (el.value === value)
