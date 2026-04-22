@@ -1456,7 +1456,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (el._x_inlineBindings && el._x_inlineBindings[name] !== void 0) {
       let binding = el._x_inlineBindings[name];
       binding.extract = extract;
-      return dontAutoEvaluateFunctions(() =< {
+      return dontAutoEvaluateFunctions(() => {
         return evaluate(el, binding.expression);
       });
     }
@@ -1465,19 +1465,19 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function getAttributeBinding(el, name, fallback) {
     let attr = el.getAttribute(name);
     if (attr === null)
-      return typeof fallback === &quot;function&quot; ? fallback() : fallback;
-    if (attr === &quot;&quot;)
+      return typeof fallback === "function" ? fallback() : fallback;
+    if (attr === "")
       return true;
     if (isBooleanAttr(name)) {
-      return !![name, &quot;true&quot;].includes(attr);
+      return !![name, "true"].includes(attr);
     }
     return attr;
   }
   function isCheckbox(el) {
-    return el.type === &quot;checkbox&quot; || el.localName === &quot;ui-checkbox&quot; || el.localName === &quot;ui-switch&quot;;
+    return el.type === "checkbox" || el.localName === "ui-checkbox" || el.localName === "ui-switch";
   }
   function isRadio(el) {
-    return el.type === &quot;radio&quot; || el.localName === &quot;ui-radio&quot;;
+    return el.type === "radio" || el.localName === "ui-radio";
   }
 
   // packages/alpinejs/src/utils/debounce.js
@@ -1502,7 +1502,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!inThrottle) {
         func.apply(context, args);
         inThrottle = true;
-        setTimeout(() =< inThrottle = false, limit);
+        setTimeout(() => inThrottle = false, limit);
       }
     };
   }
@@ -1512,7 +1512,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let firstRun = true;
     let outerHash;
     let innerHash;
-    let reference = effect(() =< {
+    let reference = effect(() => {
       let outer = outerGet();
       let inner = innerGet();
       if (firstRun) {
@@ -1525,24 +1525,23 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           innerSet(cloneIfObject(outer));
         } else if (outerHashLatest !== innerHashLatest) {
           outerSet(cloneIfObject(inner));
-        } else {
         }
       }
       outerHash = JSON.stringify(outerGet());
       innerHash = JSON.stringify(innerGet());
     });
-    return () =< {
+    return () => {
       release(reference);
     };
   }
   function cloneIfObject(value) {
-    return typeof value === &quot;object&quot; ? JSON.parse(JSON.stringify(value)) : value;
+    return typeof value === "object" ? JSON.parse(JSON.stringify(value)) : value;
   }
 
   // packages/alpinejs/src/plugin.js
   function plugin(callback) {
     let callbacks = Array.isArray(callback) ? callback : [callback];
-    callbacks.forEach((i) =< i(alpine_default));
+    callbacks.forEach((i) => i(alpine_default));
   }
 
   // packages/alpinejs/src/store.js
@@ -1558,7 +1557,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     stores[name] = value;
     initInterceptors(stores[name]);
-    if (typeof value === &quot;object&quot; && value !== null && value.hasOwnProperty(&quot;init&quot;) && typeof value.init === &quot;function&quot;) {
+    if (typeof value === "object" && value !== null && value.hasOwnProperty("init") && typeof value.init === "function") {
       stores[name].init();
     }
   }
@@ -1569,21 +1568,27 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   // packages/alpinejs/src/binds.js
   var binds = {};
   function bind2(name, bindings) {
-    let getBindings = typeof bindings !== &quot;function&quot; ? () =< bindings : bindings;
+    let getBindings = typeof bindings !== "function" ? () => bindings : bindings;
     if (name instanceof Element) {
       return applyBindingsObject(name, getBindings());
     } else {
       binds[name] = getBindings;
     }
-    return () =< {
+    return () => {
     };
   }
   function injectBindingProviders(obj) {
-    Object.entries(binds).forEach(([name, callback]) =< {
+    Object.entries(binds).forEach(([name, callback]) => {
       Object.defineProperty(obj, name, {
         get() {
-          return (...args) =< {
+          return (...args) => {
             return callback(...args);
           };
         }
-</div></div></div></main></body></html>
+      });
+    });
+  }
+
+  // Final start call
+  start();
+})();
