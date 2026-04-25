@@ -16,8 +16,18 @@
     var userLang = navigator.language || navigator.userLanguage;
     var comingFromAr = document.referrer.includes('ar.html');
 
-    if (userLang.startsWith('ar') && !comingFromAr) {
-        window.location.href = "https://desina-hq.github.io/ar.html";
+    if (userLang.startsWith('ar')) {
+        // 1. لو داخل جديد.. شحطه على العربي
+        if (!comingFromAr) {
+            location.href = "https://desina-hq.github.io/ar.html";
+        } 
+        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        else {
+            var meta = document.createElement('meta');
+            meta.name = 'google';
+            meta.content = 'notranslate';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        }
     }
 })();
 </script>
