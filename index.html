@@ -14,8 +14,10 @@
     <script>
 (function() {
     var userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith('ar')) {
-        location.replace("https://desina-hq.github.io/ar.html");
+    var comingFromAr = document.referrer.includes('ar.html');
+
+    if (userLang.startsWith('ar') && !comingFromAr) {
+        window.location.href = "https://desina-hq.github.io/ar.html";
     }
 })();
 </script>
