@@ -27,6 +27,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script>
+(function() {
+    var userLang = navigator.language || navigator.userLanguage;
+    var comingFromAr = document.referrer.includes('ar.html');
+
+    if (userLang.startsWith('ar')) {
+        // 1. لو داخل جديد.. شحطه على العربي
+        if (!comingFromAr) {
+            location.href = "https://desina-hq.github.io/store.html";
+        } 
+        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        else {
+            var meta = document.createElement('meta');
+            meta.name = 'google';
+            meta.content = 'notranslate';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        }
+    }
+})();
+</script>
     <style>
         :root { --bg-body: #fcfcfc; --bg-card: white; --text-main: #0f172a; --border-color: #f1f5f9; --nav-bg: white; }
         @media (prefers-color-scheme: dark) {
