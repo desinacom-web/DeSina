@@ -23,15 +23,19 @@
     <script>
 (function() {
     var userLang = navigator.language || navigator.userLanguage;
-    var comingFromAr = document.referrer.includes('index-ar.html');
+    // التعديل هنا: بنشوف هل هو جاي من العربي "أو" هل إحنا سجلنا قبل كدة إنه عايز يفضل في الإنجليزي
+    var comingFromAr = document.referrer.includes('index-ar.html') || sessionStorage.getItem('stayEn');
 
     if (userLang.startsWith('ar')) {
-        // 1. لو داخل جديد.. شحطه على العربي
+        // 1. لو داخل جديد خالص (وملوش سجل قديم).. شحطه على العربي
         if (!comingFromAr) {
             location.href = "https://desina-hq.github.io/index-ar.html";
         } 
-        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        // 2. لو هو في الإنجليزي دلوقتي (سواء جاي من الزرار أو رجع للهوم).. سجله "حصانة"
         else {
+            // السطر ده هو اللي بيفك القفلة: بيسجل إن العميل ده اختار الإنجليزي
+            sessionStorage.setItem('stayEn', 'true');
+            
             var meta = document.createElement('meta');
             meta.name = 'google';
             meta.content = 'notranslate';
