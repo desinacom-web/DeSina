@@ -21,16 +21,20 @@
     <link rel="alternate" hreflang="x-default" href="https://desina-hq.github.io/index.html">
     <link rel="icon" type="image/webp" href="logo.webp">
     <script>
-    // 1. جلب لغة الجهاز
+(function() {
+    // 1. شوف لغة الجهاز
     var userLang = navigator.language || navigator.userLanguage;
-    // 2. التحقق من القرار المخزن
-    var userSelection = sessionStorage.getItem('languageSelection');
-
-    // 3. التنفيذ الفوري
-    if (!userSelection && userLang.startsWith('ar')) {
-        sessionStorage.setItem('languageSelection', 'arabic');
-        window.location.replace("https://desina-hq.github.io/index-ar.html");
+    
+    // 2. شوف هل إحنا "حولناه" قبل كدة في الزيارة دي؟
+    // لو ملقاش العلامة دي، يبقى ده عميل لسه فاتح الموقع حالا
+    if (!sessionStorage.getItem('redirected')) {
+        if (userLang.startsWith('ar')) {
+            // علم علامة إننا حولناه خلاص عشان ميرجعش في لوب
+            sessionStorage.setItem('redirected', 'true');
+            window.location.replace("index-ar.html");
+        }
     }
+})();
 </script>
     <script>
   window.addEventListener('load', function() {
