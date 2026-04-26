@@ -23,17 +23,19 @@
     <script>
 (function() {
     var userLang = navigator.language || navigator.userLanguage;
-    var isFree = sessionStorage.getItem('userWantsEnglish');
+    var comingFromAr = document.referrer.includes('index-ar.html');
 
-    // لو الجهاز عربي وهو لسه مخدش "حصانة"
-    if (userLang.startsWith('ar') && !isFree) {
-        // لو هو جاي من صفحة عربي.. إديله حصانة فوراً ومتحولوش
-        if (document.referrer.includes('-ar.html')) {
-            sessionStorage.setItem('userWantsEnglish', 'true');
-        } 
-        // لو داخل جديد خالص من بره.. شحطه عالعربي
-        else {
+    if (userLang.startsWith('ar')) {
+        // 1. لو داخل جديد.. شحطه على العربي
+        if (!comingFromAr) {
             location.href = "https://desina-hq.github.io/index-ar.html";
+        } 
+        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        else {
+            var meta = document.createElement('meta');
+            meta.name = 'google';
+            meta.content = 'notranslate';
+            document.getElementsByTagName('head')[0].appendChild(meta);
         }
     }
 })();
