@@ -139,19 +139,19 @@
                 arContent.classList.add('hidden-content'); enContent.classList.remove('hidden-content');
                 arHeader.classList.add('hidden-content'); enHeader.classList.remove('hidden-content');
                 navAr.classList.remove('active-lang'); navEn.classList.add('active-lang');
-                homeLink.innerText = 'Home'; homeLink.href = 'en.html';
-                logoLink.href = 'en.html';
+                homeLink.innerText = 'Home'; homeLink.href = 'index.html';
+                logoLink.href = 'index.html';
             } else {
                 html.dir = 'rtl'; html.lang = 'ar';
                 enContent.classList.add('hidden-content'); arContent.classList.remove('hidden-content');
                 enHeader.classList.add('hidden-content'); arHeader.classList.remove('hidden-content');
                 navEn.classList.remove('active-lang'); navAr.classList.add('active-lang');
-                homeLink.innerText = 'الرئيسية'; homeLink.href = 'index.html';
-                logoLink.href = 'index.html';
+                homeLink.innerText = 'الرئيسية'; homeLink.href = 'index-ar.html';
+                logoLink.href = 'index-ar.html';
             }
         }
         window.addEventListener('DOMContentLoaded', (event) => {
-            if (document.referrer.includes('en.html')) {
+            if (document.referrer.includes('index.html')) {
                 setLang('en');
             } else {
                 setLang('ar');
