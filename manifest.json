@@ -2,7 +2,7 @@
   "name": "DeSina",
   "short_name": "DeSina",
   "description": "DeSina Digital Business and Content Creation",
-  "start_url": "/index-ar.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
