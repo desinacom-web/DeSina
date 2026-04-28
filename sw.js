@@ -1,6 +1,6 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open('desina-store').then((cache) => cache.addAll([
+    caches.open('desina-store-v2').then((cache) => cache.addAll([
       '/',
       '/index.html',
       '/index-ar.html',
