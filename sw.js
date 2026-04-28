@@ -3,6 +3,7 @@ self.addEventListener('install', (e) => {
     caches.open('desina-store').then((cache) => cache.addAll([
       '/',
       '/index.html',
+      '/index-ar.html',
       '/logo-512.png'
     ])),
   );
