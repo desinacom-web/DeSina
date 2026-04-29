@@ -1,78 +1,114 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-    <script>
-        (function() {
-            var currentUrl = window.location.href;
-            // فحص لو المسار يحتوي على desina بسمول، يحوله فوراً لـ DeSina كابيتال
-            if (currentUrl.includes("/desina/")) {
-                var newUrl = currentUrl.replace("/desina/", "/DeSina/");
-                window.location.replace(newUrl);
-            }
-        })();
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - الرابط خارج التغطية | DeSina</title>
-    <meta name="description" content="عذراً، يبدو أنك سلكت طريقاً خاطئاً في عالم ديسينا. لا تقلق، نظام التوجيه الذكي سيعيدك فوراً.">
-
+    <title>Moving to Headquarters | DeSina-HQ</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        body { font-family: 'Cairo', sans-serif; background-color: #050505; color: white; overflow: hidden; }
-        .glitch { text-shadow: 3px 3px #ff0000; animation: glitch 1s infinite; }
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); }
-            100% { transform: translate(0); }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;700&display=swap');
+        
+        body { 
+            font-family: 'Inter', 'Cairo', sans-serif; 
+            background-color: #0a0a0a; /* كربون فخم */
+            color: white; 
+            overflow: hidden; 
         }
-        .bg-gradient-red { background: linear-gradient(45deg, #ff0000, #8b0000); }
+
+        /* لون البراند للأحمر الصريح 500 */
+        .brand-color { 
+            color: #ef4444; /* Red-500 */
+        }
+
+        /* تأثير التوهج النبضي للوجو - لزوم الفخامة */
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.7));
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.5)); }
+            50% { filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.9)); }
+        }
+
+        .bg-gradient-red { 
+            background: linear-gradient(45deg, #ef4444, #991b1b); 
+        }
+
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #ef4444;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
+<body class="flex items-center justify-center min-h-screen text-center relative">
+
+    <div class="px-4 z-10">
+        
+        <div class="flex justify-center mb-8 logo-glow">
+            <img src="https://desina-hq.github.io/logo-512.png" alt="DeSina Logo" class="h-24 md:h-32 w-auto logo-glow rounded-2xl">
+        </div>
+
+        <div class="flex justify-center mb-6">
+            <div class="loader"></div>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            <span class="brand-color">DeSina</span> HQ has Moved!
+        </h1>
+        
+        <div class="space-y-2 mb-8">
+            <p class="text-xl md:text-2xl text-gray-400">
+                Preparing a faster & more powerful experience...
+            </p>
+            <p class="text-lg md:text-xl text-gray-500" dir="rtl">
+                جاري الانتقال التلقائي إلى الموقع الرسمي للمقر الرئيسي.
+            </p>
+        </div>
+
+        <a href="https://desina-hq.github.io/" 
+           class="inline-block px-10 py-4 bg-gradient-red rounded-full text-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-red-900/40">
+           <i class="fas fa-building ml-2"></i> Go to Headquarters Now
+        </a>
+    </div>
 
     <script>
         (function() {
+            // الرابط الجديد (المقر الرئيسي)
+            const NEW_URL = "https://desina-hq.github.io/";
+
+            // ذكاء التحويل للصفحات
             var currentPath = window.location.pathname;
-            var fileName = currentPath.split('/').pop();
+            var fileName = currentPath.split('/').pop().toLowerCase();
             
-            // قاموس ديسينا المفلتر بناءً على ملفات الخزنة الفعلية
             var pagesMap = {
-                "index-ar.html": "index.html",            // الرئيسية الإنجليزية
-                "ar-store.html": "en-store.html",      // المتجر
-                "ar-about.html": "en-about.html",      // عن ديسينا
-                "ar-catalog.html": "en-catalog.html",  // الكتالوج
-                "ar-ar-content.html": "en-content.html",  // المحتوى
-                "ar-account.html": "en-account.html",  // الحساب
-                "ar-team.html": "en-team.html",        // الفريق
-                "ar-vip-ads.html": "en-vip-ads.html",      // الإعلانات المميزة
-                "vip-ads.html": "en-vip-ads.html",
-                "en-vip.html": "en-vip-ads.html",
-                "policy.html": "policy.html",      // الملف الذكي للخصوصية
-                "privacy-policy.html": "en-privac-policy.html",
-                "ar-content.html": "en-cotent.html"
+                "index-ar.html": "index.html",
+                "ar-store.html": "en-store.html",
+                "ar-about.html": "en-about.html",
+                "ar-catalog.html": "en-catalog.html",
+                "ar-account.html": "en-account.html",
+                "ar-team.html": "en-team.html",
+                "ar-vip-ads.html": "en-vip-ads.html",
+                "ar-content.html": "en-content.html"
             };
 
-            var correctFileName = pagesMap[fileName.toLowerCase()];
-            
-            if (correctFileName && fileName !== correctFileName) {
-                var newPath = window.location.href.replace(fileName, correctFileName);
-                window.location.replace(newPath);
-            }
+            var targetPage = pagesMap[fileName] || "";
+            var finalDestination = NEW_URL + targetPage;
+
+            // تحويل أوتوماتيكي بعد 4 ثوانٍ (زودتها ثانية عشان يلحقوا يشوفوا اللوجو الفخم)
+            setTimeout(function() {
+                window.location.replace(finalDestination);
+            }, 13000);
         })();
     </script>
-
-    <div class="text-center">
-        <h1 class="text-9xl font-bold glitch">404</h1>
-        <p class="text-2xl mt-4">عذراً، ديسينا لا تجد هذا الملف في خزنتها!</p>
-        <a href="https://desina-hq.github.io/" class="mt-6 inline-block px-8 py-3 bg-gradient-red rounded-full text-lg font-bold">العودة للرئيسية</a>
-    </div>
-
 </body>
 </html>
