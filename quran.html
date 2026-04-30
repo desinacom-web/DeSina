@@ -202,7 +202,8 @@
         surahSelect.onchange = function() {
             if(this.value) {
                 audioPlayer.src = this.value;
-                audioPlayer.load(); // تفعيل قوة التحميل والبفر (Buffer)
+                // تفعيل التحميل المستمر بأقصى طاقة (Turbo Buffer)
+                audioPlayer.load(); 
                 audioPlayer.play();
                 updateMediaSession();
             }
