@@ -23,11 +23,13 @@
     <script src="core-brain.js" defer></script>
     <script src="icon-config.js" defer></script>
 
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5N9GRVQJ');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-791017L19B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-791017L19B');
+    </script>
     <link rel="manifest" href="/manifest.json">
 <link rel="manifest" href="/manifest.json?v=2">
 <script>
@@ -46,6 +48,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="alternate" hreflang="en" href="https://desina-hq.github.io/index-ar.html">
     <link rel="alternate" hreflang="x-default" href="https://desina-hq.github.io/">
     <link rel="icon" type="image/webp" href="logo.webp">
+    
+    <script>
+    window.addEventListener('load', function() {
+    setTimeout(function() {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '790032697153678');
+      fbq('track', 'PageView');
+    }, 4000); 
+  });
+</script>
     <style>
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; background-color: #000; transition: background-color 0.4s, color 0.4s; }
         .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; margin-top: -1px; }
@@ -229,11 +248,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         function handleMusicToggle() { const audio = document.getElementById('bg-audio'); const icon = document.getElementById('music-icon'); if (audio.paused) { audio.play().then(() => { icon.className = 'fas fa-pause'; audio.volume = 0.3; }).catch(e => console.log(e)); } else { audio.pause(); icon.className = 'fas fa-music'; } }
     </script>
 
+<noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"/>
+    </noscript>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9GRVQJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
     
 </body>
 </html>
